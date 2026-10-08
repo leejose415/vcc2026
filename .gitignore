@@ -1,0 +1,8 @@
+.venv/
+data/
+lib/
+results/
+logs/
+code/
+*.h5ad
+.ipynb_checkpoints/
