@@ -243,6 +243,8 @@ def test_submit_metadata_counts_and_validation(scripts, tmp_path):
     with pytest.raises(ValueError, match='exactly 400'): g.cmd_submit(opts)
     opts.required_n_cells = 8
     g.cmd_submit(opts)
+    import h5py
+    with h5py.File(tmp_path/'result/prediction.h5ad', 'r') as f: assert f['X/indptr'].dtype == np.int64 and f['X/data'].dtype == np.float32   # float32: vcc prep needs no cast copy
     h = ad.read_h5ad(tmp_path/'result/prediction.h5ad')
     assert h.shape == (8, 2)
     assert set(h.obs.context.astype(str)) == {'A'}
@@ -307,16 +309,20 @@ def test_official_cli_invocation(scripts, tmp_path, monkeypatch):
     g = scripts['vcc_generate_v3']; calls = []
     monkeypatch.setattr(g.shutil, 'which', lambda binary: '/tmp/cell-eval2')
     def run(command, **kwargs):
-        calls.append(command)
-        return argparse.Namespace(stdout='--ceiling --preset --profile --set --control --input-type')
+        calls.append([str(x) for x in command])
+        return argparse.Namespace(stdout='--ceiling --cache-real --preset --profile --set --control --input-type')
     monkeypatch.setattr(g.subprocess, 'run', run)
     opts = argparse.Namespace(cell_eval='cell-eval2', eval_profile='vcc2026', num_threads=4)
-    g.run_official(tmp_path/'pred.h5ad', tmp_path/'real.h5ad', tmp_path/'metrics', opts)
-    command = calls[-1]
-    assert command[command.index('--preset')+1] == 'vcc2026'
-    assert command[command.index('--profile')+1] == 'vcc2026'
-    assert 'de.backend=pdex' in command and 'num_threads=4' in command
-    assert '--ceiling' in command and '--control-pert' not in command
+    ev = g.OfficialEvaluator(opts, tmp_path/'real.h5ad', tmp_path)
+    ev.prepare(); ev.score(tmp_path/'pred.h5ad', tmp_path/'metrics')
+    prep, ceiling, arm = calls[-3:]
+    assert prep[1:4] == ['prep-cache', '--side', 'real'] and '--cache-real' in prep and prep[prep.index('--comparator')+1] == 'bulk_lognorm'
+    assert '--ceiling' in ceiling and '-ap' not in ceiling          # ceiling once, real data only
+    assert '--ceiling' not in arm and arm[arm.index('-ap')+1].endswith('pred.h5ad')
+    for command in (prep, ceiling, arm):
+        assert command[command.index('--preset')+1] == 'vcc2026' and command[command.index('--profile')+1] == 'vcc2026'
+        assert 'de.backend=pdex' in command and 'num_threads=4' in command and '--control-pert' not in command
+        assert command[command.index('--cache-real')+1] == str(tmp_path/'real_cache')
     assert (tmp_path/'metrics/invocation.json').exists()
 
 
@@ -352,7 +358,15 @@ def test_actual_official_h1_benchmark(scripts, tmp_path):
     assert result.returncode == 0, result.stdout+result.stderr
     for method in ['model', 'source_mean']:
         assert (output/f'{method}_000/agg_results.csv').exists()
-        assert (output/f'{method}_000/ceiling_agg.csv').exists()
+    assert (output/'ceiling/ceiling_agg.csv').exists()            # computed once, real data only
+    real = ad.read_h5ad(output/'real.h5ad')                        # streamed reference matches the source cells
+    src = ad.read_h5ad(tmp_path/'h1.h5ad')
+    for kd in groups:
+        np.testing.assert_array_equal(np.sort(real[real.obs.target_gene == kd].X.toarray(), axis=0),
+                                      np.sort(src[src.obs.target_gene == kd].X.toarray(), axis=0))
+    assert (real.obs.target_gene == 'non-targeting').sum() == len(controls) - len(controls)//2
+    pred = ad.read_h5ad(output/'model_000.h5ad')
+    assert pred.n_obs == 3*100 + len(controls)//2                 # 3 x 100 generated + the generator's control half
     ranks = pd.read_csv(output/'metric_ranks.csv')
     assert len(ranks) == 12 and ranks.value.notna().all()
     selected = json.loads((output/'selected_generator.json').read_text())
@@ -413,6 +427,8 @@ def test_merge_h1_deduplicates_controls(scripts, tmp_path):
         path = tmp_path/f'split{k}.h5ad'; paths.append(str(path))
         ad.AnnData(sp.csr_matrix(np.vstack([controls, perturbed]).astype(np.float32)), obs=obs, var=pd.DataFrame(index=genes)).write_h5ad(path)
     report = m.merge(paths, tmp_path/'H1_full.h5ad', block=2)                 # small blocks exercise append
+    import h5py
+    with h5py.File(tmp_path/'H1_full.h5ad', 'r') as f: assert f['X/indptr'].dtype == np.int64   # > 2**31 values allowed
     merged = ad.read_h5ad(tmp_path/'H1_full.h5ad')
     assert report['n_controls'] == 7 and merged.n_obs == 7+3+4+5 and report['n_targets'] == 3
     assert (merged.obs.target_gene == 'non-targeting').sum() == 7 and merged.obs_names.is_unique
@@ -420,3 +436,36 @@ def test_merge_h1_deduplicates_controls(scripts, tmp_path):
     assert list(merged.var_names) == genes and all(x['controls_match_first'] for x in report['inputs'])
     c.validate_counts(merged.X)
     with pytest.raises(FileExistsError): m.merge(paths, tmp_path/'H1_full.h5ad')
+
+
+def test_int64_indptr_survives_append(scripts, tmp_path):
+    """anndata refuses to grow an int32-indptr X past 2**31 values; int64 first blocks avoid that."""
+    import h5py
+    try:
+        from anndata.io import sparse_dataset, write_elem
+    except ImportError:
+        from anndata.experimental import sparse_dataset, write_elem
+    c = scripts['vcc_common']; block = sp.csr_matrix(np.eye(3, dtype=np.float32))
+    assert block.indptr.dtype == np.int32
+    with h5py.File(tmp_path/'x.h5', 'w') as f:
+        write_elem(f, 'X', c.int64_indptr(block)); ds = sparse_dataset(f['X'])
+        ds.append(block); ds.append(block)
+        assert f['X/indptr'].dtype == np.int64 and f['X/indptr'][-1] == 9
+
+
+def test_streaming_writer_and_row_priors(scripts, tmp_path):
+    g = scripts['vcc_generate_v3']; c = scripts['vcc_common']
+    obs = g.labelled_obs(['A']*3 + ['B']*2, 'x_')
+    w = g.StreamingH5AD(tmp_path/'s.h5ad', obs, ['G1', 'G2'])
+    w.append(sp.csr_matrix([[1, 0], [0, 2], [3, 3]], dtype=np.float32)); w.append(np.array([[1, 1], [0, 5]], dtype=np.int64)); w.close()
+    h = ad.read_h5ad(tmp_path/'s.h5ad')
+    assert h.shape == (5, 2) and h.X.dtype == np.float32 and h.X[4, 1] == 5 and list(h.obs.target_gene) == ['A']*3 + ['B']*2
+    bad = g.StreamingH5AD(tmp_path/'bad.h5ad', obs, ['G1', 'G2']); bad.append(np.ones((2, 2)))
+    with pytest.raises(ValueError, match='wrote 2 rows for 5'): bad.close()
+    # per-knockdown prior: a strong knockdown keeps its effects, a null one is shrunk at the floor
+    genes = np.array([f'G{i}' for i in range(400)]); rng = np.random.default_rng(0)
+    strong = rng.normal(0, 1.0, 400); null = rng.normal(0, 0.1, 400)
+    c.write_effects(tmp_path/'eff', genes, ['STRONG', 'NULL'], iter([(0, strong, np.full(400, .1)), (1, null, np.full(400, .1))]), {'legacy': False}, 2)
+    e = c.Effects(tmp_path/'eff', genes)
+    assert e.prior_for('STRONG') > 0.9 and e.prior_for('NULL') == pytest.approx(0.01)
+    assert e.prior_for('STRONG') > e.prior_variance                 # the table prior would over-shrink it
