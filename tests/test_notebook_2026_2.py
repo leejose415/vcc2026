@@ -1,4 +1,4 @@
-"""Behavioral checks for scripts embedded in the new averaging notebook."""
+"""Behavioral checks for scripts embedded in the random-effects meta-analysis notebook."""
 import argparse
 import ast
 import importlib
@@ -20,14 +20,13 @@ ROOT = Path(__file__).resolve().parents[1]
 @pytest.fixture(scope='session')
 def scripts_v2(tmp_path_factory):
     notebook = nbformat.read(ROOT / 'vcc_2026_2.ipynb', as_version=4)
-    directory = tmp_path_factory.mktemp('averaging_scripts')
+    directory = tmp_path_factory.mktemp('meta_scripts')
     for cell in notebook.cells:
         if cell.source.startswith('%%writefile'):
             header, body = cell.source.split('\n', 1)
             (directory / Path(header.split()[-1]).name).write_text(body)
     sys.path.insert(0, str(directory))
-    return {name: importlib.import_module('vcc2_' + name)
-            for name in ['common', 'build_effects', 'context_profile', 'transfer', 'generate']}
+    return {name: importlib.import_module('vcc2_' + name) for name in ['common', 'meta', 'generate']}
 
 
 def test_notebook_structure_and_commands(scripts_v2):
@@ -35,9 +34,8 @@ def test_notebook_structure_and_commands(scripts_v2):
     notebook = nbformat.read(ROOT / 'vcc_2026_2.ipynb', as_version=4)
     nbformat.validate(notebook)
     transform = TransformerManager()
-    deferred = next(i for i, c in enumerate(notebook.cells) if c.source.startswith('### Deferred:'))
-    assert notebook.cells[deferred + 1].cell_type == 'code'
-    assert notebook.cells[deferred + 1].source == ''
+    written = [c.source.split('\n', 1)[0].split('/')[-1] for c in notebook.cells if c.source.startswith('%%writefile')]
+    assert written == ['vcc2_common.py', 'vcc2_meta.py', 'vcc2_generate.py']
     for i, cell in enumerate(notebook.cells):
         if cell.cell_type != 'code': continue
         assert cell.execution_count is None and cell.outputs == []
@@ -55,120 +53,131 @@ def test_notebook_structure_and_commands(scripts_v2):
         if name == 'common': continue
         result = subprocess.run([sys.executable, module.__file__, '--help'], capture_output=True, text=True)
         assert result.returncode == 0, result.stderr
-    common = scripts_v2['common']; transfer = scripts_v2['transfer']
-    assert not hasattr(common, 'shrink') and not hasattr(common.Effects, 'prior_for')
-    for name in ['lobo_select', 'fit_source_scales', 'fit_ridge']:
-        assert not hasattr(transfer, name)
 
 
-def test_filter_retains_hits_at_full_size_and_excludes_unknown(scripts_v2):
-    c = scripts_v2['common']
-    # Strict >2 boundary, both signs, measured zeros, and unreliable SEs.
-    result = c.significance_filter([1, -1, 0.5, -0.5, 0.49, 0, 1, 1, 1, 1, np.nan],
-                                  [0.3, 0.3, 0.25, 0.25, 0.25, 0.25, 0, 1e-9, np.nan, -1, 0.2])
-    np.testing.assert_allclose(result[:6], [1, -1, 0, 0, 0, 0])
-    assert np.isnan(result[6:]).all()
-    # Adding 18,532 null genes cannot change the amplitude of the one real hit.
-    lfc = np.zeros(18533); lfc[-1] = 1
-    filtered = c.significance_filter(lfc, np.full(18533, 0.3))
-    assert filtered[-1] == 1 and np.count_nonzero(filtered) == 1
+def test_worked_example(scripts_v2):
+    """Step 4's example: K562 sits out, tau2 = 0.04, weights 20 / 18.4 / 9.8 (the spec rounds SE^2 first)."""
+    m = scripts_v2['meta']
+    lfc = np.array([-0.80, -0.50, np.nan, -1.10])[:, None, None]
+    se = np.array([0.10, 0.12, np.nan, 0.25])[:, None, None]
+    re, re_se, k = (x[0, 0] for x in m.combine(lfc, se, np.array([0.04])))
+    w = 1 / (np.array([0.10, 0.12, 0.25]) ** 2 + 0.04)
+    np.testing.assert_allclose(w, [20.0, 18.5, 9.7], atol=0.15)
+    assert k == 3
+    assert re == pytest.approx(-0.75, abs=0.005) and re_se == pytest.approx(0.14, abs=0.005)
+    assert re == pytest.approx((w * [-0.8, -0.5, -1.1]).sum() / w.sum()) and re_se == pytest.approx(np.sqrt(1 / w.sum()))
+    # Large tau2 flattens the weights toward the plain average; tau2 = 0 is inverse-variance weighting.
+    assert m.combine(lfc, se, np.array([100.0]))[0][0, 0] == pytest.approx(-0.8, abs=1e-3)
+    inverse = 1 / np.array([0.10, 0.12, 0.25]) ** 2
+    assert m.combine(lfc, se, np.array([0.0]))[0][0, 0] == pytest.approx((inverse * [-0.8, -0.5, -1.1]).sum() / inverse.sum())
+    # A gene no background measured is "no information": NaN, count 0.
+    nothing = m.combine(np.full((2, 1, 1), np.nan), np.full((2, 1, 1), np.nan), np.array([0.01]))
+    assert np.isnan(nothing[0]).all() and np.isnan(nothing[1]).all() and nothing[2][0, 0] == 0
 
 
-def make_contexts(scripts, tmp_path):
-    c, t = scripts['common'], scripts['transfer']
-    genes = np.array(['KD', 'G1', 'G2', 'G3'])
+def test_tau2_recovers_heterogeneity_and_floors_at_zero(scripts_v2):
+    m = scripts_v2['meta']; rng = np.random.default_rng(0)
+    S, T = 4, 3000; se = np.full((S, T, 2), 0.2)
+    truth = rng.normal(0, 0.5, (1, T, 2))
+    lfc = truth + rng.normal(0, np.sqrt(0.09), (S, T, 2)) * [1, 0] + rng.normal(0, 0.2, (S, T, 2))
+    lfc[1:, ::2, :] = np.nan                                  # targets with one background add nothing
+    tau2, df = m.tau2_dl(lfc, se, np.full(T, -1))
+    assert tau2[0] == pytest.approx(0.09, rel=0.15) and tau2[1] == pytest.approx(0, abs=0.004)
+    assert df[0] == (S - 1) * (T // 2)
+    # The knocked-down gene's own column never enters tau2.
+    wild = lfc.copy(); wild[:, :, 1] = rng.normal(0, 5, (S, T)); own = np.full(T, 1)
+    assert m.tau2_dl(wild, se, own)[1][1] == 0 and np.isnan(m.tau2_dl(wild, se, own)[0][1])
+
+
+def write_panel(root, name, background, targets, genes, lfc, se, status, ontarget):
+    obs = pd.DataFrame(dict(panel='ours', status=status, n_cells=200.0, ontarget_lfc=ontarget, padj=0.01),
+                       index=pd.Index(targets, name='target'))
+    a = ad.AnnData(X=None, obs=obs, var=pd.DataFrame(index=pd.Index(genes, name='gene')),
+                   layers=dict(lfc=np.asarray(lfc, np.float32), se=np.asarray(se, np.float32)), uns=dict(background=background))
+    (root / name).mkdir(parents=True, exist_ok=True); a.write_h5ad(root / name / 'effects_panel.h5ad')
+
+
+def make_panels(tmp_path, h1_value=7.0):
+    genes = ['KD', 'G1', 'G2', 'G3']; targets = ['KD', 'T2']; root = tmp_path / 'sources'; tmp_path.mkdir(exist_ok=True)
     pd.DataFrame({'gene_name': genes}).to_csv(tmp_path / 'genes.csv', index=False)
-    specs = []
-    for name, bg, values, errors, priority in [
-        ('A', 'BG_A', [-1, 1, 1, 0.25], [0.25]*4, 0),
-        ('A_extra', 'BG_A', [-1, 6, 6, 6], [0.25]*4, -1),
-        ('B', 'BG_B', [-1, 3, 0, 1], [0.25, 0.25, np.nan, 0.25], 0),
-        ('H1', 'H1', [-1, 7, 7, 7], [0.25]*4, 0),
-    ]:
-        d = tmp_path / name
-        c.write_effects(d, genes, ['KD'], iter([(0, np.array(values), np.array(errors))]), {'legacy': False}, 1)
-        c.save_profile(d / 'control_profile.npz', genes, dict(mean_cpm=np.array([0, 5, 10, 20.]),
-            pooled_cpm=np.array([0, 8, 8, 19.]), log_mean=np.log1p([0, 8, 8, 19.]),
-            detection=np.array([0, 0.1, 0.5, 0.8])))
-        specs.append(dict(name=name, background=bg, source_priority=priority, platform='test',
-                          effects=str(d), profile=str(d / 'control_profile.npz')))
-    config = dict(schema=t.SCHEMA, genes=str(tmp_path / 'genes.csv'), contexts=specs)
-    (tmp_path / 'config.json').write_text(json.dumps(config))
-    pd.DataFrame({'target_gene': ['KD']}).to_csv(tmp_path / 'targets.csv', index=False)
-    return genes, config
+    nan = np.nan
+    write_panel(root, 'A', 'BG_A', targets, genes, [[-2, 1.0, 0.2, nan], [nan] * 4], [[0.1, 0.1, 0.2, nan], [nan] * 4],
+                ['kept', 'failed: weak knockdown'], [-2.0, -0.2])
+    write_panel(root, 'B', 'BG_B', targets, genes, [[-3, 0.0, nan, nan], [0, 0.5, 0.5, nan]], [[0.1, 0.2, nan, nan], [0.1] * 3 + [nan]],
+                ['kept', 'kept'], [-1.0, -1.5])
+    write_panel(root, 'H1', 'H1', targets, genes, [[h1_value] * 4] * 2, [[0.01] * 4] * 2, ['kept', 'kept'], [-9.0, -9.0])
+    write_panel(root, 'B_rest', 'BG_B', targets, genes, [[5] * 4] * 2, [[0.1] * 4] * 2, ['kept', 'kept'], [-1.0, -1.0])
+    pd.DataFrame({'target_gene': ['KD', 'MISSING']}).to_csv(tmp_path / 'targets.csv', index=False)
+    return root, genes
 
 
-def test_average_is_equal_per_background_and_chunk_independent(scripts_v2, tmp_path):
-    t = scripts_v2['transfer']; _, config = make_contexts(scripts_v2, tmp_path)
-    # The excluded background is genuinely unreadable; preparing must not open it.
-    config['contexts'][-1]['effects'] = '/nonexistent/heldout_effects'
-    config['contexts'][-1]['profile'] = '/nonexistent/heldout_profile'
-    (tmp_path / 'config.json').write_text(json.dumps(config))
-    artifact = t.prepare(tmp_path / 'config.json', tmp_path / 'model', holdout='H1')
-    assert all(c['background'] != 'H1' for c in artifact['contexts'])
-    for chunk in [1, 4]:
-        out = tmp_path / f'pred_{chunk}'
-        t.infer(tmp_path / 'model', tmp_path / 'A/control_profile.npz', tmp_path / 'targets.csv', out, chunk=chunk)
-        # G1: two independent backgrounds, not three tables. G2: B unknown, not zero.
-        # G3: A measured non-hit is zero and B hit is one, hence 0.5 (no second filter).
-        np.testing.assert_allclose(np.load(out / 'source_mean.npy'), [[-1, 2, 1, 0.5]])
-        np.testing.assert_array_equal(np.load(out / 'source_count.npy'), [[2, 2, 1, 2]])
-        np.testing.assert_array_equal(np.load(out / 'selected.npy'), np.load(out / 'source_mean.npy'))
-        report = json.loads((out / 'prediction_report.json').read_text())
-        assert report['heldout_background'] == 'H1'
-        assert report['coverage'][0]['source_names'] == ['A', 'B']
-        assert report['coverage'][0]['background_weights'] == {'BG_A': 0.5, 'BG_B': 0.5}
-        assert report['weighting'] == 'equal_background'
+def test_fit_predict_one_vote_per_background_and_holdout(scripts_v2, tmp_path):
+    m = scripts_v2['meta']; root, genes = make_panels(tmp_path)
+    with pytest.raises(ValueError, match='one vote per background'):
+        m.fit(root, tmp_path / 'genes.csv', tmp_path / 'bad', 'H1', ['A', 'B', 'B_rest', 'H1'])
+    model = m.fit(root, tmp_path / 'genes.csv', tmp_path / 'model', 'H1', ['A', 'B', 'H1'])
+    assert model['backgrounds'] == ['BG_A', 'BG_B'] and model['heldout_background'] == 'H1'
+    report = m.predict(tmp_path / 'model', tmp_path / 'targets.csv', ['A', 'B'], tmp_path / 'pred')
+    out = tmp_path / 'pred/A'
+    re, count = (np.load(out / f'{x}.npy') for x in ['re', 'n_backgrounds'])
+    assert sorted(p.name for p in out.iterdir()) == ['genes.npy', 'n_backgrounds.npy', 'ontarget_lfc.npy', 'prediction_report.json',
+                                                     're.npy', 're_se.npy', 'targets.npy']
+    tau2 = np.load(tmp_path / 'model/tau2.npy')
+    assert np.isnan(tau2[0]) and np.isnan(tau2[3])             # own column excluded / never measured twice
+    np.testing.assert_array_equal(count, [[0, 2, 1, 0], [0, 0, 0, 0]])
+    assert np.isnan(re[0, 0])                                  # own gene: not averaged
+    t2 = tau2[1]; w = 1 / (np.array([0.1, 0.2]) ** 2 + t2)
+    assert re[0, 1] == pytest.approx((w * [1.0, 0.0]).sum() / w.sum())   # weighted, not (1 + 0) / 2
+    assert re[0, 2] == pytest.approx(0.2)                      # B has no value: sits out
+    assert np.isnan(re[0, 3]) and np.isnan(re[1]).all()        # no information anywhere; MISSING not in the panel
+    np.testing.assert_allclose(np.load(out / 'ontarget_lfc.npy'), [-1.5, np.nan])
+    assert report['not_in_panel'] == ['MISSING'] and report['no_source_targets'] == ['MISSING']
+    assert report['heldout_background'] == 'H1' and 'H1' not in report['source_backgrounds']
+    for name in ['re', 're_se', 'n_backgrounds', 'ontarget_lfc']:
+        np.testing.assert_array_equal(np.load(out / f'{name}.npy'), np.load(tmp_path / 'pred/B' / f'{name}.npy'))
+    m.predict(tmp_path / 'model', tmp_path / 'targets.csv', ['A'], tmp_path / 'pred')   # re-running replaces it
+    np.testing.assert_array_equal(np.load(out / 're.npy'), re)
+    (tmp_path / 'pred/other').mkdir(); (tmp_path / 'pred/other/keep.txt').write_text('not ours')
+    with pytest.raises(ValueError, match='empty prediction directory'):
+        m.predict(tmp_path / 'model', tmp_path / 'targets.csv', ['other'], tmp_path / 'pred')
+    # The held-out background's values never reach tau2 or the averages.
+    root2, _ = make_panels(tmp_path / 'other', h1_value=-50.0)
+    m.fit(root2, tmp_path / 'genes.csv', tmp_path / 'model2', 'H1', ['A', 'B', 'H1'])
+    np.testing.assert_array_equal(np.load(tmp_path / 'model2/tau2.npy'), tau2)
+    assert m.exam(root, 'H1', tmp_path / 'exam.csv', ['A', 'B', 'H1']) == ['KD', 'T2']
 
 
-def test_neighbour_donors_filtered_once_and_own_column_masked(scripts_v2, tmp_path):
-    c, t = scripts_v2['common'], scripts_v2['transfer']
-    genes = np.array(['N1', 'N2', 'G'])
-    c.write_effects(tmp_path / 'effects', genes, ['N1', 'N2'],
-        iter([(0, np.array([-4., 1, 1]), np.full(3, 0.25)),
-              (1, np.array([2., -4, 0.25]), np.full(3, 0.25))]), {'legacy': False}, 2)
-    pd.DataFrame({'gene_a': ['NEW', 'NEW'], 'gene_b': ['N1', 'N2'], 'score': [1, 1]}).to_csv(tmp_path / 'edges.csv', index=False)
-    effects = t.FilteredEffects(c.Effects(tmp_path / 'effects', genes), t.FunctionalNeighbours(tmp_path / 'edges.csv'), genes)
-    # At G the one retained effect averages with a measured zero to 0.5; it must
-    # not be filtered a second time using uncertainty from the borrowed mixture.
-    np.testing.assert_allclose(effects.get('NEW', np.arange(3)), [2, 1, 0.5])
+def test_de_call_alpha_gate_and_own_column(scripts_v2):
+    c, g = scripts_v2['common'], scripts_v2['generate']
+    line = g.Line(sp.csr_matrix([[100, 100, 100, 100, 100]] * 2), None, ['KD', 'G1', 'G2', 'G3', 'LOW'])
+    line.gate = c.expression_gate([10, 10, 10, 10, 1])
+    D = np.array([[-2.0, 0.6, 0.15, 0.6, 0.6]]); se = np.array([[0.1, 0.2, 0.01, np.inf, 0.01]])
+    cfg = g.Cfg(argparse.Namespace(alpha=2.0, z=2.0, min_effect=0.2))
+    # G1 passes both and is doubled at full size; G2 too small; G3 unknown SE; LOW gated; KD handled separately.
+    np.testing.assert_allclose(g.calibrate(D, line, ['KD'], cfg, se), [[0, 1.2, 0, 0, 0]])
+    cfg.z = 4.0
+    np.testing.assert_allclose(g.calibrate(D, line, ['KD'], cfg, se), [[0, 0, 0, 0, 0]])
+    off = g.Cfg(argparse.Namespace(alpha=1.0))
+    np.testing.assert_allclose(g.calibrate(D, line, ['KD'], off), [[0, 0.6, 0.15, 0.6, 0]])
+    with pytest.raises(ValueError, match='needs the prediction SE'):
+        g.calibrate(D, line, ['KD'], g.Cfg(argparse.Namespace(z=2.0)))
 
 
-def test_binary_gate_uses_per_cell_cpm_and_does_not_gate_by_knockdown(scripts_v2):
+def test_binary_gate_uses_per_cell_cpm(scripts_v2):
     c, g = scripts_v2['common'], scripts_v2['generate']
     np.testing.assert_array_equal(c.expression_gate([0, 4.9, 5, np.nextafter(5., 6.), 6, np.nan]),
                                   [False, False, False, True, True, False])
     line = g.Line(sp.csr_matrix([[1, 999], [100, 999900]]), None, ['G', 'KD'])
     assert line.cpm[0] == pytest.approx(550)  # mean per cell, not pooled ~101
-    line.genes = ['KD', 'G1', 'G2', 'G3']
-    line.gate = c.expression_gate([0, 5, 5.001, 100])
-    cfg = g.Cfg(argparse.Namespace(alpha=1))
-    delta = np.array([[-2, 3, -3, 2], [-1, -3, 3, -2.]])
-    np.testing.assert_allclose(g.calibrate(delta, line, ['KD', 'KD'], cfg), [[0, 0, -3, 2], [0, 0, 3, -2]])
 
 
-def test_unresolved_targets_require_explicit_fallback(scripts_v2, tmp_path):
-    t = scripts_v2['transfer']; make_contexts(scripts_v2, tmp_path)
-    t.prepare(tmp_path / 'config.json', tmp_path / 'model', holdout='H1')
-    pd.DataFrame({'target_gene': ['MISSING']}).to_csv(tmp_path / 'missing.csv', index=False)
-    with pytest.raises(ValueError, match='unsupported targets'):
-        t.infer(tmp_path / 'model', tmp_path / 'A/control_profile.npz', tmp_path / 'missing.csv', tmp_path / 'strict')
-    t.infer(tmp_path / 'model', tmp_path / 'A/control_profile.npz', tmp_path / 'missing.csv', tmp_path / 'fallback', allow_unsupported=True)
-    np.testing.assert_array_equal(np.load(tmp_path / 'fallback/selected.npy'), np.zeros((1, 4)))
-    report = json.loads((tmp_path / 'fallback/prediction_report.json').read_text())
-    assert report['unresolved'] == ['MISSING']
-
-
-def test_real_control_profile_preserves_baselines(scripts_v2, tmp_path):
-    c, p = scripts_v2['common'], scripts_v2['context_profile']
-    genes = ['G', 'KD']; counts = np.array([[1, 999], [100, 999900]])
-    pd.DataFrame({'gene_name': genes}).to_csv(tmp_path / 'genes.csv', index=False)
-    ad.AnnData(sp.csr_matrix(counts), obs=pd.DataFrame({'target_gene': ['non-targeting']*2}, index=['c1', 'c2']),
-               var=pd.DataFrame(index=genes)).write_h5ad(tmp_path / 'controls.h5ad')
-    p.profile(tmp_path / 'controls.h5ad', tmp_path / 'genes.csv', tmp_path / 'profile.npz', all_controls=True)
-    result = c.load_profile(tmp_path / 'profile.npz', genes)
-    np.testing.assert_allclose(result['mean_cpm'], [550, 999450])
-    np.testing.assert_allclose(result['pooled_cpm'], counts.sum(0)/counts.sum()*1e6)
+def write_prediction(pred, genes, targets, effects, se, ontarget, heldout='H1'):
+    pred.mkdir()
+    for name, value in [('genes', genes), ('targets', targets), ('re', effects), ('re_se', se),
+                        ('ontarget_lfc', ontarget)]:
+        np.save(pred / f'{name}.npy', np.asarray(value))
+    (pred / 'prediction_report.json').write_text(json.dumps(dict(schema='vcc_2026_2_meta_v1', models=['re'],
+        heldout_background=heldout, source_backgrounds=['BG_A', 'BG_B'])))
 
 
 def test_count_generation_and_submission(scripts_v2, tmp_path):
@@ -178,20 +187,22 @@ def test_count_generation_and_submission(scripts_v2, tmp_path):
     control = ad.AnnData(sp.csr_matrix([[30, 20]]*30), obs=pd.DataFrame({'target_gene': ['non-targeting']*30},
                          index=[str(i) for i in range(30)]), var=pd.DataFrame(index=genes))
     control.write_h5ad(tmp_path / 'context_A.h5ad')
-    pred = tmp_path / 'pred'; pred.mkdir()
-    for name, value in [('genes', genes), ('targets', ['KD']), ('source_mean', [[-1, 0.5]]), ('ontarget_lfc', [-1])]:
-        np.save(pred / f'{name}.npy', value)
-    command = [sys.executable, g.__file__, 'submit', '--data', str(tmp_path), '--lines', 'A',
-               '--delta', f'A={pred}', '--delta-array', 'source_mean', '--out', str(tmp_path / 'output')]
+    write_prediction(tmp_path / 'pred', genes, ['KD'], [[np.nan, 0.5]], [[np.nan, 0.1]], [-1], heldout=None)
+    (tmp_path / 'settings.json').write_text(json.dumps(dict(schema='vcc_2026_2_meta_v1', delta_array='re',
+        settings=dict(alpha=1.5, z=2.0, min_effect=0.1, pi=0, up_w=0.75, n_cells=400))))
+    command = [sys.executable, g.__file__, 'submit', '--data', str(tmp_path), '--lines', 'A', '--delta', f'A={tmp_path / "pred"}',
+               '--delta-array', 'selected', '--settings', str(tmp_path / 'settings.json'), '--out', str(tmp_path / 'output')]
     result = subprocess.run(command, capture_output=True, text=True, timeout=60)
     assert result.returncode == 0, result.stdout + result.stderr
     output = ad.read_h5ad(tmp_path / 'output/prediction.h5ad')
     assert output.shape == (400, 2)
     c.validate_counts(output.X)
     assert output.obs.context.unique().tolist() == ['A']
+    report = json.loads((tmp_path / 'output/generator_report.json').read_text())
+    assert report['delta_array'] == 're' and report['settings']['z'] == 2.0 and report['settings']['alpha'] == 1.5
 
 
-def test_official_h1_benchmark(scripts_v2, tmp_path):
+def test_official_exam_benchmark(scripts_v2, tmp_path):
     """Run the real CPU evaluator on a small synthetic reference, never real H1."""
     binary = Path(sys.executable).parent / 'cell-eval2'
     if not binary.exists(): pytest.skip('official cell-eval2 is not installed')
@@ -207,32 +218,34 @@ def test_official_h1_benchmark(scripts_v2, tmp_path):
         var=pd.DataFrame(index=genes)).write_h5ad(tmp_path / 'h1.h5ad')
     pd.DataFrame({'gene_name': genes}).to_csv(tmp_path / 'genes.csv', index=False)
     pd.DataFrame({'target_gene': list(groups)}).to_csv(tmp_path / 'targets.csv', index=False)
-    pred = tmp_path / 'pred'; pred.mkdir()
     # Independent synthetic source predictions: no perturbation outcomes used here.
     effects = np.zeros((3, len(genes)))
     for i in range(3): effects[i, 3+i::3] = 0.75; effects[i, i] = -1.5
-    for name, value in [('genes', genes), ('targets', list(groups)), ('source_mean', effects), ('ontarget_lfc', [-1.5]*3)]:
-        np.save(pred / f'{name}.npy', value)
-    (pred / 'prediction_report.json').write_text(json.dumps(dict(schema='vcc_2026_2_average_v1',
-        heldout_background='H1', selected_method='source_mean', source_backgrounds=['BG_A', 'BG_B'])))
+    write_prediction(tmp_path / 'pred', genes, list(groups), effects, np.full(effects.shape, 0.1), [-1.5]*3)
     out = tmp_path / 'benchmark'
     command = [sys.executable, g.__file__, 'benchmark', '--cells', str(tmp_path / 'h1.h5ad'),
-        '--genes', str(tmp_path / 'genes.csv'), '--targets', str(tmp_path / 'targets.csv'), '--predictions', str(pred),
+        '--genes', str(tmp_path / 'genes.csv'), '--targets', str(tmp_path / 'targets.csv'), '--predictions', str(tmp_path / 'pred'),
         '--out', str(out), '--cell-eval', str(binary), '--num-threads', '1', '--n-cells', '100', '--min-cells', '50',
-        '--alpha-grid', '1', '--pi-grid', '0', '--up-w-grid', '0.75', '--cell-rules', 'fixed']
-    result = subprocess.run(command, capture_output=True, text=True, timeout=180)
+        '--delta-array', 're', '--z-grid', '2', '--min-effect-grid', '0.1', '--alpha-grid', '1',
+        '--pi-grid', '0', '--up-w-grid', '0.75', '--cell-rules', 'fixed']
+    result = subprocess.run(command, capture_output=True, text=True, timeout=300)
     assert result.returncode == 0, result.stdout + result.stderr
-    assert (out / 'source_mean_000/agg_results.csv').exists()
+    assert (out / 're_000/agg_results.csv').exists() and not (out / 're_000.h5ad').exists()
     assert (out / 'ceiling/ceiling_agg.csv').exists()
     ranks = pd.read_csv(out / 'metric_ranks.csv')
     assert len(ranks) == 6 and ranks.value.notna().all()
-    assert not (out / 'model_000.h5ad').exists()
+    assert json.loads((out / 're_000.json').read_text()) == dict(method='re', alpha=1, z=2, min_effect=0.1, pi=0, up_w=0.75, cell_rule='fixed')
     selected = json.loads((out / 'selected_generator.json').read_text())
-    assert selected['schema'] == 'vcc_2026_2_average_v1'
-    assert selected['settings']['alpha'] == 1
+    assert selected['schema'] == 'vcc_2026_2_meta_v1' and selected['delta_array'] == 're'
+    assert selected['settings']['alpha'] == 1 and selected['settings']['z'] == 2
     split = json.loads((out / 'control_split.json').read_text())
     assert split['gate_source'] == 'scoring real controls'
     assert split['generator_controls'] == split['scoring_controls'] == 60
+    # H1 among the sources is a leak, not an exam.
+    report = json.loads((tmp_path / 'pred/prediction_report.json').read_text()); report['source_backgrounds'].append('H1')
+    (tmp_path / 'pred/prediction_report.json').write_text(json.dumps(report))
+    result = subprocess.run(command[:-1] + ['fixed', '--out', str(tmp_path / 'leak')], capture_output=True, text=True, timeout=60)
+    assert result.returncode != 0 and 'H1 leaked' in result.stderr
 
 
 def test_h1_expression_gate_uses_scoring_half(scripts_v2, tmp_path):
