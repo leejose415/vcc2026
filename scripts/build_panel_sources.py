@@ -39,7 +39,8 @@ V = Path.home() / 'vcc'
 LIB = V / 'lib'
 GENES = pd.read_csv(V / 'data/gene_names.csv')['gene_name'].astype(str).to_numpy()
 BACKGROUND = dict(HCT116='HCT116', HEK293T='HEK293T', K562_gwps='K562', H1='H1',
-                  CD4_Stim48hr='CD4_T', CD4_Stim8hr='CD4_T', CD4_Rest='CD4_T')
+                  CD4_Stim48hr='CD4_T', CD4_Stim8hr='CD4_T', CD4_Rest='CD4_T',
+                  RPE1='RPE1', HepG2='HepG2', Jurkat='Jurkat')
 
 
 def panel_targets():

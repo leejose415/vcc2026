@@ -63,6 +63,14 @@ DATASETS = {
     'CD4_Rest':     ('tcell', LIB / 'tcell/TCELL_Rest_effects.h5ad', {}),
     'K562_gwps':    ('cells', LIB / 'replogle/K562_gwps_raw_singlecell_01.h5ad',
                      dict(target_col='gene', target_id_col='gene_id', library_col='UMI_count')),
+    # Replogle 2022 RPE1 essential screen (figshare 20029387) and Nadig 2025 HepG2 / Jurkat (GEO GSE264667): same
+    # raw single-cell layout as K562. The raw files are large; once filtered, the _cache keeps every number needed.
+    'RPE1':         ('cells', LIB / 'downloads/rpe1/rpe1_raw_singlecell_01.h5ad',
+                     dict(target_col='gene', target_id_col='gene_id', library_col='UMI_count')),
+    'HepG2':        ('cells', LIB / 'downloads/nadig_hepg2/GSE264667_hepg2_raw_singlecell_01.h5ad',
+                     dict(target_col='gene', target_id_col='gene_id', library_col='UMI_count')),
+    'Jurkat':       ('cells', LIB / 'downloads/nadig_jurkat/GSE264667_jurkat_raw_singlecell_01.h5ad',
+                     dict(target_col='gene', target_id_col='gene_id', library_col='UMI_count')),
 }
 TESTS = dict(sums='Welch t on per-cell CPM', cells='Welch t on per-cell CPM',
              tcell='moderated t on replicate SE')
@@ -199,7 +207,8 @@ def stats_cells(name, path, target_col, target_id_col, library_col, block=2048, 
     with h5py.File(path, 'r') as f:
         obs, var = read_elem(f['obs']), read_elem(f['var'])
         X = f['X']
-        if isinstance(X, h5py.Group): raise ValueError('expected a dense X; add a sparse path for this dataset')
+        read = layer_reader(f, 'X')                                   # dense or sparse (CSR) X, read in row blocks
+        n_rows, G = (tuple(X.attrs['shape']) if isinstance(X, h5py.Group) else X.shape)
         labels = obs[target_col].astype(str).to_numpy()
         lib = obs[library_col].to_numpy(float)
         # match the target by Ensembl id (var index), falling back to the symbol
@@ -212,11 +221,11 @@ def stats_cells(name, path, target_col, target_id_col, library_col, block=2048, 
         tcol = np.array([by_id.get(i, by_name.get(t, -1)) for t, i in zip(targets, ids)])
         cell_col = tcol[code]
         is_ctrl = labels == CONTROL
-        G = X.shape[1]; c_cnt = np.zeros(G)
+        c_cnt = np.zeros(G)
         g_cpm = np.zeros((len(targets), G)); g_cpm2 = np.zeros((len(targets), G))   # per group: sum CPM, CPM^2
         t0 = time.time()
-        for a in range(0, X.shape[0], block):
-            b = min(a + block, X.shape[0]); x = X[a:b].astype(np.float64)
+        for a in range(0, n_rows, block):
+            b = min(a + block, n_rows); x = np.asarray(read(slice(a, b)), dtype=np.float64)
             cc = x * (1e6 / np.maximum(lib[a:b], 1))[:, None]
             g = code[a:b]; order = np.argsort(g, kind='stable'); gs = g[order]
             starts = np.r_[0, np.flatnonzero(gs[1:] != gs[:-1]) + 1]
@@ -227,7 +236,7 @@ def stats_cells(name, path, target_col, target_id_col, library_col, block=2048, 
             if ctl.any(): c_cnt += x[ctl].sum(0)
             if (a // block) % 50 == 0:
                 rate = b / max(time.time() - t0, 1e-9)
-                print(f'  {name}: {b:,}/{X.shape[0]:,} cells, ~{(X.shape[0] - b) / rate / 60:.0f} min left',
+                print(f'  {name}: {b:,}/{n_rows:,} cells, ~{(n_rows - b) / rate / 60:.0f} min left',
                       end='\r', flush=True)
         source_genes = var['gene_name'].astype(str).to_numpy()
     print()

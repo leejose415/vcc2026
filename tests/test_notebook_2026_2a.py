@@ -121,6 +121,10 @@ def test_top_n_calling(v2a):
     np.testing.assert_allclose(g.calibrate(D, line, ['KD', 'G0'], cfg, info=info)[0], [0, 0.9, 0.8, 0.7, 0, 0, 0, 0, 0, 0])
     with pytest.raises(ValueError, match='sign rule needs'):
         g.calibrate(D, line, ['KD', 'G0'], cfg, info=dict(z=info['z']))
+    info['n_bg'][0, 1] = 3; info['sign_agree'][0, 1] = np.nan
+    assert g.calibrate(D, line, ['KD', 'G0'], cfg, info=info)[0, 1] == 0  # missing agreement is not unanimity
+    line.gate = c.expression_gate([100] * 8 + [5, 100])
+    assert g.calibrate(D, line, ['KD', 'G0'], cfg, info=info)[0, 8] == 0  # strict boundary
 
 
 def test_detection_floor(v2a):
@@ -142,6 +146,10 @@ def test_detection_floor(v2a):
     assert out[0, 3] == pytest.approx(3.0) and out[0, 4] == 0                         # never shrunk; uncalled stays 0
     no_floor = g.calibrate(D, line, ['KD'], g.Cfg(argparse.Namespace(call='z', min_effect=0.01, alpha=1.0)))
     np.testing.assert_allclose(no_floor, [[0, 0.02, -0.02, 3.0, 0]])
+    cfg.alpha = 0
+    zero_alpha = g.calibrate(D, line, ['KD'], cfg)
+    np.testing.assert_allclose(zero_alpha[0, 1:4], [up[1], -down[2], up[3]])
+    assert zero_alpha[0, 4] == 0
 
 
 # ---------------------------------------------------------------- edit 6
@@ -156,6 +164,61 @@ def test_per_target_table(v2a, tmp_path):
     assert (row.n_called, row.n_real, row.overlap, row.same_direction) == (3, 5, 2, 1)
     assert row.precision == pytest.approx(2 / 3) and row.chance_precision == pytest.approx(0.5)
     assert row.enrichment == pytest.approx(4 / 3) and row.direction_accuracy == pytest.approx(0.5) and row.recall == pytest.approx(0.4)
+    summary = g.per_target_summary(g.per_target_table(tmp_path))
+    assert summary['median_direction_accuracy'] == 0.5
+
+
+def test_scaled_score_requires_all_six_metrics_and_their_mean(v2a, tmp_path):
+    g = v2a['generate']; metrics = list(g.VCC2026_METRICS)
+    values = [0.5, 0, -0.2, -0.3, -0.1, 0.1]
+    frame = pd.DataFrame({'metric': metrics + ['avg_score'], 'from_replicate': values + [np.mean(values)]})
+    path = tmp_path / 'scaled.csv'; frame.to_csv(path, index=False)
+    score = g.read_scaled(path)
+    assert score['overall'] == pytest.approx(np.mean(values)) and score[metrics[3]] == -0.3
+    frame.iloc[:-2].to_csv(path, index=False)
+    with pytest.raises(ValueError, match='six competition metrics'): g.read_scaled(path)
+    frame.loc[6, 'from_replicate'] = 0.9; frame.to_csv(path, index=False)
+    with pytest.raises(ValueError, match='mean of the six'): g.read_scaled(path)
+    frame.loc[0, 'from_replicate'] = np.nan; frame.to_csv(path, index=False)
+    with pytest.raises(ValueError, match='non-finite'): g.read_scaled(path)
+
+
+def test_gene_split_cross_validation(v2a):
+    d = v2a['adhoc']; rng = np.random.default_rng(7)
+    x = rng.normal(size=(100, 5)); y = x @ [1, -2, 3, 0, 1] + 0.5
+    np.testing.assert_allclose(d.r2_with_cv(y, x), [1, 1])
+    assert np.isnan(d.r2_with_cv(np.ones(100), x)).all()
+
+
+def test_wilcoxon_blocks_preserve_full_gene_tests(v2a):
+    from scipy import stats
+    rng = np.random.default_rng(3)
+    pred, real = rng.poisson(2, (20, 13)), rng.poisson(3, (30, 13))
+    p = v2a['adhoc'].wilcoxon_blocks(sp.csc_matrix(pred), sp.csc_matrix(real), block=4)
+    np.testing.assert_array_equal(p, stats.mannwhitneyu(pred, real, axis=0).pvalue)
+
+
+def test_tune_chains_stages_on_the_same_reference(v2a, tmp_path, monkeypatch):
+    g = v2a['generate']; submitted = tmp_path / 'submitted.json'
+    submitted.write_text(json.dumps(dict(z=3, min_effect=0.1, alpha=2, pi=0, up_w=0.75)))
+    stages = []
+    def benchmark(a):
+        arms = json.loads(Path(a.variants).read_text()); stages.append((a, arms))
+        if len(stages) == 1:
+            out = Path(a.out); out.mkdir()
+            by_name = {x['label']: x for x in arms}
+            (out / 'benchmark.json').write_text(json.dumps(dict(settings=by_name)))
+            # Reference wins overall, but stage B refines the best top-N candidate.
+            pd.DataFrame({'arm': ['reference_v2_submitted', 'topn500_floor1'], 'overall': [0.9, 0.7]}).to_csv(out / 'scaled_scores.csv', index=False)
+    monkeypatch.setattr(g, 'cmd_benchmark', benchmark)
+    g.cmd_tune(argparse.Namespace(out=str(tmp_path / 'run'), submitted_settings=str(submitted), z_req=5, seed=2026, n_targets=50))
+    first, second = stages
+    assert len(first[1]) == 9 and len(second[1]) == 7
+    assert second[0].reference == first[0].out and first[0].seed == second[0].seed == 2026
+    assert first[0].n_targets == second[0].n_targets == 50
+    assert first[1][-1] == second[1][-1]
+    assert {(a['alpha'], a['sign_rule']) for a in second[1][:-1]} == {(alpha, sign) for alpha in [1, 2, 3] for sign in [True, False]}
+    assert all(a['top_n'] == 500 and a['detect_floor'] and a['z_req'] == 5 for a in second[1][:-1])
 
 
 def test_submission_with_top_n_settings(v2a, tmp_path):
@@ -210,12 +273,14 @@ def test_benchmark_scaled_selection_and_reference_reuse(v2a, tmp_path):
     (tmp_path / 'a.json').write_text(json.dumps(arms))
     common = ['--cells', str(tmp_path / 'h1.h5ad'), '--genes', str(tmp_path / 'genes.csv'), '--targets', str(tmp_path / 'targets.csv'),
               '--predictions', str(pred), '--cell-eval', str(binary), '--num-threads', '1', '--n-cells', '100', '--min-cells', '50',
-              '--anchor-splits', '2']
+              '--anchor-splits', '5']
     run = lambda *extra: subprocess.run([sys.executable, g.__file__, 'benchmark', *common, *extra], capture_output=True, text=True, timeout=900)
     result = run('--variants', str(tmp_path / 'a.json'), '--out', str(tmp_path / 'stage_a'))
     assert result.returncode == 0, result.stdout[-3000:] + result.stderr[-3000:]
     a = tmp_path / 'stage_a'
     assert (a / 'bundle/manifest.json').exists() and not (a / 'baseline/baseline_pred.h5ad').exists()
+    assert (a / 'anchor/anchor_agg.parquet').exists()
+    assert json.loads((a / 'bundle/manifest.json').read_text())['rule_digest']
     scaled = pd.read_csv(a / 'scaled_scores.csv', index_col='arm')
     assert set(scaled.index) == {'topn12_floor1', 'reference'} and 'overall' in scaled and scaled['overall'].notna().all()
     assert scaled['overall'].is_monotonic_decreasing
@@ -226,10 +291,12 @@ def test_benchmark_scaled_selection_and_reference_reuse(v2a, tmp_path):
     assert selected['arm'] == scaled.index[0] and selected['selection'] == 'scaled overall (leaderboard formula)'
     assert selected['schema'] == 'vcc_2026_2_meta_v2' and {'call', 'top_n', 'detect_floor', 'sign_rule', 'z_req', 'alpha'} <= set(selected['settings'])
     # Stage B reuses stage A's reference and bundle: no new real file, cache or bundle.
-    (tmp_path / 'b.json').write_text(json.dumps([dict(arms[0], alpha=2.0, label='topn12_floor1_alpha2')]))
+    (tmp_path / 'b.json').write_text(json.dumps([dict(arms[0], alpha=2.0, label='topn12_floor1_alpha2'), arms[1]]))
     result = run('--variants', str(tmp_path / 'b.json'), '--reference', str(a), '--out', str(tmp_path / 'stage_b'))
     assert result.returncode == 0, result.stdout[-3000:] + result.stderr[-3000:]
     b = tmp_path / 'stage_b'
     assert not (b / 'real.h5ad').exists() and not (b / 'bundle').exists() and not (b / 'real_cache').exists()
-    assert json.loads((b / 'reference.json').read_text())['targets'] == 3
-    assert pd.read_csv(b / 'scaled_scores.csv', index_col='arm').index.tolist() == ['topn12_floor1_alpha2']
+    assert json.loads((b / 'reference_info.json').read_text())['targets'] == 3
+    assert set(pd.read_csv(b / 'scaled_scores.csv', index_col='arm').index) == {'topn12_floor1_alpha2', 'reference'}
+    assert (b / 'reference/reused_from.json').exists()
+    pd.testing.assert_frame_equal(pd.read_csv(a / 'reference/per_target.csv'), pd.read_csv(b / 'reference/per_target.csv'))
