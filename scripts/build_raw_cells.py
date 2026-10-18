@@ -6,7 +6,7 @@ columns everywhere. No cell is dropped by default: total_umi is stored so a UMI 
 
   cell_line        the cell line / type (K562, H1, HFF, ...)
   dataset          the source study (Replogle2022_GWPS, Arc2025_H1, Hein2021, ...)
-  condition        a study condition where there is one (MCF10A Dox / Mock); else ''
+  condition        a study condition where there is one; else ''
   target_gene      the knocked-down gene's symbol; 'non-targeting' for every control; 'A+B' for a pair
   n_targets        0 for controls, 1 for a single knockdown, 2 for a pair, -1 for a cell with no assigned guide
                    (PerturBase 'None'; target_gene 'unassigned')
@@ -61,10 +61,7 @@ DATASETS = {
     'hESC':            ('perturbase', {'': PB / 'PRJNA524331/raw.h5ad'}, dict(cell_line='hESC', dataset='Genga2019',
                         note='CRISPRi during definitive-endoderm differentiation; arrayed screen')),
     'HFF':             ('perturbase', {'': PB / 'CRISPRi_perturb_host/raw.h5ad'}, dict(cell_line='HFF', dataset='Hein2021',
-                        note='human foreskin fibroblasts; host-factor knockdowns in a viral-infection screen')),
-    'MCF10A':          ('perturbase', {'Dox': PB / 'Dox/raw.h5ad', 'Mock': PB / 'Mock/raw.h5ad'},
-                        dict(cell_line='MCF10A', dataset='Hill2018', note='single and pair knockdowns; Dox = doxorubicin, Mock = untreated')),
-    'LUHMES':          ('perturbase', {'': PB / 'PRJNA595864/raw.h5ad'}, dict(cell_line='LUHMES', dataset='Lalli2020')),
+                        note='human foreskin fibroblasts; host-factor knockdowns; the file holds the uninfected 00h cells only (knockdowns and controls)')),
 }
 GEO = 'https://ftp.ncbi.nlm.nih.gov/geo/series/GSE264nnn/GSE264667/suppl/'
 PB_URL = 'http://www.perturbase.cn/static/{0}/{0}.raw.tar.gz'      # the site refuses https
