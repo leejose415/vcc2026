@@ -14,3 +14,7 @@ train:
   batch_size: 16
   eff_noise: 0.0
   warmup: 20
+smoke:
+  overfit_rows: 64
+  overfit_steps: 3000
+  overfit_lr: 0.003

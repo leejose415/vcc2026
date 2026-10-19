@@ -1,0 +1,141 @@
+"""Effect-space evaluation and predictions for a trained vcc_2026_4 run.
+
+  PYTHONPATH=code python -m transformer.evaluate effect --run lib/vcc_2026_4/runs/dev
+  PYTHONPATH=code python -m transformer.evaluate h1-pipeline --run ... --taus 0.3 0.5 0.7 0.9
+  PYTHONPATH=code python -m transformer.evaluate predict --run ... --lines A B C --out <dir>
+Effect space, per knockdown then the median: Pearson of lfc over measured genes, Pearson over truly DE genes (>= 3),
+sign accuracy on truly DE genes, AUPRC of p_de for truly DE genes; model next to the baseline (precision-weighted mean of
+the evidence lfc; score |z|). Truly DE = BH 5% in the target line over its measured genes (own gene excluded).
+Held-out genes: the run's validation rows (every target line). H1: all 300 H1 knockdowns, zero-shot (validation mode: H1
+is neither evidence nor target).
+"""
+import argparse
+import json
+from pathlib import Path
+
+import h5py
+import numpy as np
+import pandas as pd
+import torch
+from anndata.io import read_elem
+from sklearn.metrics import average_precision_score
+
+from . import config as C
+from .data import LINE, LINES, Bank, de_full, kd_keys
+from .model import VCCTransformer
+
+V = Path.home() / 'vcc'
+
+
+def load_run(run, device='cuda', ckpt='best.pt'):
+    run = Path(run); cfg = json.loads((run / 'config.json').read_text())
+    bank = Bank(cfg, device=device)
+    assert np.array_equal(np.load(run / 'gene_cols.npy'), bank.gcols), 'gene set differs from the run'
+    model = VCCTransformer(cfg, len(bank.genes)).to(bank.device)
+    state = torch.load(run / ckpt, map_location=bank.device); model.load_state_dict(state['model']); model.eval()
+    return cfg, bank, model
+
+
+@torch.no_grad()
+def predict(model, bank, kd, line, trow, bs=32, bf16=True):
+    """delta_hat, p_de, baseline pw_mean, baseline z: (N, G) float32 numpy."""
+    out = {k: [] for k in ('delta', 'p', 'pw_mean', 'pw_z')}
+    for s in range(0, len(kd), bs):
+        b = bank.batch(kd=kd[s:s + bs], line=line[s:s + bs], trow=trow[s:s + bs])
+        with torch.autocast('cuda', dtype=torch.bfloat16, enabled=bf16):
+            o = model(b)
+        out['delta'].append(o['delta'].float().cpu()); out['p'].append(torch.sigmoid(o['p_logit'].float()).cpu())
+        out['pw_mean'].append(b['pw_mean'].cpu()); out['pw_z'].append(b['pw_z'].cpu())
+    return {k: torch.cat(v).numpy() for k, v in out.items()}
+
+
+def kd_metrics(true, de, measured, pred, score):
+    m = measured; t = true[m]; d = de[m]; p = pred[m]; s = score[m]
+    r = dict(n_genes=int(m.sum()), n_de=int(d.sum()))
+    r['r_all'] = float(np.corrcoef(t, p)[0, 1]) if m.sum() > 2 and np.std(p) > 0 and np.std(t) > 0 else np.nan
+    r['r_de'] = float(np.corrcoef(t[d], p[d])[0, 1]) if d.sum() >= 3 and np.std(p[d]) > 0 else np.nan
+    r['sign_de'] = float((np.sign(p[d]) == np.sign(t[d])).mean()) if d.any() else np.nan
+    r['auprc'] = float(average_precision_score(d, s)) if d.any() and not d.all() else np.nan
+    r['auprc_random'] = float(d.mean()) if m.any() else np.nan
+    return r
+
+
+def table(rows_true, preds, info):
+    """Per-knockdown metrics for model and baseline; rows_true: list of (lfc, de, measured) arrays."""
+    recs = []
+    for i, (t, d, m) in enumerate(rows_true):
+        base = dict(info[i])
+        recs.append(dict(base, method='model', **kd_metrics(t, d, m, preds['delta'][i], preds['p'][i])))
+        recs.append(dict(base, method='baseline', **kd_metrics(t, d, m, preds['pw_mean'][i], np.abs(preds['pw_z'][i]))))
+    return pd.DataFrame(recs)
+
+
+def summary(df, strong=50):
+    cols = ['r_all', 'r_de', 'sign_de', 'auprc', 'auprc_random']
+    out = {}
+    for meth, g in df.groupby('method'):
+        out[(meth, 'all')] = g[cols].median()
+        s = g[g.n_de_bh >= strong]
+        if len(s): out[(meth, f'n_de_bh>={strong}')] = s[cols].median()
+    t = pd.DataFrame(out).T
+    t['knockdowns'] = [len(df[df.method == m]) if k == 'all' else int((df[df.method == m].n_de_bh >= strong).sum())
+                       for m, k in t.index]
+    return t
+
+
+def heldout_effect(model, bank, bs=32):
+    rows = bank.val_rows
+    kd, line, trow = (x[torch.as_tensor(rows, device=bank.device)] for x in bank._rows_t)
+    preds = predict(model, bank, kd, line, trow, bs)
+    rows_true, info = [], []
+    for s in range(0, len(rows), bs):
+        b = bank.batch(rows=rows[s:s + bs])
+        lt = b['lfc_t'].cpu().numpy(); de = b['de'].cpu().numpy(); lm = b['loss_mask'].cpu().numpy()
+        for j in range(len(lt)):
+            r = rows[s + j]; ln = LINES[bank.row_line[r]]
+            rows_true.append((lt[j], de[j], lm[j]))
+            info.append(dict(line=ln, target=bank.kd_vocab[bank.row_kd[r]], n_de_bh=int(de[j].sum())))
+    return table(rows_true, preds, info)
+
+
+def h1_truth(bank):
+    """H1's own table on the run's genes (read from disk; never part of a validation-mode bank)."""
+    E = Path(bank.cfg['paths']['effects'])
+    with h5py.File(E / 'arc_h1.h5ad', 'r') as f:
+        obs = read_elem(f['obs']); L = f['layers/lfc'][:][:, bank.gcols]; S = f['layers/se'][:][:, bank.gcols]
+    keys = kd_keys(obs); col = {g: i for i, g in enumerate(bank.genes)}
+    kcols = np.array([col.get(s, -1) for s in obs['target_gene'].astype(str)])
+    de = de_full(E, 'arc_h1', bank.cfg['paths']['cache'], kcols)[:, bank.gcols]
+    own = bank.gcols[None, :] == kcols[:, None]
+    measured = np.isfinite(L) & np.isfinite(S) & ~own
+    return obs, keys, np.nan_to_num(L), de & measured, measured
+
+
+def h1_effect(model, bank, bs=32):
+    obs, keys, L, de, measured = h1_truth(bank)
+    kd, line, trow = bank.rows_for('H1', keys)
+    preds = predict(model, bank, kd, line, trow, bs)
+    info = [dict(line='H1', target=k, target_gene=g, n_de_bh=int(n)) for k, g, n in
+            zip(keys, obs['target_gene'].astype(str), de.sum(1))]
+    return table(list(zip(L, de, measured)), preds, info), preds, obs
+
+
+def main():
+    ap = argparse.ArgumentParser(); ap.add_argument('cmd', choices=['effect'])
+    ap.add_argument('--run', required=True); ap.add_argument('--ckpt', default='best.pt'); a = ap.parse_args()
+    cfg, bank, model = load_run(a.run, ckpt=a.ckpt); run = Path(a.run)
+    if a.cmd == 'effect':
+        held = heldout_effect(model, bank); held.to_csv(run / 'effect_heldout.csv', index=False)
+        h1, _, _ = h1_effect(model, bank); h1.to_csv(run / 'effect_h1.csv', index=False)
+        pd.set_option('display.width', 200)
+        print('held-out genes (all target lines):'); print(summary(held).round(3).to_string())
+        for ln, g in held[held.method == 'model'].groupby('line'):
+            print(f'  {ln}: model r_all {g.r_all.median():.3f}, baseline {held[(held.method == "baseline") & (held.line == ln)].r_all.median():.3f} ({len(g)} knockdowns)')
+        print('\nH1, all 300 knockdowns (zero-shot):'); print(summary(h1).round(3).to_string())
+        res = dict(heldout={f'{m}|{k}': v.to_dict() for (m, k), v in summary(held).iterrows()},
+                   h1={f'{m}|{k}': v.to_dict() for (m, k), v in summary(h1).iterrows()})
+        (run / 'effect_summary.json').write_text(json.dumps(res, indent=1, default=float))
+
+
+if __name__ == '__main__':
+    main()

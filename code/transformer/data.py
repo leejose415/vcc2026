@@ -181,6 +181,9 @@ class Bank:
                        for g in self.targets_300 if g in sym_col}
         keys = set(target_keys)
         for o in list(obs.values()) + list(pie_obs.values()): keys |= set(kd_keys(o))
+        if 'H1' not in self.loaded:                  # H1 knockdown names only (no H1 data), for zero-shot H1 predictions
+            with h5py.File(E / 'arc_h1.h5ad', 'r') as f:
+                keys |= set(kd_keys(read_elem(f['obs'])))
         self.kd_vocab = np.array(sorted(keys)); kd_id = {k: i for i, k in enumerate(self.kd_vocab)}; K = len(self.kd_vocab)
         self.kd_symbol = np.array([k[7:] if k.startswith('symbol:') else '' for k in self.kd_vocab], dtype=object)
         kd_col = np.array([id_col.get(k, sym_col.get(k[7:], -1)) if not k.startswith('symbol:') else sym_col.get(k[7:], -1)
@@ -292,6 +295,7 @@ class Bank:
                 f[..., 0] = torch.where(m, L, 0.0); f[..., 2] = mf; f[..., 8] = torch.where(m, P, 0.0); f[..., 9] = mf
                 feats[sel, :, PIE_SLOT] = f
         pw_mean = torch.where(wsum > 0, wl / wsum.clamp(min=1e-12), 0.0)
+        pw_z = pw_mean * wsum.sqrt()                               # baseline score: |z| of the weighted mean
         slot_mask = feats[..., 2] > 0
         # knockdown features
         e = self.eff[kd].clone()                                   # (B, sources): k's own lfc in each source
@@ -305,7 +309,7 @@ class Bank:
         kd_basal = torch.where((kcol >= 0)[:, None], self.basal[line, kcol.clamp(min=0)], 0.0)
         kd_feats = torch.cat([kd_basal, eff[:, None], known.float()[:, None]], 1)
         basal = self.basal[line][:, self.gcols_t]
-        out = dict(kd=kd, line=line, slot_feats=feats, slot_mask=slot_mask, pw_mean=pw_mean, basal=basal,
+        out = dict(kd=kd, line=line, slot_feats=feats, slot_mask=slot_mask, pw_mean=pw_mean, pw_z=pw_z, basal=basal,
                    kd_feats=kd_feats, kd_col=kcol, gene_cols=self.gcols_t)
         # targets
         if (trow >= 0).any():

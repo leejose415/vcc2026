@@ -113,13 +113,14 @@ def train(cfg, bank=None, log=print):
 def smoke(cfg):
     """Overfit 64 examples (tiny model, no dropout / noise), then 200 real training steps."""
     seed_all(cfg['seed']); bank = Bank(cfg); res = {}
-    model = make_model(cfg, bank); opt = torch.optim.AdamW(model.parameters(), lr=1e-3, weight_decay=0)
-    rows = bank.train_rows[np.random.default_rng(0).choice(len(bank.train_rows), 64, replace=False)]
-    first = None
-    for i in range(600):
+    sc = dict(dict(overfit_steps=600, overfit_lr=1e-3, overfit_rows=64), **cfg.get('smoke', {}))
+    model = make_model(cfg, bank); opt = torch.optim.AdamW(model.parameters(), lr=sc['overfit_lr'], weight_decay=0)
+    rows = bank.train_rows[np.random.default_rng(0).choice(len(bank.train_rows), sc['overfit_rows'], replace=False)]
+    first = None; n = sc['overfit_steps']
+    for i in range(n):
         p = step_batch(model, bank, rows, cfg, opt, train=True)
         first = first or p
-        if i % 100 == 0 or i == 599: print(f'  overfit step {i:3d}: loss {p["loss"]:.4f} (huber {p["huber"]:.4f} cos {p["cosine"]:.4f} bce {p["bce"]:.4f})', flush=True)
+        if i % max(1, n // 6) == 0 or i == n - 1: print(f'  overfit step {i:3d}: loss {p["loss"]:.4f} (huber {p["huber"]:.4f} cos {p["cosine"]:.4f} bce {p["bce"]:.4f})', flush=True)
     res['overfit'] = dict(first=first, last=p, ratio=p['loss'] / first['loss'])
     seed_all(cfg['seed']); model = make_model(cfg, bank)
     opt = torch.optim.AdamW(model.parameters(), lr=cfg['train']['lr'], weight_decay=cfg['train']['weight_decay'])
