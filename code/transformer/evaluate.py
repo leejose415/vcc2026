@@ -120,10 +120,65 @@ def h1_effect(model, bank, bs=32):
     return table(list(zip(L, de, measured)), preds, info), preds, obs
 
 
+SCHEMA = 'vcc_2026_3_ridge_v1'          # the prediction-folder schema vcc3_generate.py checks
+
+
+def write_pred_dir(out, targets, genes, gcols, delta, p, ontarget, taus, sources, heldout, extra=None):
+    """A prediction folder for vcc3_generate.py: one full-panel array per calling threshold (p_de > tau keeps delta_hat,
+    every other gene and every gene outside the run's set is 0 = no change), plus ontarget_lfc and the report."""
+    out = Path(out); out.mkdir(parents=True, exist_ok=True)
+    G = len(genes); models = []
+    np.save(out / 'genes.npy', np.asarray(genes).astype(str)); np.save(out / 'targets.npy', np.asarray(targets).astype(str))
+    np.save(out / 'ontarget_lfc.npy', np.asarray(ontarget, np.float32))
+    for tau in taus:
+        D = np.zeros((len(targets), G), np.float32)
+        D[:, gcols] = np.where(p > tau, delta, 0.0)
+        name = f'tf_tau{tau:g}'; np.save(out / f'{name}.npy', D); models.append(name)
+    for name, arr in (extra or {}).items():
+        D = np.zeros((len(targets), G), np.float32); D[:, gcols] = arr; np.save(out / f'{name}.npy', D); models.append(name)
+    report = dict(schema=SCHEMA, heldout_background=heldout, source_backgrounds=sources, models=models,
+                  note='vcc_2026_4 transformer; calling p_de > tau, uncalled genes and genes outside the run set = no change')
+    (out / 'prediction_report.json').write_text(json.dumps(report, indent=1))
+    return models
+
+
+def h1_pipeline(cfg, bank, model, run, taus, n_targets=75):
+    """Zero-shot H1 predictions -> existing generator -> official scorer on the unfiltered H1 cells, scored on the same
+    75-target reference (lib/vcc_2026_3/val_final) as the earlier H1 results."""
+    import subprocess
+    if bank.mode != 'validation': raise ValueError('the H1 pipeline needs a validation-mode run (H1 unseen)')
+    obs, keys, L, de, measured = h1_truth(bank)
+    kd, line, trow = bank.rows_for('H1', keys)
+    preds = predict(model, bank, kd, line, trow)
+    eff = torch.cat([bank.batch(kd=kd[s:s + 64], line=line[s:s + 64], trow=trow[s:s + 64])['kd_feats'][:, -2:].cpu()
+                     for s in range(0, len(kd), 64)]).numpy()
+    ontarget = np.where(eff[:, 1] > 0, eff[:, 0], np.nan)
+    pdir = Path(run) / 'h1_pred'
+    sources = [l for l in bank.loaded if l != 'H1']
+    models = write_pred_dir(pdir, obs['target_gene'].astype(str).to_numpy(), bank.genes, bank.gcols, preds['delta'],
+                            preds['p'], ontarget, taus, sources, 'H1', extra=dict(baseline_pw=preds['pw_mean']))
+    variants = [dict(method=m, call='z', z=0.0, min_effect=0.0, alpha=1.0, label=m) for m in models]
+    vpath = Path(run) / 'h1_variants.json'; vpath.write_text(json.dumps(variants, indent=1))
+    cmd = ['python', 'vcc3_generate.py', 'benchmark', '--cells', str(V / 'lib/h1/H1_full_2025.h5ad'),
+           '--genes', str(V / 'data/gene_names.csv'), '--targets', str(V / 'lib/vcc_2026_3/validation/targets.csv'),
+           '--predictions', str(pdir), '--eval-profile', 'vcc2026', '--n-targets', str(n_targets),
+           '--reference', str(V / 'lib/vcc_2026_3/val_final'), '--variants', str(vpath), '--out', str(Path(run) / 'h1_bench')]
+    import sys
+    cmd[0] = sys.executable
+    print(' '.join(cmd), flush=True)
+    subprocess.run(cmd, cwd=V / 'code/vcc_2026_3c', check=True)
+    scaled = pd.read_csv(Path(run) / 'h1_bench/scaled_scores.csv', index_col=0)
+    print(scaled.round(4).to_string())
+    return scaled
+
+
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument('cmd', choices=['effect'])
-    ap.add_argument('--run', required=True); ap.add_argument('--ckpt', default='best.pt'); a = ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument('cmd', choices=['effect', 'h1-pipeline'])
+    ap.add_argument('--run', required=True); ap.add_argument('--ckpt', default='best.pt')
+    ap.add_argument('--taus', nargs='+', type=float, default=[0.3, 0.5, 0.7, 0.9]); a = ap.parse_args()
     cfg, bank, model = load_run(a.run, ckpt=a.ckpt); run = Path(a.run)
+    if a.cmd == 'h1-pipeline':
+        h1_pipeline(cfg, bank, model, run, a.taus); return
     if a.cmd == 'effect':
         held = heldout_effect(model, bank); held.to_csv(run / 'effect_heldout.csv', index=False)
         h1, _, _ = h1_effect(model, bank); h1.to_csv(run / 'effect_h1.csv', index=False)
