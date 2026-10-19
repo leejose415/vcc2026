@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Build a leaderboard file from per-line prediction folders: existing generator (vcc3_generate.py submit, 400 fresh
+# control-based cells per knockdown) -> vcc prep. Never submits.
+# Usage: bash scripts/make_submission.sh <pred dir with A/ B/ C/> <array, e.g. tf_tau0.5> <generator settings json> <run name>
+# Settings json: a selected_generator.json from an H1 benchmark (its settings block is used; the array is given here).
+set -euo pipefail
+pred="$1"; array="$2"; settings="$3"; name="$4"
+V="$HOME/vcc"; PY="$HOME/venv/bin/python"; out="$V/results/$name"
+[ -e "$out/prediction.h5ad" ] && { echo "$out already has a prediction: choose a new run name"; exit 1; }
+for line in A B C; do [ -f "$pred/$line/$array.npy" ] || { echo "missing $pred/$line/$array.npy"; exit 1; }; done
+free=$(df --output=avail -BG "$V" | tail -1 | tr -dc 0-9); [ "$free" -ge 25 ] || { echo "only ${free} GB free; need ~25"; exit 1; }
+cd "$V/code/vcc_2026_3c"
+"$PY" vcc3_generate.py submit --data "$V/data" --lines A B C --delta-array "$array" --settings "$settings" \
+  --delta "A=$pred/A" --delta "B=$pred/B" --delta "C=$pred/C" --out "$out"
+mem=$(awk '/MemAvailable|SwapFree/ {s += $2} END {print int(s / 1e6)}' /proc/meminfo)
+[ "$mem" -ge 34 ] || { echo "only ${mem} GB RAM + swap free; vcc prep peaks near 30 GB"; exit 1; }
+"$HOME/venv/bin/vcc" prep "$out/prediction.h5ad" -g "$V/data/gene_names.csv" --perts "$V/data/pert_counts.csv" -o "$out/prediction.vcc"
+ls -la "$out"
+echo "READY (not submitted): $out/prediction.vcc"

@@ -172,13 +172,67 @@ def h1_pipeline(cfg, bank, model, run, taus, n_targets=75):
     return scaled
 
 
+def challenge_rows(bank, line):
+    """Rows for our 300 targets (data/pert_counts.csv order) in challenge line A, B or C."""
+    tg = pd.read_csv(V / 'data/pert_counts.csv')['target_gene'].astype(str).tolist()
+    col = {g: i for i, g in enumerate(bank.genes)}
+    keys = [bank.panel_ids[col[g]] if bank.panel_ids[col[g]].startswith('ENSG') else f'symbol:{g}' for g in tg]
+    return tg, bank.rows_for(line, keys)
+
+
+def efficiency(bank, kd, line, trow):
+    eff = torch.cat([bank.batch(kd=kd[s:s + 64], line=line[s:s + 64], trow=trow[s:s + 64])['kd_feats'][:, -2:].cpu()
+                     for s in range(0, len(kd), 64)]).numpy()
+    return np.where(eff[:, 1] > 0, eff[:, 0], np.nan)
+
+
+def predict_lines(bank, model, out, taus, lines=('A', 'B', 'C'), pie_only=False):
+    """Prediction folders for the challenge lines: out/<line>/ (tf_tau<t>.npy or pie_tau<t>.npy, ontarget_lfc.npy).
+    pie_only: PIE lfc_pred / p_de from lib/pie_tables instead of the transformer (the fallback submission)."""
+    import h5py
+    out = Path(out); summary = {}
+    for line in lines:
+        targets, (kd, ln, tr) = challenge_rows(bank, line)
+        ontarget = efficiency(bank, kd, ln, tr)
+        if pie_only:
+            with h5py.File(Path(bank.cfg['paths']['pie_tables']) / f'pie_{line}.h5ad', 'r') as f:
+                obs = read_elem(f['obs']); L = f['layers/lfc_pred'][:]; P = f['layers/p_de'][:]
+            pos = {g: i for i, g in enumerate(obs['target_gene'].astype(str))}
+            idx = [pos[t] for t in targets]
+            delta = np.nan_to_num(L[idx][:, bank.gcols]); p = np.nan_to_num(P[idx][:, bank.gcols])
+            prefix = 'pie'
+        else:
+            preds = predict(model, bank, kd, ln, tr); delta, p = preds['delta'], preds['p']; prefix = 'tf'
+        models = write_pred_dir(out / line, targets, bank.genes, bank.gcols, delta, p, ontarget, taus,
+                                [l for l in bank.loaded], 'none (final predictions)')
+        if prefix == 'pie':
+            for m in models:                                   # name the arrays after their source
+                (out / line / f'{m}.npy').rename(out / line / f'{m.replace("tf_", "pie_")}.npy')
+            models = [m.replace('tf_', 'pie_') for m in models]
+            rep = json.loads((out / line / 'prediction_report.json').read_text()); rep['models'] = models
+            (out / line / 'prediction_report.json').write_text(json.dumps(rep, indent=1))
+        calls = {f'tau{t:g}': float((p > t).sum(1).mean()) for t in taus}
+        summary[line] = dict(targets=len(targets), ontarget_known=int(np.isfinite(ontarget).sum()),
+                             mean_calls_per_knockdown=calls, models=models)
+        print(line, json.dumps(summary[line]), flush=True)
+    (out / 'predict_summary.json').write_text(json.dumps(summary, indent=1))
+    return summary
+
+
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument('cmd', choices=['effect', 'h1-pipeline'])
-    ap.add_argument('--run', required=True); ap.add_argument('--ckpt', default='best.pt')
+    ap = argparse.ArgumentParser(); ap.add_argument('cmd', choices=['effect', 'h1-pipeline', 'predict-lines'])
+    ap.add_argument('--run'); ap.add_argument('--ckpt', default='best.pt'); ap.add_argument('--out')
+    ap.add_argument('--pie-only', action='store_true', help='predict-lines: PIE tables instead of a run (fallback)')
+    ap.add_argument('--config', help='predict-lines --pie-only: bank config (final mode)')
     ap.add_argument('--taus', nargs='+', type=float, default=[0.3, 0.5, 0.7, 0.9]); a = ap.parse_args()
+    if a.cmd == 'predict-lines' and a.pie_only:
+        cfg = C.load(a.config, mode='final', pie='on', gene_set='full'); bank = Bank(cfg, device='cpu')   # every panel gene PIE predicts
+        predict_lines(bank, None, a.out, a.taus, pie_only=True); return
     cfg, bank, model = load_run(a.run, ckpt=a.ckpt); run = Path(a.run)
     if a.cmd == 'h1-pipeline':
         h1_pipeline(cfg, bank, model, run, a.taus); return
+    if a.cmd == 'predict-lines':
+        predict_lines(bank, model, a.out or run / 'pred_lines', a.taus); return
     if a.cmd == 'effect':
         held = heldout_effect(model, bank); held.to_csv(run / 'effect_heldout.csv', index=False)
         h1, _, _ = h1_effect(model, bank); h1.to_csv(run / 'effect_h1.csv', index=False)
