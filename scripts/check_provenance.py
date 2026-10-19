@@ -78,7 +78,8 @@ def check_table(path):
 
 
 def code_strings(src):
-    """(line, text) of every string constant in Python source, docstrings excluded (comments are not tokens)."""
+    """(line, text) of every string constant in Python source, docstrings excluded (comments are not tokens); a bare
+    'effects' counts only when joined onto a path with / (a dict key named 'effects' is not a path)."""
     try:
         tree = ast.parse(src)
     except SyntaxError:
@@ -89,8 +90,9 @@ def code_strings(src):
             first = node.body[0]
             if isinstance(first, ast.Expr) and isinstance(first.value, ast.Constant) and isinstance(first.value.value, str):
                 docs.add(id(first.value))
-    return [(n.lineno, n.value) for n in ast.walk(tree)
-            if isinstance(n, ast.Constant) and isinstance(n.value, str) and id(n) not in docs]
+    joined = {id(n.right) for n in ast.walk(tree) if isinstance(n, ast.BinOp) and isinstance(n.op, ast.Div)}
+    return [(n.lineno, n.value if not (n.value == 'effects' and id(n) not in joined) else '')
+            for n in ast.walk(tree) if isinstance(n, ast.Constant) and isinstance(n.value, str) and id(n) not in docs]
 
 
 def grep_old():
