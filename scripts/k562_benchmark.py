@@ -99,7 +99,7 @@ def main():
         if pie is not None and str(tobs['target_gene'].iloc[i]) in pie[0]:
             j = pie[0][str(tobs['target_gene'].iloc[i])]; cols = pie[1][meas]; ok = cols >= 0
             pl = np.zeros(meas.sum()); ps = np.zeros(meas.sum())
-            pl[ok] = pie[2][j][cols[ok]]; ps[ok] = pie[3][j][cols[ok]]
+            pl[ok] = np.nan_to_num(pie[2][j][cols[ok]]); ps[ok] = np.nan_to_num(pie[3][j][cols[ok]])   # NaN = no prediction
             out['pie'].append(dict(info, covered=float(ok.mean()), **metrics(true, de, pl, ps)))
     OUT.mkdir(parents=True, exist_ok=True)
     for m, rows in out.items():

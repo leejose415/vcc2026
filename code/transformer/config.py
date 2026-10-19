@@ -19,7 +19,8 @@ DEFAULTS = dict(
     train=dict(batch_size=32, lr=3e-4, weight_decay=0.01, warmup=500, epochs=20, patience=3, grad_clip=1.0,
                eff_noise=0.2, steps_per_epoch=None, bf16=True, eval_batches=None),
     loss=dict(huber_delta=1.0, se_eps=0.1, cos_weight=0.1, bce_weight=1.0, pos_weight_max=50.0),
-    paths=dict(effects='lib/effects_v4', pie_features='lib/pie_features', cache='lib/transformer_cache',
+    paths=dict(effects='lib/effects_v4', pie_tables='lib/pie_tables', pie_features='lib/pie_features',
+               cache='lib/transformer_cache',
                runs='lib/vcc_2026_4/runs'),
 )
 

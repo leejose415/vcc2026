@@ -166,7 +166,7 @@ class Bank:
             if line not in self.loaded: continue
             with h5py.File(E / f'{src}.h5ad', 'r') as f:
                 obs[line] = read_elem(f['obs'])
-        pie_paths = {line: E / f'pie_{line.lower() if line not in "ABC" else line}.h5ad' for line in PIE_LINES}
+        pie_paths = {line: Path(cfg['paths']['pie_tables']) / f'pie_{line}.h5ad' for line in PIE_LINES}
         want_pie = cfg['pie'] == 'on' or (cfg['pie'] == 'auto' and all(p.exists() for l, p in pie_paths.items() if l not in 'ABC'))
         if cfg['pie'] == 'on':
             missing = [str(p) for l, p in pie_paths.items() if l not in 'ABC' and not p.exists()]
