@@ -228,7 +228,7 @@ def main():
     if a.cmd == 'predict-lines' and a.pie_only:
         cfg = C.load(a.config, mode='final', pie='on', gene_set='full'); bank = Bank(cfg, device='cpu')   # every panel gene PIE predicts
         predict_lines(bank, None, a.out, a.taus, pie_only=True); return
-    cfg, bank, model = load_run(a.run, ckpt=a.ckpt); run = Path(a.run)
+    cfg, bank, model = load_run(a.run, ckpt=a.ckpt); run = Path(a.run).resolve()   # absolute: the generator runs from its own folder
     if a.cmd == 'h1-pipeline':
         h1_pipeline(cfg, bank, model, run, a.taus); return
     if a.cmd == 'predict-lines':
