@@ -1,0 +1,16 @@
+# Smoke test: small model on 500 genes, no dropout or efficiency noise (so 64 examples can be overfit).
+name: tiny
+mode: validation
+gene_set: dev
+n_genes: 500
+pie: auto
+model:
+  d: 64
+  layers: 2
+  heads: 4
+  ff: 128
+  dropout: 0.0
+train:
+  batch_size: 16
+  eff_noise: 0.0
+  warmup: 20

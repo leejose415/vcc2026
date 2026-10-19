@@ -1,0 +1,11 @@
+# Final mode: H1 becomes a target and an evidence source; settings otherwise as chosen in Phase E.
+name: final
+mode: final
+gene_set: dev
+n_genes: 5000
+pie: auto
+gene_features: pie
+train:
+  batch_size: 32
+  epochs: 20
+  patience: 3

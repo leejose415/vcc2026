@@ -1,0 +1,11 @@
+# Validation-mode dev run: 5,000 genes (our 300 targets + top genes), PIE evidence when its tables exist.
+name: dev
+mode: validation
+gene_set: dev
+n_genes: 5000
+pie: auto
+gene_features: pie
+train:
+  batch_size: 32
+  epochs: 20
+  patience: 3

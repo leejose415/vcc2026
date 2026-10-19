@@ -3,7 +3,8 @@ data/
 lib/
 results/
 logs/
-code/
+code/*
+!code/transformer/
 *.h5ad
 .ipynb_checkpoints/
 __pycache__/
