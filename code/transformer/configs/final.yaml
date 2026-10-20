@@ -1,11 +1,13 @@
-# Final mode: H1 becomes a target and an evidence source; settings otherwise as chosen in Phase E.
+# Final mode: H1 becomes a target and an evidence source. No held-out genes; a fixed epoch count (the dev run's best
+# epoch, 12, with the cosine schedule ending there). PIE evidence per the Phase E comparison (--pie on|off).
 name: final
 mode: final
 gene_set: dev
 n_genes: 5000
-pie: auto
+holdout_frac: 0.0
+pie: off
 gene_features: pie
 train:
   batch_size: 32
-  epochs: 20
-  patience: 3
+  epochs: 12
+  patience: 100

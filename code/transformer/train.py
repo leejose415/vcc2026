@@ -87,16 +87,17 @@ def train(cfg, bank=None, log=print):
                 for k, v in p.items(): acc[k] = acc.get(k, 0.0) + v
                 if not math.isfinite(p['loss']): raise FloatingPointError(f'non-finite loss at step {step}: {p}')
             tr = {f'train_{k}': v / max(nb, 1) for k, v in acc.items() if k not in ('measured', 'pos_weight')}
-            va = {f'val_{k}': v for k, v in evaluate(model, bank, bank.val_rows, cfg, tc['eval_batches']).items()
-                  if k != 'pos_weight'}
+            holdout = len(bank.val_rows) > 0        # final runs (holdout_frac 0) train on every gene for a fixed epoch count
+            va = ({f'val_{k}': v for k, v in evaluate(model, bank, bank.val_rows, cfg, tc['eval_batches']).items()
+                   if k != 'pos_weight'} if holdout else {'val_loss': float('nan')})
             rec = dict(epoch=epoch, step=step, lr=opt.param_groups[0]['lr'], gamma=float(model.gamma), seconds=time.time() - t0,
                        **tr, **va)
             if w is None:
                 w = csv.DictWriter(fh, fieldnames=list(rec)); w.writeheader()
             w.writerow(rec); fh.flush()
-            improved = va['val_loss'] < best
+            improved = va['val_loss'] < best if holdout else True
             if improved:
-                best, bad = va['val_loss'], 0
+                best, bad = (va['val_loss'] if holdout else best), 0
                 torch.save(dict(model=model.state_dict(), epoch=epoch, val_loss=best), run / 'best.pt')
             else:
                 bad += 1
