@@ -4,7 +4,7 @@
 # Usage: bash scripts/make_submission.sh <pred dir with A/ B/ C/> <array, e.g. tf_tau0.5> <generator settings json> <run name>
 # Settings json: a selected_generator.json from an H1 benchmark (its settings block is used; the array is given here).
 set -euo pipefail
-pred="$1"; array="$2"; settings="$3"; name="$4"
+pred=$(realpath "$1"); array="$2"; settings=$(realpath "$3"); name="$4"   # absolute: the generator runs from its own folder
 V="$HOME/vcc"; PY="$HOME/venv/bin/python"; out="$V/results/$name"
 [ -e "$out/prediction.h5ad" ] && { echo "$out already has a prediction: choose a new run name"; exit 1; }
 for line in A B C; do [ -f "$pred/$line/$array.npy" ] || { echo "missing $pred/$line/$array.npy"; exit 1; }; done
