@@ -5,6 +5,11 @@ results/
 logs/
 code/*
 !code/transformer/
+!code/vcc_2026_3c/
+code/vcc_2026_3c/*
+!code/vcc_2026_3c/vcc3_generate.py
+!code/vcc_2026_3c/vcc2_common.py
+!code/vcc_2026_3c/vcc_exact_totals.py
 *.h5ad
 .ipynb_checkpoints/
 __pycache__/
