@@ -166,7 +166,9 @@ def h1_pipeline(cfg, bank, model, run, taus, n_targets=75):
     import sys
     cmd[0] = sys.executable
     print(' '.join(cmd), flush=True)
-    subprocess.run(cmd, cwd=V / 'code/vcc_2026_3c', check=True)
+    import os
+    env = dict(os.environ, PATH=str(Path(sys.executable).parent) + os.pathsep + os.environ.get('PATH', ''))   # cell-eval2
+    subprocess.run(cmd, cwd=V / 'code/vcc_2026_3c', check=True, env=env)
     scaled = pd.read_csv(Path(run) / 'h1_bench/scaled_scores.csv', index_col=0)
     print(scaled.round(4).to_string())
     return scaled
