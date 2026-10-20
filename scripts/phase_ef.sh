@@ -22,7 +22,7 @@ p3=$!
 "$PY" -m transformer.evaluate effect --run $R/dev_pie > $L/eval_dev_pie.log 2>&1
 "$PY" -m transformer.evaluate predict-lines --run $R/final_nopie --out $R/final_nopie/pred_lines > $L/pred_final_nopie.log 2>&1
 "$PY" -m transformer.evaluate predict-lines --pie-only --config code/transformer/configs/final.yaml --out lib/vcc_2026_4/pie_only/pred_lines > $L/pred_pie_only.log 2>&1
-"$PY" -m transformer.evaluate h1-pipeline --run $R/dev_pie > $L/h1_dev_pie.log 2>&1
+"$PY" -m transformer.evaluate h1-pipeline --run $R/dev_pie --taus 0.5 0.7 0.9 --topn 1000 2000 --floor --tag _floor --no-baseline > $L/h1_dev_pie.log 2>&1
 wait $p3
 "$PY" -m transformer.evaluate predict-lines --run $R/final_pie --out $R/final_pie/pred_lines > $L/pred_final_pie.log 2>&1
 date -u; echo "== phase E-F runs done"
