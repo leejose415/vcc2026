@@ -424,7 +424,7 @@ def generate_one(line, d, j, kd, cfg, rng=None, pick=None, line_key="line", targ
         expected_totals = E.sum(0); realized = B.sum(0); big = np.rint(expected_totals) > 50
         pin = dict(bias_ratio_median=float(np.median(realized[big]/expected_totals[big])) if big.any() else float('nan'),
                    genes_T_gt_50=int(big.sum()), pre_pin_abs_err=float(np.abs(realized-np.rint(expected_totals)).sum()))
-        B = pin_totals(B, expected_totals, rng); pin['_expected_totals'] = expected_totals.astype(np.float32)
+        B = pin_totals(B, expected_totals, rng); pin['_expected_totals'] = expected_totals   # float64: float32 rounds x.5 totals 1 off
         pin['post_pin_max_abs_err'] = float(np.abs(B.sum(0)-np.maximum(0, np.rint(expected_totals))).max())
     if B.max(initial=0) > np.iinfo(np.int32).max: raise ValueError("count exceeds int32 range")
     out = sp.csr_matrix(B.astype(np.int32)); out.eliminate_zeros(); validate_counts(out)
