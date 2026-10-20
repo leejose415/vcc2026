@@ -39,10 +39,11 @@ def load_run(run, device='cuda', ckpt='best.pt'):
 @torch.no_grad()
 def predict(model, bank, kd, line, trow, bs=32, bf16=True):
     """delta_hat, p_de, baseline pw_mean, baseline z: (N, G) float32 numpy."""
+    if bank.device.type == 'cpu': bs = min(bs, 8)
     out = {k: [] for k in ('delta', 'p', 'pw_mean', 'pw_z')}
     for s in range(0, len(kd), bs):
         b = bank.batch(kd=kd[s:s + bs], line=line[s:s + bs], trow=trow[s:s + bs])
-        with torch.autocast('cuda', dtype=torch.bfloat16, enabled=bf16):
+        with torch.autocast('cuda', dtype=torch.bfloat16, enabled=bf16 and bank.device.type == 'cuda'):
             o = model(b)
         out['delta'].append(o['delta'].float().cpu()); out['p'].append(torch.sigmoid(o['p_logit'].float()).cpu())
         out['pw_mean'].append(b['pw_mean'].cpu()); out['pw_z'].append(b['pw_z'].cpu())
@@ -147,7 +148,7 @@ def write_pred_dir(out, targets, genes, gcols, delta, p, ontarget, taus, sources
     return models
 
 
-def h1_pipeline(cfg, bank, model, run, taus, n_targets=75, floor=False, topn=None, tag='', baseline=True):
+def h1_pipeline(cfg, bank, model, run, taus, n_targets=75, floor=False, topn=None, tag='', baseline=True, alphas=(1.0,)):
     """Zero-shot H1 predictions -> existing generator -> official scorer on the unfiltered H1 cells, scored on the same
     75-target reference (lib/vcc_2026_3/val_final) as the earlier H1 results."""
     import subprocess
@@ -158,13 +159,14 @@ def h1_pipeline(cfg, bank, model, run, taus, n_targets=75, floor=False, topn=Non
     eff = torch.cat([bank.batch(kd=kd[s:s + 64], line=line[s:s + 64], trow=trow[s:s + 64])['kd_feats'][:, -2:].cpu()
                      for s in range(0, len(kd), 64)]).numpy()
     ontarget = np.where(eff[:, 1] > 0, eff[:, 0], np.nan)
-    pdir = Path(run) / f'h1_pred{tag}'
+    pdir = Path(run) / f'h1_pred{tag}'; pdir.mkdir(parents=True, exist_ok=True)
+    np.savez(pdir / 'raw_predictions.npz', delta=preds['delta'], p=preds['p'], pw_mean=preds['pw_mean'], gene_cols=bank.gcols)
     sources = [l for l in bank.loaded if l != 'H1']
     models = write_pred_dir(pdir, obs['target_gene'].astype(str).to_numpy(), bank.genes, bank.gcols, preds['delta'],
                             preds['p'], ontarget, taus, sources, 'H1',
                             extra=dict(baseline_pw=preds['pw_mean']) if baseline else None, topn=topn)
-    variants = [dict(method=m, call='z', z=0.0, min_effect=0.0, alpha=1.0, detect_floor=floor,
-                     label=m + ('_floor' if floor else '')) for m in models]
+    variants = [dict(method=m, call='z', z=0.0, min_effect=0.0, alpha=al, detect_floor=floor,
+                     label=m + (f'_a{al:g}' if al != 1 else '') + ('_floor' if floor else '')) for m in models for al in alphas]
     vpath = Path(run) / f'h1_variants{tag}.json'; vpath.write_text(json.dumps(variants, indent=1))
     cmd = ['python', 'vcc3_generate.py', 'benchmark', '--cells', str(V / 'lib/h1/H1_full_2025.h5ad'),
            '--genes', str(V / 'data/gene_names.csv'), '--targets', str(V / 'lib/vcc_2026_3/validation/targets.csv'),
@@ -241,13 +243,16 @@ def main():
     ap.add_argument('--topn', nargs='*', type=int, help='h1-pipeline: also top-N genes by p_de per knockdown')
     ap.add_argument('--floor', action='store_true', help='h1-pipeline: detection floor on called genes')
     ap.add_argument('--tag', default='', help='h1-pipeline: suffix for h1_pred / h1_bench folders')
-    ap.add_argument('--no-baseline', action='store_true'); a = ap.parse_args()
+    ap.add_argument('--no-baseline', action='store_true')
+    ap.add_argument('--alphas', nargs='+', type=float, default=[1.0], help='h1-pipeline: generator alpha per arm')
+    ap.add_argument('--device', default='cuda'); a = ap.parse_args()
     if a.cmd == 'predict-lines' and a.pie_only:
         cfg = C.load(a.config, mode='final', pie='on', gene_set='full'); bank = Bank(cfg, device='cpu')   # every panel gene PIE predicts
         predict_lines(bank, None, a.out, a.taus, pie_only=True); return
-    cfg, bank, model = load_run(a.run, ckpt=a.ckpt); run = Path(a.run).resolve()   # absolute: the generator runs from its own folder
+    cfg, bank, model = load_run(a.run, device=a.device, ckpt=a.ckpt); run = Path(a.run).resolve()   # absolute: the generator runs from its own folder
     if a.cmd == 'h1-pipeline':
-        h1_pipeline(cfg, bank, model, run, a.taus, floor=a.floor, topn=a.topn, tag=a.tag, baseline=not a.no_baseline); return
+        h1_pipeline(cfg, bank, model, run, a.taus, floor=a.floor, topn=a.topn, tag=a.tag, baseline=not a.no_baseline,
+                    alphas=a.alphas); return
     if a.cmd == 'predict-lines':
         predict_lines(bank, model, a.out or run / 'pred_lines', a.taus); return
     if a.cmd == 'effect':
