@@ -5,7 +5,11 @@ nb = nbf.v4.new_notebook()
 md, code = nbf.v4.new_markdown_cell, nbf.v4.new_code_cell
 C = []
 
-C.append(md("""# vcc_2026_4: transformer with PIE evidence
+C.append(md("""# vcc_2026_5: the transformer (submission v5)
+
+Formerly vcc_2026_4.ipynb, renamed to match the model number (v5 = this transformer, submitted 20 Oct: overall 0.0638,
+rank 885). Data folders keep their vcc_2026_4 names (`lib/vcc_2026_4/`, `logs/vcc_2026_4/`, `results/vcc_2026_4/`).
+
 
 Goal: a transformer submission to the 2026 leaderboard before it closes (rules: "until October 22, 2026", two entries per
 UTC day; planned cutoff 21 Oct 23:59 UTC). Runs on **vcc2027** (L4 24 GB). The logic lives in `scripts/` and
@@ -304,8 +308,37 @@ for r, out in SUBS.items():
 display(pd.DataFrame(summary))
 print('Not submitted. Submitting is a separate manual step: vcc submit <file> -m <name> --wait')"""))
 
+C.append(md("""## Ad hoc: exact pseudobulk totals (model held constant)
+
+Only the cell generator's last step changes; the v5 model, its deltas (`lib/vcc_2026_4/runs/final_nopie/pred_top5000`),
+the generator settings, seeds, cell counts, genes and file format stay the same. The scorer's mse and pds use each
+knockdown's summed counts (pseudobulk), so random sampling noise in those totals is pure error; its Wilcoxon DE metrics
+need control-like per-cell variation. `--exact-totals` (default off; off reproduces the old file exactly) pins every
+gene's total over a knockdown's 400 cells to the generator's expected total: the expected matrix is computed next to the
+sampler (binomial mean original x min(F, 1) + gamma-Poisson mean max(F - 1, 0) x (0.75 original + 0.25 lib x share);
+untouched genes keep their base counts), then `code/vcc_2026_3c/vcc_exact_totals.py:pin_totals` thins surpluses
+binomially, adds shortfalls as a multinomial over cells (w ~ X + 0.05 s_c) and removes any remainder hypergeometrically,
+with the generator's own per-(line, target) random stream. Not uploaded.
+
+*Result: filled in when it runs.*"""))
+C.append(code("""run('"$PY" -m pytest tests/test_exact_totals.py -q -s')"""))
+C.append(code("""ET = V / 'results/vcc_2026_5_final_nopie_top5000_exacttotals'
+if not (ET / 'prediction.vcc').exists():
+    bg('exacttotals', 'GEN_EXTRA="--exact-totals --workers 7" bash scripts/make_submission.sh lib/vcc_2026_4/runs/final_nopie/pred_top5000 '
+                      'tf_top5000 lib/vcc_2026_4/runs/dev_nopie/h1_bench_g3/selected_generator.json vcc_2026_5_final_nopie_top5000_exacttotals')
+    wait('exacttotals', every=120)
+bias = pd.concat([pd.read_csv(ET / f'projection_{l}.csv').assign(line=l) for l in 'ABC'])
+display(bias.groupby('line')[['bias_ratio_median', 'post_pin_max_abs_err']].agg(['median', 'min', 'max']))"""))
+C.append(code("""if not (ET / 'validation.json').exists():
+    bg('validate_et', '"$PY" scripts/validate_exact_totals.py --old results/vcc_2026_4_final_nopie_top5000 '
+                      '--new results/vcc_2026_5_final_nopie_top5000_exacttotals --pred lib/vcc_2026_4/runs/final_nopie/pred_top5000')
+    wait('validate_et', every=60)
+val = json.loads((ET / 'validation.json').read_text())
+display(pd.DataFrame({k: {kk: str(vv) for kk, vv in v.items() if kk != 'rows'} for k, v in val.items()}).T)
+display(pd.DataFrame(val['3_pseudobulk']['rows'])); display(pd.DataFrame(val['5_de_sanity']['rows']))"""))
+
 nb['cells'] = C
 nb['metadata'] = {'kernelspec': {'display_name': 'Python 3 (venv)', 'language': 'python', 'name': 'python3'},
                   'language_info': {'name': 'python'}}
-nbf.write(nb, str(Path.home() / 'vcc/vcc_2026_4.ipynb'))
+nbf.write(nb, str(Path.home() / 'vcc/vcc_2026_5.ipynb'))
 print('written', len(C), 'cells')

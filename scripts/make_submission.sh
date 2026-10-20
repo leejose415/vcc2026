@@ -14,8 +14,9 @@ else
   for line in A B C; do [ -f "$pred/$line/$array.npy" ] || { echo "missing $pred/$line/$array.npy"; exit 1; }; done
   free=$(df --output=avail -BG "$V" | tail -1 | tr -dc 0-9); [ "$free" -ge 40 ] || { echo "only ${free} GB free; need ~40"; exit 1; }
   cd "$V/code/vcc_2026_3c"
+  # GEN_EXTRA: extra generator switches, e.g. "--exact-totals --workers 7"
   "$PY" vcc3_generate.py submit --data "$V/data" --lines A B C --delta-array "$array" --settings "$settings" \
-    --delta "A=$pred/A" --delta "B=$pred/B" --delta "C=$pred/C" --out "$out"
+    --delta "A=$pred/A" --delta "B=$pred/B" --delta "C=$pred/C" --out "$out" ${GEN_EXTRA:-}
 fi
 export TMPDIR="$V/tmp_prep"; mkdir -p "$TMPDIR"     # vcc prep writes a full temporary copy; /tmp is a small tmpfs here
 mem=$(awk '/MemAvailable|SwapFree/ {s += $2} END {print int(s / 1e6)}' /proc/meminfo)

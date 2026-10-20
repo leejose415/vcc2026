@@ -77,6 +77,7 @@ class Cfg:
         self.gate_from = getattr(a, "gate_from", "") or ""
         self.metadata = getattr(a, "metadata", True)
         self.library_size = None
+        self.exact_totals = bool(getattr(a, "exact_totals", False))   # pin pseudobulk totals (vcc_exact_totals.py)
         if (not 0 <= self.pi < 1 or not 0 <= self.up_w <= 1 or self.n_cells < 1 or self.alpha < 0
                 or self.z < 0 or self.min_effect < 0 or self.call not in ("z", "topn") or self.top_n < 1 or self.z_req <= 0 or self.min_bg < 1
                 or (self.gate_from and self.call == "z" and self.z <= 0)):
@@ -84,7 +85,7 @@ class Cfg:
 
     def as_dict(self):
         # min_bg is left out at its default, so settings written before it existed still describe the same arm.
-        return {k: v for k, v in vars(self).items() if not (k == "min_bg" and v == 1)}
+        return {k: v for k, v in vars(self).items() if not (k == "min_bg" and v == 1) and not (k == "exact_totals" and not v)}
 
 
 # ---------------------------------------------------------------- inputs
@@ -392,6 +393,7 @@ def generate_one(line, d, j, kd, cfg, rng=None, pick=None, line_key="line", targ
     esc_rng = np.random.default_rng(seed_for(cfg.seed, line_key, "escapers"))
     escapers = esc_rng.random(len(pick)) < effective_pi
     cols = np.flatnonzero((np.abs(factors*lib_scale-1) > 1e-12) | ((line.share == 0) & (projected > 0)))
+    E = B.astype(np.float64) if cfg.exact_totals else None    # expected counts; untouched genes keep their base counts
     for g in cols:
         # Fresh per-gene seed gives common random draws without target-order dependence.
         grng = np.random.default_rng(seed_for(cfg.seed, line_key, "gene", line.genes[g]))
@@ -408,17 +410,27 @@ def generate_one(line, d, j, kd, cfg, rng=None, pick=None, line_key="line", targ
         else:
             expected = cfg.up_w*original+(1-cfg.up_w)*base
             intensity = up*expected
+        if E is not None:                                         # binomial mean + gamma-Poisson mean
+            E[:, g] = original*np.minimum(F, 1.0) + np.maximum(intensity, 0)
         if np.any(intensity > 0):
             dispersion = float(line.overdispersion[g])
             if dispersion > 1e-8:
                 intensity = grng.gamma(1/dispersion, intensity*dispersion)
             values += grng.poisson(intensity)
         B[:, g] = values
+    pin = {}
+    if E is not None:
+        from vcc_exact_totals import pin_totals
+        expected_totals = E.sum(0); realized = B.sum(0); big = np.rint(expected_totals) > 50
+        pin = dict(bias_ratio_median=float(np.median(realized[big]/expected_totals[big])) if big.any() else float('nan'),
+                   genes_T_gt_50=int(big.sum()), pre_pin_abs_err=float(np.abs(realized-np.rint(expected_totals)).sum()))
+        B = pin_totals(B, expected_totals, rng); pin['_expected_totals'] = expected_totals.astype(np.float32)
+        pin['post_pin_max_abs_err'] = float(np.abs(B.sum(0)-np.maximum(0, np.rint(expected_totals))).max())
     if B.max(initial=0) > np.iinfo(np.int32).max: raise ValueError("count exceeds int32 range")
     out = sp.csr_matrix(B.astype(np.int32)); out.eliminate_zeros(); validate_counts(out)
     planned = np.log2((projected*1e6+0.5)/(line.share*1e6+0.5))
     return out, dict(net_share_change=mass-1, projection_normalizer=mass, n_changed=int(len(cols)),
-                     effective_pi=effective_pi, library_scale=lib_scale), planned
+                     effective_pi=effective_pi, library_scale=lib_scale, **pin), planned
 
 
 def target_metadata(path, line, fallback_n, enabled=True):
@@ -515,10 +527,16 @@ def cmd_submit(a):
             # Pick max count once; different n_cells use prefixes of this same pool.
             pool_cfg = copy.copy(cfg); pool_cfg.n_cells = max(s['n_cells'] for s in specifications[name].values())
             common = pick_cells(line, np.zeros(len(genes)), pool_cfg, np.random.default_rng(seed_for(cfg.seed, name, 'base_controls')))
-            for i, t in enumerate(targets):
-                local = copy.copy(cfg); local.n_cells = specifications[name][t]['n_cells']; local.library_size = specifications[name][t]['median_umi_per_cell']
-                pick = None if local.tilt else common[:local.n_cells]
-                cells, diag, planned = generate_one(line, D[i], gp.get(t), kd[i], local, pick=pick, line_key=name, target_key=t)
+            global _SUBMIT_CTX
+            _SUBMIT_CTX = (line, D, gp, kd, cfg, specifications[name], name, common, targets)
+            if getattr(a, 'workers', 1) > 1:
+                import multiprocessing as mp
+                pool = mp.get_context('fork').Pool(a.workers); results = pool.imap(_generate_task, range(len(targets)), chunksize=2)
+            else:
+                pool = None; results = map(_generate_task, range(len(targets)))
+            expected = []
+            for i, (t, (cells, diag, planned)) in enumerate(zip(targets, results)):
+                if '_expected_totals' in diag: expected.append(diag.pop('_expected_totals'))
                 diags.append(dict(target=t, **diag))
                 if i < a.checks: checks.append(dict(target=t, **answer_free_check(cells, line, planned, gp.get(t))))
                 # float32 holds these integer counts exactly and matches vcc prep's output encoding,
@@ -527,6 +545,8 @@ def cmd_submit(a):
                 cells = cells.astype(np.float32)
                 if ds is None: write_elem(f, 'X', int64_indptr(cells)); ds = sparse_dataset(f['X'])
                 else: ds.append(cells)
+            if pool is not None: pool.close(); pool.join()
+            if expected: np.savez(out/f'expected_totals_{name}.npz', targets=np.asarray(targets, dtype=str), expected=np.stack(expected))
             pd.DataFrame(checks).to_csv(out/f'checks_{name}.csv', index=False)
             pd.DataFrame(diags).to_csv(out/f'projection_{name}.csv', index=False)
             report['lines'][name] = dict(n_targets=len(targets), n_cells=sum(s['n_cells'] for s in specifications[name].values()),
@@ -534,6 +554,18 @@ def cmd_submit(a):
             print(f"generated context {name}", flush=True)
     report['integer_counts'] = check_output(path, (len(obs), len(genes)))
     save_json(out/'generator_report.json', report); print(f'WROTE {path}; checked every output row')
+
+
+_SUBMIT_CTX = None
+
+
+def _generate_task(i):
+    """One knockdown of cmd_submit's current line (module level so a forked worker pool can run it)."""
+    line, D, gp, kd, cfg, spec, name, common, targets = _SUBMIT_CTX
+    t = targets[i]
+    local = copy.copy(cfg); local.n_cells = spec[t]['n_cells']; local.library_size = spec[t]['median_umi_per_cell']
+    pick = None if local.tilt else common[:local.n_cells]
+    return generate_one(line, D[i], gp.get(t), kd[i], local, pick=pick, line_key=name, target_key=t)
 
 
 class StreamingH5AD:
@@ -973,6 +1005,7 @@ def add_switches(p):
     p.add_argument('--min-bg', type=int, default=1)
     p.add_argument('--match-pool', action='store_true'); p.add_argument('--tilt', action='store_true')
     p.add_argument('--seed', type=int, default=2026)
+    p.add_argument('--exact-totals', action='store_true', help='pin each gene\'s pseudobulk total per knockdown to its expected value')
 
 
 if __name__ == '__main__':
@@ -984,6 +1017,7 @@ if __name__ == '__main__':
     s.add_argument('--delta-array', default='selected'); s.add_argument('--settings')
     s.add_argument('--kd-orion', nargs='*'); s.add_argument('--kd-tcell'); s.add_argument('--kd-tcell-condition', default='Stim48hr')
     s.add_argument('--checks', type=int, default=20)
+    s.add_argument('--workers', type=int, default=1, help='processes generating knockdowns in parallel (output identical)')
     for command, mode in [('benchmark', 'transfer'), ('oracle', 'oracle')]:
         b = sub.add_parser(command); add_switches(b); b.set_defaults(mode=mode)
         for key in ['cells', 'genes', 'out']: b.add_argument('--'+key, required=True)
