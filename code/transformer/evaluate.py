@@ -201,7 +201,7 @@ def efficiency(bank, kd, line, trow):
     return np.where(eff[:, 1] > 0, eff[:, 0], np.nan)
 
 
-def predict_lines(bank, model, out, taus, lines=('A', 'B', 'C'), pie_only=False):
+def predict_lines(bank, model, out, taus, lines=('A', 'B', 'C'), pie_only=False, topn=None):
     """Prediction folders for the challenge lines: out/<line>/ (tf_tau<t>.npy or pie_tau<t>.npy, ontarget_lfc.npy).
     pie_only: PIE lfc_pred / p_de from lib/pie_tables instead of the transformer (the fallback submission)."""
     import h5py
@@ -219,7 +219,8 @@ def predict_lines(bank, model, out, taus, lines=('A', 'B', 'C'), pie_only=False)
         else:
             preds = predict(model, bank, kd, ln, tr); delta, p = preds['delta'], preds['p']; prefix = 'tf'
         models = write_pred_dir(out / line, targets, bank.genes, bank.gcols, delta, p, ontarget, taus,
-                                [l for l in bank.loaded], 'none (final predictions)')
+                                [l for l in bank.loaded], 'none (final predictions)', topn=topn)
+        np.savez(out / line / 'raw_predictions.npz', delta=delta, p=p, gene_cols=bank.gcols, targets=np.asarray(targets, dtype=str))
         if prefix == 'pie':
             for m in models:                                   # name the arrays after their source
                 (out / line / f'{m}.npy').rename(out / line / f'{m.replace("tf_", "pie_")}.npy')
@@ -248,13 +249,13 @@ def main():
     ap.add_argument('--device', default='cuda'); a = ap.parse_args()
     if a.cmd == 'predict-lines' and a.pie_only:
         cfg = C.load(a.config, mode='final', pie='on', gene_set='full'); bank = Bank(cfg, device='cpu')   # every panel gene PIE predicts
-        predict_lines(bank, None, a.out, a.taus, pie_only=True); return
+        predict_lines(bank, None, a.out, a.taus, pie_only=True, topn=a.topn); return
     cfg, bank, model = load_run(a.run, device=a.device, ckpt=a.ckpt); run = Path(a.run).resolve()   # absolute: the generator runs from its own folder
     if a.cmd == 'h1-pipeline':
         h1_pipeline(cfg, bank, model, run, a.taus, floor=a.floor, topn=a.topn, tag=a.tag, baseline=not a.no_baseline,
                     alphas=a.alphas); return
     if a.cmd == 'predict-lines':
-        predict_lines(bank, model, a.out or run / 'pred_lines', a.taus); return
+        predict_lines(bank, model, a.out or run / 'pred_lines', a.taus, topn=a.topn); return
     if a.cmd == 'effect':
         held = heldout_effect(model, bank); held.to_csv(run / 'effect_heldout.csv', index=False)
         h1, _, _ = h1_effect(model, bank); h1.to_csv(run / 'effect_h1.csv', index=False)
