@@ -239,7 +239,7 @@ def main():
     ap.add_argument('--run'); ap.add_argument('--ckpt', default='best.pt'); ap.add_argument('--out')
     ap.add_argument('--pie-only', action='store_true', help='predict-lines: PIE tables instead of a run (fallback)')
     ap.add_argument('--config', help='predict-lines --pie-only: bank config (final mode)')
-    ap.add_argument('--taus', nargs='+', type=float, default=[0.3, 0.5, 0.7, 0.9])
+    ap.add_argument('--taus', nargs='*', type=float, default=[0.3, 0.5, 0.7, 0.9])
     ap.add_argument('--topn', nargs='*', type=int, help='h1-pipeline: also top-N genes by p_de per knockdown')
     ap.add_argument('--floor', action='store_true', help='h1-pipeline: detection floor on called genes')
     ap.add_argument('--tag', default='', help='h1-pipeline: suffix for h1_pred / h1_bench folders')
