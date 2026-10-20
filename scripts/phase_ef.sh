@@ -6,8 +6,9 @@
 set -eo pipefail
 cd "$HOME/vcc"; PY="$HOME/venv/bin/python"; L=logs/vcc_2026_4; R=lib/vcc_2026_4/runs
 export PYTHONPATH=code
-until grep -q '^EXIT=' $L/pie_c2.log 2>/dev/null; do sleep 120; done
-grep -q '^EXIT=0' $L/pie_c2.log || { echo "PIE chain failed; see $L/pie_c2.log"; exit 1; }
+PIELOG=$L/${PIE_CHAIN:-pie_c3}.log
+until grep -q '^EXIT=' $PIELOG 2>/dev/null; do sleep 120; done
+grep -q '^EXIT=0' $PIELOG || { echo "PIE chain failed; see $PIELOG"; exit 1; }
 for l in K562 RPE1 HepG2 Jurkat A B C; do [ -f lib/pie_tables/pie_$l.h5ad ] || { echo "missing pie_$l"; exit 1; }; done
 date -u; echo "== training dev_pie and final_nopie in parallel"
 [ -f $R/dev_pie/done.json ] || "$PY" -m transformer.train train --config code/transformer/configs/dev.yaml --name dev_pie --pie on > $L/train_dev_pie.log 2>&1 &

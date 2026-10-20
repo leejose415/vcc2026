@@ -54,7 +54,8 @@ def build(line):
                         note='control-only context; log1p CP10k; lfc_pred is PIE log2 fold change; p_de its DE probability')
     OUT.mkdir(parents=True, exist_ok=True)
     a.write_h5ad(OUT / f'pie_{line}.h5ad', compression='gzip')
-    np.savez(OUT / f'pie_{line}.npz', targets=obs['target_gene'].to_numpy().astype(str), genes=genes, lfc=L, p_de=P)
+    np.savez(OUT / f'pie_{line}.npz', targets=np.asarray(obs['target_gene'], dtype=str), genes=np.asarray(genes, dtype=str),
+             lfc=L, p_de=P)
     info = dict(line=line, rows=len(obs), rows_predicted=hit, genes_predicted=int(ok.sum()), pie_rows=len(df))
     print(json.dumps(info), flush=True)
     return info
