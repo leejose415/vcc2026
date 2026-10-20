@@ -170,8 +170,12 @@ def h1_pipeline(cfg, bank, model, run, taus, n_targets=75, floor=False, topn=Non
            '--genes', str(V / 'data/gene_names.csv'), '--targets', str(V / 'lib/vcc_2026_3/validation/targets.csv'),
            '--predictions', str(pdir), '--eval-profile', 'vcc2026', '--n-targets', str(n_targets),
            '--reference', str(V / 'lib/vcc_2026_3/val_final'), '--variants', str(vpath), '--out', str(Path(run) / f'h1_bench{tag}')]
-    import sys
+    import gc, sys
     cmd[0] = sys.executable
+    # The generator + scorer run for about an hour on CPU: give the GPU back first (other runs share it).
+    for t in list(bank.__dict__):
+        if isinstance(getattr(bank, t), (torch.Tensor, list, dict)): setattr(bank, t, None)
+    model.cpu(); gc.collect(); torch.cuda.empty_cache()
     print(' '.join(cmd), flush=True)
     import os
     env = dict(os.environ, PATH=str(Path(sys.executable).parent) + os.pathsep + os.environ.get('PATH', ''))   # cell-eval2
