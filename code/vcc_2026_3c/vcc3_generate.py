@@ -601,15 +601,18 @@ def labelled_obs(labels, prefix):
     return pd.DataFrame({'target_gene': pd.Categorical(labels)}, index=[f'{prefix}{i:07d}' for i in range(len(labels))])
 
 
-def h1_controls(h, labels, genes, seed):
+def h1_controls(h, labels, genes, seed, guide_col=''):
     """The benchmark's seeded control split: the generator half (a Line) and the scorer's half (rows). The gate and
-    the detection floor's reference size come from the scorer's half, which is what the evaluator compares against."""
+    the detection floor's reference size come from the scorer's half, which is what the evaluator compares against.
+    guide_col: group the generator half's controls by this obs column, so pick_cells stratifies by guide as it does for
+    the challenge lines (their ntc_id); empty = one group (the behaviour of every H1 result before 21 Oct)."""
     ci = np.flatnonzero(labels == CONTROL)
     if len(ci) < 2: raise ValueError('H1 needs controls')
     ci = np.random.default_rng(seed_for(seed, 'H1', 'controls')).permutation(ci)
     train_rows, score_rows = ci[:len(ci) // 2], ci[len(ci) // 2:]
     small = h[np.sort(train_rows)].to_memory(); validate_counts(small.X, 'H1 raw counts')
-    line = Line(aligned_X(small, genes), None, genes); del small
+    guide = small.obs[guide_col].astype(str).values if guide_col else None
+    line = Line(aligned_X(small, genes), guide, genes); del small
     # The scorer uses its REAL control half. Match that exact gate, even when
     # the generator half happens to put a near-threshold gene on the other side.
     line.gate = expression_gate(moments(h, np.sort(score_rows), alignment(h.var_names.astype(str), genes))['mean_cpm'])
@@ -652,7 +655,7 @@ def stream_h1(a, genes, real_path, line_pseudo=0.5, block=4096):
             small = h[rows].to_memory(); validate_counts(small.X, 'H1 raw counts')
             return aligned_X(small, genes)
 
-        line, train_rows, score_rows = h1_controls(h, labels, genes, a.seed)
+        line, train_rows, score_rows = h1_controls(h, labels, genes, a.seed, a.guide_col)
         save_json(Path(real_path).parent / 'control_split.json', dict(seed=a.seed,
                   generator_controls=len(train_rows), scoring_controls=len(score_rows),
                   gate_source='scoring real controls', genes_above_5_cpm=int(line.gate.sum())))
@@ -904,7 +907,7 @@ def cmd_benchmark(a):
         if not (ref / 'bundle').exists(): raise ValueError(f'{ref} has no competition bundle')
         targets, real_counts = reference_targets(real_path)
         h = ad.read_h5ad(a.cells, backed='r')
-        try: line = h1_controls(h, h.obs[a.obs_col].astype(str).values, genes, a.seed)[0]
+        try: line = h1_controls(h, h.obs[a.obs_col].astype(str).values, genes, a.seed, a.guide_col)[0]
         finally: h.file.close()
         oracle_effects = oracle_own = None
         evaluator = OfficialEvaluator(a, real_path, out, reuse=ref)
@@ -915,7 +918,7 @@ def cmd_benchmark(a):
         if json.loads((out / 'control_split.json').read_text()).get('seed') != a.seed: raise ValueError('--resume with a different --seed')
         targets, real_counts = reference_targets(real_path)
         h = ad.read_h5ad(a.cells, backed='r')
-        try: line = h1_controls(h, h.obs[a.obs_col].astype(str).values, genes, a.seed)[0]
+        try: line = h1_controls(h, h.obs[a.obs_col].astype(str).values, genes, a.seed, a.guide_col)[0]
         finally: h.file.close()
         oracle_effects = oracle_own = None
         evaluator = OfficialEvaluator(a, real_path, out)
@@ -1023,6 +1026,7 @@ if __name__ == '__main__':
         for key in ['cells', 'genes', 'out']: b.add_argument('--'+key, required=True)
         b.add_argument('--predictions', required=mode == 'transfer'); b.add_argument('--targets')
         b.add_argument('--obs-col', default='target_gene'); b.add_argument('--delta-array', nargs='+', default=['re'])
+        b.add_argument('--guide-col', default='', help="stratify the generator's H1 controls by this obs column (e.g. guide_id), as submissions do by ntc_id")
         b.add_argument('--min-cells', type=int, default=100); b.add_argument('--n-targets', type=int, default=0)
         b.add_argument('--alpha-grid', nargs='+', type=float, default=[0.75, 1.0, 1.5, 2.0])
         b.add_argument('--z-grid', nargs='+', type=float, default=[2.0, 3.0, 4.0])

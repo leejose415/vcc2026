@@ -1,0 +1,13 @@
+# Extract metadata and targeted raw counts only; full source objects remain unchanged.
+suppressPackageStartupMessages(library(Matrix))
+a<-commandArgs(trailingOnly=TRUE);src<-a[1];out<-a[2];dir.create(out,recursive=TRUE,showWarnings=FALSE)
+cat('READ',src,'\n');flush.console();x<-readRDS(src);cat('Loaded object GiB:',as.numeric(object.size(x))/2^30,'\n');flush.console();m<-attr(x,'meta.data');assay<-attr(x,'assays')$RNA;C<-attr(assay,'counts')
+stopifnot(inherits(C,'dgCMatrix'),ncol(C)==nrow(m),identical(colnames(C),rownames(m)))
+for (start in seq.int(1,length(C@x),by=1000000)) { v<-C@x[start:min(start+999999,length(C@x))]; stopifnot(all(is.finite(v)),all(v>=0),all(v==round(v))); if ((start-1)%%10000000==0) invisible(gc()) }; rm(v)
+m$qc_n_umi<-Matrix::colSums(C);m$qc_n_genes<-diff(C@p)
+targets<-intersect(unique(as.character(m$gene)),rownames(C));S<-as(t(C[targets,,drop=FALSE]),'CsparseMatrix')
+rm(x,assay,C);gc()
+write.csv(m,gzfile(file.path(out,'metadata.csv.gz')),row.names=TRUE)
+writeLines(targets,file.path(out,'genes.txt'))
+writeBin(S@x,file.path(out,'data.bin'),size=8,endian='little');writeBin(S@i,file.path(out,'indices.bin'),size=4,endian='little');writeBin(S@p,file.path(out,'indptr.bin'),size=4,endian='little')
+writeLines(as.character(dim(S)),file.path(out,'shape.txt'));cat('EXTRACTED',nrow(m),'cells',length(targets),'target genes\n')
