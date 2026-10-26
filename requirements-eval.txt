@@ -1,3 +1,0 @@
-# Official CPU evaluator versions exercised by the synthetic integration test.
-cell-eval2==0.18.0
-pdex==0.3.0

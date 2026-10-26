@@ -91,7 +91,7 @@ from scipy.stats import false_discovery_control
 
 sys.path.insert(0, str(Path(__file__).parent))
 from build_effects_v4 import panel                                                        # noqa: E402
-from qc_replogle_umi import SOURCES                                                        # noqa: E402
+from qc_replogle_umi import REFERENCE, SOURCES                                             # noqa: E402
 
 V = Path.home() / 'vcc'
 OUT = V / 'lib/effects_v5'
@@ -105,6 +105,7 @@ TABLES = {'CD4_Rest': ('marson_cd4_rest', 'CD4_T', 'Rest'), 'CD4_Stim8hr': ('mar
           'CD4_Stim48hr': ('marson_cd4_stim48hr', 'CD4_T', 'Stim48hr')}
 LFC_TYPE, SE_TYPE = 'official_cpm_1e-9', 'downsampled_400_20k_delta'
 LIB_TOL = 0.01                     # panel-only vs whole-matrix library: documented when the medians differ by more
+REST_REFERENCE = True              # build_cells honours qc_replogle_umi.REFERENCE[dataset] == 'rest'
 
 
 def log(msg):
@@ -331,16 +332,22 @@ def build_cells(dataset, batch_nnz):
     assert len(var_src) < 65536, f"gene index overflow: {len(var_src)}"      # stream() holds gene indices as uint16
     kept, kd, qc_files = kept_cells(dataset, obs)
     ctrl = obs['is_control'].to_numpy(bool); n_umi = obs['n_umi'].to_numpy(float)
-    f = min(1.0, DEPTH / float(np.median(n_umi[ctrl])))
+    # the reference pool: the marked controls, or, for a rest-of-line source (Feng genome-wide: a few dozen controls),
+    # every QC'd cell, as its QC did. The pool is shared by all knockdowns, so a knockdown's own cells can sit in it
+    # (about N_CTRL / n_cells of them); kept, not removed, so every knockdown is tested against the same reference.
+    rest = REFERENCE.get(dataset) == 'rest'
+    ref = np.ones(len(obs), bool) if rest else ctrl
+    f = min(1.0, DEPTH / float(np.median(n_umi[ref])))
     rng = np.random.default_rng(SEED)
-    picked, ctrl_rows, n_kept = sample(kd, ctrl, len(kept), rng)
+    picked, ctrl_rows, n_kept = sample(kd, ref, len(kept), rng)
     if dataset not in ORION and not (n_kept == kept.n_cells_kept.to_numpy()).all():
         sys.exit(f'error: kept cells per knockdown differ from knockdown_qc n_cells_kept for '
                  f'{int((n_kept != kept.n_cells_kept.to_numpy()).sum())} knockdowns')
     if (n_kept == 0).any():
         sys.exit(f'error: {int((n_kept == 0).sum())} kept knockdowns have no cells in {path}')
-    log(f'{source}: {len(kept):,} kept knockdowns, {int(n_kept.sum()):,} kept cells, {ctrl.sum():,} controls '
-        f'({len(ctrl_rows):,} sampled); median control n_umi {np.median(n_umi[ctrl]):.0f} -> thinning factor {f:.4f}; '
+    log(f'{source}: {len(kept):,} kept knockdowns, {int(n_kept.sum()):,} kept cells, {ref.sum():,} '
+        f'{"reference cells (rest of line: every QC\'d cell)" if rest else "controls"} '
+        f'({len(ctrl_rows):,} sampled); median control n_umi {np.median(n_umi[ref]):.0f} -> thinning factor {f:.4f}; '
         f'{int(on.sum()):,} of {len(on):,} source genes on the panel')
     # batches of knockdowns by sampled nnz
     kd_nnz = np.array([row_nnz[r].sum() * min(1.0, f * 1.05) for r in picked])
@@ -361,7 +368,7 @@ def build_cells(dataset, batch_nnz):
     # per-cell raw row sums and the count dtype checks (the count check)
     raw_sum = np.zeros((nk + 1, n_src)); cpm0_full = np.zeros(n_src)
     rowsum_raw = np.zeros(len(obs)); count_flags = dict(dtype=None, non_integer=0, negative=0)
-    grp_all = np.where(ctrl, nk, kd)
+    grp_all = kd if rest else np.where(ctrl, nk, kd)          # rest: the reference sums take every row, below
     panel_cols = np.flatnonzero(on)
 
     def accumulate(s, e, D, I, P, n_vars):
@@ -369,6 +376,10 @@ def build_cells(dataset, batch_nnz):
         if D.dtype.kind == 'f': count_flags['non_integer'] += int((D != np.floor(D)).sum())
         count_flags['negative'] += int((D < 0).sum())
         rowsum_raw[s:e] = np.bincount(np.repeat(np.arange(e - s), np.diff(P)), weights=D, minlength=e - s)
+        if rest:
+            Ma = sp.csr_matrix((D.astype(np.float64), I, P), shape=(e - s, n_vars))
+            raw_sum[nk] += np.asarray(Ma.sum(0)).ravel(); lib = np.asarray(Ma[:, panel_cols].sum(1)).ravel()
+            cpm0_full[:] += np.asarray((sp.diags(1e6 / np.where(lib > 0, lib, np.inf)) @ Ma).sum(0)).ravel()
         g = grp_all[s:e]; r = np.flatnonzero(g >= 0)
         if not len(r): return
         M = sp.csr_matrix((D.astype(np.float64), I, P), shape=(e - s, n_vars))[r]
@@ -446,7 +457,7 @@ def build_cells(dataset, batch_nnz):
                              log1p_bulk_50k_matched=np.nan, log1p_bulk_50k_full=np.nan, de_tested=False), index=var.index)
     pc = to_panel[on]
     base.iloc[pc, 0] = ctrl_stats['m0'][on]; base.iloc[pc, 1] = ctrl_stats['det0'][on]
-    base.iloc[pc, 2] = (cpm0_full / ctrl.sum())[on]; base.iloc[pc, 3] = prof0_matched; base.iloc[pc, 4] = prof[-1]
+    base.iloc[pc, 2] = (cpm0_full / ref.sum())[on]; base.iloc[pc, 3] = prof0_matched; base.iloc[pc, 4] = prof[-1]
     base.iloc[to_panel[ctrl_stats['tested']], 5] = True
     obs_out = pd.DataFrame(dict(target_gene=kept.target_gene.astype(str), target_gene_id=kept.target_gene_id.astype(str),
                                 n_cells_kept=n_kept.astype(int), n_cells_used=n_used, efficiency=eff,
@@ -463,8 +474,12 @@ def build_cells(dataset, batch_nnz):
                                     f'panel-only library is {rel:+.2%} from the whole QC\'d matrix ({int(n_src - on.sum()):,} '
                                     'source genes are off the panel or unmeasured); kept as the intended definition (the scorer '
                                     'normalizes over the panel), documented here'))
-    meta = dict(cell_file=str(path), **qc_files, thinning_factor=f, median_control_n_umi=float(np.median(n_umi[ctrl])),
-                median_control_panel_library_after_thinning=lp, control_cells=int(ctrl.sum()),
+    meta = dict(cell_file=str(path), **qc_files, thinning_factor=f, median_control_n_umi=float(np.median(n_umi[ref])),
+                median_control_panel_library_after_thinning=lp, control_cells=int(ref.sum()),
+                **(dict(reference='rest_of_line', marked_controls=int(ctrl.sum()),
+                        reference_note='controls = a shared sample of every QC\'d cell (the QC\'s rest-of-line reference); '
+                                       'lfc, se, the 5-CPM gate, de_sig, the quantiles and the baseline are against it, not '
+                                       'against non-targeting cells; a knockdown\'s own cells may be in the sample') if rest else {}),
                 control_cells_used=int(ctrl_stats['n0']), source_genes=int(n_src), source_genes_on_panel=int(on.sum()),
                 de_tested_genes=int(len(ctrl_stats['tested'])), de_labels='wilcoxon_bh', modality='single_cell',
                 significance_unknown=False, control_quantiles=q_path.name,

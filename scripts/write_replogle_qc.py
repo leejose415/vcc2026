@@ -36,8 +36,9 @@ from anndata.io import read_elem, write_elem
 
 sys.path.insert(0, str(Path(__file__).parent))
 from build_raw_cells import CSRWriter                                                     # noqa: E402
-from qc_replogle_umi import (CONTROL, HIGH_K, LANE_MIN, LOW_K, MAD_FLOOR, MAD_SCALE, MIN_KD_CELLS, MIN_LANE_CONTROLS,  # noqa: E402
-                             SOURCES, UMI_FLOOR, cutoffs, layout, load_cells)
+from qc_replogle_umi import (BACKGROUND, CONTROL, HIGH_K, LANE_MIN, LOW_K, MAD_FLOOR, MAD_SCALE, MIN_KD_CELLS,  # noqa: E402
+                             MIN_LANE_CONTROLS, NEW_CONTEXTS, REFERENCE, SOURCES, UMI_FLOOR, cutoffs, layout, load_cells,
+                             reference_mask)
 
 CHUNK = 20000
 N_CHECK = 100
@@ -74,13 +75,16 @@ def standard_obs(obs, cells, var, dataset, source, flagged, skip_low):
     if lay['gene_id']: gid = obs[lay['gene_id']].astype(str)
     else:
         lookup = dict(zip(var.index.astype(str), var['gene_id'].astype(str))) if 'gene_id' in var else gene_id_lookup()
-        gid = gene.map(lookup).fillna('')
+        gid = gene.map(lookup)
+        # new contexts: a target the gene table cannot resolve keeps its own ID, so qc_perturbations (which groups by ID)
+        # cannot merge several of them into one knockdown; existing sources keep '' as before
+        gid = gid.fillna('unresolved:' + gene.astype(str)) if dataset in NEW_CONTEXTS else gid.fillna('')
     std = pd.DataFrame(index=obs.index)
-    std['source'] = source; std['background'] = dataset; std['condition'] = 'none'
+    std['source'] = source; std['background'] = BACKGROUND.get(dataset, dataset); std['condition'] = 'none'
     std['batch'] = cells['gem_group']; std['target_gene'] = gene; std['is_control'] = ctrl.to_numpy()
     std['target_gene_id'] = np.where(ctrl, CONTROL, gid)
     std['guide_id'] = obs[lay['guide']].astype(str) if lay['guide'] else 'not_available'; std['n_umi'] = cells['UMI_count'].to_numpy()
-    std['qc_low_ref'] = 'none' if skip_low else np.where(gene.isin(flagged), 'own', 'control')
+    std['qc_low_ref'] = 'none' if skip_low else np.where(gene.isin(flagged), 'own', 'rest' if REFERENCE.get(dataset) == 'rest' else 'control')
     for c in list(std.columns):
         if c in obs.columns:
             if (obs[c].astype(str).to_numpy() == std[c].astype(str).to_numpy()).all(): std = std.drop(columns=c)   # same meaning
@@ -99,13 +103,15 @@ def qc_record(dataset, cells, keep, out, src_stat):
     removed = pd.read_csv(out / 'removed_cells.csv')
     x = np.log10(cells['UMI_count'].to_numpy(float) + 1); gene = cells['gene'].to_numpy()
     own = {k: cutoffs(x[gene == k])['low_umi'] for k in flagged}
-    ctrl = gene == CONTROL; whole = cutoffs(x[ctrl]); lane_min = int(LANE_MIN.get(dataset, MIN_LANE_CONTROLS))
+    ctrl = gene == CONTROL; ref = reference_mask(dataset, gene)                  # == ctrl unless REFERENCE is 'rest'
+    whole = cutoffs(x[ref]); lane_min = int(LANE_MIN.get(dataset, MIN_LANE_CONTROLS))
     rules = [f'every cell: removed if UMI < {UMI_FLOOR} (floor) or above its lane high cutoff (high)']
     rules += (['low cut skipped: the source was pre-filtered by its authors (sharp left edge, see left_edge)'] if skip_low else
               ['controls and unflagged knockdowns: also removed below their lane low cutoff (low_control)',
                "flagged knockdowns: removed below the knockdown's own low cutoff instead (low_own)",
                f'flagged: knockdowns with >= {MIN_KD_CELLS} cells whose first-pass removal share exceeds max(2 x control rate, control rate + 0.05)'])
-    rules.append(f'reference cells per lane: its controls; fewer than {lane_min} -> all controls in the file')
+    rules.append(f'reference cells per lane: its controls; fewer than {lane_min} -> all controls in the file' if REFERENCE.get(dataset) != 'rest'
+                 else 'reference cells per lane: every cell of the lane (rest-of-lane reference: almost no non-targeting cells)')
     return dict(
         definitions=dict(x='log10(UMI + 1)', umi_source=cells.attrs['umi_source'],
                          scaled_mad=f'max({MAD_SCALE} * median(|x - median(x)|), {MAD_FLOOR})',

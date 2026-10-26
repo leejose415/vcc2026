@@ -7,7 +7,7 @@ hold-outs from our data. No model is trained here.
 
 | eval | line | held out | reference cells |
 |---|---|---|---|
-| **A** | **H1** (line 2) | the whole line: every H1 knockdown with >= 100 raw cells (300) | **raw, unfiltered** `lib/h1/H1_full_2025.h5ad` |
+| **A** | **H1** (line 2) | the whole line: every H1 knockdown with >= 100 raw cells (**292** of 300; 8 have fewer, the generator benchmark's eligibility rule) | **raw, unfiltered** `lib/h1/H1_full_2025.h5ad` |
 | **A_shared** | H1 | Eval A restricted to the H1 knockdowns that K562 also keeps | the same cells as Eval A |
 | **B** | **K562** (line 1) | 100 kept K562 knockdowns, drawn from those shared with H1 (filled at random from the other kept ones if fewer than 100 are shared) | `lib/qc_cells/replogle_k562_gw_qc.h5ad`, kept cells only (`guide_qc.csv` keep → `knockdown_qc.csv` keep) |
 
@@ -78,15 +78,32 @@ ones (`split.json`, the README, settings, scores) are copied back to vcc2026.
 The held-out knockdowns are `split.json["knockdowns"]`. The cells to condition on are `eval<name>/context.h5ad`.
 Never train on Eval A's H1 cells, or on Eval B's knockdowns in K562.
 
+**Memory.** Scoring one prediction on Eval A or A_shared takes about 28 GB of RAM in `cell-eval2 run`. On vcc2026
+(31 GB, no swap) it is OOM-killed, so score A / A_shared on vcc2027 (32 GB swap) or add swap first. Eval B fits
+anywhere. Building a bundle takes about 3.5 h for A and A_shared and 35 min for B.
+
 ## Trivial submissions
 
 `scripts/harness/trivial.py`; numbers in `results/harness/trivial_summary.md`.
 - **control_paste:** every knockdown is a seeded 400 of the context controls.
 - **mean_response:** cell-eval2's own generic baseline (`cell-eval2 baseline`, seed 0). It is the bundle's 0 end, so it scores ~0 by construction.
+  - The baseline writes fractional counts, which the vcc2026 preset refuses as a counts submission. The harness applies unbiased stochastic rounding (floor + Bernoulli of the fraction, seeded), so the arm scores ~0 rather than exactly 0.
 - **cross_copy:** the other line's v5 effect for the same knockdown, through the generator.
   - **What is copied:** the source's official LFC on its significant genes (`de_sig`), 0 elsewhere, plus its on-target LFC as the knockdown. Knockdowns the source lacks become pure control cells.
   - **Sources:** Eval A and A_shared copy **K562**. Eval B copies **H1**, because Eval B's knockdowns are K562's own, so copying K562 would copy the answer.
   - **Coverage:** Eval A reports all held-out knockdowns, and A_shared reports the shared subset. All of Eval B's knockdowns are shared with H1.
+
+Results (2026-10-26, scaled `avg_score`; per-metric columns in `results/harness/trivial_summary.md`):
+
+| arm | Eval A (H1, 292) | Eval A_shared (H1, 261) | Eval B (K562, 100) |
+|---|---|---|---|
+| control_paste | -0.0517 | -0.0307 | 0.0063 |
+| mean_response | -0.0031 | 0.0008 | 0.0071 |
+| cross_copy | 0.0673 | 0.0818 | 0.2376 |
+
+- control_paste and mean_response sit at ~0, as intended.
+- cross_copy is the bar a model must beat. On Eval A it copies 261 of 292 knockdowns from K562 (median 3 significant genes each); almost all of its score is pds_cosine (0.45). Copying H1 into K562 (Eval B) is worth far more (0.24), mostly from pds_cosine (0.68) and direction fidelity (0.86).
+- Each Eval A / A_shared score takes 20-45 min on CPU (pdex Wilcoxon, 8 threads).
 
 ## Build
 

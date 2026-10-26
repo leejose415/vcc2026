@@ -23,7 +23,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).parent))
 from qc_replogle_umi import (CONTROL, HIGH_K, LANE_MIN, LOW_K, MAD_FLOOR, MAD_SCALE, MIN_LANE_CONTROLS, MIN_KD_CELLS, SOURCES,  # noqa: E402
-                             UMI_FLOOR, cutoffs, load_cells)
+                             UMI_FLOOR, cutoffs, load_cells, reference_mask)
 
 
 def main(dataset='K562'):
@@ -33,11 +33,11 @@ def main(dataset='K562'):
     flagged = set() if skip_low else set(flagged_table.loc[flagged_table.flagged, 'knockdown'].astype(str))
     _, obs = load_cells(dataset)
     umi = obs['UMI_count'].to_numpy(float); x = np.log10(umi + 1); ctrl = (obs['gene'] == CONTROL).to_numpy()
-
-    whole = cutoffs(x[ctrl])
+    ref = reference_mask(dataset, obs['gene'])                                       # == ctrl unless REFERENCE is 'rest'
+    whole = cutoffs(x[ref])
     lane = {}
     for g, idx in obs.groupby('gem_group').indices.items():
-        c = idx[ctrl[idx]]
+        c = idx[ref[idx]]
         lane[g] = cutoffs(x[c]) if len(c) >= min_lane else whole
     lane_low = obs['gem_group'].map({g: v['low_umi'] for g, v in lane.items()}).to_numpy(float)
     lane_high = obs['gem_group'].map({g: v['high_umi'] for g, v in lane.items()}).to_numpy(float)
@@ -95,6 +95,9 @@ where those cells were kept by rule 3.
 3. Flagged knockdowns: removed below the knockdown's own low cutoff instead (`low_own`). Their low UMI counts are biology
    (in K562, loss of core transcription machinery: Mediator, SUPT5H / SUPT6H, TAF1, GATA1), not poor quality.
    Flagged here: {', '.join(top)}{' ...' if len(flagged) > 10 else ''}.""")
+    rest_note = ('\n\n**Rest-of-lane reference** (`REFERENCE` = rest): this source has almost no non-targeting cells, so every cell of '
+                 'the lane (all assigned cells) stands in for the controls, for the cutoffs and for the flag rate.'
+                 if not np.array_equal(ref, ctrl) else '')
     (OUT / 'qc_method.md').write_text(f"""# Cell QC: {title}
 
 Source: `{FILE}` (read only; cell metadata only; UMIs from {obs.attrs['umi_source']}). Scripts: `scripts/qc_replogle_umi.py --dataset {dataset}`
@@ -110,7 +113,7 @@ On x = log10(UMI + 1), over the reference cells:
 Reference cells: per lane (10x gem group / batch), that lane's control cells (`{CONTROL}`); a lane with fewer than **{min_lane}** controls
 uses all controls in the file ({stats['lanes_fallback']} of {stats['lanes']} lanes). For each flagged knockdown
 (`knockdowns_flagged.csv`: knockdowns with ≥ {MIN_KD_CELLS} cells losing more than max(2 × the control rate, control rate + 5 points) to
-the lane cutoffs), that knockdown's own cells, for the low cutoff only.
+the lane cutoffs), that knockdown's own cells, for the low cutoff only.{rest_note}
 
 ## Rules
 {rules}

@@ -40,7 +40,7 @@ from anndata.io import read_elem
 from scipy.stats import mannwhitneyu
 
 sys.path.insert(0, str(Path(__file__).parent))
-from qc_replogle_umi import CONTROL, SOURCES                                               # noqa: E402
+from qc_replogle_umi import CONTROL, REFERENCE, SOURCES                                    # noqa: E402
 
 MIN_CELLS, MIN_CTRL_CPM, MAX_ONTARGET_LFC, P_MAX, PSEUDO = 30, 5.0, -0.5, 0.05, 0.5
 CHUNK = 50000
@@ -70,14 +70,32 @@ def main(dataset):
         tid = obs['target_gene_id'].astype(str).to_numpy(); guide = obs['guide_id'].astype(str).to_numpy()
         cell_col = np.array([col_of.get(t, -1) if not c else -1 for t, c in zip(tid, ctrl)])
         own_cpm = np.full(n_obs, np.nan, np.float32); ctrl_parts = []
+        # REFERENCE 'rest' (Feng genome-wide, ~no non-targeting cells): each target is tested against every other cell of the
+        # screen, so pass 1 keeps every cell's CPM of every target gene (cells x targets, sparse) and the all-cell mean CPM
+        rest = REFERENCE.get(dataset) == 'rest'
+        tcols = np.unique(cell_col[cell_col >= 0]); tpos = {c: i for i, c in enumerate(tcols)}; rest_parts = []; all_sum = np.zeros(n_vars)
         for s, e, M in chunks(X, n_obs, n_vars):                    # pass 1: controls' counts; each cell's own-target CPM
             scale = 1e6 / lib[s:e]; cm = ctrl[s:e]
-            if cm.any(): ctrl_parts.append(sp.diags(scale[cm]) @ M[np.flatnonzero(cm)])
+            if rest:
+                P = sp.diags(scale) @ M; rest_parts.append(P[:, tcols].astype(np.float32)); all_sum += np.asarray(P.sum(0)).ravel()
+            elif cm.any(): ctrl_parts.append(sp.diags(scale[cm]) @ M[np.flatnonzero(cm)])
             rows = np.flatnonzero(cell_col[s:e] >= 0)
             if len(rows): own_cpm[s + rows] = np.asarray(M[rows, cell_col[s:e][rows]]).ravel() * scale[rows]
             print(f'  pass 1: {e:,} / {n_obs:,} cells ({time.time() - t0:.0f}s)', flush=True)
-    C = sp.vstack(ctrl_parts).tocsc().astype(np.float32); n_ctrl = C.shape[0]
-    ctrl_mean = np.asarray(C.mean(0)).ravel()
+    if rest:
+        R = sp.vstack(rest_parts).tocsc(); n_ctrl = n_obs; ctrl_mean = all_sum / n_obs    # ctrl_mean: sanity check and plots only
+    else:
+        C = sp.vstack(ctrl_parts).tocsc().astype(np.float32); n_ctrl = C.shape[0]
+        ctrl_mean = np.asarray(C.mean(0)).ravel()
+    ref_cache = {}
+
+    def reference(j, t):
+        """CPM of gene j in the reference cells for target t: the controls, or (rest) every cell not carrying target t."""
+        if rest:
+            if t not in ref_cache: ref_cache[t] = R[:, tpos[j]].toarray().ravel()[tid != t]
+            return ref_cache[t]
+        if j not in ctrl_col_cache: ctrl_col_cache[j] = C[:, j].toarray().ravel()
+        return ctrl_col_cache[j]
 
     # 1. constructs
     cells = pd.DataFrame(dict(guide=guide, tid=tid, target=obs['target_gene'].astype(str).to_numpy(), col=cell_col, cpm=own_cpm))[~ctrl]
@@ -88,14 +106,14 @@ def main(dataset):
     rows = []
     for g, d in cells.groupby('guide', sort=False):
         j = int(d['col'].iloc[0]); in_var = j >= 0
-        c_cpm = float(ctrl_mean[j]) if in_var else np.nan
+        ref_vals = reference(j, d['tid'].iloc[0]) if in_var else None
+        c_cpm = (float(ref_vals.mean()) if rest else float(ctrl_mean[j])) if in_var else np.nan
         measurable = bool(in_var and c_cpm >= MIN_CTRL_CPM)
         k_mean = float(d['cpm'].mean()) if in_var else np.nan
         lfc = np.log2((k_mean + PSEUDO) / (c_cpm + PSEUDO)) if in_var else np.nan
         p = np.nan
         if in_var:
-            if j not in ctrl_col_cache: ctrl_col_cache[j] = C[:, j].toarray().ravel()
-            p = float(mannwhitneyu(d['cpm'].to_numpy(), ctrl_col_cache[j], alternative='less', method='asymptotic').pvalue)
+            p = float(mannwhitneyu(d['cpm'].to_numpy(), ref_vals, alternative='less', method='asymptotic').pvalue)
         keep = (not measurable) or (lfc <= MAX_ONTARGET_LFC and p < P_MAX)
         rows.append(dict(guide_id=g, target_gene=d['target'].iloc[0], target_gene_id=d['tid'].iloc[0], n_cells=len(d), ctrl_cpm=c_cpm,
                          measurable=measurable, ontarget_lfc=lfc, p=p, keep=bool(keep)))
@@ -112,8 +130,10 @@ def main(dataset):
                            measurable=per_guide['measurable'].any().reindex(first.index).fillna(False).astype(bool)))
     kept_mean = kept_cells.groupby('tid')['cpm'].mean().reindex(first.index)
     j = first['col'].to_numpy(int)
+    ref_mean = (np.array([float(ref_cache[t].mean()) if t in ref_cache else np.nan for t in first.index]) if rest
+                else np.where(j >= 0, ctrl_mean[np.maximum(j, 0)], np.nan))
     kd['efficiency'] = np.where(kd.measurable & (kd.n_cells_kept > 0),
-                                np.log2((kept_mean.to_numpy() + PSEUDO) / (np.where(j >= 0, ctrl_mean[np.maximum(j, 0)], np.nan) + PSEUDO)), np.nan)
+                                np.log2((kept_mean.to_numpy() + PSEUDO) / (ref_mean + PSEUDO)), np.nan)
     kd['knockdown_keep'] = kd.n_cells_kept >= MIN_CELLS
     kd = kd[['target_gene', 'target_gene_id', 'n_constructs_kept', 'n_cells_kept', 'efficiency', 'measurable', 'knockdown_keep']]
     kd = kd.reset_index(drop=True).sort_values(['knockdown_keep', 'efficiency'], ascending=[False, True])
@@ -158,6 +178,8 @@ def main(dataset):
     loose = m[m.keep & (m.ontarget_lfc > -1)]
     near = kd[(kd.n_cells_kept >= 20) & (kd.n_cells_kept < MIN_CELLS)]
     summary = dict(source=out.name, controls=int(n_ctrl), readout_genes=int(n_vars),
+                   reference=('rest of screen: every cell not carrying the target (almost no non-targeting cells); controls = all cells'
+                              if rest else 'non-targeting controls'),
                    constructs_total=int(len(guides)), constructs_measurable=int(guides.measurable.sum()), constructs_kept=int(guides.keep.sum()),
                    constructs_kept_unmeasurable=int((guides.keep & ~guides.measurable).sum()),
                    constructs_kept_between_minus1_and_minus05=int(len(loose)),

@@ -69,6 +69,54 @@ MAD_SCALE = 1.4826                # MAD -> standard deviation for a normal distr
 LANE_MIN = {'RPE1': 100, 'HepG2': 50, 'Jurkat': 50, 'H1': 50, 'HCT116': 50, 'HEK293T': 50}   # minimum controls for a lane's own cutoffs; MIN_LANE_CONTROLS otherwise
 SHARP_EDGE = 0.01                 # lowest bin >= 1% of the peak bin -> pre-filtered by the authors
 
+# New CRISPRi contexts (2026-10-26), converted by scripts/convert_new_contexts.py into lib/cells/<name>.h5ad (single-target
+# cells, integer counts, obs target_gene / guide_id / batch, var gene_id): the 'h1' layout, the standing 50-control lane
+# minimum, and the true cell line as the background. The entries above are unchanged.
+FENG_TARGETED_LINES = ('eipl_1', 'eipl_3', 'fiaj_1', 'fiaj_3', 'iudw_1', 'iudw_4', 'jejf_2', 'jejf_3', 'kolf_2', 'kolf_3',
+                       'oikd_2', 'oikd_5', 'paab_3', 'paab_4', 'pipw_4', 'pipw_5', 'tolg_4', 'tolg_6', 'zapk_3')
+NEW_CONTEXTS = {   # key: (file name, title, background)
+    'KOLF2.1J': ('kolf_kolf21j', 'KOLF 2025 KOLF2.1J hiPSC CRISPRi (author-selected strong perturbations)', 'KOLF2.1J'),
+    'Adamson_10X001': ('adamson_k562_10x001', 'Adamson 2016 K562 CRISPRi (10X001)', 'K562'),
+    'Adamson_10X005': ('adamson_k562_10x005', 'Adamson 2016 K562 CRISPRi (10X005, single-gene constructs)', 'K562'),
+    'Adamson_10X010': ('adamson_k562_10x010', 'Adamson 2016 K562 CRISPRi (10X010)', 'K562'),
+    **{f'FengT_{l}': (f'feng_targeted_{l}', f'Feng HipSci iPSC CRISPRi targeted screen ({l})', l) for l in FENG_TARGETED_LINES},
+    'FengGW_fitness': ('feng_gw_fitness', 'Feng HipSci iPSC CRISPRi genome-wide fitness genes (donor lines pooled)', 'HipSci_pooled'),
+    'FengGW_nonfitness': ('feng_gw_nonfitness', 'Feng HipSci iPSC CRISPRi genome-wide non-fitness genes (donor lines pooled)', 'HipSci_pooled'),
+}
+# PIE-relevant extra sources (2026-10-26; their effect tables go to lib/effects_v5_extra/, not the scored-task tables):
+# Tahoe-100M per cell line (DMSO_TF = the controls, lane = plate; drugs at their highest dose, cell QC only) and Jiang
+# pathway Perturb-seq per cell line x pathway (CRISPRko; NT = the controls, lane = Parse sample well; standard on-target QC)
+TAHOE_LINES = ('A-172', 'A-427', 'A498', 'A549', 'AN3 CA', 'AsPC-1', 'BT-474', 'C-33 A', 'C32', 'CFPAC-1', 'CHP-212', 'COLO 205',
+               'H4', 'HCT15', 'HEC-1-A', 'HOP62', 'HS-578T', 'HT-29', 'HepG2/C3A', 'Hs 766T', 'J82', 'KATO III', 'LOX-IMVI', 'LS 180',
+               'LoVo', 'MIA PaCa-2', 'NCI-H1573', 'NCI-H1792', 'NCI-H2030', 'NCI-H2122', 'NCI-H23', 'NCI-H2347', 'NCI-H460', 'NCI-H596',
+               'NCI-H661', 'PANC-1', 'Panc 03.27', 'RKO', 'RPMI-7951', 'SHP-77', 'SK-MEL-2', 'SNU-1', 'SNU-423', 'SW 1088', 'SW 1271',
+               'SW 900', 'SW1417', 'SW48', 'SW480', 'hTERT-HPNE')
+JIANG_LINES, JIANG_PATHWAYS = ('A549', 'BXPC3', 'HAP1', 'HT29', 'K562', 'MCF7'), ('IFNB', 'IFNG', 'INS', 'TGFB', 'TNFA')
+
+
+def _slug(s):
+    return ''.join(c.lower() if c.isalnum() else '_' for c in str(s)).strip('_')
+
+
+NEW_CONTEXTS.update({f'Tahoe_{_slug(l)}': (f'tahoe_{_slug(l)}', f'Tahoe-100M {l} (DMSO_TF + single-target drugs, highest dose)', l)
+                     for l in TAHOE_LINES})
+NEW_CONTEXTS.update({f'Jiang_{p}_{l}': (f'jiang_{p.lower()}_{l.lower()}', f'Jiang 2025 pathway Perturb-seq {p} {l} (CRISPRko)', l)
+                     for p in JIANG_PATHWAYS for l in JIANG_LINES})
+for _key, (_name, _title, _bg) in NEW_CONTEXTS.items():
+    SOURCES[_key] = (V / f'lib/cells/{_name}.h5ad', V / f'results/qc/{_name}', V / f'lib/qc_cells/{_name}_qc.h5ad', _title)
+    LAYOUT_OF[_key] = 'h1'; LANE_MIN[_key] = 50
+BACKGROUND = {k: bg for k, (_, _, bg) in NEW_CONTEXTS.items()}    # write_replogle_qc's background; the dataset key otherwise
+# Reference cells for the UMI cutoffs, the flag rate and the on-target test: the non-targeting controls, except for the
+# Feng genome-wide screens (~0-2 non-targeting cells per donor line), where every other assigned cell stands in for them
+# (rest of the lane for the UMI cutoffs; rest of the screen for the on-target test). User decision, 2026-10-25/26.
+REFERENCE = {'FengGW_fitness': 'rest', 'FengGW_nonfitness': 'rest'}
+
+
+def reference_mask(dataset, gene):
+    """The cells the UMI cutoffs and the flag rate are referenced to: controls, or every cell under REFERENCE 'rest'."""
+    gene = pd.Series(gene)
+    return np.ones(len(gene), bool) if REFERENCE.get(dataset) == 'rest' else (gene == CONTROL).to_numpy()
+
 
 def layout(dataset):
     return LAYOUTS[LAYOUT_OF.get(dataset, 'replogle')]
@@ -122,10 +170,11 @@ def main(dataset='K562', scale=MAD_SCALE):
     print('gene value counts (head):'); print(obs['gene'].value_counts().head().to_string())
     if CONTROL not in set(obs['gene']): raise ValueError(f'no {CONTROL!r} cells: check the control label')
     obs['x'] = np.log10(obs['UMI_count'].to_numpy(float) + 1); ctrl = obs['gene'] == CONTROL
-    whole = cutoffs(obs.loc[ctrl, 'x'].to_numpy(), scale)
+    ref = pd.Series(reference_mask(dataset, obs['gene']), index=obs.index)          # == ctrl unless REFERENCE is 'rest'
+    whole = cutoffs(obs.loc[ref, 'x'].to_numpy(), scale)
 
     rows = []
-    for lane, g in obs[ctrl].groupby('gem_group', sort=False):
+    for lane, g in obs[ref].groupby('gem_group', sort=False):
         c = cutoffs(g['x'].to_numpy(), scale) if len(g) >= min_lane else dict(whole)
         rows.append(dict(gem_group=lane, n_control_cells=len(g), **c, fallback=len(g) < min_lane))
     for lane in set(obs['gem_group']) - {r['gem_group'] for r in rows}:          # a lane with no controls at all
@@ -138,7 +187,7 @@ def main(dataset='K562', scale=MAD_SCALE):
     umi = obs['UMI_count'].to_numpy(float)
     removed = (umi < lim['low_umi'].to_numpy()) | (umi > lim['high_umi'].to_numpy())
     obs['removed'] = removed
-    ctrl_rate = float(obs.loc[ctrl, 'removed'].mean()); kd = ~ctrl
+    ctrl_rate = float(obs.loc[ref, 'removed'].mean()); kd = ~ctrl
     per = obs[kd].groupby('gene').agg(n_cells=('removed', 'size'), n_removed=('removed', 'sum'))
     per = per[per.n_cells >= MIN_KD_CELLS].copy(); per['share_removed'] = per.n_removed / per.n_cells
     bar = max(2 * ctrl_rate, ctrl_rate + 0.05); per['flagged'] = per.share_removed > bar
