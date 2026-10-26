@@ -1,0 +1,7 @@
+variant,metric,value,direction,rank
+f0_m2v4_top2000_floor_z5,pds_cosine,0.8576576576576577,max,1.0
+f0_m2v4_top2000_floor_z5,expr_mse_unbiased_capped_norm,1.9502107025500024,min,1.0
+f0_m2v4_top2000_floor_z5,de_wilcoxon_lfc_nmae,1.1320042434131032,min,1.0
+f0_m2v4_top2000_floor_z5,de_wilcoxon_direction_fidelity_yield_raw,0.4038963354451034,max,1.0
+f0_m2v4_top2000_floor_z5,de_wilcoxon_direction_reach_raw,0.0356584269532249,max,1.0
+f0_m2v4_top2000_floor_z5,de_wilcoxon_sig_jaccard,0.0997295567715385,max,1.0

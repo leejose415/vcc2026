@@ -1,0 +1,13 @@
+variant,metric,value,direction,rank
+f1_konly_m0.5,pds_cosine,0.7623423423423423,max,1.5
+f1_konly_m0.5,expr_mse_unbiased_capped_norm,0.9897064929586868,min,2.0
+f1_konly_m0.5,de_wilcoxon_lfc_nmae,0.9776823581621108,min,1.0
+f1_konly_m0.5,de_wilcoxon_direction_fidelity_yield_raw,0.2093162880182319,max,2.0
+f1_konly_m0.5,de_wilcoxon_direction_reach_raw,0.0503697156245623,max,1.0
+f1_konly_m0.5,de_wilcoxon_sig_jaccard,0.0329542454363414,max,2.0
+f1_konly_m0.25,pds_cosine,0.7623423423423423,max,1.5
+f1_konly_m0.25,expr_mse_unbiased_capped_norm,0.9897064929586866,min,1.0
+f1_konly_m0.25,de_wilcoxon_lfc_nmae,0.9781890545871126,min,2.0
+f1_konly_m0.25,de_wilcoxon_direction_fidelity_yield_raw,0.3291368644488552,max,1.0
+f1_konly_m0.25,de_wilcoxon_direction_reach_raw,0.0419973444173317,max,2.0
+f1_konly_m0.25,de_wilcoxon_sig_jaccard,0.0644829531551777,max,1.0

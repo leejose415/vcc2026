@@ -1,0 +1,22 @@
+{
+ "schema": "vcc_2026_3_ridge_v1",
+ "heldout_background": "H1",
+ "source_backgrounds": [
+  "K562",
+  "RPE1",
+  "HepG2",
+  "Jurkat",
+  "HCT116",
+  "HEK293T",
+  "CD4_Stim48hr"
+ ],
+ "models": [
+  "m2v4",
+  "m2v4_z",
+  "m2v4_se",
+  "f1_cal",
+  "f1_konly",
+  "called_top2000"
+ ],
+ "note": "v5 output arms: beta * dbar + s * (delta - dbar) (+ extension)"
+}

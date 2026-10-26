@@ -1,0 +1,7 @@
+metric,direction
+pds_cosine,max
+expr_mse_unbiased_capped_norm,min
+de_wilcoxon_lfc_nmae,min
+de_wilcoxon_direction_fidelity_yield_raw,max
+de_wilcoxon_direction_reach_raw,max
+de_wilcoxon_sig_jaccard,max

@@ -1,0 +1,112 @@
+13:55:53 loaded K562: 9245 rows
+13:56:03 loaded RPE1: 1968 rows
+13:56:12 loaded HepG2: 1759 rows
+13:56:23 loaded Jurkat: 2054 rows
+13:57:38 loaded HCT116: 16492 rows
+13:58:46 loaded HEK293T: 15938 rows
+13:59:26 loaded CD4_Stim48hr: 10615 rows
+13:59:27 panel 6054
+              K562  RPE1  HepG2  Jurkat  HCT116  HEK293T  CD4_Stim48hr
+K562          7681  6714   7005    6910    7545     7545          7489
+RPE1          6714  8260   7343    6977    8121     8121          8073
+HepG2         7005  7343   9024    7200    8872     8872          8808
+Jurkat        6910  6977   7200    8284    8131     8131          8071
+HCT116        7545  8121   8872    8131   18106    18106         17771
+HEK293T       7545  8121   8872    8131   18106    18106         17771
+CD4_Stim48hr  7489  8073   8808    8071   17771    17771         17771
+                    n  spearman
+K562           8998.0    -0.023
+RPE1           1966.0     0.244
+HepG2          1755.0     0.323
+Jurkat         2051.0     0.288
+HCT116        16243.0     0.623
+HEK293T       15754.0     0.643
+CD4_Stim48hr  10265.0    -0.006
+H1              299.0     0.241
+predicted tercile           -1   0   1   2
+real tercile (H1 own rank)                
+0                            1  27  57  14
+1                            0  18  69  13
+2                            0   7  68  26
+             rows_in_table rows_used  total_weight dropped_kd_lt_30 half_weight                                                                       note
+K562                  9245      2699   2466.284787                6        2564  strength > 0 and n_de_bh > 5; total weight capped at 11500.5 (was 2466.3)
+RPE1                1968.0    1966.0   1795.656578              2.0       288.0                                                                        NaN
+HepG2               1759.0    1759.0   1659.971881              0.0       191.0                                                                        NaN
+Jurkat              2054.0    2050.0   1890.082335              4.0       283.0                                                                        NaN
+HCT116             16492.0   16470.0  11500.536537             22.0      9237.0                                                                        NaN
+HEK293T            15938.0   15865.0   9618.389136             73.0     11854.0                                                                        NaN
+CD4_Stim48hr       10615.0   10602.0   8686.070323             13.0      3758.0                                                                        NaN
+     raw_share  noise_corrected_share
+5       0.0904                 0.1144
+10      0.1326                 0.1677
+30      0.2032                 0.2562
+50      0.2499                 0.3143
+100     0.2938                 0.3668
+  re-indexed genes: 18,077/18,533 of ours present
+{
+ "lfc_raw_off_program_panel": 0.845146190629779,
+ "lfc_noise_corrected_off_program_panel": 0.7905388432873482,
+ "pseudobulk_off_program_panel": 0.5707021255108901,
+ "lfc_raw_off_transformer_5000": 0.8670421605134341,
+ "pseudobulk_off_transformer_5000": 0.6156159159691785
+}
+14:06:17 tau2 from 17444 targets measured in >= 2 lines; median tau2 0.0000
+/home/mooneysad/vcc/analysis/v6lin/v6lin.py:130: RuntimeWarning: Mean of empty slice
+  with np.errstate(invalid='ignore'): pct[a:a + m] = np.nanmean(np.stack(ps), 0)
+/home/mooneysad/vcc/analysis/v6lin/v6lin.py:229: RuntimeWarning: Mean of empty slice
+  Rhat = np.nanmean(np.where(ok[:, None], g['re'], np.nan), 0); Rhat = np.nan_to_num(Rhat)
+14:07:55 fit pass K562: 9239 rows, 8992 with a source; tercile counts [2227, 4744, 2021]
+14:08:18 fit pass RPE1: 1966 rows, 1964 with a source; tercile counts [275, 1326, 363]
+14:08:40 fit pass HepG2: 1759 rows, 1755 with a source; tercile counts [210, 1217, 328]
+14:09:05 fit pass Jurkat: 2050 rows, 2047 with a source; tercile counts [266, 1393, 388]
+14:11:51 fit pass HCT116: 16470 rows, 16223 with a source; tercile counts [3410, 8956, 3857]
+14:14:47 fit pass HEK293T: 15865 rows, 15682 with a source; tercile counts [3425, 8611, 3646]
+14:16:39 fit pass CD4_Stim48hr: 10602 rows, 10253 with a source; tercile counts [2938, 4977, 2338]
+/home/mooneysad/vcc/analysis/v6lin/v6lin.py:130: RuntimeWarning: Mean of empty slice
+  with np.errstate(invalid='ignore'): pct[a:a + m] = np.nanmean(np.stack(ps), 0)
+/home/mooneysad/vcc/analysis/v6lin/v6lin.py:256: RuntimeWarning: Mean of empty slice
+  Rhat = np.nan_to_num(np.nanmean(np.where(g['has'][:, None], g['re'], np.nan), 0))
+beta (K=30, first 10 PCs)
+          PC1    PC2    PC3    PC4    PC5    PC6    PC7    PC8    PC9   PC10
+weak    0.501  0.326  0.347  0.693  0.228  0.490  0.186  0.330  0.286  0.267
+mid     0.640  0.608  0.682  0.757  0.343  0.706  0.485  0.497  0.538  0.465
+strong  0.644  0.536  0.606  0.750  0.377  0.736  0.529  0.468  0.537  0.533
+pooled  0.627  0.522  0.597  0.746  0.325  0.696  0.457  0.468  0.505  0.448
+gamma
+     weak    mid  strong  pooled
+10  0.014  0.026   0.055   0.026
+30  0.014  0.026   0.055   0.026
+50  0.014  0.026   0.055   0.026
+a
+     weak   mid  strong  pooled
+10  1.319  0.97   0.793   1.004
+30  1.319  0.97   0.793   1.004
+50  1.319  0.97   0.793   1.004
+1d {"weak": {"n": 98, "median_r": 0.0379716443586569}, "mid": {"n": 100, "median_r": 0.0427869969717588}, "strong": {"n": 101, "median_r": 0.08307277260286323}, "all": {"n": 299, "median_r": 0.04734217962107739}}
+{"H1_with_source": 299, "H1_total": 300, "challenge_with_source_7_lines": 300, "challenge_with_source_7_lines_plus_H1": 300, "challenge_total": 300}
+14:16:45 v6-lin K=30 (main): mse 1.0074 (-0.0567) pds 0.6369
+14:16:45 v6-lin K=10: mse 1.0090 (-0.0583) pds 0.6018
+14:16:46 v6-lin K=50: mse 1.0058 (-0.0550) pds 0.6486
+14:16:46 v6-lin pooled beta/gamma/a: mse 1.0060 (-0.0552) pds 0.6431
+14:16:47 v6-lin real H1 terciles (oracle): mse 1.0091 (-0.0585) pds 0.6254
+14:16:47 Model 2 on effects_v4 (7 lines): mse 1.9873 (-1.0868) pds 0.8595
+14:16:47 dev transformer (dev_nopie): mse 0.9743 (-0.0219) pds 0.7975
+                                  all:mse_raw  all:mse_scaled  all:mse_unclamped  all:pds_raw  all:pds_scaled  median_r_demeaned
+arm                                                                                                                             
+v6-lin K=30 (main)                     1.0074             0.0            -0.0567       0.6369          0.2952             0.0686
+v6-lin K=10                            1.0090             0.0            -0.0583       0.6018          0.2254             0.0567
+v6-lin K=50                            1.0058             0.0            -0.0550       0.6486          0.3185             0.0785
+v6-lin pooled beta/gamma/a             1.0060             0.0            -0.0552       0.6431          0.3074             0.0851
+v6-lin real H1 terciles (oracle)       1.0091             0.0            -0.0585       0.6254          0.2723             0.0501
+Model 2 on effects_v4 (7 lines)        1.9873             0.0            -1.0868       0.8595          0.7371             0.0731
+dev transformer (dev_nopie)            0.9743             0.0            -0.0219       0.7975          0.6140             0.1518
+                                  all:mse_raw  all:pds_raw  weak:mse_raw  weak:pds_raw  mid:mse_raw  mid:pds_raw  strong:mse_raw  strong:pds_raw
+arm                                                                                                                                             
+v6-lin K=30 (main)                     1.0074       0.6369        1.7615        0.5724       1.1932       0.5616          0.9668          0.7768
+v6-lin K=10                            1.0090       0.6018        1.7220        0.5714       1.1795       0.5108          0.9713          0.7232
+v6-lin K=50                            1.0058       0.6486        1.7707        0.5730       1.1959       0.5843          0.9645          0.7886
+v6-lin pooled beta/gamma/a             1.0060       0.6431        1.7000        0.6043       1.1813       0.5524          0.9681          0.7724
+v6-lin real H1 terciles (oracle)       1.0091       0.6254        1.8690        0.5378       1.1981       0.5519          0.9660          0.7865
+Model 2 on effects_v4 (7 lines)        1.9873       0.8595       17.6168        0.8022       5.4616       0.8216          1.1983          0.9546
+dev transformer (dev_nopie)            0.9743       0.7975        1.0717        0.8595       1.1149       0.6919          0.9533          0.8411
+EXIT=0

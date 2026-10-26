@@ -1,0 +1,38 @@
+{
+ "settings": {
+  "alpha": 1.0,
+  "max_lfc": 8.0,
+  "min_lfc": 0.0,
+  "kd_clip": [
+   0.01,
+   0.9
+  ],
+  "default_kd": 0.3,
+  "n_cells": 400,
+  "composition": "projection",
+  "comp_thr": 0.02,
+  "pi": 0,
+  "up_w": 0.75,
+  "tilt": false,
+  "match_pool": false,
+  "seed": 2026,
+  "z": 0.0,
+  "min_effect": 0.0,
+  "call": "z",
+  "top_n": 1000,
+  "sign_rule": false,
+  "detect_floor": true,
+  "z_req": 4.0,
+  "gate_from": "",
+  "metadata": true,
+  "library_size": null
+ },
+ "cell_rule": "fixed",
+ "n_cells": 400,
+ "delta_array": "v6lin",
+ "arm": "v6lin_floor",
+ "scaled_overall": 0.0702279367823782,
+ "selection": "scaled overall (leaderboard formula)",
+ "schema": "vcc_2026_3_ridge_v1",
+ "note": "H1 is calibration, not an untouched test"
+}

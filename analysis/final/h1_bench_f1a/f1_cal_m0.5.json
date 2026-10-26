@@ -1,0 +1,12 @@
+{
+ "call": "z",
+ "z": 0.0,
+ "min_effect": 0.0,
+ "alpha": 1.0,
+ "detect_floor": false,
+ "called_from": "called_top2000",
+ "method": "f1_cal",
+ "narrow_m": 0.5,
+ "label": "f1_cal_m0.5",
+ "cell_rule": "fixed"
+}

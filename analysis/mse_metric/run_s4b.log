@@ -1,0 +1,76 @@
+  re-indexed genes: 18,077/18,533 of ours present
+===== S4B
+{
+ "composition": {
+  "n_batches": 48,
+  "runs": [
+   "Flex_1",
+   "Flex_2",
+   "Flex_3"
+  ],
+  "cells_per_kd_median": 1100.0,
+  "batches_per_kd_median": 48.0,
+  "max_batch_share_median": 0.031545741324921134,
+  "max_batch_share_max": 0.05581395348837209,
+  "tv_distance_to_control_composition": {
+   "median": 0.08319768780326553,
+   "max": 0.21168346361527512
+  },
+  "uniform_share": 0.020833333333333332
+ },
+ "controls": {
+  "batch_control_dist_to_pooled_raw": {
+   "median": 2.6990444227126082,
+   "max": 4.558568876512609
+  },
+  "batch_control_dist_noise_corrected": {
+   "median": 1.9682273842236113,
+   "max": 4.1534461857969145
+  },
+  "batch_mean_sampling_noise_norm_median": 1.7064302879477875,
+  "run_control_dist_to_pooled": {
+   "Flex_1": 0.8001396008803946,
+   "Flex_2": 0.9576880237999528,
+   "Flex_3": 0.9891654448326086
+  },
+  "typical_dk_noise_corrected": {
+   "median": 4.036844164226809,
+   "q25": 2.7256470734463645,
+   "q75": 6.984167532532918
+  },
+  "ratio_median_batch_dist_nc_to_median_dk": 0.4875658569298755
+ },
+ "regression": {
+  "pooled_R2_composition_beta1": 0.0001449859454423219,
+  "median_R2_composition_beta1": 0.00019737688430687683,
+  "median_R2_composition_fitted_beta": 0.000593636142787196,
+  "median_beta": 0.8016187273146991,
+  "pooled_R2_free_48_batch_profiles": 0.04530103226467093,
+  "median_R2_free_48": 0.04152861247628058,
+  "chance_R2_free_48_random_directions": 0.0026004984288655326,
+  "median_real_noise_share_of_dk2": 0.15049966025908865,
+  "pooled_free_R2_of_noise_corrected_energy": 0.048903581702807286
+ },
+ "by_tercile": {
+  "0": {
+   "R2_free": 0.04980735860503686,
+   "R2_beta": 0.0007421230037127181,
+   "tv": 0.0678873225310565,
+   "maxshare": 0.028994845360824743
+  },
+  "1": {
+   "R2_free": 0.03435079724173356,
+   "R2_beta": 0.0002918060485491429,
+   "tv": 0.08277036252549694,
+   "maxshare": 0.03125
+  },
+  "2": {
+   "R2_free": 0.042918898851353374,
+   "R2_beta": 0.0005142581400328121,
+   "tv": 0.09736735413659652,
+   "maxshare": 0.03291139240506329
+  }
+ },
+ "lines_A_C_batch_labels": "none: obs = target_gene, context, ntc_id (46 control guide ids); var and uns empty"
+}
+EXIT=0

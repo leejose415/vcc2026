@@ -1,0 +1,57 @@
+{
+ "tau2_validation": {
+  "median": 0.0,
+  "mean": 0.0008406794258081816,
+  "share_positive": 0.08505860444736554
+ },
+ "tau2_final": {
+  "median": 0.0,
+  "mean": 0.000889758195218357
+ },
+ "coverage": {
+  "h1_with_source": 299,
+  "abc_with_source": 300,
+  "qc": {
+   "K562": {
+    "rows": 9245,
+    "dropped": 6,
+    "half": 2564
+   },
+   "RPE1": {
+    "rows": 1968,
+    "dropped": 2,
+    "half": 288
+   },
+   "HepG2": {
+    "rows": 1759,
+    "dropped": 0,
+    "half": 191
+   },
+   "Jurkat": {
+    "rows": 2054,
+    "dropped": 4,
+    "half": 283
+   },
+   "HCT116": {
+    "rows": 16492,
+    "dropped": 22,
+    "half": 9237
+   },
+   "HEK293T": {
+    "rows": 15938,
+    "dropped": 73,
+    "half": 11854
+   },
+   "CD4_Stim48hr": {
+    "rows": 10615,
+    "dropped": 13,
+    "half": 3758
+   },
+   "H1": {
+    "rows": 300,
+    "dropped": 0,
+    "half": 9
+   }
+  }
+ }
+}

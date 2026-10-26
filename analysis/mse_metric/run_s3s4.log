@@ -1,0 +1,59 @@
+  re-indexed genes: 18,077/18,533 of ours present
+===== S3
+  generated 600 knockdowns in 1119s
+    delta  floor                  path libsize  mse_raw  mse_scaled  mse_unclamped  pds_raw  pds_scaled  pred_correction_capped_rows  budget_over_claim  pred_correction_share_of_den
+     true  False     direct pseudobulk       -  -0.0102      1.0000         1.0131   1.0000      1.0162                          NaN                NaN                           NaN
+     true   True     direct pseudobulk       -   1.7443      0.0000        -0.8314   1.0000      1.0162                          NaN                NaN                           NaN
+dev_nopie  False     direct pseudobulk       -   0.9743      0.0000        -0.0219   0.7975      0.6140                          NaN                NaN                           NaN
+dev_nopie   True     direct pseudobulk       -   1.6427      0.0000        -0.7246   0.7431      0.5060                          NaN                NaN                           NaN
+     true  False generator (400 cells)     off   0.0705      0.9282         0.9282   1.0000      1.0162                         69.0            15.8029                        0.0634
+     true  False generator (400 cells)      on   0.0722      0.9265         0.9265   1.0000      1.0162                         70.0            15.6263                        0.0642
+     true   True generator (400 cells)     off   1.8424      0.0000        -0.9345   1.0000      1.0162                         70.0            47.8759                        0.0643
+     true   True generator (400 cells)      on   1.8422      0.0000        -0.9343   1.0000      1.0162                         70.0            47.4433                        0.0649
+dev_nopie  False generator (400 cells)     off   1.0649      0.0000        -0.1171   0.6841      0.3890                         68.0             0.6925                        0.0432
+dev_nopie  False generator (400 cells)      on   1.0662      0.0000        -0.1185   0.6834      0.3875                         69.0             0.7224                        0.0459
+dev_nopie   True generator (400 cells)     off   1.7079      0.0000        -0.7931   0.7375      0.4949                         69.0             8.8476                        0.0627
+dev_nopie   True generator (400 cells)      on   1.7100      0.0000        -0.7953   0.7375      0.4949                         69.0             8.7403                        0.0637
+{
+ "submission_settings": {
+  "file1_detect_floor": true,
+  "file1_library_size": null,
+  "v5_0638_detect_floor": true,
+  "v5_0638_library_size": null,
+  "z_req": 4.0
+ },
+ "libsize_median_umi": {
+  "median": 54190.0,
+  "min": 38650.0,
+  "max": 63176.0
+ },
+ "generator_control_median_umi": 55593.0
+}
+===== S4
+  WARNING /home/mooneysad/vcc/lib/vcc_2026_3/validation/pred/H1: 40 targets missing -> no change predicted for them
+model                                dev_nopie transformer  Model 2 (vcc_2026_3 re, held-out H1)  effects_v4 evidence mean (pw_mean)  dev_nopie through generator (submission: floor on, libsize off)  dev_nopie through generator (floor off)
+raw_mse                                             0.9743                                2.4010                              1.1399                                                           1.7706                                   1.1081
+plugin_error                                        1.0490                                2.4757                              1.2146                                                           1.8453                                   1.1828
+real_noise_correction                              -0.0747                               -0.0747                             -0.0747                                                          -0.0747                                  -0.0747
+tercile_weak                                        0.0188                                0.4600                              0.0558                                                           0.2961                                   0.0641
+tercile_mid                                         0.1309                                0.7695                              0.2381                                                           0.4076                                   0.1770
+tercile_strong                                      0.8246                                1.1715                              0.8460                                                           1.0668                                   0.8671
+worst_10pct_share_of_numerator                      0.4934                                0.2945                              0.4450                                                           0.3118                                   0.4474
+on_panel_5000                                       0.3650                                0.7641                              0.5285                                                           1.0503                                   0.4098
+off_panel                                           0.6841                                1.7116                              0.6861                                                           0.7950                                   0.7730
+ctrl_decile_1                                       0.0000                                0.0000                              0.0000                                                           0.0001                                   0.0001
+ctrl_decile_2                                       0.0006                                0.0006                              0.0006                                                           0.0018                                   0.0018
+ctrl_decile_3                                       0.0038                                0.0038                              0.0038                                                           0.0055                                   0.0054
+ctrl_decile_4                                       0.0312                                0.0313                              0.0313                                                           0.0395                                   0.0391
+ctrl_decile_5                                       0.0953                                0.1736                              0.0974                                                           0.1481                                   0.1169
+ctrl_decile_6                                       0.1453                                0.3403                              0.1550                                                           0.2586                                   0.1723
+ctrl_decile_7                                       0.1825                                0.4613                              0.2024                                                           0.3424                                   0.2088
+ctrl_decile_8                                       0.1774                                0.4765                              0.2092                                                           0.3489                                   0.1989
+ctrl_decile_9                                       0.1877                                0.4775                              0.2338                                                           0.3589                                   0.2040
+ctrl_decile_10                                      0.2253                                0.5108                              0.2810                                                           0.3415                                   0.2356
+component_shared                                    0.0488                                0.0804                              0.0494                                                           0.3757                                   0.1820
+component_amplitude                                 0.0947                                0.0967                              0.1016                                                           0.0869                                   0.0947
+component_specific                                  0.9056                                2.2986                              1.0635                                                           1.3826                                   0.9061
+component_cross_terms                               0.0000                                0.0000                              0.0000                                                           0.0000                                   0.0000
+raw_mse_scored_with_pred_correction                    NaN                                   NaN                                 NaN                                                           1.7079                                   1.0649
+EXIT=0

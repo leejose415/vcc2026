@@ -1,0 +1,34 @@
+{
+ "mode": "transfer",
+ "outputs": {
+  "v6lin_floor": "/home/mooneysad/vcc/analysis/v6lin/h1_bench/v6lin_floor",
+  "v6lin_nofloor": "/home/mooneysad/vcc/analysis/v6lin/h1_bench/v6lin_nofloor"
+ },
+ "settings": {
+  "v6lin_floor": {
+   "method": "v6lin",
+   "call": "z",
+   "z": 0.0,
+   "min_effect": 0.0,
+   "alpha": 1.0,
+   "detect_floor": true,
+   "label": "v6lin_floor",
+   "cell_rule": "fixed"
+  },
+  "v6lin_nofloor": {
+   "method": "v6lin",
+   "call": "z",
+   "z": 0.0,
+   "min_effect": 0.0,
+   "alpha": 1.0,
+   "detect_floor": false,
+   "label": "v6lin_nofloor",
+   "cell_rule": "fixed"
+  }
+ },
+ "n_targets": 75,
+ "ceiling": "/home/mooneysad/vcc/lib/vcc_2026_3/val_final/ceiling",
+ "real_cache": "/home/mooneysad/vcc/lib/vcc_2026_3/val_final/real_cache",
+ "bundle": "/home/mooneysad/vcc/lib/vcc_2026_3/val_final/bundle",
+ "note": "H1 is generator calibration; final evidence requires unseen lines. Oracle is a generator-only ceiling check."
+}
