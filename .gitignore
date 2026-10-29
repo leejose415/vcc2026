@@ -15,3 +15,5 @@ code/vcc_2026_3c/*
 __pycache__/
 .pytest_cache/
 data_final/
+analysis/final/m2v4_abc.npz
+analysis/final/m2v4_h1.npz
