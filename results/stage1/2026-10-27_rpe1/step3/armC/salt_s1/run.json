@@ -1,0 +1,25 @@
+{
+ "salt": "s1",
+ "model": {
+  "source": "stage1.predict_line",
+  "arm": "C"
+ },
+ "controls": {
+  "n_controls": 5654,
+  "median_panel_library": 8462.0,
+  "gated_genes": 8259,
+  "quantiles": "/home/mooneysad/vcc/results/stage1/2026-10-27_rpe1/step3/armC/controls/controls_control_quantiles.npz",
+  "baseline": "/home/mooneysad/vcc/results/stage1/2026-10-27_rpe1/step3/armC/controls/controls_baseline.csv"
+ },
+ "background": "RPE1",
+ "knockdowns": 300,
+ "n_cells": 400,
+ "vcc_prep": {
+  "command": "/home/mooneysad/venv/bin/vcc prep /home/mooneysad/vcc/results/stage1/2026-10-27_rpe1/step3/armC/salt_s1/prediction.h5ad -g /home/mooneysad/vcc/data/gene_names.csv --no-verify-targets --cells-per-pert 400 -o /home/mooneysad/vcc/results/stage1/2026-10-27_rpe1/step3/armC/salt_s1/prediction.vcc",
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "vcc prep: Submission contains 5654 'non-targeting' control cell(s), but controls must NOT be submitted.\nScoring uses the control cells from the held-out data, not yours, so predicted controls are never read.\nDrop every cell whose 'target_gene' is 'non-targeting' and submit only your perturbation predictions.\n"
+ },
+ "sig_requested_median": 20.5,
+ "sig_realized_median": 21.0
+}

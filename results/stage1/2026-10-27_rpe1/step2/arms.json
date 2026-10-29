@@ -1,0 +1,239 @@
+{
+ "A": {
+  "all_300": {
+   "knockdowns": 300,
+   "effect_space": {
+    "mae": 0.36400647483100557,
+    "nmae": 0.9991629188150511,
+    "mse": 0.4261730082028584,
+    "nmae_unshrunk": 1.0442004946642445,
+    "mse_unshrunk": 0.43383605369599787,
+    "nmae_zero": 0.9999999999996683,
+    "mse_zero": 0.4323832337524516,
+    "sign_acc_true_de": 0.714114010989011,
+    "coverage_95": 0.8428570524049601,
+    "auroc": 0.6177341642220008,
+    "n_called": 12.5,
+    "n_true": 407.5,
+    "call_count_pearson": 0.41921941772294374,
+    "knockdowns": 300
+   },
+   "fit": {
+    "shrunk": {
+     "n": 2477700,
+     "pearson_r": 0.05337146091308727,
+     "slope_true_on_pred": 1.2396289965508174,
+     "slope_pred_on_true": 0.0022978752900448393
+    },
+    "unshrunk": {
+     "n": 2477700,
+     "pearson_r": 0.09952813950914056,
+     "slope_true_on_pred": 0.5148308196792375,
+     "slope_pred_on_true": 0.019240982038182437
+    }
+   },
+   "median_n_called": 12.5,
+   "median_n_true": 407.5
+  },
+  "tahoe_touched": {
+   "knockdowns": 1,
+   "effect_space": {
+    "mae": 0.2902203084930897,
+    "nmae": 1.0034488600959508,
+    "mse": 0.4281415197498028,
+    "nmae_unshrunk": 1.024604649727984,
+    "mse_unshrunk": 0.4315304433843748,
+    "nmae_zero": 0.9999999999995813,
+    "mse_zero": 0.43764211590828606,
+    "sign_acc_true_de": 0.5802469135802469,
+    "coverage_95": 0.8203948165193169,
+    "auroc": 0.606986963313333,
+    "n_called": 74.0,
+    "n_true": 648.0,
+    "call_count_pearson": null,
+    "knockdowns": 1
+   },
+   "fit": {
+    "shrunk": {
+     "n": 8259,
+     "pearson_r": 0.1658286431204871,
+     "slope_true_on_pred": 1.8061058239360104,
+     "slope_pred_on_true": 0.015225652071290898
+    },
+    "unshrunk": {
+     "n": 8259,
+     "pearson_r": 0.13558297563247731,
+     "slope_true_on_pred": 0.7047314329587978,
+     "slope_pred_on_true": 0.026084750050352424
+    }
+   },
+   "median_n_called": 74.0,
+   "median_n_true": 648.0
+  },
+  "prior": {
+   "tau2": 0.0001,
+   "v0": 0.5089268723621688,
+   "pi": 0.005,
+   "n_tau": 2388735,
+   "n_v0": 44836
+  }
+ },
+ "B": {
+  "all_300": {
+   "knockdowns": 300,
+   "effect_space": {
+    "mae": 0.36363630166056127,
+    "nmae": 0.9988409772492565,
+    "mse": 0.42632144778729425,
+    "nmae_unshrunk": 1.0550583567210454,
+    "mse_unshrunk": 0.4393738398225593,
+    "nmae_zero": 0.9999999999996683,
+    "mse_zero": 0.4323832337524516,
+    "sign_acc_true_de": 0.7139710509754562,
+    "coverage_95": 0.8466056355230454,
+    "auroc": 0.6119307767031938,
+    "n_called": 21.0,
+    "n_true": 407.5,
+    "call_count_pearson": 0.45978922048691945,
+    "knockdowns": 300
+   },
+   "fit": {
+    "shrunk": {
+     "n": 2477700,
+     "pearson_r": 0.0648394737038638,
+     "slope_true_on_pred": 1.2097238503766363,
+     "slope_pred_on_true": 0.00347530335033497
+    },
+    "unshrunk": {
+     "n": 2477700,
+     "pearson_r": 0.09739569688758554,
+     "slope_true_on_pred": 0.4778721102598445,
+     "slope_pred_on_true": 0.019850335620257138
+    }
+   },
+   "median_n_called": 21.0,
+   "median_n_true": 407.5
+  },
+  "tahoe_touched": {
+   "knockdowns": 1,
+   "effect_space": {
+    "mae": 0.2895748431135672,
+    "nmae": 1.0012171365385047,
+    "mse": 0.42799684284283507,
+    "nmae_unshrunk": 1.0407150116135706,
+    "mse_unshrunk": 0.43940658960737616,
+    "nmae_zero": 0.9999999999995813,
+    "mse_zero": 0.43764211590828606,
+    "sign_acc_true_de": 0.5524691358024691,
+    "coverage_95": 0.8240280973719268,
+    "auroc": 0.6038289691171486,
+    "n_called": 47.0,
+    "n_true": 648.0,
+    "call_count_pearson": null,
+    "knockdowns": 1
+   },
+   "fit": {
+    "shrunk": {
+     "n": 8259,
+     "pearson_r": 0.1742707735963159,
+     "slope_true_on_pred": 2.0822204999159504,
+     "slope_pred_on_true": 0.014585536224950386
+    },
+    "unshrunk": {
+     "n": 8259,
+     "pearson_r": 0.11913499200896537,
+     "slope_true_on_pred": 0.4704287235496426,
+     "slope_pred_on_true": 0.030170662654017327
+    }
+   },
+   "median_n_called": 47.0,
+   "median_n_true": 648.0
+  },
+  "prior": {
+   "tau2": 0.0001,
+   "v0": 0.5166605605477735,
+   "pi": 0.020256410256410257,
+   "n_tau": 2063456,
+   "n_v0": 67371
+  }
+ },
+ "C": {
+  "all_300": {
+   "knockdowns": 300,
+   "effect_space": {
+    "mae": 0.36363630166056127,
+    "nmae": 0.9988409772492565,
+    "mse": 0.42598614418421976,
+    "nmae_unshrunk": 1.0550583567210454,
+    "mse_unshrunk": 0.43853020462835546,
+    "nmae_zero": 0.9999999999996683,
+    "mse_zero": 0.4323832337524516,
+    "sign_acc_true_de": 0.7139710509754562,
+    "coverage_95": 0.8466056355230454,
+    "auroc": 0.6119307767031938,
+    "n_called": 21.0,
+    "n_true": 407.5,
+    "call_count_pearson": 0.4597573731018182,
+    "knockdowns": 300
+   },
+   "fit": {
+    "shrunk": {
+     "n": 2477700,
+     "pearson_r": 0.06485494238527695,
+     "slope_true_on_pred": 1.2093889949605292,
+     "slope_pred_on_true": 0.0034779244472411207
+    },
+    "unshrunk": {
+     "n": 2477700,
+     "pearson_r": 0.09740832494915769,
+     "slope_true_on_pred": 0.4780703903049993,
+     "slope_pred_on_true": 0.019847248358860498
+    }
+   },
+   "median_n_called": 21.0,
+   "median_n_true": 407.5
+  },
+  "tahoe_touched": {
+   "knockdowns": 1,
+   "effect_space": {
+    "mae": 0.29016049183908094,
+    "nmae": 1.00324204151185,
+    "mse": 0.42732623563668615,
+    "nmae_unshrunk": 1.0268216755924315,
+    "mse_unshrunk": 0.43289198863476197,
+    "nmae_zero": 0.9999999999995813,
+    "mse_zero": 0.43764211590828606,
+    "sign_acc_true_de": 0.5864197530864198,
+    "coverage_95": 0.8216059101368536,
+    "auroc": 0.6078933025786265,
+    "n_called": 88.0,
+    "n_true": 648.0,
+    "call_count_pearson": null,
+    "knockdowns": 1
+   },
+   "fit": {
+    "shrunk": {
+     "n": 8259,
+     "pearson_r": 0.1692431204926705,
+     "slope_true_on_pred": 1.6795335921228687,
+     "slope_pred_on_true": 0.017054278621419294
+    },
+    "unshrunk": {
+     "n": 8259,
+     "pearson_r": 0.12986768338310817,
+     "slope_true_on_pred": 0.6541669587279807,
+     "slope_pred_on_true": 0.025781820622811955
+    }
+   },
+   "median_n_called": 88.0,
+   "median_n_true": 648.0
+  },
+  "prior": {
+   "tau2": 0.0001,
+   "v0": 0.5166605605477735,
+   "pi": 0.020256410256410257,
+   "n_tau": 2063456,
+   "n_v0": 67371
+  }
+ }
+}

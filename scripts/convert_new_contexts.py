@@ -437,6 +437,34 @@ def jiang_symbol_table(force=False):
     log(f'{JIANG_WORK / "symbol_ids.csv"}: {len(rows):,} symbols ({sum(1 for _, g in rows if g):,} unambiguous)')
 
 
+def panel_fill(symbols, gene_ids):
+    """A symbol the lookup left blank (IRF9, ID3, ...) takes the panel's ID for the same symbol, unless another source
+    gene already has that ID (user decision, 26 Oct: blank IDs had QC pool those targets into one knockdown and kept
+    617 panel genes out of the tables). Returns the filled list and {symbol: ID} of the fills."""
+    from build_effects_v4 import panel
+    pan = panel()[0]; pid = dict(zip(pan.index.astype(str), pan.gene_id.astype(str)))
+    out = list(gene_ids); taken = set(out); fills = {}
+    for j, g in enumerate(map(str, symbols)):
+        if not out[j] and pid.get(g) and pid[g] not in taken: out[j] = fills[g] = pid[g]; taken.add(pid[g])
+    return out, fills
+
+
+def jiang_fill_ids(force=False):
+    """panel_fill on the written lib/cells/jiang_*.h5ad (var gene_id rewritten in place; the _jiang_work export it was
+    converted from is gone). Recorded in uns['conversion']['panel_id_fills']."""
+    for p in sorted(OUT.glob('jiang_*.h5ad')):
+        with h5py.File(p, 'r+') as f:
+            var = read_elem(f['var']); conv = dict(read_elem(f['uns']).get('conversion', {}))
+            if 'panel_id_fills' in conv and not force: log(f'{p.name}: already filled, skipped'); continue
+            ids, fills = panel_fill(var['gene_symbol'].astype(str), var['gene_id'].astype(str).tolist())
+            var['gene_id'] = ids
+            del f['var']; write_elem(f, 'var', var)
+            conv['panel_id_fills'] = json.dumps(fills); conv['genes_without_ensembl'] = int(sum(1 for g in ids if not g))
+            if 'conversion' in f['uns']: del f['uns']['conversion']
+            write_elem(f['uns'], 'conversion', conv)
+        log(f'{p.name}: {len(fills)} gene IDs filled from the panel; {conv["genes_without_ensembl"]:,} still blank')
+
+
 def jiang(force=False):
     """Per pathway (one Seurat object, exported by scripts/extract_jiang_counts.R into _jiang_work/<pathway>/), one raw file
     per cell line: lib/cells/jiang_<pathway>_<line>.h5ad. target_gene = metadata 'gene' ('NT' -> control), guide_id =
@@ -452,7 +480,7 @@ def jiang(force=False):
         if len(x) != nnz or len(i) != nnz or len(p) != n_cells + 1 or len(genes) != n_genes: raise ValueError(f'{pw}: inconsistent export')
         X = sp.csr_matrix((x, i, p), shape=(n_cells, n_genes)); del x, i
         m = pd.read_csv(d / 'metadata.csv.gz', index_col=0, low_memory=False)
-        gene_ids = [sym2id.get(g, '') for g in genes]
+        gene_ids, _ = panel_fill(genes, [sym2id.get(g, '') for g in genes])
         target = m['gene'].astype(str).where(m['gene'].astype(str) != 'NT', CONTROL)
         for line in sorted(m['cell_type'].astype(str).unique()):
             name = f'jiang_{pw.lower()}_{line.lower()}'
@@ -536,8 +564,8 @@ def fix_symbols(force=False):
 if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument('what', choices=['kolf', 'adamson', 'feng_targeted', 'feng_gw', 'fix_symbols', 'tahoe_select', 'tahoe_stream', 'jiang_symbol_table', 'jiang',
-                                    'tahoe_finalize'])
+                                    'jiang_fill_ids', 'tahoe_finalize'])
     p.add_argument('--force', action='store_true')
     a = p.parse_args()
     dict(kolf=kolf, adamson=adamson, feng_targeted=feng_targeted, feng_gw=feng_gw, fix_symbols=fix_symbols, tahoe_select=tahoe_select,
-         tahoe_stream=tahoe_stream, tahoe_finalize=tahoe_finalize, jiang_symbol_table=jiang_symbol_table, jiang=jiang)[a.what](a.force)
+         tahoe_stream=tahoe_stream, tahoe_finalize=tahoe_finalize, jiang_symbol_table=jiang_symbol_table, jiang=jiang, jiang_fill_ids=jiang_fill_ids)[a.what](a.force)

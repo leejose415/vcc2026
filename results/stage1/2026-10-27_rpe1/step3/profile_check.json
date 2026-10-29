@@ -1,0 +1,28 @@
+[
+ {
+  "source": "all 11309 RPE1 controls",
+  "n_controls_sidecar": 11309,
+  "n_controls_rebuilt": 11309,
+  "baseline_control_mean_cpm_max_abs_diff": 0.0,
+  "baseline_control_mean_cpm_max_rel_diff": 0.0,
+  "baseline_unmeasured_genes_rebuilt_nonzero": 0,
+  "gated_sidecar": 8259,
+  "gated_rebuilt": 8259,
+  "gated_symmetric_difference": 0,
+  "quantiles_identical_structure": true,
+  "quantile_values_max_abs_diff": 0.0
+ },
+ {
+  "source": "eval context half (5654 controls)",
+  "n_controls_sidecar": 11309,
+  "n_controls_rebuilt": 5654,
+  "baseline_control_mean_cpm_max_abs_diff": 34.7951031666089,
+  "baseline_control_mean_cpm_max_rel_diff": 0.3812673226339929,
+  "baseline_unmeasured_genes_rebuilt_nonzero": 0,
+  "gated_sidecar": 8259,
+  "gated_rebuilt": 8259,
+  "gated_symmetric_difference": 0,
+  "quantile_percentile_max_abs_diff_log1p_cpm": 4.546214781669498,
+  "quantile_percentile_median_of_gene_max": 0.170291113386833
+ }
+]

@@ -1,0 +1,223 @@
+{
+ "file_bytes_identical": true,
+ "sha_before": "9abaa5eec4c09c21f7ac738e1e5ef25b4e92aeabe0f2b1fc37633b5f50bf0100",
+ "sha_after": "9abaa5eec4c09c21f7ac738e1e5ef25b4e92aeabe0f2b1fc37633b5f50bf0100",
+ "member_bytes_identical": {
+  "knockdowns.npy": true,
+  "genes.npy": true,
+  "lfc.npy": true,
+  "lfc_unshrunk.npy": true,
+  "se_measurement.npy": true,
+  "se_model.npy": true,
+  "p_sign.npy": true,
+  "de_sig.npy": true,
+  "n_sources.npy": true
+ },
+ "zip_timestamps": {
+  "knockdowns.npy": [
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ]
+  ],
+  "genes.npy": [
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ]
+  ],
+  "lfc.npy": [
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ]
+  ],
+  "lfc_unshrunk.npy": [
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ]
+  ],
+  "se_measurement.npy": [
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ]
+  ],
+  "se_model.npy": [
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ]
+  ],
+  "p_sign.npy": [
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ]
+  ],
+  "de_sig.npy": [
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ]
+  ],
+  "n_sources.npy": [
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    1980,
+    1,
+    1,
+    0,
+    0,
+    0
+   ]
+  ]
+ },
+ "arrays_equal": {
+  "knockdowns": true,
+  "genes": true,
+  "lfc": true,
+  "lfc_unshrunk": true,
+  "se_measurement": false,
+  "se_model": false,
+  "p_sign": true,
+  "de_sig": true,
+  "n_sources": true
+ },
+ "summary_keys_added": [
+  "arm",
+  "backgrounds",
+  "fit",
+  "n_sources_counts"
+ ],
+ "summary_equal_except_fit": {
+  "target": true,
+  "knockdowns": true,
+  "genes": true,
+  "sources": true,
+  "dropped_same_line": true,
+  "calibration": true,
+  "prior": true,
+  "effect_space": true,
+  "generator_lfc": true,
+  "note": true
+ },
+ "fit": {
+  "shrunk": {
+   "n": 165180,
+   "pearson_r": 0.032745532458045484,
+   "slope_true_on_pred": 0.9355969967809632,
+   "slope_pred_on_true": 0.0011460809511469009
+  },
+  "unshrunk": {
+   "n": 165180,
+   "pearson_r": 0.057283973379188,
+   "slope_true_on_pred": 0.3343932187008884,
+   "slope_pred_on_true": 0.00981315834949018
+  }
+ }
+}

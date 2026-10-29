@@ -1,0 +1,7 @@
+{
+ "n_controls": 5654,
+ "median_panel_library": 8462.0,
+ "gated_genes": 8259,
+ "quantiles": "results/stage1/baseline_CG_e2e/controls/controls_control_quantiles.npz",
+ "baseline": "results/stage1/baseline_CG_e2e/controls/controls_baseline.csv"
+}

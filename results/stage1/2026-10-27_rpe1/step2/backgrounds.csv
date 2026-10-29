@@ -1,0 +1,84 @@
+background,tables,observations,observations_in_300,modality,multiplier_A,multiplier_BC,tables_list,votes_for_rpe1,votes_for_h1
+a-172,1,141,1,drug,16,16,tahoe_a_172,True,True
+a-427,1,141,1,drug,16,16,tahoe_a_427,True,True
+a498,1,141,1,drug,16,16,tahoe_a498,True,True
+a549,6,377,1,CRISPRko+drug,4/16,4/16,jiang_ifnb_a549 jiang_ifng_a549 jiang_ins_a549 jiang_tgfb_a549 jiang_tnfa_a549 tahoe_a549,True,True
+an3 ca,1,141,1,drug,16,16,tahoe_an3_ca,True,True
+aspc-1,1,141,1,drug,16,16,tahoe_aspc_1,True,True
+bt-474,1,141,1,drug,16,16,tahoe_bt_474,True,True
+bxpc3,5,227,0,CRISPRko,4,4,jiang_ifnb_bxpc3 jiang_ifng_bxpc3 jiang_ins_bxpc3 jiang_tgfb_bxpc3 jiang_tnfa_bxpc3,True,True
+c-33 a,1,141,1,drug,16,16,tahoe_c_33_a,True,True
+c32,1,141,1,drug,16,16,tahoe_c32,True,True
+cd4_t,3,32040,408,replicate_table,16,16,marson_cd4_rest marson_cd4_stim48hr marson_cd4_stim8hr,True,True
+cfpac-1,1,141,1,drug,16,16,tahoe_cfpac_1,True,True
+chp-212,1,136,1,drug,16,16,tahoe_chp_212,True,True
+colo 205,1,141,1,drug,16,16,tahoe_colo_205,True,True
+eipl_1,1,417,36,single_cell,1,1,feng_targeted_eipl_1,True,True
+eipl_3,1,403,35,single_cell,1,1,feng_targeted_eipl_3,True,True
+fiaj_1,1,423,37,single_cell,1,1,feng_targeted_fiaj_1,True,True
+fiaj_3,1,4,0,single_cell,1,1,feng_targeted_fiaj_3,True,True
+h1,1,300,15,single_cell,1,1,arc_h1,True,False
+h4,1,141,1,drug,16,16,tahoe_h4,True,True
+hap1,5,232,0,CRISPRko,4,4,jiang_ifnb_hap1 jiang_ifng_hap1 jiang_ins_hap1 jiang_tgfb_hap1 jiang_tnfa_hap1,True,True
+hct116,2,16492,245,pseudobulk_table+single_cell,1/8,1/16,orion_hct116 orion_hct116_pseudobulk,True,True
+hct15,1,141,1,drug,16,16,tahoe_hct15,True,True
+hec-1-a,1,141,1,drug,16,16,tahoe_hec_1_a,True,True
+hek293t,2,15938,237,pseudobulk_table+single_cell,1/8,1/16,orion_hek293t orion_hek293t_pseudobulk,True,True
+hepg2,1,1759,230,single_cell,1,1,nadig_hepg2,True,True
+hepg2/c3a,1,141,1,drug,16,16,tahoe_hepg2_c3a,True,True
+hipsci_pooled,2,2047,114,single_cell,4,4,feng_gw_fitness feng_gw_nonfitness,True,True
+hop62,1,141,1,drug,16,16,tahoe_hop62,True,True
+hs 766t,1,141,1,drug,16,16,tahoe_hs_766t,True,True
+hs-578t,1,141,1,drug,16,16,tahoe_hs_578t,True,True
+ht-29,1,141,1,drug,16,16,tahoe_ht_29,True,True
+ht29,5,242,0,CRISPRko,4,4,jiang_ifnb_ht29 jiang_ifng_ht29 jiang_ins_ht29 jiang_tgfb_ht29 jiang_tnfa_ht29,True,True
+htert-hpne,1,141,1,drug,16,16,tahoe_htert_hpne,True,True
+iudw_1,1,429,38,single_cell,1,1,feng_targeted_iudw_1,True,True
+iudw_4,1,384,31,single_cell,1,1,feng_targeted_iudw_4,True,True
+j82,1,141,1,drug,16,16,tahoe_j82,True,True
+jejf_2,1,421,36,single_cell,1,1,feng_targeted_jejf_2,True,True
+jejf_3,1,417,37,single_cell,1,1,feng_targeted_jejf_3,True,True
+jurkat,1,2054,263,single_cell,1,1,nadig_jurkat,True,True
+k562,9,9567,294,CRISPRko+single_cell,1/4,1/4,adamson_k562_10x001 adamson_k562_10x005 adamson_k562_10x010 jiang_ifnb_k562 jiang_ifng_k562 jiang_ins_k562 jiang_tgfb_k562 jiang_tnfa_k562 replogle_k562_gw,True,True
+kato iii,1,141,1,drug,16,16,tahoe_kato_iii,True,True
+kolf2.1j,1,1608,55,single_cell,1,1,kolf_kolf21j,True,True
+kolf_2,1,419,37,single_cell,1,1,feng_targeted_kolf_2,True,True
+kolf_3,1,412,36,single_cell,1,1,feng_targeted_kolf_3,True,True
+lovo,1,141,1,drug,16,16,tahoe_lovo,True,True
+lox-imvi,1,141,1,drug,16,16,tahoe_lox_imvi,True,True
+ls 180,1,141,1,drug,16,16,tahoe_ls_180,True,True
+mcf7,5,227,0,CRISPRko,4,4,jiang_ifnb_mcf7 jiang_ifng_mcf7 jiang_ins_mcf7 jiang_tgfb_mcf7 jiang_tnfa_mcf7,True,True
+mia paca-2,1,141,1,drug,16,16,tahoe_mia_paca_2,True,True
+nci-h1573,1,141,1,drug,16,16,tahoe_nci_h1573,True,True
+nci-h1792,1,141,1,drug,16,16,tahoe_nci_h1792,True,True
+nci-h2030,1,141,1,drug,16,16,tahoe_nci_h2030,True,True
+nci-h2122,1,48,1,drug,16,16,tahoe_nci_h2122,True,True
+nci-h23,1,141,1,drug,16,16,tahoe_nci_h23,True,True
+nci-h2347,1,141,1,drug,16,16,tahoe_nci_h2347,True,True
+nci-h460,1,141,1,drug,16,16,tahoe_nci_h460,True,True
+nci-h596,1,18,0,drug,16,16,tahoe_nci_h596,True,True
+nci-h661,1,140,1,drug,16,16,tahoe_nci_h661,True,True
+oikd_2,1,84,6,single_cell,1,1,feng_targeted_oikd_2,True,True
+oikd_5,1,426,36,single_cell,1,1,feng_targeted_oikd_5,True,True
+paab_3,1,379,33,single_cell,1,1,feng_targeted_paab_3,True,True
+paab_4,1,416,37,single_cell,1,1,feng_targeted_paab_4,True,True
+panc 03.27,1,141,1,drug,16,16,tahoe_panc_03_27,True,True
+panc-1,1,141,1,drug,16,16,tahoe_panc_1,True,True
+pipw_4,1,383,34,single_cell,1,1,feng_targeted_pipw_4,True,True
+pipw_5,1,13,0,single_cell,1,1,feng_targeted_pipw_5,True,True
+rko,1,141,1,drug,16,16,tahoe_rko,True,True
+rpe1,1,1968,300,single_cell,1,1,replogle_rpe1,False,True
+rpmi-7951,1,141,1,drug,16,16,tahoe_rpmi_7951,True,True
+shp-77,1,141,1,drug,16,16,tahoe_shp_77,True,True
+sk-mel-2,1,141,1,drug,16,16,tahoe_sk_mel_2,True,True
+snu-1,1,141,1,drug,16,16,tahoe_snu_1,True,True
+snu-423,1,141,1,drug,16,16,tahoe_snu_423,True,True
+sw 1088,1,127,1,drug,16,16,tahoe_sw_1088,True,True
+sw 1271,1,135,1,drug,16,16,tahoe_sw_1271,True,True
+sw 900,1,141,1,drug,16,16,tahoe_sw_900,True,True
+sw1417,1,141,1,drug,16,16,tahoe_sw1417,True,True
+sw48,1,141,1,drug,16,16,tahoe_sw48,True,True
+sw480,1,141,1,drug,16,16,tahoe_sw480,True,True
+tolg_4,1,65,4,single_cell,1,1,feng_targeted_tolg_4,True,True
+tolg_6,1,395,35,single_cell,1,1,feng_targeted_tolg_6,True,True
+zapk_3,1,428,39,single_cell,1,1,feng_targeted_zapk_3,True,True

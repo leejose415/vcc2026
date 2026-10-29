@@ -1,0 +1,1147 @@
+{
+ "target": "arc_h1",
+ "arm": "C",
+ "magnitude": "gaussian",
+ "knockdowns": 300,
+ "genes": 18533,
+ "n_sources_counts": "backgrounds",
+ "backgrounds": {
+  "k562": [
+   "adamson_k562_10x001",
+   "adamson_k562_10x005",
+   "adamson_k562_10x010",
+   "replogle_k562_gw",
+   "jiang_ifnb_k562",
+   "jiang_ifng_k562",
+   "jiang_ins_k562",
+   "jiang_tgfb_k562",
+   "jiang_tnfa_k562"
+  ],
+  "hipsci_pooled": [
+   "feng_gw_fitness",
+   "feng_gw_nonfitness"
+  ],
+  "eipl_1": [
+   "feng_targeted_eipl_1"
+  ],
+  "eipl_3": [
+   "feng_targeted_eipl_3"
+  ],
+  "fiaj_1": [
+   "feng_targeted_fiaj_1"
+  ],
+  "fiaj_3": [
+   "feng_targeted_fiaj_3"
+  ],
+  "iudw_1": [
+   "feng_targeted_iudw_1"
+  ],
+  "iudw_4": [
+   "feng_targeted_iudw_4"
+  ],
+  "jejf_2": [
+   "feng_targeted_jejf_2"
+  ],
+  "jejf_3": [
+   "feng_targeted_jejf_3"
+  ],
+  "kolf_2": [
+   "feng_targeted_kolf_2"
+  ],
+  "kolf_3": [
+   "feng_targeted_kolf_3"
+  ],
+  "oikd_2": [
+   "feng_targeted_oikd_2"
+  ],
+  "oikd_5": [
+   "feng_targeted_oikd_5"
+  ],
+  "paab_3": [
+   "feng_targeted_paab_3"
+  ],
+  "paab_4": [
+   "feng_targeted_paab_4"
+  ],
+  "pipw_4": [
+   "feng_targeted_pipw_4"
+  ],
+  "pipw_5": [
+   "feng_targeted_pipw_5"
+  ],
+  "tolg_4": [
+   "feng_targeted_tolg_4"
+  ],
+  "tolg_6": [
+   "feng_targeted_tolg_6"
+  ],
+  "zapk_3": [
+   "feng_targeted_zapk_3"
+  ],
+  "kolf2.1j": [
+   "kolf_kolf21j"
+  ],
+  "cd4_t": [
+   "marson_cd4_rest",
+   "marson_cd4_stim48hr",
+   "marson_cd4_stim8hr"
+  ],
+  "hepg2": [
+   "nadig_hepg2",
+   "tahoe_hepg2_c3a"
+  ],
+  "jurkat": [
+   "nadig_jurkat"
+  ],
+  "hct116": [
+   "orion_hct116",
+   "orion_hct116_pseudobulk"
+  ],
+  "hek293t": [
+   "orion_hek293t",
+   "orion_hek293t_pseudobulk"
+  ],
+  "rpe1": [
+   "replogle_rpe1"
+  ],
+  "a549": [
+   "jiang_ifnb_a549",
+   "jiang_ifng_a549",
+   "jiang_ins_a549",
+   "jiang_tgfb_a549",
+   "jiang_tnfa_a549",
+   "tahoe_a549"
+  ],
+  "bxpc3": [
+   "jiang_ifnb_bxpc3",
+   "jiang_ifng_bxpc3",
+   "jiang_ins_bxpc3",
+   "jiang_tgfb_bxpc3",
+   "jiang_tnfa_bxpc3"
+  ],
+  "hap1": [
+   "jiang_ifnb_hap1",
+   "jiang_ifng_hap1",
+   "jiang_ins_hap1",
+   "jiang_tgfb_hap1",
+   "jiang_tnfa_hap1"
+  ],
+  "ht29": [
+   "jiang_ifnb_ht29",
+   "jiang_ifng_ht29",
+   "jiang_ins_ht29",
+   "jiang_tgfb_ht29",
+   "jiang_tnfa_ht29",
+   "tahoe_ht_29"
+  ],
+  "mcf7": [
+   "jiang_ifnb_mcf7",
+   "jiang_ifng_mcf7",
+   "jiang_ins_mcf7",
+   "jiang_tgfb_mcf7",
+   "jiang_tnfa_mcf7"
+  ],
+  "a498": [
+   "tahoe_a498"
+  ],
+  "a-172": [
+   "tahoe_a_172"
+  ],
+  "a-427": [
+   "tahoe_a_427"
+  ],
+  "an3 ca": [
+   "tahoe_an3_ca"
+  ],
+  "aspc-1": [
+   "tahoe_aspc_1"
+  ],
+  "bt-474": [
+   "tahoe_bt_474"
+  ],
+  "c32": [
+   "tahoe_c32"
+  ],
+  "c-33 a": [
+   "tahoe_c_33_a"
+  ],
+  "cfpac-1": [
+   "tahoe_cfpac_1"
+  ],
+  "chp-212": [
+   "tahoe_chp_212"
+  ],
+  "colo 205": [
+   "tahoe_colo_205"
+  ],
+  "h4": [
+   "tahoe_h4"
+  ],
+  "hct15": [
+   "tahoe_hct15"
+  ],
+  "hec-1-a": [
+   "tahoe_hec_1_a"
+  ],
+  "hop62": [
+   "tahoe_hop62"
+  ],
+  "hs-578t": [
+   "tahoe_hs_578t"
+  ],
+  "hs 766t": [
+   "tahoe_hs_766t"
+  ],
+  "htert-hpne": [
+   "tahoe_htert_hpne"
+  ],
+  "j82": [
+   "tahoe_j82"
+  ],
+  "kato iii": [
+   "tahoe_kato_iii"
+  ],
+  "lovo": [
+   "tahoe_lovo"
+  ],
+  "lox-imvi": [
+   "tahoe_lox_imvi"
+  ],
+  "ls 180": [
+   "tahoe_ls_180"
+  ],
+  "mia paca-2": [
+   "tahoe_mia_paca_2"
+  ],
+  "nci-h1573": [
+   "tahoe_nci_h1573"
+  ],
+  "nci-h1792": [
+   "tahoe_nci_h1792"
+  ],
+  "nci-h2030": [
+   "tahoe_nci_h2030"
+  ],
+  "nci-h2122": [
+   "tahoe_nci_h2122"
+  ],
+  "nci-h23": [
+   "tahoe_nci_h23"
+  ],
+  "nci-h2347": [
+   "tahoe_nci_h2347"
+  ],
+  "nci-h460": [
+   "tahoe_nci_h460"
+  ],
+  "nci-h596": [
+   "tahoe_nci_h596"
+  ],
+  "nci-h661": [
+   "tahoe_nci_h661"
+  ],
+  "panc 03.27": [
+   "tahoe_panc_03_27"
+  ],
+  "panc-1": [
+   "tahoe_panc_1"
+  ],
+  "rko": [
+   "tahoe_rko"
+  ],
+  "rpmi-7951": [
+   "tahoe_rpmi_7951"
+  ],
+  "shp-77": [
+   "tahoe_shp_77"
+  ],
+  "sk-mel-2": [
+   "tahoe_sk_mel_2"
+  ],
+  "snu-1": [
+   "tahoe_snu_1"
+  ],
+  "snu-423": [
+   "tahoe_snu_423"
+  ],
+  "sw1417": [
+   "tahoe_sw1417"
+  ],
+  "sw48": [
+   "tahoe_sw48"
+  ],
+  "sw480": [
+   "tahoe_sw480"
+  ],
+  "sw 1088": [
+   "tahoe_sw_1088"
+  ],
+  "sw 1271": [
+   "tahoe_sw_1271"
+  ],
+  "sw 900": [
+   "tahoe_sw_900"
+  ]
+ },
+ "sources": [
+  {
+   "name": "adamson_k562_10x001",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 6
+  },
+  {
+   "name": "adamson_k562_10x005",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 3
+  },
+  {
+   "name": "adamson_k562_10x010",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 82
+  },
+  {
+   "name": "feng_gw_fitness",
+   "modality": "single_cell",
+   "reference": "rest_of_line",
+   "mult": 4.0,
+   "knockdowns": 1233
+  },
+  {
+   "name": "feng_gw_nonfitness",
+   "modality": "single_cell",
+   "reference": "rest_of_line",
+   "mult": 4.0,
+   "knockdowns": 814
+  },
+  {
+   "name": "feng_targeted_eipl_1",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 417
+  },
+  {
+   "name": "feng_targeted_eipl_3",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 403
+  },
+  {
+   "name": "feng_targeted_fiaj_1",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 423
+  },
+  {
+   "name": "feng_targeted_fiaj_3",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 4
+  },
+  {
+   "name": "feng_targeted_iudw_1",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 429
+  },
+  {
+   "name": "feng_targeted_iudw_4",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 384
+  },
+  {
+   "name": "feng_targeted_jejf_2",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 421
+  },
+  {
+   "name": "feng_targeted_jejf_3",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 417
+  },
+  {
+   "name": "feng_targeted_kolf_2",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 419
+  },
+  {
+   "name": "feng_targeted_kolf_3",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 412
+  },
+  {
+   "name": "feng_targeted_oikd_2",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 84
+  },
+  {
+   "name": "feng_targeted_oikd_5",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 426
+  },
+  {
+   "name": "feng_targeted_paab_3",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 379
+  },
+  {
+   "name": "feng_targeted_paab_4",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 416
+  },
+  {
+   "name": "feng_targeted_pipw_4",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 383
+  },
+  {
+   "name": "feng_targeted_pipw_5",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 13
+  },
+  {
+   "name": "feng_targeted_tolg_4",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 65
+  },
+  {
+   "name": "feng_targeted_tolg_6",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 395
+  },
+  {
+   "name": "feng_targeted_zapk_3",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 428
+  },
+  {
+   "name": "kolf_kolf21j",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 1608
+  },
+  {
+   "name": "marson_cd4_rest",
+   "modality": "replicate_table",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 10606
+  },
+  {
+   "name": "marson_cd4_stim48hr",
+   "modality": "replicate_table",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 10615
+  },
+  {
+   "name": "marson_cd4_stim8hr",
+   "modality": "replicate_table",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 10819
+  },
+  {
+   "name": "nadig_hepg2",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 1759
+  },
+  {
+   "name": "nadig_jurkat",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 2054
+  },
+  {
+   "name": "orion_hct116",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 274
+  },
+  {
+   "name": "orion_hct116_pseudobulk",
+   "modality": "pseudobulk_table",
+   "reference": "non-targeting",
+   "mult": 8.0,
+   "knockdowns": 16218
+  },
+  {
+   "name": "orion_hek293t",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 266
+  },
+  {
+   "name": "orion_hek293t_pseudobulk",
+   "modality": "pseudobulk_table",
+   "reference": "non-targeting",
+   "mult": 8.0,
+   "knockdowns": 15672
+  },
+  {
+   "name": "replogle_k562_gw",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 9245
+  },
+  {
+   "name": "replogle_rpe1",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 1968
+  },
+  {
+   "name": "jiang_ifnb_a549",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 54
+  },
+  {
+   "name": "jiang_ifnb_bxpc3",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 57
+  },
+  {
+   "name": "jiang_ifnb_hap1",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 58
+  },
+  {
+   "name": "jiang_ifnb_ht29",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 58
+  },
+  {
+   "name": "jiang_ifnb_k562",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 59
+  },
+  {
+   "name": "jiang_ifnb_mcf7",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 56
+  },
+  {
+   "name": "jiang_ifng_a549",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 48
+  },
+  {
+   "name": "jiang_ifng_bxpc3",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 47
+  },
+  {
+   "name": "jiang_ifng_hap1",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 48
+  },
+  {
+   "name": "jiang_ifng_ht29",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 49
+  },
+  {
+   "name": "jiang_ifng_k562",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 46
+  },
+  {
+   "name": "jiang_ifng_mcf7",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 49
+  },
+  {
+   "name": "jiang_ins_a549",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 35
+  },
+  {
+   "name": "jiang_ins_bxpc3",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 35
+  },
+  {
+   "name": "jiang_ins_hap1",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 33
+  },
+  {
+   "name": "jiang_ins_ht29",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 38
+  },
+  {
+   "name": "jiang_ins_k562",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 35
+  },
+  {
+   "name": "jiang_ins_mcf7",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 36
+  },
+  {
+   "name": "jiang_tgfb_a549",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 48
+  },
+  {
+   "name": "jiang_tgfb_bxpc3",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 40
+  },
+  {
+   "name": "jiang_tgfb_hap1",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 44
+  },
+  {
+   "name": "jiang_tgfb_ht29",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 46
+  },
+  {
+   "name": "jiang_tgfb_k562",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 39
+  },
+  {
+   "name": "jiang_tgfb_mcf7",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 38
+  },
+  {
+   "name": "jiang_tnfa_a549",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 51
+  },
+  {
+   "name": "jiang_tnfa_bxpc3",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 48
+  },
+  {
+   "name": "jiang_tnfa_hap1",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 49
+  },
+  {
+   "name": "jiang_tnfa_ht29",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 51
+  },
+  {
+   "name": "jiang_tnfa_k562",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 52
+  },
+  {
+   "name": "jiang_tnfa_mcf7",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 48
+  },
+  {
+   "name": "tahoe_a498",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_a549",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_a_172",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_a_427",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_an3_ca",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_aspc_1",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_bt_474",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_c32",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_c_33_a",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_cfpac_1",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_chp_212",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 136
+  },
+  {
+   "name": "tahoe_colo_205",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_h4",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_hct15",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_hec_1_a",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_hepg2_c3a",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_hop62",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_hs_578t",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_hs_766t",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_ht_29",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_htert_hpne",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_j82",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_kato_iii",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_lovo",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_lox_imvi",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_ls_180",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_mia_paca_2",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_nci_h1573",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_nci_h1792",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_nci_h2030",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_nci_h2122",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 48
+  },
+  {
+   "name": "tahoe_nci_h23",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_nci_h2347",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_nci_h460",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_nci_h596",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 18
+  },
+  {
+   "name": "tahoe_nci_h661",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 140
+  },
+  {
+   "name": "tahoe_panc_03_27",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_panc_1",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_rko",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_rpmi_7951",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_shp_77",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_sk_mel_2",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_snu_1",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_snu_423",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_sw1417",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_sw48",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_sw480",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_sw_1088",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 127
+  },
+  {
+   "name": "tahoe_sw_1271",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 135
+  },
+  {
+   "name": "tahoe_sw_900",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  }
+ ],
+ "dropped_same_line": [],
+ "calibration": {
+  "a": 2.3663665234332285,
+  "b": -0.4988554421241531,
+  "c": -0.4098302967113522,
+  "n": 1752500,
+  "r": 0.9231402847167106
+ },
+ "prior": {
+  "tau2": 0.0001,
+  "v0": 0.5285332246038241,
+  "pi": 0.005,
+  "n_tau": 2081419,
+  "n_v0": 74956
+ },
+ "effect_space": {
+  "mae": 0.16377053798461844,
+  "nmae": 1.4884205960236927,
+  "mse": 0.051116295334756534,
+  "nmae_unshrunk": 1.7808130187321796,
+  "mse_unshrunk": 0.08395186200248358,
+  "nmae_zero": 0.9999999999990363,
+  "mse_zero": 0.022424290022852726,
+  "sign_acc_true_de": 0.6111111111111112,
+  "coverage_95": 0.9512070566388116,
+  "auroc": 0.6037917691398688,
+  "n_called": 511.0,
+  "n_true": 249.0,
+  "call_count_pearson": 0.144823199239784,
+  "knockdowns": 300
+ },
+ "fit": {
+  "shrunk": {
+   "n": 3231000,
+   "pearson_r": 0.12006911448014838,
+   "slope_true_on_pred": 0.17888888070515874,
+   "slope_pred_on_true": 0.080589649816235
+  },
+  "unshrunk": {
+   "n": 3231000,
+   "pearson_r": 0.10540937035324302,
+   "slope_true_on_pred": 0.10458598726025026,
+   "slope_pred_on_true": 0.1062392357650969
+  }
+ },
+ "generator_lfc": "shrunk posterior mean (lfc layer). lfc_unshrunk is the unshrunk pool.",
+ "note": "Control quantiles are not in this file. Pass the target line's v5 *_control_quantiles.npz plus these lfc and de_sig arrays to the frozen generator."
+}

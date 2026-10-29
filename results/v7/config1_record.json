@@ -1,0 +1,80 @@
+{
+ "name": "config 1",
+ "recorded": "2026-10-29",
+ "settings": {
+  "s_c": 0.5,
+  "m": 0.5,
+  "kappa": 1.0,
+  "c1": 1.0,
+  "calls": "K0 (C+G de_sig)",
+  "filter": "F0 (all 117 tables)",
+  "base": "C+G: stage-1 arm C + Gaussian shrink, line own tables excluded",
+  "called": "s_c x C+G LFC",
+  "non_called": "control profile + m x c x Delta_pool",
+  "c": "z^2/(z^2 + kappa) for >= 2 source lines (z = |mean| / (SD / sqrt n)); c1 for one line; 0 for none"
+ },
+ "defined_in": [
+  "code/vcc6/scorer_step16.py CONFIG1 (proxy)",
+  "vcc_2026_v7.ipynb CONFIG (cells, via code/vcc6/make_notebook_v7.py)"
+ ],
+ "frozen": true,
+ "evalA_H1_heldout_scaled": {
+  "config1_proxy": {
+   "mse": 0.113396416974753,
+   "pds": 0.8079476835960013,
+   "nmae": 0.0009653558915692,
+   "fidelity": 0.371133263873752,
+   "reach": 0.0729987359215361,
+   "jaccard": 0.0952605176692028,
+   "overall": 0.243616995654469
+  },
+  "CG_proxy": {
+   "mse": 0.0,
+   "pds": 0.7234596978276666,
+   "nmae": 0.04024206507145245,
+   "fidelity": 0.3711118601306203,
+   "reach": 0.07391659011249974,
+   "jaccard": 0.09526051766920285,
+   "overall": 0.21733178846857362
+  },
+  "CG_end_to_end": {
+   "mse": 0.0,
+   "pds": 0.7234095863295835,
+   "nmae": 0.04041838873439918,
+   "fidelity": 0.3802338322206805,
+   "reach": 0.07007400068575206,
+   "jaccard": 0.09748890223404698,
+   "overall": 0.21860411836741042
+  }
+ },
+ "config1_end_to_end": "not run (Step 15 awaits approval)",
+ "sources": {
+  "config1": "results/stage1/2026-10-28_scorer_space/tables/step11_heldout.csv (arm i_lofo, H1)",
+  "CG": "results/stage1/2026-10-28_scorer_space/tables/step9.json (EvalA_CG)",
+  "report": "results/stage1/2026-10-28_scorer_space/report.md, Steps 11, 14, 16"
+ },
+ "notes": [
+  "config 1 NMAE +0.001 is fragile: +0.008 / -0.006 on the two H1 knockdown halves (Step 16)",
+  "Step 14 guardrail rows for HCT116 / HEK293T used c1 = 0.5 (their fold pick), not this setting",
+  "with K4 1,200 calls: held-out proxy mean 0.268 on the H1 halves (Step 16 B)"
+ ],
+ "freeze": {
+  "date": "2026-10-29",
+  "record": "code/vcc6/CONFIG1_FROZEN.md",
+  "test": "tests/test_config1.py",
+  "pinned": [
+   "CONFIG (v7 + scorer_step16.CONFIG1)",
+   "v7 data-loader + model cells",
+   "stage1.py",
+   "run_line.py",
+   "117-table set"
+  ],
+  "check": {
+   "calls_identical": true,
+   "mu_rel_diff_max_gated": 1.0990971254750658e-07,
+   "proxy_overall_from_caches": 0.24361699565446907,
+   "proxy_overall_from_v7": 0.2436169956581428,
+   "pass": true
+  }
+ }
+}

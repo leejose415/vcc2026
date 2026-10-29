@@ -1,0 +1,57 @@
+{
+ "K562": {
+  "top5_n": 238345,
+  "median_target_ctrl_cpm": 0.0,
+  "median_source_ctrl_cpm": 0.5642780061104494
+ },
+ "HCT116": {
+  "top5_n": 243064,
+  "median_target_ctrl_cpm": 15.580183176658952,
+  "median_source_ctrl_cpm": 18.11405425673909
+ },
+ "HEK293T": {
+  "top5_n": 237299,
+  "median_target_ctrl_cpm": 20.68470455663047,
+  "median_source_ctrl_cpm": 18.18997553035686
+ },
+ "H1": {
+  "top5_n": 257939,
+  "median_target_ctrl_cpm": 4.665807366717303,
+  "median_source_ctrl_cpm": 5.949112540434089
+ },
+ "HCT116_realised_calls": {
+  "realised_total": 53219,
+  "not_requested": 147,
+  "share_not_requested": 0.0027621714049493604,
+  "per_knockdown_not_requested_median": 0.0,
+  "per_knockdown_not_requested_mean": 0.5287769784172662,
+  "not_requested_by_ctrl_cpm_decile": {
+   "-1": 19,
+   "0": 33,
+   "1": 69,
+   "2": 20,
+   "6": 1,
+   "9": 5
+  }
+ },
+ "H1_realised_calls": {
+  "realised_total": 171056,
+  "not_requested": 10650,
+  "share_not_requested": 0.06226031241230942,
+  "per_knockdown_not_requested_median": 29.0,
+  "per_knockdown_not_requested_mean": 36.979166666666664,
+  "not_requested_by_ctrl_cpm_decile": {
+   "-1": 63,
+   "0": 202,
+   "1": 402,
+   "2": 177,
+   "3": 14,
+   "4": 209,
+   "5": 804,
+   "6": 543,
+   "7": 1801,
+   "8": 2505,
+   "9": 3930
+  }
+ }
+}

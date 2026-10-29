@@ -1,0 +1,19 @@
+{
+ "salt": "",
+ "model": {
+  "source": "/home/mooneysad/vcc/results/stage1/2026-10-28_DEF/E/input.npz"
+ },
+ "controls": {
+  "n_controls": 18400,
+  "median_panel_library": 19681.0,
+  "gated_genes": 9743,
+  "quantiles": "/home/mooneysad/vcc/results/stage1/2026-10-28_DEF/E/e2e/controls/controls_control_quantiles.npz",
+  "baseline": "/home/mooneysad/vcc/results/stage1/2026-10-28_DEF/E/e2e/controls/controls_baseline.csv"
+ },
+ "background": "E",
+ "knockdowns": 300,
+ "n_cells": 400,
+ "vcc_prep": null,
+ "sig_requested_median": 278.5,
+ "sig_realized_median": 279.0
+}

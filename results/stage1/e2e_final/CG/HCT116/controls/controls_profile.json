@@ -1,0 +1,7 @@
+{
+ "n_controls": 9940,
+ "median_panel_library": 12133.0,
+ "gated_genes": 10326,
+ "quantiles": "/home/mooneysad/vcc/results/stage1/e2e_final/CG/HCT116/controls/controls_control_quantiles.npz",
+ "baseline": "/home/mooneysad/vcc/results/stage1/e2e_final/CG/HCT116/controls/controls_baseline.csv"
+}

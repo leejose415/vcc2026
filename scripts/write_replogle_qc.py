@@ -60,12 +60,16 @@ def read_rows(X, start, stop, n_vars):
 def gene_id_lookup():
     """Symbol -> Ensembl ID from the H1 and K562 gene tables, for sources whose var has no gene_id (Orion subsets)."""
     lookup = {}
-    for path, sym in ((SOURCES['K562'][0], 'gene_name'), (SOURCES['H1'][0], None)):
-        if not Path(path).exists(): continue
+    # the raw K562 / H1 files were archived off the VM on 2026-10-19; their QC'd copies keep the same var
+    for paths, sym in (((SOURCES['K562'][0], SOURCES['K562'][2]), 'gene_name'), ((SOURCES['H1'][0], SOURCES['H1'][2]), None)):
+        path = next((p for p in paths if Path(p).exists()), None)
+        if path is None: continue
         with h5py.File(path, 'r') as f: v = read_elem(f['var'])
         names = v[sym].astype(str) if sym else pd.Series(v.index.astype(str), index=v.index)
         ids = pd.Series(v.index.astype(str), index=v.index) if sym else v['gene_id'].astype(str)
         lookup.update({n: i for n, i in zip(names, ids) if n not in lookup})
+    if not lookup:
+        raise FileNotFoundError('gene_id_lookup: neither the K562 nor the H1 gene table (raw or QC\'d) is on this machine')
     return lookup
 
 
@@ -76,9 +80,10 @@ def standard_obs(obs, cells, var, dataset, source, flagged, skip_low):
     else:
         lookup = dict(zip(var.index.astype(str), var['gene_id'].astype(str))) if 'gene_id' in var else gene_id_lookup()
         gid = gene.map(lookup)
-        # new contexts: a target the gene table cannot resolve keeps its own ID, so qc_perturbations (which groups by ID)
-        # cannot merge several of them into one knockdown; existing sources keep '' as before
-        gid = gid.fillna('unresolved:' + gene.astype(str)) if dataset in NEW_CONTEXTS else gid.fillna('')
+        # new contexts: a target the gene table cannot resolve (absent, or a blank ID as in Jiang's var) keeps its own ID,
+        # so qc_perturbations (which groups by ID) cannot merge several of them into one knockdown; existing sources keep
+        # '' as before
+        gid = gid.replace('', np.nan).fillna('unresolved:' + gene.astype(str)) if dataset in NEW_CONTEXTS else gid.fillna('')
     std = pd.DataFrame(index=obs.index)
     std['source'] = source; std['background'] = BACKGROUND.get(dataset, dataset); std['condition'] = 'none'
     std['batch'] = cells['gem_group']; std['target_gene'] = gene; std['is_control'] = ctrl.to_numpy()

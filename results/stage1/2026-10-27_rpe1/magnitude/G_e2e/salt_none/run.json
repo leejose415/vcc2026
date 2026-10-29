@@ -1,0 +1,31 @@
+{
+ "salt": "",
+ "model": {
+  "source": "results/stage1/2026-10-27_rpe1/magnitude/G.npz"
+ },
+ "controls": {
+  "n_controls": 5654,
+  "median_panel_library": 8462.0,
+  "gated_genes": 8259,
+  "quantiles": "results/stage1/2026-10-27_rpe1/magnitude/G_e2e/controls/controls_control_quantiles.npz",
+  "baseline": "results/stage1/2026-10-27_rpe1/magnitude/G_e2e/controls/controls_baseline.csv"
+ },
+ "background": "RPE1",
+ "knockdowns": 300,
+ "n_cells": 400,
+ "vcc_prep": {
+  "returncode": 0,
+  "result": "prep complete: 120000 cells, 18533 genes, contexts A/B/C = 40000 each (dev split, format-only), counts preserved, targets not verified",
+  "checked": "2026-10-27 05:52 UTC, submission.h5ad without controls",
+  "output": "prediction.vcc",
+  "note": "a later re-run at 05:55 stopped on the existing output file; not a format failure"
+ },
+ "sig_requested_median": 403.5,
+ "sig_realized_median": 402.5,
+ "vcc_prep_first_attempt": {
+  "command": "/home/mooneysad/venv/bin/vcc prep results/stage1/2026-10-27_rpe1/magnitude/G_e2e/salt_none/prediction.h5ad -g /home/mooneysad/vcc/data/gene_names.csv --no-verify-targets --cells-per-pert 400 -o results/stage1/2026-10-27_rpe1/magnitude/G_e2e/salt_none/prediction.vcc",
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "vcc prep: Submission contains 5654 'non-targeting' control cell(s), but controls must NOT be submitted.\nScoring uses the control cells from the held-out data, not yours, so predicted controls are never read.\nDrop every cell whose 'target_gene' is 'non-targeting' and submit only your perturbation predictions.\n"
+ }
+}

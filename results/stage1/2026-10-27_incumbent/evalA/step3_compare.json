@@ -1,0 +1,29 @@
+{
+ "Model2_port": {
+  "calls_mean": 388.6164383561644,
+  "calls_median": 249.5,
+  "called_abs_lfc_median": 0.4592829942703247,
+  "abs_lfc_median_measured": 0.07480043172836304
+ },
+ "CG": {
+  "calls_mean": 551.3767123287671,
+  "calls_median": 486.5,
+  "called_abs_lfc_median": 0.31505241990089417,
+  "abs_lfc_median_measured": 0.06154701113700867
+ },
+ "pearson_r_measured": {
+  "median": 0.2853212291608306,
+  "q25": 0.2096394143294666,
+  "q75": 0.3636802448561477
+ },
+ "pearson_r_measured_and_gated": {
+  "median": 0.3531280243756079,
+  "q25": 0.2620096571831436,
+  "q75": 0.48834982633286056
+ },
+ "call_jaccard": {
+  "median": 0.08468468468468468,
+  "q25": 0.04948929659050827,
+  "q75": 0.1774956500731199
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "n_controls": 5654,
+ "median_panel_library": 8462.0,
+ "gated_genes": 8259,
+ "quantiles": "/home/mooneysad/vcc/results/stage1/2026-10-27_rpe1/step3/zero/controls/controls_control_quantiles.npz",
+ "baseline": "/home/mooneysad/vcc/results/stage1/2026-10-27_rpe1/step3/zero/controls/controls_baseline.csv"
+}

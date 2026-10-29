@@ -1,0 +1,39 @@
+{
+ "filter": "F1",
+ "tables": [
+  "arc_h1",
+  "feng_targeted_eipl_1",
+  "feng_targeted_eipl_3",
+  "feng_targeted_fiaj_1",
+  "feng_targeted_fiaj_3",
+  "feng_targeted_iudw_1",
+  "feng_targeted_iudw_4",
+  "feng_targeted_jejf_2",
+  "feng_targeted_jejf_3",
+  "feng_targeted_kolf_2",
+  "feng_targeted_kolf_3",
+  "feng_targeted_oikd_2",
+  "feng_targeted_oikd_5",
+  "feng_targeted_paab_3",
+  "feng_targeted_paab_4",
+  "feng_targeted_pipw_4",
+  "feng_targeted_pipw_5",
+  "feng_targeted_tolg_4",
+  "feng_targeted_tolg_6",
+  "feng_targeted_zapk_3",
+  "kolf_kolf21j",
+  "nadig_hepg2",
+  "nadig_jurkat",
+  "orion_hct116",
+  "orion_hek293t",
+  "replogle_k562_gw",
+  "replogle_rpe1"
+ ],
+ "n_tables": 27,
+ "rows_kept": {},
+ "def_targets_no_source": [
+  "ANG",
+  "RAB5A"
+ ],
+ "def_targets_with_source": 298
+}

@@ -1,0 +1,852 @@
+{
+ "target": "replogle_rpe1",
+ "knockdowns": 20,
+ "genes": 18533,
+ "sources": [
+  {
+   "name": "adamson_k562_10x001",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 6
+  },
+  {
+   "name": "adamson_k562_10x005",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 3
+  },
+  {
+   "name": "adamson_k562_10x010",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 82
+  },
+  {
+   "name": "arc_h1",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 300
+  },
+  {
+   "name": "feng_gw_fitness",
+   "modality": "single_cell",
+   "reference": "rest_of_line",
+   "mult": 4.0,
+   "knockdowns": 1233
+  },
+  {
+   "name": "feng_gw_nonfitness",
+   "modality": "single_cell",
+   "reference": "rest_of_line",
+   "mult": 4.0,
+   "knockdowns": 814
+  },
+  {
+   "name": "feng_targeted_eipl_1",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 417
+  },
+  {
+   "name": "feng_targeted_eipl_3",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 403
+  },
+  {
+   "name": "feng_targeted_fiaj_1",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 423
+  },
+  {
+   "name": "feng_targeted_fiaj_3",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 4
+  },
+  {
+   "name": "feng_targeted_iudw_1",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 429
+  },
+  {
+   "name": "feng_targeted_iudw_4",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 384
+  },
+  {
+   "name": "feng_targeted_jejf_2",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 421
+  },
+  {
+   "name": "feng_targeted_jejf_3",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 417
+  },
+  {
+   "name": "feng_targeted_kolf_2",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 419
+  },
+  {
+   "name": "feng_targeted_kolf_3",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 412
+  },
+  {
+   "name": "feng_targeted_oikd_2",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 84
+  },
+  {
+   "name": "feng_targeted_oikd_5",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 426
+  },
+  {
+   "name": "feng_targeted_paab_3",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 379
+  },
+  {
+   "name": "feng_targeted_paab_4",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 416
+  },
+  {
+   "name": "feng_targeted_pipw_4",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 383
+  },
+  {
+   "name": "feng_targeted_pipw_5",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 13
+  },
+  {
+   "name": "feng_targeted_tolg_4",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 65
+  },
+  {
+   "name": "feng_targeted_tolg_6",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 395
+  },
+  {
+   "name": "feng_targeted_zapk_3",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 428
+  },
+  {
+   "name": "kolf_kolf21j",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 1608
+  },
+  {
+   "name": "marson_cd4_rest",
+   "modality": "replicate_table",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 10606
+  },
+  {
+   "name": "marson_cd4_stim48hr",
+   "modality": "replicate_table",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 10615
+  },
+  {
+   "name": "marson_cd4_stim8hr",
+   "modality": "replicate_table",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 10819
+  },
+  {
+   "name": "nadig_hepg2",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 1759
+  },
+  {
+   "name": "nadig_jurkat",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 2054
+  },
+  {
+   "name": "orion_hct116",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 274
+  },
+  {
+   "name": "orion_hct116_pseudobulk",
+   "modality": "pseudobulk_table",
+   "reference": "non-targeting",
+   "mult": 8.0,
+   "knockdowns": 16218
+  },
+  {
+   "name": "orion_hek293t",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 266
+  },
+  {
+   "name": "orion_hek293t_pseudobulk",
+   "modality": "pseudobulk_table",
+   "reference": "non-targeting",
+   "mult": 8.0,
+   "knockdowns": 15672
+  },
+  {
+   "name": "replogle_k562_gw",
+   "modality": "single_cell",
+   "reference": "non-targeting",
+   "mult": 1.0,
+   "knockdowns": 9245
+  },
+  {
+   "name": "jiang_ifnb_a549",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 54
+  },
+  {
+   "name": "jiang_ifnb_bxpc3",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 57
+  },
+  {
+   "name": "jiang_ifnb_hap1",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 58
+  },
+  {
+   "name": "jiang_ifnb_ht29",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 58
+  },
+  {
+   "name": "jiang_ifnb_k562",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 59
+  },
+  {
+   "name": "jiang_ifnb_mcf7",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 56
+  },
+  {
+   "name": "jiang_ifng_a549",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 48
+  },
+  {
+   "name": "jiang_ifng_bxpc3",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 47
+  },
+  {
+   "name": "jiang_ifng_hap1",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 48
+  },
+  {
+   "name": "jiang_ifng_ht29",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 49
+  },
+  {
+   "name": "jiang_ifng_k562",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 46
+  },
+  {
+   "name": "jiang_ifng_mcf7",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 49
+  },
+  {
+   "name": "jiang_ins_a549",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 35
+  },
+  {
+   "name": "jiang_ins_bxpc3",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 35
+  },
+  {
+   "name": "jiang_ins_hap1",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 33
+  },
+  {
+   "name": "jiang_ins_ht29",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 38
+  },
+  {
+   "name": "jiang_ins_k562",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 35
+  },
+  {
+   "name": "jiang_ins_mcf7",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 36
+  },
+  {
+   "name": "jiang_tgfb_a549",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 48
+  },
+  {
+   "name": "jiang_tgfb_bxpc3",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 40
+  },
+  {
+   "name": "jiang_tgfb_hap1",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 44
+  },
+  {
+   "name": "jiang_tgfb_ht29",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 46
+  },
+  {
+   "name": "jiang_tgfb_k562",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 39
+  },
+  {
+   "name": "jiang_tgfb_mcf7",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 38
+  },
+  {
+   "name": "jiang_tnfa_a549",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 51
+  },
+  {
+   "name": "jiang_tnfa_bxpc3",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 48
+  },
+  {
+   "name": "jiang_tnfa_hap1",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 49
+  },
+  {
+   "name": "jiang_tnfa_ht29",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 51
+  },
+  {
+   "name": "jiang_tnfa_k562",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 52
+  },
+  {
+   "name": "jiang_tnfa_mcf7",
+   "modality": "CRISPRko",
+   "reference": "non-targeting",
+   "mult": 4.0,
+   "knockdowns": 48
+  },
+  {
+   "name": "tahoe_a498",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_a549",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_a_172",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_a_427",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_an3_ca",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_aspc_1",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_bt_474",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_c32",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_c_33_a",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_cfpac_1",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_chp_212",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 136
+  },
+  {
+   "name": "tahoe_colo_205",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_h4",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_hct15",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_hec_1_a",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_hepg2_c3a",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_hop62",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_hs_578t",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_hs_766t",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_ht_29",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_htert_hpne",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_j82",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_kato_iii",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_lovo",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_lox_imvi",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_ls_180",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_mia_paca_2",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_nci_h1573",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_nci_h1792",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_nci_h2030",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_nci_h2122",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 48
+  },
+  {
+   "name": "tahoe_nci_h23",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_nci_h2347",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_nci_h460",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_nci_h596",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 18
+  },
+  {
+   "name": "tahoe_nci_h661",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 140
+  },
+  {
+   "name": "tahoe_panc_03_27",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_panc_1",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_rko",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_rpmi_7951",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_shp_77",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_sk_mel_2",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_snu_1",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_snu_423",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_sw1417",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_sw48",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_sw480",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  },
+  {
+   "name": "tahoe_sw_1088",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 127
+  },
+  {
+   "name": "tahoe_sw_1271",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 135
+  },
+  {
+   "name": "tahoe_sw_900",
+   "modality": "drug",
+   "reference": "non-targeting",
+   "mult": 16.0,
+   "knockdowns": 141
+  }
+ ],
+ "dropped_same_line": [],
+ "calibration": {
+  "a": 2.5204445847234878,
+  "b": -0.5048142121829824,
+  "c": -0.44335280081919043,
+  "n": 1752500,
+  "r": 0.9219116203848068
+ },
+ "prior": {
+  "tau2": 0.0001,
+  "v0": 0.5089268723621688,
+  "pi": 0.005,
+  "n_tau": 2388735,
+  "n_v0": 44836
+ },
+ "effect_space": {
+  "mae": 0.29992228806230686,
+  "nmae": 0.9996692392568156,
+  "mse": 0.3747432065818232,
+  "nmae_unshrunk": 1.0901022569735854,
+  "mse_unshrunk": 0.4078443016122222,
+  "nmae_zero": 0.9999999999995971,
+  "mse_zero": 0.37482915161420416,
+  "sign_acc_true_de": 0.6344733768646813,
+  "coverage_95": 0.8675673305094037,
+  "auroc": 0.6183570682899338,
+  "n_called": 14.5,
+  "n_true": 180.0,
+  "call_count_pearson": 0.42776549899910427,
+  "knockdowns": 20
+ },
+ "generator_lfc": "shrunk posterior mean (lfc layer). lfc_unshrunk is the unshrunk pool.",
+ "note": "Control quantiles are not in this file. Pass the target line's v5 *_control_quantiles.npz plus these lfc and de_sig arrays to the frozen generator."
+}

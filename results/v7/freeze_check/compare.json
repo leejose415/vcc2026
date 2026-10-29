@@ -1,0 +1,26 @@
+{
+ "calls_identical": true,
+ "calls_differ": 0,
+ "mu_rel_diff_max_gated": 1.0990971254750658e-07,
+ "mu_rel_diff_p999_gated": 1.0297491712355536e-08,
+ "called_lfc_max_abs_diff": 0.0,
+ "proxy_overall_from_caches": 0.24361699565446907,
+ "proxy_overall_from_v7": 0.2436169956581428,
+ "scaled_from_v7": {
+  "mse": 0.11339641694871894,
+  "pds": 0.8079476835960013,
+  "nmae": 0.0009653559396457512,
+  "fidelity": 0.371133263873752,
+  "reach": 0.07299873592153616,
+  "jaccard": 0.09526051766920285
+ },
+ "scaled_from_caches": {
+  "mse": 0.113396416974753,
+  "pds": 0.8079476835960013,
+  "nmae": 0.0009653558915692084,
+  "fidelity": 0.371133263873752,
+  "reach": 0.07299873592153616,
+  "jaccard": 0.09526051766920285
+ },
+ "pass": true
+}

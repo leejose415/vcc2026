@@ -1,0 +1,206 @@
+{
+ "ratio": 1.1294709965612806,
+ "runs": {
+  "EvalA_CG": {
+   "proxy": {
+    "raw": {
+     "expr_mse_unbiased_capped_norm": 1.4956403605098434,
+     "pds_cosine": 0.8335569364025797,
+     "de_wilcoxon_lfc_nmae": 0.9275477778600094,
+     "de_wilcoxon_direction_fidelity_yield_raw": 0.37055670612741587,
+     "de_wilcoxon_direction_reach_raw": 0.18713844317216574,
+     "de_wilcoxon_sig_jaccard": 0.05064732513924499
+    },
+    "scaled": {
+     "expr_mse_unbiased_capped_norm": 0.0,
+     "pds_cosine": 0.7234596978276666,
+     "de_wilcoxon_lfc_nmae": 0.04024206507145245,
+     "de_wilcoxon_direction_fidelity_yield_raw": 0.3711118601306203,
+     "de_wilcoxon_direction_reach_raw": 0.07391659011249974,
+     "de_wilcoxon_sig_jaccard": 0.09526051766920285
+    },
+    "overall": 0.21733178846857362,
+    "mse_unclamped": -0.5498744760052254
+   },
+   "actual": {
+    "raw": {
+     "expr_mse_unbiased_capped_norm": 1.496187260766878,
+     "pds_cosine": 0.8335333992373959,
+     "de_wilcoxon_lfc_nmae": 0.9274474622705177,
+     "de_wilcoxon_direction_fidelity_yield_raw": 0.3776565247113112,
+     "de_wilcoxon_direction_reach_raw": 0.1838634473390704,
+     "de_wilcoxon_sig_jaccard": 0.05155789132642788
+    },
+    "scaled": {
+     "expr_mse_unbiased_capped_norm": 0.0,
+     "pds_cosine": 0.7234095863295835,
+     "de_wilcoxon_lfc_nmae": 0.04041838873439918,
+     "de_wilcoxon_direction_fidelity_yield_raw": 0.3802338322206805,
+     "de_wilcoxon_direction_reach_raw": 0.07007400068575206,
+     "de_wilcoxon_sig_jaccard": 0.09748890223404698
+    },
+    "overall": 0.21860411836741042,
+    "mse_unclamped": -0.550443298111346
+   },
+   "checks": {
+    "scaled_abs_diff_vs_summary": {
+     "expr_mse_unbiased_capped_norm": 0.0,
+     "pds_cosine": 0.0,
+     "de_wilcoxon_lfc_nmae": 2.0816681711721685e-17,
+     "de_wilcoxon_direction_fidelity_yield_raw": 5.551115123125783e-17,
+     "de_wilcoxon_direction_reach_raw": 6.938893903907228e-17,
+     "de_wilcoxon_sig_jaccard": 8.326672684688674e-17,
+     "overall": 2.7755575615628914e-17
+    },
+    "de_dispatch_max_abs_diff_vs_results_csv": {
+     "de_wilcoxon_lfc_nmae": 2.220446049250313e-16,
+     "de_wilcoxon_direction_fidelity_yield_raw": 9.486769009248164e-17,
+     "de_wilcoxon_direction_reach_raw": 1.1102230246251565e-16,
+     "de_wilcoxon_sig_jaccard": 9.942133921692076e-17
+    }
+   },
+   "calls": {
+    "requested_median": 486.5,
+    "realised_median": 520.0,
+    "realised_minus_requested_median": 28.0,
+    "realised_minus_requested_mean": 34.43150684931507,
+    "realised_not_requested_median": 28.0,
+    "requested_not_realised_median": 0.0
+   }
+  },
+  "EvalA_M2": {
+   "proxy": {
+    "raw": {
+     "expr_mse_unbiased_capped_norm": 2.128193835895935,
+     "pds_cosine": 0.8050063550345996,
+     "de_wilcoxon_lfc_nmae": 0.9714378062601757,
+     "de_wilcoxon_direction_fidelity_yield_raw": 0.34860702529777843,
+     "de_wilcoxon_direction_reach_raw": 0.16547313515895384,
+     "de_wilcoxon_sig_jaccard": 0.0398874736095104
+    },
+    "scaled": {
+     "expr_mse_unbiased_capped_norm": 0.0,
+     "pds_cosine": 0.6626744506527023,
+     "de_wilcoxon_lfc_nmae": -0.03690297901945616,
+     "de_wilcoxon_direction_fidelity_yield_raw": 0.34291052321648324,
+     "de_wilcoxon_direction_reach_raw": 0.04849644067062531,
+     "de_wilcoxon_sig_jaccard": 0.06892845372220369
+    },
+    "overall": 0.18101781487375976,
+    "mse_unclamped": -1.2077831082921107
+   },
+   "actual": {
+    "raw": {
+     "expr_mse_unbiased_capped_norm": 2.129214762612281,
+     "pds_cosine": 0.8051005036953349,
+     "de_wilcoxon_lfc_nmae": 0.9714002873190196,
+     "de_wilcoxon_direction_fidelity_yield_raw": 0.3596431393407885,
+     "de_wilcoxon_direction_reach_raw": 0.16399637684573262,
+     "de_wilcoxon_sig_jaccard": 0.04255198210771653
+    },
+    "scaled": {
+     "expr_mse_unbiased_capped_norm": 0.0,
+     "pds_cosine": 0.6628748966450353,
+     "de_wilcoxon_lfc_nmae": -0.03683703236881053,
+     "de_wilcoxon_direction_fidelity_yield_raw": 0.35708991711133775,
+     "de_wilcoxon_direction_reach_raw": 0.04676374354078429,
+     "de_wilcoxon_sig_jaccard": 0.07544917642624802
+    },
+    "overall": 0.1842234502257658,
+    "mse_unclamped": -1.2088449576467544
+   },
+   "checks": {
+    "scaled_abs_diff_vs_summary": {
+     "expr_mse_unbiased_capped_norm": 0.0,
+     "pds_cosine": 2.220446049250313e-16,
+     "de_wilcoxon_lfc_nmae": 8.673617379884035e-16,
+     "de_wilcoxon_direction_fidelity_yield_raw": 5.551115123125783e-17,
+     "de_wilcoxon_direction_reach_raw": 9.020562075079397e-17,
+     "de_wilcoxon_sig_jaccard": 1.1102230246251565e-16,
+     "overall": 1.942890293094024e-16
+    },
+    "de_dispatch_max_abs_diff_vs_results_csv": {
+     "de_wilcoxon_lfc_nmae": 2.220446049250313e-16,
+     "de_wilcoxon_direction_fidelity_yield_raw": 9.71445146547012e-17,
+     "de_wilcoxon_direction_reach_raw": 9.877081791342945e-17,
+     "de_wilcoxon_sig_jaccard": 9.71445146547012e-17
+    }
+   },
+   "calls": {
+    "requested_median": 249.5,
+    "realised_median": 275.5,
+    "realised_minus_requested_median": 20.0,
+    "realised_minus_requested_mean": 87.49657534246575,
+    "realised_not_requested_median": 21.0,
+    "requested_not_realised_median": 1.0
+   }
+  },
+  "HCT116_CG": {
+   "proxy": {
+    "raw": {
+     "expr_mse_unbiased_capped_norm": 2.9866287018799786,
+     "pds_cosine": 0.6277303067293457,
+     "de_wilcoxon_lfc_nmae": 0.7475100200734494,
+     "de_wilcoxon_direction_fidelity_yield_raw": 0.5404954686049783,
+     "de_wilcoxon_direction_reach_raw": 0.6688968904138379,
+     "de_wilcoxon_sig_jaccard": 0.014340614001434989
+    },
+    "scaled": {
+     "expr_mse_unbiased_capped_norm": 0.0,
+     "pds_cosine": 0.6541523559297889,
+     "de_wilcoxon_lfc_nmae": 0.4003730586612281,
+     "de_wilcoxon_direction_fidelity_yield_raw": 0.9155343519160416,
+     "de_wilcoxon_direction_reach_raw": 0.7442787021707907,
+     "de_wilcoxon_sig_jaccard": -1.571441101632866
+    },
+    "overall": 0.19048289450749725,
+    "mse_unclamped": -1.1258457197312794
+   },
+   "actual": {
+    "raw": {
+     "expr_mse_unbiased_capped_norm": 2.8961771873171847,
+     "pds_cosine": 0.6278471807391631,
+     "de_wilcoxon_lfc_nmae": 0.7469417575443696,
+     "de_wilcoxon_direction_fidelity_yield_raw": 0.5399400592446253,
+     "de_wilcoxon_direction_reach_raw": 0.6674555966895283,
+     "de_wilcoxon_sig_jaccard": 0.01451885045409325
+    },
+    "scaled": {
+     "expr_mse_unbiased_capped_norm": 0.0,
+     "pds_cosine": 0.6548645953688608,
+     "de_wilcoxon_lfc_nmae": 0.40127207848500435,
+     "de_wilcoxon_direction_fidelity_yield_raw": 0.9145508481683801,
+     "de_wilcoxon_direction_reach_raw": 0.7413989705960562,
+     "de_wilcoxon_sig_jaccard": -1.5704799695794411
+    },
+    "overall": 0.19026775383981007,
+    "mse_unclamped": -1.0361223397800907
+   },
+   "checks": {
+    "scaled_abs_diff_vs_summary": {
+     "expr_mse_unbiased_capped_norm": 0.0,
+     "pds_cosine": 6.661338147750939e-16,
+     "de_wilcoxon_lfc_nmae": 5.551115123125783e-17,
+     "de_wilcoxon_direction_fidelity_yield_raw": 1.1102230246251565e-16,
+     "de_wilcoxon_direction_reach_raw": 0.0,
+     "de_wilcoxon_sig_jaccard": 2.220446049250313e-16,
+     "overall": 1.3877787807814457e-16
+    },
+    "de_dispatch_max_abs_diff_vs_results_csv": {
+     "de_wilcoxon_lfc_nmae": 1.2212453270876722e-15,
+     "de_wilcoxon_direction_fidelity_yield_raw": 5.551115123125783e-17,
+     "de_wilcoxon_direction_reach_raw": 8.326672684688674e-17,
+     "de_wilcoxon_sig_jaccard": 9.71445146547012e-17
+    }
+   },
+   "calls": {
+    "requested_median": 132.5,
+    "realised_median": 125.5,
+    "realised_minus_requested_median": -3.0,
+    "realised_minus_requested_mean": -4.982014388489208,
+    "realised_not_requested_median": 0.0,
+    "requested_not_realised_median": 3.0
+   }
+  }
+ }
+}

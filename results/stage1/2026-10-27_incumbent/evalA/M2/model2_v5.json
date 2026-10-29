@@ -1,0 +1,47 @@
+{
+ "recipe": "v3 Model 2 pooling (commit c208334 vcc2_meta.py) on effects_v5, C+G calls, non-called kept",
+ "holdout": "H1",
+ "lines": [
+  "HCT116",
+  "HEK293T",
+  "K562_gwps",
+  "CD4_Stim48hr",
+  "RPE1",
+  "HepG2",
+  "Jurkat"
+ ],
+ "tables_used": {
+  "HCT116": {
+   "orion_hct116": 287,
+   "orion_hct116_pseudobulk": 226
+  },
+  "HEK293T": {
+   "orion_hek293t": 278,
+   "orion_hek293t_pseudobulk": 222
+  },
+  "K562_gwps": {
+   "replogle_k562_gw": 501
+  },
+  "CD4_Stim48hr": {
+   "marson_cd4_stim48hr": 492
+  },
+  "RPE1": {
+   "replogle_rpe1": 84
+  },
+  "HepG2": {
+   "nadig_hepg2": 64
+  },
+  "Jurkat": {
+   "nadig_jurkat": 86
+  }
+ },
+ "panel_targets": 564,
+ "knockdowns": 292,
+ "tau2_estimated": 17712,
+ "tau2_zero": 4605,
+ "tau2_median": 0.002980129008531229,
+ "calls": {
+  "mean": 388.6164383561644,
+  "median": 249.5
+ }
+}

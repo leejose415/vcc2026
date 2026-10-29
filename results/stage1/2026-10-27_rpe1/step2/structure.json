@@ -1,0 +1,50 @@
+{
+ "n_backgrounds": 83,
+ "fit_prior_A": {
+  "shared_knockdowns": 17903,
+  "drawn": 150,
+  "drawn_with_tahoe": 0,
+  "examples": []
+ },
+ "tahoe_knockdowns_in_300": 1,
+ "tahoe_share_median_over_touched": 0.10773624089394201,
+ "tahoe_share_bottom_decile_over_touched": 0.15721831392260815,
+ "orion": [
+  {
+   "table": "orion_hct116",
+   "background": "hct116",
+   "modality": "single_cell",
+   "mult_A": 1.0,
+   "mult_BC": 1.0,
+   "rows": 274,
+   "rows_in_300": 0
+  },
+  {
+   "table": "orion_hct116_pseudobulk",
+   "background": "hct116",
+   "modality": "pseudobulk_table",
+   "mult_A": 8.0,
+   "mult_BC": 16.0,
+   "rows": 16218,
+   "rows_in_300": 245
+  },
+  {
+   "table": "orion_hek293t",
+   "background": "hek293t",
+   "modality": "single_cell",
+   "mult_A": 1.0,
+   "mult_BC": 1.0,
+   "rows": 266,
+   "rows_in_300": 0
+  },
+  {
+   "table": "orion_hek293t_pseudobulk",
+   "background": "hek293t",
+   "modality": "pseudobulk_table",
+   "mult_A": 8.0,
+   "mult_BC": 16.0,
+   "rows": 15672,
+   "rows_in_300": 237
+  }
+ ]
+}

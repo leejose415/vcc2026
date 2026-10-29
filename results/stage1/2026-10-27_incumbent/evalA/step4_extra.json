@@ -1,0 +1,50 @@
+{
+ "arms": {
+  "M2": {
+   "requested": [
+    249.5,
+    388.6164383561644
+   ],
+   "realised_generator": [
+    271.0,
+    469.4486301369863
+   ],
+   "harness_called_on_pred": [
+    275.5,
+    476.11301369863014
+   ],
+   "reference": [
+    218.0,
+    1048.5239726027398
+   ],
+   "mse_raw": 2.129214762612261,
+   "mse_scaled_unclamped": 0.0,
+   "overall_unclamped": 0.1842234502257657
+  },
+  "CG": {
+   "requested": [
+    486.5,
+    551.3767123287671
+   ],
+   "realised_generator": [
+    513.5,
+    581.4383561643835
+   ],
+   "harness_called_on_pred": [
+    520.0,
+    585.8082191780821
+   ],
+   "reference": [
+    218.0,
+    1048.5239726027398
+   ],
+   "mse_raw": 1.4961872607668685,
+   "mse_scaled_unclamped": 0.0,
+   "overall_unclamped": 0.21860411836741026
+  }
+ },
+ "bundle_mse": {
+  "baseline_raw": 0.9669575104092536,
+  "replicate_raw": 0.0054965349127917874
+ }
+}

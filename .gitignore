@@ -14,3 +14,4 @@ code/vcc_2026_3c/*
 .ipynb_checkpoints/
 __pycache__/
 .pytest_cache/
+data_final/

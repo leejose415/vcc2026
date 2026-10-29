@@ -1,0 +1,7 @@
+{
+ "n_controls": 18400,
+ "median_panel_library": 20001.0,
+ "gated_genes": 10778,
+ "quantiles": "/home/mooneysad/vcc/results/v7/freeze_check/EvalA/controls/controls_control_quantiles.npz",
+ "baseline": "/home/mooneysad/vcc/results/v7/freeze_check/EvalA/controls/controls_baseline.csv"
+}

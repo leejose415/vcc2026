@@ -1,0 +1,4 @@
+-rw-rw-r-- 1 mooneysad mooneysad  60953266 Oct 28 09:05 fold_H1.npz
+-rw-rw-r-- 1 mooneysad mooneysad 153255482 Oct 28 18:39 s11_H1.npz
+a8560f4c9e35b6de262ff0c1d263eed5  fold_H1.npz
+ccb7ca9f6b2d51c1f374aa82aecaf678  s11_H1.npz

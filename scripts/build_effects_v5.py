@@ -254,7 +254,14 @@ def source_genes(dataset, var_src, var):
         return to_panel, np.array([i if i else s for i, s in zip(ids, var_src.index.astype(str))])
     ids = var_src.index.astype(str).to_numpy() if 'gene_name' in var_src else var_src['gene_id'].astype(str).to_numpy()
     pid = {g: i for i, g in enumerate(var.gene_id) if g}
-    return np.array([pid.get(g, -1) for g in ids]), ids
+    to_panel = np.array([pid.get(g, -1) for g in ids])
+    # two source symbols on one Ensembl ID (Jiang: KIAA2012 / AC079354.1): keep the panel's symbol, drop the alias
+    sym = var_src.index.astype(str).to_numpy(); pan = var.index.astype(str).to_numpy()
+    u, c = np.unique(to_panel[to_panel >= 0], return_counts=True)
+    for p in u[c > 1]:
+        rows = np.flatnonzero(to_panel == p); keep = sym[rows] == pan[p]
+        if keep.sum() == 1: to_panel[rows[~keep]] = -1                     # otherwise build_cells' assert still fires
+    return to_panel, ids
 
 
 def kept_cells(dataset, obs):
