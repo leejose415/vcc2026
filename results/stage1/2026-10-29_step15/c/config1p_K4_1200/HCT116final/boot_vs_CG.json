@@ -1,0 +1,182 @@
+{
+ "knockdowns": 278,
+ "n_boot": 2000,
+ "runs": {
+  "/home/mooneysad/vcc/results/stage1/e2e_final/CG/HCT116/salt_none/harness/evalHCT116final": {
+   "de_wilcoxon_lfc_nmae": {
+    "value": 0.40127207848500435,
+    "ci": [
+     0.34261488372884435,
+     0.46493245581070725
+    ],
+    "sd": 0.031317248859048304
+   },
+   "expr_mse_unbiased_capped_norm": {
+    "value": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "sd": 0.0
+   },
+   "de_wilcoxon_direction_fidelity_yield_raw": {
+    "value": 0.9145508481683801,
+    "ci": [
+     0.8962887382588296,
+     0.9327372402064593
+    ],
+    "sd": 0.009074374273425907
+   },
+   "de_wilcoxon_direction_reach_raw": {
+    "value": 0.7413989705960562,
+    "ci": [
+     0.6306909696376366,
+     0.8462381583397385
+    ],
+    "sd": 0.055631230005478476
+   },
+   "de_wilcoxon_sig_jaccard": {
+    "value": -1.5704799695794411,
+    "ci": [
+     -1.5864849978813167,
+     -1.553777402325344
+    ],
+    "sd": 0.008331358341023653
+   },
+   "pds_cosine": {
+    "value": 0.6548645953688608,
+    "ci": [
+     0.44838638198192465,
+     0.8673711242303859
+    ],
+    "sd": 0.1061256350646751
+   },
+   "overall": {
+    "value": 0.19026775383981007,
+    "ci": [
+     0.14404642874411094,
+     0.23499051998007403
+    ],
+    "sd": 0.023242762531657333
+   }
+  },
+  "/home/mooneysad/vcc/results/stage1/2026-10-29_step15/c/config1p_K4_1200/HCT116final/e2e/salt_none/harness/evalHCT116final": {
+   "de_wilcoxon_lfc_nmae": {
+    "value": 0.22367514371350827,
+    "ci": [
+     0.18854036473389166,
+     0.259658817639573
+    ],
+    "sd": 0.018073608321708772
+   },
+   "expr_mse_unbiased_capped_norm": {
+    "value": 1.0,
+    "ci": [
+     0.8525813761045911,
+     1.0
+    ],
+    "sd": 0.04357491619331341
+   },
+   "de_wilcoxon_direction_fidelity_yield_raw": {
+    "value": 0.8988763763457189,
+    "ci": [
+     0.8891991609183109,
+     0.9084974413780433
+    ],
+    "sd": 0.004878127943056911
+   },
+   "de_wilcoxon_direction_reach_raw": {
+    "value": 0.7312026687799319,
+    "ci": [
+     0.6204246344744188,
+     0.8433812864516209
+    ],
+    "sd": 0.05652687984714505
+   },
+   "de_wilcoxon_sig_jaccard": {
+    "value": -1.6283991132710391,
+    "ci": [
+     -1.6353795647557172,
+     -1.62055773428768
+    ],
+    "sd": 0.003966446765961098
+   },
+   "pds_cosine": {
+    "value": 0.8603852423988224,
+    "ci": [
+     0.6417930232190059,
+     1.0727414096009877
+    ],
+    "sd": 0.10509406198202441
+   },
+   "overall": {
+    "value": 0.34762338632782375,
+    "ci": [
+     0.2911338300147386,
+     0.38636035412569253
+    ],
+    "sd": 0.024373437381492825
+   }
+  }
+ },
+ "compare": {
+  "/home/mooneysad/vcc/results/stage1/2026-10-29_step15/c/config1p_K4_1200/HCT116final/e2e/salt_none/harness/evalHCT116final vs /home/mooneysad/vcc/results/stage1/e2e_final/CG/HCT116/salt_none/harness/evalHCT116final": {
+   "de_wilcoxon_lfc_nmae": {
+    "diff": -0.17759693477149607,
+    "ci": [
+     -0.21207477679974246,
+     -0.14410852658893666
+    ],
+    "p_better": 0.0
+   },
+   "expr_mse_unbiased_capped_norm": {
+    "diff": 1.0,
+    "ci": [
+     0.8525813761045911,
+     1.0
+    ],
+    "p_better": 1.0
+   },
+   "de_wilcoxon_direction_fidelity_yield_raw": {
+    "diff": -0.01567447182266113,
+    "ci": [
+     -0.028322051552892857,
+     -0.00240236830120163
+    ],
+    "p_better": 0.015
+   },
+   "de_wilcoxon_direction_reach_raw": {
+    "diff": -0.010196301816124298,
+    "ci": [
+     -0.09642559058549556,
+     0.07344051872781114
+    ],
+    "p_better": 0.41
+   },
+   "de_wilcoxon_sig_jaccard": {
+    "diff": -0.05791914369159801,
+    "ci": [
+     -0.07086821028667907,
+     -0.04630526435280623
+    ],
+    "p_better": 0.0
+   },
+   "pds_cosine": {
+    "diff": 0.20552064702996165,
+    "ci": [
+     0.031247526946391588,
+     0.3794534749370845
+    ],
+    "p_better": 0.9875
+   },
+   "overall": {
+    "diff": 0.15735563248801368,
+    "ci": [
+     0.11368431173708599,
+     0.19064451495091878
+    ],
+    "p_better": 1.0
+   }
+  }
+ }
+}

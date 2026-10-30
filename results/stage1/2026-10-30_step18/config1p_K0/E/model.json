@@ -1,0 +1,19 @@
+{
+ "config": "config1p_K0",
+ "params": {
+  "s_c": 0.5,
+  "m": 0.6,
+  "kappa": 1.0,
+  "c1": 1.0
+ },
+ "tables_voting": 117,
+ "calls_K0_median": 278.5,
+ "calls_K4_median": 1200.0,
+ "calls_this_median": 278.5,
+ "checks": {
+  "cg_file_calls_identical": true,
+  "cg_file_n_sources_identical": true,
+  "cg_file_lfc_max_abs_diff": 0.0,
+  "called_lfc_vs_half_cg_max_abs_diff": 0.0
+ }
+}

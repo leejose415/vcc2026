@@ -1,0 +1,19 @@
+{
+ "salt": "",
+ "model": {
+  "source": "/home/mooneysad/vcc/results/stage1/2026-10-29_step15/c/config1p_K4_1200/HCT116final/input.npz"
+ },
+ "controls": {
+  "n_controls": 9940,
+  "median_panel_library": 12133.0,
+  "gated_genes": 10326,
+  "quantiles": "/home/mooneysad/vcc/results/stage1/2026-10-29_step15/c/config1p_K4_1200/HCT116final/e2e/controls/controls_control_quantiles.npz",
+  "baseline": "/home/mooneysad/vcc/results/stage1/2026-10-29_step15/c/config1p_K4_1200/HCT116final/e2e/controls/controls_baseline.csv"
+ },
+ "background": "HCT116",
+ "knockdowns": 278,
+ "n_cells": 400,
+ "vcc_prep": null,
+ "sig_requested_median": 1200.0,
+ "sig_realized_median": 1201.0
+}

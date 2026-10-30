@@ -1,0 +1,29 @@
+{
+ "eval": "A",
+ "run": "harness",
+ "scaled": {
+  "de_wilcoxon_lfc_nmae": 0.0078022781815495,
+  "expr_mse_unbiased_capped_norm": 0.1266237800715973,
+  "de_wilcoxon_direction_fidelity_yield_raw": 0.4826181689774647,
+  "de_wilcoxon_direction_reach_raw": 0.048012394009076,
+  "de_wilcoxon_sig_jaccard": 0.1227840981071008,
+  "pds_cosine": 0.7951943073338181,
+  "overall": 0.2638391711134344
+ },
+ "raw": {
+  "pds_cosine": 0.8672503883632257,
+  "expr_mse_unbiased_capped_norm": 0.8452136873005662,
+  "de_wilcoxon_lfc_nmae": 0.946003703119646,
+  "de_wilcoxon_direction_fidelity_yield_raw": 0.4573443608095699,
+  "de_wilcoxon_direction_reach_raw": 0.1650605876230233,
+  "de_wilcoxon_sig_jaccard": 0.0618940561085521
+ },
+ "n_knockdowns": 292,
+ "cells_per_knockdown": {
+  "min": 400,
+  "max": 400
+ },
+ "bundle": "/home/mooneysad/vcc/lib/harness/evalA/bundle",
+ "input": "cells",
+ "source": "/home/mooneysad/vcc/results/stage1/2026-10-29_step15/c/config1p_K4_1200/EvalA/e2e/salt_none/prediction.h5ad"
+}

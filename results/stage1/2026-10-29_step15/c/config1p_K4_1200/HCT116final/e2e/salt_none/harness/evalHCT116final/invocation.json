@@ -1,0 +1,38 @@
+{
+ "commands": [
+  [
+   "/home/mooneysad/venv/bin/cell-eval2",
+   "run",
+   "-ap",
+   "/home/mooneysad/vcc/results/stage1/2026-10-29_step15/c/config1p_K4_1200/HCT116final/e2e/salt_none/prediction.h5ad",
+   "-ar",
+   "/home/mooneysad/vcc/results/stage1/final_evals/harness/lib/evalHCT116final/real.h5ad",
+   "-o",
+   "/home/mooneysad/vcc/results/stage1/2026-10-29_step15/c/config1p_K4_1200/HCT116final/e2e/salt_none/harness/evalHCT116final",
+   "--cache-real",
+   "/home/mooneysad/vcc/results/stage1/final_evals/harness/lib/evalHCT116final/real_cache",
+   "--write-degenes",
+   "--pert-col",
+   "target_gene",
+   "--control",
+   "non-targeting",
+   "--profile",
+   "vcc2026",
+   "--input-type",
+   "counts",
+   "--preset",
+   "vcc2026",
+   "--set",
+   "de.backend=pdex",
+   "--set",
+   "num_threads=8"
+  ]
+ ],
+ "versions": {
+  "cell-eval2": "0.18.0",
+  "pdex": "0.3.0",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "anndata": "0.13.4"
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "config": "config1p_K4_1200",
+ "params": {
+  "s_c": 0.5,
+  "m": 0.6,
+  "kappa": 1.0,
+  "c1": 1.0
+ },
+ "tables_voting": 116,
+ "calls_K0_median": 486.5,
+ "calls_K4_median": 1200.0,
+ "calls_this_median": 1200.0,
+ "checks": {
+  "v7_m05_lfc_max_abs_diff": 1.4551915228366852e-11,
+  "v7_calls_identical": true,
+  "fold_cache_calls_identical": true,
+  "fold_cache_lfc_max_abs_diff": 0.0,
+  "fold_cache_se_max_abs_diff": 0.0
+ }
+}

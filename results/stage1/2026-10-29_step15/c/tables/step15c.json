@@ -1,0 +1,40 @@
+{
+ "EvalA_terciles": {
+  "weak": {
+   "knockdowns": 97,
+   "true_de_min": 0,
+   "true_de_median": 5.0,
+   "true_de_max": 26
+  },
+  "mid": {
+   "knockdowns": 97,
+   "true_de_min": 26,
+   "true_de_median": 215.0,
+   "true_de_max": 862
+  },
+  "strong": {
+   "knockdowns": 98,
+   "true_de_min": 870,
+   "true_de_median": 2490.0,
+   "true_de_max": 7343
+  }
+ },
+ "adoption": {
+  "config1p_K0": {
+   "mse_pos": true,
+   "others_pos": true,
+   "overall_above_CG": true,
+   "overall_ci_lo_gt_m001": true,
+   "hct_within_ci": true,
+   "pass": true
+  },
+  "config1p_K4_1200": {
+   "mse_pos": true,
+   "others_pos": true,
+   "overall_above_CG": true,
+   "overall_ci_lo_gt_m001": true,
+   "hct_within_ci": true,
+   "pass": true
+  }
+ }
+}
