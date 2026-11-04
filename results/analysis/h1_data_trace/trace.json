@@ -1,0 +1,87 @@
+{
+  "source": "gs://vcc2026/lib/h1/H1_full_2025.h5ad",
+  "raw_shape": [
+    414694,
+    18080
+  ],
+  "qc_shape": [
+    414619,
+    18080
+  ],
+  "target": "SIN3B",
+  "cell_ids": [
+    "AGCGCTAAGTAACGTAACTTTAGG-Flex_1_01",
+    "AGGCGCTAGCTCAAGGACTTTAGG-Flex_1_01",
+    "GGGTTTCTCTGTGATTACTTTAGG-Flex_1_01"
+  ],
+  "genes": [
+    "SERPINB9",
+    "MT-ND4",
+    "IDH3B"
+  ],
+  "gene_ids": [
+    "ENSG00000170542",
+    "ENSG00000198886",
+    "ENSG00000101365"
+  ],
+  "downloaded_counts": [
+    [
+      34.0,
+      6.0,
+      11.0
+    ],
+    [
+      6.0,
+      3.0,
+      10.0
+    ],
+    [
+      44.0,
+      48.0,
+      13.0
+    ]
+  ],
+  "qc_counts": [
+    [
+      34,
+      6,
+      11
+    ],
+    [
+      6,
+      3,
+      10
+    ],
+    [
+      44,
+      48,
+      13
+    ]
+  ],
+  "effects": [
+    {
+      "gene": "SERPINB9",
+      "lfc": 1.4684867858886719,
+      "se": 0.09714152663946152,
+      "de_sig": true
+    },
+    {
+      "gene": "MT-ND4",
+      "lfc": 1.4292373657226562,
+      "se": 0.08938104659318924,
+      "de_sig": true
+    },
+    {
+      "gene": "IDH3B",
+      "lfc": 1.2789546251296997,
+      "se": 0.038022223860025406,
+      "de_sig": true
+    }
+  ],
+  "effect_metadata": {
+    "n_cells_kept": "586",
+    "n_cells_used": "400",
+    "n_real": "5267.0",
+    "efficiency": "-4.095873961132527"
+  }
+}

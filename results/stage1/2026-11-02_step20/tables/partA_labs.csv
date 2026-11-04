@@ -1,0 +1,68 @@
+table,lab,background,line,lineage,modality,rows,knockdowns,median_cells,median_n_real
+adamson_k562_10x001,Weissman,K562,K562,blood,single_cell,6,6,400.0,76.0
+adamson_k562_10x005,Weissman,K562,K562,blood,single_cell,3,3,400.0,164.0
+adamson_k562_10x010,Weissman,K562,K562,blood,single_cell,82,82,400.0,664.5
+arc_h1,Arc,H1,H1,pluripotent,single_cell,300,300,400.0,249.0
+feng_gw_fitness,Feng,HipSci_pooled,HipSci_pooled,pluripotent,single_cell,1233,1233,52.0,1.0
+feng_gw_nonfitness,Feng,HipSci_pooled,HipSci_pooled,pluripotent,single_cell,814,814,37.0,0.0
+feng_targeted_eipl_1,Feng,eipl_1,eipl,pluripotent,single_cell,417,417,80.0,1.0
+feng_targeted_eipl_3,Feng,eipl_3,eipl,pluripotent,single_cell,403,403,77.0,1.0
+feng_targeted_fiaj_1,Feng,fiaj_1,fiaj,pluripotent,single_cell,423,423,87.0,2.0
+feng_targeted_fiaj_3,Feng,fiaj_3,fiaj,pluripotent,single_cell,4,4,44.5,0.0
+feng_targeted_iudw_1,Feng,iudw_1,iudw,pluripotent,single_cell,429,429,92.0,1.0
+feng_targeted_iudw_4,Feng,iudw_4,iudw,pluripotent,single_cell,384,384,70.0,0.0
+feng_targeted_jejf_2,Feng,jejf_2,jejf,pluripotent,single_cell,421,421,99.0,1.0
+feng_targeted_jejf_3,Feng,jejf_3,jejf,pluripotent,single_cell,417,417,73.0,2.0
+feng_targeted_kolf_2,Feng,kolf_2,kolf,pluripotent,single_cell,419,419,87.0,1.0
+feng_targeted_kolf_3,Feng,kolf_3,kolf,pluripotent,single_cell,412,412,77.0,1.0
+feng_targeted_oikd_2,Feng,oikd_2,oikd,pluripotent,single_cell,84,84,38.0,0.0
+feng_targeted_oikd_5,Feng,oikd_5,oikd,pluripotent,single_cell,426,426,95.0,2.0
+feng_targeted_paab_3,Feng,paab_3,paab,pluripotent,single_cell,379,379,59.0,1.0
+feng_targeted_paab_4,Feng,paab_4,paab,pluripotent,single_cell,416,416,87.0,1.0
+feng_targeted_pipw_4,Feng,pipw_4,pipw,pluripotent,single_cell,383,383,74.0,0.0
+feng_targeted_pipw_5,Feng,pipw_5,pipw,pluripotent,single_cell,13,13,34.0,0.0
+feng_targeted_tolg_4,Feng,tolg_4,tolg,pluripotent,single_cell,65,65,38.0,0.0
+feng_targeted_tolg_6,Feng,tolg_6,tolg,pluripotent,single_cell,395,395,61.0,1.0
+feng_targeted_zapk_3,Feng,zapk_3,zapk,pluripotent,single_cell,428,428,97.0,1.5
+kolf_kolf21j,KOLF2.1J study,KOLF2.1J,kolf,pluripotent,single_cell,1608,1608,101.5,101.0
+marson_cd4_rest,Marson,CD4_T,CD4_T,blood,replicate_table,10606,10606,,
+marson_cd4_stim48hr,Marson,CD4_T,CD4_T,blood,replicate_table,10615,10615,,
+marson_cd4_stim8hr,Marson,CD4_T,CD4_T,blood,replicate_table,10819,10819,,
+nadig_hepg2,Weissman,HepG2,HepG2,liver,single_cell,1759,1759,54.0,37.0
+nadig_jurkat,Weissman,Jurkat,Jurkat,blood,single_cell,2054,2054,89.0,45.0
+orion_hct116,Xaira (X-Atlas/Orion),HCT116,HCT116,colorectal,single_cell,434,434,151.0,2.0
+orion_hct116_pseudobulk,Xaira (X-Atlas/Orion),HCT116,HCT116,colorectal,pseudobulk_table,16058,16058,157.0,
+orion_hek293t,Xaira (X-Atlas/Orion),HEK293T,HEK293T,kidney,single_cell,418,418,199.5,1.0
+orion_hek293t_pseudobulk,Xaira (X-Atlas/Orion),HEK293T,HEK293T,kidney,pseudobulk_table,15520,15520,204.0,
+replogle_k562_gw,Weissman,K562,K562,blood,single_cell,9245,9245,173.0,1.0
+replogle_rpe1,Weissman,RPE1,RPE1,retina,single_cell,1968,1968,80.0,362.5
+jiang_ifnb_a549,Jiang (Satija),A549,A549,lung,CRISPRko,54,54,400.0,1.0
+jiang_ifnb_bxpc3,Jiang (Satija),BXPC3,BXPC3,pancreas,CRISPRko,57,57,400.0,46.0
+jiang_ifnb_hap1,Jiang (Satija),HAP1,HAP1,"HAP1 (CML-derived, adherent)",CRISPRko,58,58,400.0,2.0
+jiang_ifnb_ht29,Jiang (Satija),HT29,HT29,colorectal,CRISPRko,58,58,400.0,7.0
+jiang_ifnb_k562,Jiang (Satija),K562,K562,blood,CRISPRko,59,59,400.0,1.0
+jiang_ifnb_mcf7,Jiang (Satija),MCF7,MCF7,breast,CRISPRko,56,56,400.0,155.0
+jiang_ifng_a549,Jiang (Satija),A549,A549,lung,CRISPRko,48,48,366.5,1.0
+jiang_ifng_bxpc3,Jiang (Satija),BXPC3,BXPC3,pancreas,CRISPRko,47,47,400.0,75.0
+jiang_ifng_hap1,Jiang (Satija),HAP1,HAP1,"HAP1 (CML-derived, adherent)",CRISPRko,48,48,352.5,0.0
+jiang_ifng_ht29,Jiang (Satija),HT29,HT29,colorectal,CRISPRko,49,49,400.0,1.0
+jiang_ifng_k562,Jiang (Satija),K562,K562,blood,CRISPRko,46,46,374.5,2.0
+jiang_ifng_mcf7,Jiang (Satija),MCF7,MCF7,breast,CRISPRko,49,49,400.0,2.0
+jiang_ins_a549,Jiang (Satija),A549,A549,lung,CRISPRko,35,35,400.0,6.0
+jiang_ins_bxpc3,Jiang (Satija),BXPC3,BXPC3,pancreas,CRISPRko,35,35,400.0,103.0
+jiang_ins_hap1,Jiang (Satija),HAP1,HAP1,"HAP1 (CML-derived, adherent)",CRISPRko,33,33,400.0,7.0
+jiang_ins_ht29,Jiang (Satija),HT29,HT29,colorectal,CRISPRko,38,38,400.0,4.0
+jiang_ins_k562,Jiang (Satija),K562,K562,blood,CRISPRko,35,35,400.0,85.0
+jiang_ins_mcf7,Jiang (Satija),MCF7,MCF7,breast,CRISPRko,36,36,400.0,180.5
+jiang_tgfb_a549,Jiang (Satija),A549,A549,lung,CRISPRko,48,48,400.0,1.0
+jiang_tgfb_bxpc3,Jiang (Satija),BXPC3,BXPC3,pancreas,CRISPRko,40,40,190.5,4.0
+jiang_tgfb_hap1,Jiang (Satija),HAP1,HAP1,"HAP1 (CML-derived, adherent)",CRISPRko,44,44,400.0,2.0
+jiang_tgfb_ht29,Jiang (Satija),HT29,HT29,colorectal,CRISPRko,46,46,400.0,1.0
+jiang_tgfb_k562,Jiang (Satija),K562,K562,blood,CRISPRko,39,39,400.0,0.0
+jiang_tgfb_mcf7,Jiang (Satija),MCF7,MCF7,breast,CRISPRko,38,38,252.5,4.0
+jiang_tnfa_a549,Jiang (Satija),A549,A549,lung,CRISPRko,51,51,400.0,1.0
+jiang_tnfa_bxpc3,Jiang (Satija),BXPC3,BXPC3,pancreas,CRISPRko,48,48,400.0,7.0
+jiang_tnfa_hap1,Jiang (Satija),HAP1,HAP1,"HAP1 (CML-derived, adherent)",CRISPRko,49,49,400.0,1.0
+jiang_tnfa_ht29,Jiang (Satija),HT29,HT29,colorectal,CRISPRko,51,51,400.0,2.0
+jiang_tnfa_k562,Jiang (Satija),K562,K562,blood,CRISPRko,52,52,400.0,1.0
+jiang_tnfa_mcf7,Jiang (Satija),MCF7,MCF7,breast,CRISPRko,48,48,400.0,12.0

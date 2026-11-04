@@ -1,0 +1,213 @@
+{
+ "H1 half0": {
+  "reach": {
+   "(i) p_cal": 0.1367305760364367,
+   "(ii) z_u": 0.12966628281414516,
+   "(iii) effect size (proxy)": 0.13592943123358858,
+   "(iv) oracle": 0.215989080122174
+  },
+  "reach_raw": {
+   "(i) p_cal": 0.24067409825127697,
+   "(ii) z_u": 0.23465328043875563,
+   "(iii) effect size (proxy)": 0.23999129152913015,
+   "(iv) oracle": 0.3082252315603222
+  },
+  "oracle_gain": 0.08005964888858541,
+  "share_of_oracle_gain": {
+   "(i) p_cal": 0.010006848817973632,
+   "(ii) z_u": -0.07823102532162611
+  }
+ },
+ "H1 half1": {
+  "reach": {
+   "(i) p_cal": 0.0687095093771771,
+   "(ii) z_u": 0.06703608572771848,
+   "(iii) effect size (proxy)": 0.08480085156248837,
+   "(iv) oracle": 0.15845061058524584
+  },
+  "reach_raw": {
+   "(i) p_cal": 0.18270050671398777,
+   "(ii) z_u": 0.18127426652271686,
+   "(iii) effect size (proxy)": 0.19641497702376784,
+   "(iv) oracle": 0.25918583987709076
+  },
+  "oracle_gain": 0.07364975902275747,
+  "share_of_oracle_gain": {
+   "(i) p_cal": -0.21848465492384186,
+   "(ii) z_u": -0.24120602796922463
+  }
+ },
+ "H1 full": {
+  "reach": {
+   "(i) p_cal": 0.10272004270680693,
+   "(ii) z_u": 0.09835118427093181,
+   "(iii) effect size (proxy)": 0.11036514139803848,
+   "(iv) oracle": 0.18721984535370997
+  },
+  "reach_raw": {
+   "(i) p_cal": 0.2116873024826324,
+   "(ii) z_u": 0.20796377348073625,
+   "(iii) effect size (proxy)": 0.218203134276449,
+   "(iv) oracle": 0.28370553571870655
+  },
+  "oracle_gain": 0.0768547039556715,
+  "share_of_oracle_gain": {
+   "(i) p_cal": -0.09947470093230873,
+   "(ii) z_u": -0.15632038780653054
+  }
+ },
+ "H1 terciles": {
+  "weak": {
+   "(i) p_cal": {
+    "reach": 0.40934038575162485,
+    "kstar_mean": 2.208791208791209
+   },
+   "(ii) z_u": {
+    "reach": 0.4088232489049679,
+    "kstar_mean": 2.2747252747252746
+   },
+   "(iii) effect size (proxy)": {
+    "reach": 0.40426580773411586,
+    "kstar_mean": 2.21978021978022
+   },
+   "(iv) oracle": {
+    "reach": 0.4205702627762009,
+    "kstar_mean": 2.3956043956043955
+   }
+  },
+  "mid": {
+   "(i) p_cal": {
+    "reach": -0.04308310830176395,
+    "kstar_mean": 25.49484536082474
+   },
+   "(ii) z_u": {
+    "reach": -0.04548021069565783,
+    "kstar_mean": 25.536082474226806
+   },
+   "(iii) effect size (proxy)": {
+    "reach": -0.026434590426939183,
+    "kstar_mean": 31.422680412371133
+   },
+   "(iv) oracle": {
+    "reach": 0.08571720676738173,
+    "kstar_mean": 61.855670103092784
+   }
+  },
+  "strong": {
+   "(i) p_cal": {
+    "reach": -0.03768348350999978,
+    "kstar_mean": 278.5204081632653
+   },
+   "(ii) z_u": {
+    "reach": -0.047580576646803846,
+    "kstar_mean": 249.53061224489795
+   },
+   "(iii) effect size (proxy)": {
+    "reach": -0.02713880400563709,
+    "kstar_mean": 300.40816326530614
+   },
+   "(iv) oracle": {
+    "reach": 0.07100421226623184,
+    "kstar_mean": 513.1632653061224
+   }
+  }
+ },
+ "H1 half terciles": {
+  "half0_weak": {
+   "(i) p_cal": 0.49346689738895544,
+   "(ii) z_u": 0.490684341085067,
+   "(iii) effect size (proxy)": 0.4819888526354162,
+   "(iv) oracle": 0.4981044912287692
+  },
+  "half0_mid": {
+   "(i) p_cal": -0.043703518620863524,
+   "(ii) z_u": -0.051822500166612065,
+   "(iii) effect size (proxy)": -0.04257744410625074,
+   "(iv) oracle": 0.07606920837908462
+  },
+  "half0_strong": {
+   "(i) p_cal": -0.021412979854694755,
+   "(ii) z_u": -0.0314636987651622,
+   "(iii) effect size (proxy)": -0.014078800769917084,
+   "(iv) oracle": 0.08821040528064152
+  },
+  "half1_weak": {
+   "(i) p_cal": 0.32334439607790916,
+   "(ii) z_u": 0.3251430213430889,
+   "(iii) effect size (proxy)": 0.32481558405723115,
+   "(iv) oracle": 0.34131305146913127
+  },
+  "half1_mid": {
+   "(i) p_cal": -0.042475359417748014,
+   "(ii) z_u": -0.03926735570370265,
+   "(iii) effect size (proxy)": -0.01062118274108302,
+   "(iv) oracle": 0.09516830722938699
+  },
+  "half1_strong": {
+   "(i) p_cal": -0.05395398716530481,
+   "(ii) z_u": -0.0636974545284455,
+   "(iii) effect size (proxy)": -0.04019880724135712,
+   "(iv) oracle": 0.05379801925182221
+  }
+ },
+ "K562 full": {
+  "reach": {
+   "(i) p_cal": 0.38229389800668045,
+   "(ii) z_u": 0.3721931771911534,
+   "(iii) effect size (proxy)": 0.35651553243113143,
+   "(iv) oracle": 0.4562772349023466
+  },
+  "reach_raw": {
+   "(i) p_cal": 0.5018098432995213,
+   "(ii) z_u": 0.495955261821138,
+   "(iii) effect size (proxy)": 0.48686818275885946,
+   "(iv) oracle": 0.5446920773310293
+  },
+  "oracle_gain": 0.09976170247121519,
+  "share_of_oracle_gain": {
+   "(i) p_cal": 0.25839941517624965,
+   "(ii) z_u": 0.15715093439334138
+  }
+ },
+ "HCT116 full": {
+  "reach": {
+   "(i) p_cal": 0.6221802838976853,
+   "(ii) z_u": 0.623458274895037,
+   "(iii) effect size (proxy)": 0.6095086520027682,
+   "(iv) oracle": 0.659723565320198
+  },
+  "reach_raw": {
+   "(i) p_cal": 0.6077871378420591,
+   "(ii) z_u": 0.6084267670423525,
+   "(iii) effect size (proxy)": 0.6014450385689384,
+   "(iv) oracle": 0.6265773946767602
+  },
+  "oracle_gain": 0.05021491331742989,
+  "share_of_oracle_gain": {
+   "(i) p_cal": 0.2523479790717623,
+   "(ii) z_u": 0.2777984063038673
+  }
+ },
+ "HEK293T full": {
+  "reach": {
+   "(i) p_cal": 0.5547317960779377,
+   "(ii) z_u": 0.5522146065148342,
+   "(iii) effect size (proxy)": 0.5491416531709068,
+   "(iv) oracle": 0.5840087293291909
+  },
+  "reach_raw": {
+   "(i) p_cal": 0.5847502150571353,
+   "(ii) z_u": 0.5835549021104024,
+   "(iii) effect size (proxy)": 0.5820956791060872,
+   "(iv) oracle": 0.5986526631956511
+  },
+  "oracle_gain": 0.034867076158284105,
+  "share_of_oracle_gain": {
+   "(i) p_cal": 0.16032726350938065,
+   "(ii) z_u": 0.08813338204721606
+  }
+ },
+ "key_for_R3": "(i) p_cal",
+ "key_rule": "the key with higher held-out reach on both H1 halves; if they split, p_cal",
+ "note": "on cells the order comes from the generator's realised Wilcoxon p-values; the frozen generator does not read a requested order (stage1.prepare_generator_inputs saves reach_order and never passes it), so these are ceilings"
+}

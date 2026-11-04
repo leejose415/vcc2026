@@ -1,0 +1,10 @@
+{
+  "target": "SIN3B",
+  "beta": 0.7147324444999741,
+  "R0_squared": 0.1833127013187339,
+  "n_genes_fit": 10777,
+  "SERPINB9_predicted_delta": -0.0839632818086613,
+  "SERPINB9_true_delta": 0.8201064978057913,
+  "prediction": "incumbent C+G mean inversion proxy; not config 1",
+  "fit": "descriptive within-knockdown no-intercept OLS; not held-out fitted parameter"
+}

@@ -1,0 +1,13 @@
+variant,metric,value,direction,rank
+f1_cal_m0.5,pds_cosine,0.6556756756756756,max,1.5
+f1_cal_m0.5,expr_mse_unbiased_capped_norm,0.9923772428574216,min,2.0
+f1_cal_m0.5,de_wilcoxon_lfc_nmae,0.980232523366612,min,1.0
+f1_cal_m0.5,de_wilcoxon_direction_fidelity_yield_raw,0.1738353774861912,max,2.0
+f1_cal_m0.5,de_wilcoxon_direction_reach_raw,0.0663503567213101,max,1.0
+f1_cal_m0.5,de_wilcoxon_sig_jaccard,0.0249429769985518,max,2.0
+f1_cal_m0.25,pds_cosine,0.6556756756756756,max,1.5
+f1_cal_m0.25,expr_mse_unbiased_capped_norm,0.9923772428574212,min,1.0
+f1_cal_m0.25,de_wilcoxon_lfc_nmae,0.9806990609177824,min,2.0
+f1_cal_m0.25,de_wilcoxon_direction_fidelity_yield_raw,0.3190587104124784,max,1.0
+f1_cal_m0.25,de_wilcoxon_direction_reach_raw,0.0568413290064767,max,2.0
+f1_cal_m0.25,de_wilcoxon_sig_jaccard,0.0594715188142478,max,1.0

@@ -1,0 +1,16 @@
+{
+  "shape": [
+    300,
+    18533
+  ],
+  "finite_per_row_min": 18077,
+  "finite_per_row_max": 18077,
+  "range": [
+    -2.9022213664100995,
+    4.303926494256397
+  ],
+  "fraction_abs_delta_lt_0_1": 0.9453758920174807,
+  "formula": "log1p_bulk_50k_full(knockdown) - log1p_bulk_50k_full(control)",
+  "includes_on_target": true,
+  "SIN3B_SERPINB9": 0.841403291052718
+}

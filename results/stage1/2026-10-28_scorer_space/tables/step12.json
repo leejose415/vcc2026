@@ -1,0 +1,156 @@
+{
+ "precision": {
+  "precision_by_decile": {
+   "0": 0.25844594594594594,
+   "1": 0.21267252195734002,
+   "2": 0.20471894517696043,
+   "3": 0.18365420913552283,
+   "4": 0.1633838096322441,
+   "5": 0.14959698291799156,
+   "6": 0.15451958853140732,
+   "7": 0.15348945953318008,
+   "8": 0.1806956570879602,
+   "9": 0.2598531979454493
+  },
+  "median": 0.18217493311174152,
+  "kept_deciles": [
+   0,
+   1,
+   2,
+   3,
+   9
+  ],
+  "realised": 171056,
+  "true_positive": 34016
+ },
+ "fits": {
+  "K1_m_call": {
+   "K562": 0.15,
+   "HCT116+HEK293T": 1.0,
+   "H1": 0.15
+  },
+  "K4_n_med": {
+   "K562": 800.0,
+   "HCT116+HEK293T": 800.0,
+   "H1": 50.0
+  }
+ },
+ "carried": {
+  "variant": "K0",
+  "m_call": NaN,
+  "support": NaN,
+  "n_med": NaN,
+  "evalA_overall": 0.24361699565446907,
+  "qualified": true
+ },
+ "k1_at_1_mismatch": {
+  "K562": 0,
+  "HCT116": 0,
+  "HEK293T": 0,
+  "H1": 0
+ },
+ "evalA": [
+  {
+   "variant": "K0",
+   "m_call": NaN,
+   "support": NaN,
+   "n_med": NaN,
+   "calls_median": 486.5,
+   "calls_mean": 551.3767123287671,
+   "truth_calls_median": 218.0,
+   "overall": 0.24361699565446907,
+   "mse": 0.113396416974753,
+   "pds": 0.8079476835960013,
+   "nmae": 0.0009653558915692084,
+   "fidelity": 0.371133263873752,
+   "reach": 0.07299873592153616,
+   "jaccard": 0.09526051766920285,
+   "qualifies": true
+  },
+  {
+   "variant": "K1_lofo",
+   "m_call": 0.15,
+   "support": NaN,
+   "n_med": NaN,
+   "calls_median": 0.0,
+   "calls_mean": 0.17123287671232876,
+   "truth_calls_median": 218.0,
+   "overall": 0.15412853289758552,
+   "mse": 0.113396416974753,
+   "pds": 0.8079476835960013,
+   "nmae": 0.0009653558915692084,
+   "fidelity": -0.10037666378195699,
+   "reach": 0.08100876903107737,
+   "jaccard": 0.021829635674069186,
+   "qualifies": false
+  },
+  {
+   "variant": "K2_2_lofo",
+   "m_call": 0.15,
+   "support": 2.0,
+   "n_med": NaN,
+   "calls_median": 0.0,
+   "calls_mean": 0.09246575342465753,
+   "truth_calls_median": 218.0,
+   "overall": 0.15393419967642816,
+   "mse": 0.113396416974753,
+   "pds": 0.8079476835960013,
+   "nmae": 0.0009653558915692084,
+   "fidelity": -0.10148069909915278,
+   "reach": 0.08099831038897998,
+   "jaccard": 0.021778130306418224,
+   "qualifies": false
+  },
+  {
+   "variant": "K2_4_lofo",
+   "m_call": 0.15,
+   "support": 4.0,
+   "n_med": NaN,
+   "calls_median": 0.0,
+   "calls_mean": 0.0273972602739726,
+   "truth_calls_median": 218.0,
+   "overall": 0.1537145270309531,
+   "mse": 0.113396416974753,
+   "pds": 0.8079476835960013,
+   "nmae": 0.0009653558915692084,
+   "fidelity": -0.1026887949578998,
+   "reach": 0.08101084922604776,
+   "jaccard": 0.0216556514552472,
+   "qualifies": false
+  },
+  {
+   "variant": "K3_lofo",
+   "m_call": 0.15,
+   "support": NaN,
+   "n_med": NaN,
+   "calls_median": 0.0,
+   "calls_mean": 0.1678082191780822,
+   "truth_calls_median": 218.0,
+   "overall": 0.15412809042257378,
+   "mse": 0.113396416974753,
+   "pds": 0.8079476835960013,
+   "nmae": 0.0009653558915692084,
+   "fidelity": -0.10037759023469724,
+   "reach": 0.08100876903107737,
+   "jaccard": 0.021827907276739018,
+   "qualifies": false
+  },
+  {
+   "variant": "K4_lofo",
+   "m_call": NaN,
+   "support": NaN,
+   "n_med": 50.0,
+   "calls_median": 50.0,
+   "calls_mean": 56.13013698630137,
+   "truth_calls_median": 218.0,
+   "overall": 0.20177565642640904,
+   "mse": 0.113396416974753,
+   "pds": 0.8079476835960013,
+   "nmae": 0.0009653558915692084,
+   "fidelity": 0.19143852985127013,
+   "reach": 0.07842337073723558,
+   "jaccard": 0.018482581507625117,
+   "qualifies": true
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+{
+ "rows": 65723,
+ "genes": 18533,
+ "target_columns": 564,
+ "rows_match_step20": true,
+ "us_rel_max_diff_2000_rows": 2.0568963918776717e-06,
+ "pass_": true
+}

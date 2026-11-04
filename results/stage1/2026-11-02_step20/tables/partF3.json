@@ -1,0 +1,168 @@
+{
+ "sets": [
+  "DepMap",
+  "STRING"
+ ],
+ "coverage": {
+  "DepMap": {
+   "H1": {
+    "n": 292,
+    "covered": 289
+   },
+   "K562": {
+    "n": 267,
+    "covered": 267
+   },
+   "HCT116": {
+    "n": 278,
+    "covered": 278
+   },
+   "HEK293T": {
+    "n": 271,
+    "covered": 271
+   },
+   "DEF": {
+    "n": 300,
+    "covered": 300
+   }
+  },
+  "STRING": {
+   "H1": {
+    "n": 292,
+    "covered": 279
+   },
+   "K562": {
+    "n": 267,
+    "covered": 232
+   },
+   "HCT116": {
+    "n": 278,
+    "covered": 236
+   },
+   "HEK293T": {
+    "n": 271,
+    "covered": 235
+   },
+   "DEF": {
+    "n": 300,
+    "covered": 258
+   }
+  }
+ },
+ "spearman": {
+  "DepMap": {
+   "feature": "mean gene effect",
+   "vs_true_DE_count": -0.46950892728271015,
+   "n": 289,
+   "vs_b": -0.46014971146838735,
+   "n_b": 273
+  },
+  "STRING": {
+   "feature": "log(1 + degree)",
+   "vs_true_DE_count": 0.28239155566667606,
+   "n": 279,
+   "vs_b": 0.2861050263997559,
+   "n_b": 264
+  }
+ },
+ "complexes": {
+  "DepMap": {
+   "random_pairs_mean_cos": 0.22208563365940373,
+   "complexes": {
+    "Proteasome": {
+     "members": 45,
+     "mean_cos": 0.3612841105890257
+    },
+    "Mediator complex": {
+     "members": 33,
+     "mean_cos": 0.46383546534859155
+    },
+    "BAF complex subunits": {
+     "members": 26,
+     "mean_cos": 0.00012540080819352812
+    },
+    "L ribosomal proteins": {
+     "members": 51,
+     "mean_cos": 0.7506599630380871
+    },
+    "S ribosomal proteins": {
+     "members": 32,
+     "mean_cos": 0.6688479014646083
+    },
+    "Integrator complex": {
+     "members": 16,
+     "mean_cos": 0.7033639123920763
+    },
+    "Exosome complex": {
+     "members": 12,
+     "mean_cos": 0.9735490003391689
+    },
+    "COP9 signalosome": {
+     "members": 9,
+     "mean_cos": 0.2519567713132459
+    },
+    "Chaperonin containing TCP1": {
+     "members": 9,
+     "mean_cos": 0.6328156233960004
+    },
+    "NADH:ubiquinone oxidoreductase core subunits": {
+     "members": 7,
+     "mean_cos": 0.8773400384239316
+    }
+   }
+  },
+  "STRING": {
+   "random_pairs_mean_cos": 0.3464020392567226,
+   "complexes": {
+    "Proteasome": {
+     "members": 45,
+     "mean_cos": 0.9799847320657995
+    },
+    "Mediator complex": {
+     "members": 33,
+     "mean_cos": 0.9632640408337476
+    },
+    "BAF complex subunits": {
+     "members": 26,
+     "mean_cos": 0.9755040249880322
+    },
+    "L ribosomal proteins": {
+     "members": 54,
+     "mean_cos": 0.9924787993346217
+    },
+    "S ribosomal proteins": {
+     "members": 35,
+     "mean_cos": 0.9888373364168717
+    },
+    "Integrator complex": {
+     "members": 16,
+     "mean_cos": 0.9977886525103284
+    },
+    "Exosome complex": {
+     "members": 12,
+     "mean_cos": 0.9923240878184622
+    },
+    "COP9 signalosome": {
+     "members": 9,
+     "mean_cos": 0.9800461667869855
+    },
+    "Chaperonin containing TCP1": {
+     "members": 9,
+     "mean_cos": 0.9436893625439997
+    },
+    "NADH:ubiquinone oxidoreductase core subunits": {
+     "members": 14,
+     "mean_cos": 0.9997710768383801
+    }
+   }
+  }
+ },
+ "overlap": {
+  "DepMap vs STRING": {
+   "common_genes": 14943,
+   "sampled": 3000,
+   "cosine_of_similarities": 0.3290385358519472,
+   "pearson_of_similarities": 0.21921884163994582
+  }
+ }
+}

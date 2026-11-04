@@ -1,0 +1,235 @@
+{
+ "check2": {
+  "pseudobulk_max_abs_diff": 0.0,
+  "pseudobulk_p99_abs_diff": 0.0,
+  "slice_scaled_frozen": {
+   "mse": 0.14958036831035593,
+   "pds": 0.8265089824860317,
+   "nmae": 0.07341359791749402,
+   "fidelity": 0.42371510196188217,
+   "reach": -0.08984677265803825,
+   "jaccard": 0.21419429735136875,
+   "overall": 0.26626092922818234
+  },
+  "slice_scaled_v8": {
+   "mse": 0.14960269198187348,
+   "pds": 0.8265089824860317,
+   "nmae": 0.07347914644555198,
+   "fidelity": 0.4224658909409414,
+   "reach": -0.08713690775149079,
+   "jaccard": 0.2144254144381813,
+   "overall": 0.2665575364235148
+  },
+  "diff": {
+   "mse": 2.2323671517554544e-05,
+   "pds": 0.0,
+   "nmae": 6.554852805795708e-05,
+   "fidelity": -0.001249211020940777,
+   "reach": 0.0027098649065474684,
+   "jaccard": 0.00023111708681256005,
+   "overall": 0.0002966071953324767
+  }
+ },
+ "check3": {
+  "jaccard_pooled": 0.9813315339631129,
+  "per_knockdown": {
+   "ADNP": {
+    "frozen": 1174,
+    "v8": 1182,
+    "gained": 8,
+    "lost": 0,
+    "jaccard": 0.9932318104906938
+   },
+   "CASP3": {
+    "frozen": 1141,
+    "v8": 1159,
+    "gained": 20,
+    "lost": 2,
+    "jaccard": 0.9810508182601206
+   },
+   "CAST": {
+    "frozen": 1077,
+    "v8": 1153,
+    "gained": 84,
+    "lost": 8,
+    "jaccard": 0.9207579672695951
+   },
+   "CLDN7": {
+    "frozen": 1192,
+    "v8": 1198,
+    "gained": 8,
+    "lost": 2,
+    "jaccard": 0.9916666666666667
+   },
+   "DOT1L": {
+    "frozen": 1198,
+    "v8": 1202,
+    "gained": 16,
+    "lost": 12,
+    "jaccard": 0.9769357495881383
+   },
+   "GNG12": {
+    "frozen": 1199,
+    "v8": 1204,
+    "gained": 6,
+    "lost": 1,
+    "jaccard": 0.9941908713692946
+   },
+   "HTATSF1": {
+    "frozen": 1198,
+    "v8": 1198,
+    "gained": 6,
+    "lost": 6,
+    "jaccard": 0.9900332225913622
+   },
+   "INO80B": {
+    "frozen": 1201,
+    "v8": 1192,
+    "gained": 7,
+    "lost": 16,
+    "jaccard": 0.9809602649006622
+   },
+   "INSIG1": {
+    "frozen": 1181,
+    "v8": 1184,
+    "gained": 18,
+    "lost": 15,
+    "jaccard": 0.9724770642201835
+   },
+   "MBTPS1": {
+    "frozen": 1194,
+    "v8": 1194,
+    "gained": 3,
+    "lost": 3,
+    "jaccard": 0.9949874686716792
+   },
+   "OSTC": {
+    "frozen": 1195,
+    "v8": 1198,
+    "gained": 6,
+    "lost": 3,
+    "jaccard": 0.9925062447960034
+   },
+   "PGAM1": {
+    "frozen": 1200,
+    "v8": 1195,
+    "gained": 5,
+    "lost": 10,
+    "jaccard": 0.9875518672199171
+   },
+   "PHF14": {
+    "frozen": 138,
+    "v8": 141,
+    "gained": 3,
+    "lost": 0,
+    "jaccard": 0.9787234042553191
+   },
+   "PRDM14": {
+    "frozen": 1440,
+    "v8": 1439,
+    "gained": 4,
+    "lost": 5,
+    "jaccard": 0.9937673130193906
+   },
+   "RRM2": {
+    "frozen": 1230,
+    "v8": 1210,
+    "gained": 17,
+    "lost": 37,
+    "jaccard": 0.9566960705693665
+   },
+   "SLC25A3": {
+    "frozen": 1194,
+    "v8": 1195,
+    "gained": 9,
+    "lost": 8,
+    "jaccard": 0.9858686616791354
+   },
+   "SMARCA4": {
+    "frozen": 1195,
+    "v8": 1191,
+    "gained": 9,
+    "lost": 13,
+    "jaccard": 0.9817275747508306
+   },
+   "TET1": {
+    "frozen": 1179,
+    "v8": 1188,
+    "gained": 12,
+    "lost": 3,
+    "jaccard": 0.9874055415617129
+   },
+   "UBE3C": {
+    "frozen": 1191,
+    "v8": 1200,
+    "gained": 15,
+    "lost": 6,
+    "jaccard": 0.9825870646766169
+   },
+   "VCL": {
+    "frozen": 252,
+    "v8": 253,
+    "gained": 5,
+    "lost": 4,
+    "jaccard": 0.9649805447470817
+   }
+  },
+  "fidelity": {
+   "frozen": 0.42371510196188217,
+   "v8": 0.4224658909409414
+  },
+  "jaccard_component": {
+   "frozen": 0.21419429735136875,
+   "v8": 0.2144254144381813
+  }
+ },
+ "check4_spearman_realised_vs_requested_rank": {
+  "5-20 v8": {
+   "median": 0.2534209085933224,
+   "knockdowns": 19
+  },
+  "5-20 frozen": {
+   "median": 0.055677303916740535,
+   "knockdowns": 19
+  },
+  "20-100 v8": {
+   "median": 0.33146884547686917,
+   "knockdowns": 20
+  },
+  "20-100 frozen": {
+   "median": 0.023925569559107625,
+   "knockdowns": 20
+  },
+  ">100 v8": {
+   "median": 0.14543006322091065,
+   "knockdowns": 20
+  },
+  ">100 frozen": {
+   "median": -0.008505386740417148,
+   "knockdowns": 20
+  }
+ },
+ "check5_reach": {
+  "frozen": -0.08984677265803825,
+  "v8": -0.08713690775149079,
+  "frozen_raw": 0.04756476742270316,
+  "v8_raw": 0.04987435486272946,
+  "by_tercile": {
+   "mid": {
+    "frozen": -0.054794288613417,
+    "v8": -0.050365547011937774
+   },
+   "strong": {
+    "frozen": -0.1248992567026595,
+    "v8": -0.12390826849104378
+   }
+  }
+ },
+ "pass": {
+  "check1": true,
+  "mse_pds_nmae_within_0002": true,
+  "called_set_jaccard_ge_099": false,
+  "spearman_gt_05_above_20cpm": false,
+  "all": false
+ }
+}

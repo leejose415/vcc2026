@@ -1,0 +1,30 @@
+{
+ "H1": {
+  "knockdowns_b_ge5": 176,
+  "with_at_least_one_X": 158,
+  "X_per_knockdown": {
+   "median": 8.0,
+   "q90": 63.50000000000006,
+   "max": 419.0
+  },
+  "r_residual": {
+   "median": -0.03252881514262675,
+   "null_median": -0.03814096650946966,
+   "null_q95": -0.02833133309474568,
+   "percentile": 81.0
+  },
+  "r_truth": {
+   "median": 0.04612554887299136,
+   "null_median": 0.03734689737213917,
+   "null_q95": 0.04455251156663931,
+   "percentile": 99.0
+  }
+ },
+ "eligible_X": 2254,
+ "DEF": {
+  "targets": 300,
+  "with_at_least_one_X": 271,
+  "with_at_least_one_X_and_b_ge5": 134,
+  "note": "context D's pooled z (sources identical for D/E/F; only the gate differs)"
+ }
+}

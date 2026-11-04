@@ -1,0 +1,60 @@
+{
+ "download": [
+  {
+   "url": "https://stringdb-downloads.org/download/protein.links.v12.0/9606.protein.links.v12.0.txt.gz",
+   "file": "/home/mooneysad/vcc/lib/downloads/step20_2026-11-02/string_v12/9606.protein.links.v12.0.txt.gz",
+   "bytes": 83164437,
+   "md5": "5b7c91d02926e723ad30e81ab9d009a4",
+   "md5_published": null,
+   "md5_ok": true
+  },
+  {
+   "url": "https://stringdb-downloads.org/download/protein.info.v12.0/9606.protein.info.v12.0.txt.gz",
+   "file": "/home/mooneysad/vcc/lib/downloads/step20_2026-11-02/string_v12/9606.protein.info.v12.0.txt.gz",
+   "bytes": 1970090,
+   "md5": "1ca9efcefcc68b5cc3b037a335cb870b",
+   "md5_published": null,
+   "md5_ok": true
+  }
+ ],
+ "release": "STRING v12.0 (9606)",
+ "edges_ge_700": 234368,
+ "genes": 16040,
+ "components": 125,
+ "largest_component": 15726,
+ "eigenvalues": [
+  1.0,
+  0.995422108219129,
+  0.9924845253120315,
+  0.9877097684038807,
+  0.9796794513585567,
+  0.9682490661136636,
+  0.9675008328168221,
+  0.9611499577633895,
+  0.9557627388766257,
+  0.9526645113655912,
+  0.9523625594228864,
+  0.9496317370592086,
+  0.945848284803184,
+  0.9449003308407509,
+  0.9447316410566444,
+  0.9415768310853821,
+  0.9397280152738202,
+  0.9331906193605037,
+  0.92853220473301,
+  0.9193079811656374,
+  0.9140702257600953,
+  0.9071742433430023,
+  0.9044244837144664,
+  0.9031313904704826,
+  0.9022707480231955,
+  0.9020093663592528,
+  0.9016882596983677,
+  0.9005004431492462,
+  0.9003396582821163,
+  0.8981504102268757,
+  0.8948340119590306,
+  0.8913793432650294
+ ],
+ "note": "Spectral embedding on the largest connected component: the normalised adjacency of a graph with many components has eigenvalue 1 once per component, so the top 32 eigenvectors of the whole graph are indicators of small components. Genes outside it keep log(1 + degree) and get zeros plus the missing indicator."
+}

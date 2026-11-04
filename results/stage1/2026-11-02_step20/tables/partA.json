@@ -1,0 +1,1656 @@
+{
+ "labs": [
+  {
+   "table": "adamson_k562_10x001",
+   "lab": "Weissman",
+   "background": "K562",
+   "line": "K562",
+   "lineage": "blood",
+   "modality": "single_cell",
+   "rows": 6,
+   "knockdowns": 6,
+   "median_cells": 400.0,
+   "median_n_real": 76.0
+  },
+  {
+   "table": "adamson_k562_10x005",
+   "lab": "Weissman",
+   "background": "K562",
+   "line": "K562",
+   "lineage": "blood",
+   "modality": "single_cell",
+   "rows": 3,
+   "knockdowns": 3,
+   "median_cells": 400.0,
+   "median_n_real": 164.0
+  },
+  {
+   "table": "adamson_k562_10x010",
+   "lab": "Weissman",
+   "background": "K562",
+   "line": "K562",
+   "lineage": "blood",
+   "modality": "single_cell",
+   "rows": 82,
+   "knockdowns": 82,
+   "median_cells": 400.0,
+   "median_n_real": 664.5
+  },
+  {
+   "table": "arc_h1",
+   "lab": "Arc",
+   "background": "H1",
+   "line": "H1",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 300,
+   "knockdowns": 300,
+   "median_cells": 400.0,
+   "median_n_real": 249.0
+  },
+  {
+   "table": "feng_gw_fitness",
+   "lab": "Feng",
+   "background": "HipSci_pooled",
+   "line": "HipSci_pooled",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 1233,
+   "knockdowns": 1233,
+   "median_cells": 52.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "feng_gw_nonfitness",
+   "lab": "Feng",
+   "background": "HipSci_pooled",
+   "line": "HipSci_pooled",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 814,
+   "knockdowns": 814,
+   "median_cells": 37.0,
+   "median_n_real": 0.0
+  },
+  {
+   "table": "feng_targeted_eipl_1",
+   "lab": "Feng",
+   "background": "eipl_1",
+   "line": "eipl",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 417,
+   "knockdowns": 417,
+   "median_cells": 80.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "feng_targeted_eipl_3",
+   "lab": "Feng",
+   "background": "eipl_3",
+   "line": "eipl",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 403,
+   "knockdowns": 403,
+   "median_cells": 77.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "feng_targeted_fiaj_1",
+   "lab": "Feng",
+   "background": "fiaj_1",
+   "line": "fiaj",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 423,
+   "knockdowns": 423,
+   "median_cells": 87.0,
+   "median_n_real": 2.0
+  },
+  {
+   "table": "feng_targeted_fiaj_3",
+   "lab": "Feng",
+   "background": "fiaj_3",
+   "line": "fiaj",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 4,
+   "knockdowns": 4,
+   "median_cells": 44.5,
+   "median_n_real": 0.0
+  },
+  {
+   "table": "feng_targeted_iudw_1",
+   "lab": "Feng",
+   "background": "iudw_1",
+   "line": "iudw",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 429,
+   "knockdowns": 429,
+   "median_cells": 92.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "feng_targeted_iudw_4",
+   "lab": "Feng",
+   "background": "iudw_4",
+   "line": "iudw",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 384,
+   "knockdowns": 384,
+   "median_cells": 70.0,
+   "median_n_real": 0.0
+  },
+  {
+   "table": "feng_targeted_jejf_2",
+   "lab": "Feng",
+   "background": "jejf_2",
+   "line": "jejf",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 421,
+   "knockdowns": 421,
+   "median_cells": 99.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "feng_targeted_jejf_3",
+   "lab": "Feng",
+   "background": "jejf_3",
+   "line": "jejf",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 417,
+   "knockdowns": 417,
+   "median_cells": 73.0,
+   "median_n_real": 2.0
+  },
+  {
+   "table": "feng_targeted_kolf_2",
+   "lab": "Feng",
+   "background": "kolf_2",
+   "line": "kolf",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 419,
+   "knockdowns": 419,
+   "median_cells": 87.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "feng_targeted_kolf_3",
+   "lab": "Feng",
+   "background": "kolf_3",
+   "line": "kolf",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 412,
+   "knockdowns": 412,
+   "median_cells": 77.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "feng_targeted_oikd_2",
+   "lab": "Feng",
+   "background": "oikd_2",
+   "line": "oikd",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 84,
+   "knockdowns": 84,
+   "median_cells": 38.0,
+   "median_n_real": 0.0
+  },
+  {
+   "table": "feng_targeted_oikd_5",
+   "lab": "Feng",
+   "background": "oikd_5",
+   "line": "oikd",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 426,
+   "knockdowns": 426,
+   "median_cells": 95.0,
+   "median_n_real": 2.0
+  },
+  {
+   "table": "feng_targeted_paab_3",
+   "lab": "Feng",
+   "background": "paab_3",
+   "line": "paab",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 379,
+   "knockdowns": 379,
+   "median_cells": 59.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "feng_targeted_paab_4",
+   "lab": "Feng",
+   "background": "paab_4",
+   "line": "paab",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 416,
+   "knockdowns": 416,
+   "median_cells": 87.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "feng_targeted_pipw_4",
+   "lab": "Feng",
+   "background": "pipw_4",
+   "line": "pipw",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 383,
+   "knockdowns": 383,
+   "median_cells": 74.0,
+   "median_n_real": 0.0
+  },
+  {
+   "table": "feng_targeted_pipw_5",
+   "lab": "Feng",
+   "background": "pipw_5",
+   "line": "pipw",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 13,
+   "knockdowns": 13,
+   "median_cells": 34.0,
+   "median_n_real": 0.0
+  },
+  {
+   "table": "feng_targeted_tolg_4",
+   "lab": "Feng",
+   "background": "tolg_4",
+   "line": "tolg",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 65,
+   "knockdowns": 65,
+   "median_cells": 38.0,
+   "median_n_real": 0.0
+  },
+  {
+   "table": "feng_targeted_tolg_6",
+   "lab": "Feng",
+   "background": "tolg_6",
+   "line": "tolg",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 395,
+   "knockdowns": 395,
+   "median_cells": 61.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "feng_targeted_zapk_3",
+   "lab": "Feng",
+   "background": "zapk_3",
+   "line": "zapk",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 428,
+   "knockdowns": 428,
+   "median_cells": 97.0,
+   "median_n_real": 1.5
+  },
+  {
+   "table": "kolf_kolf21j",
+   "lab": "KOLF2.1J study",
+   "background": "KOLF2.1J",
+   "line": "kolf",
+   "lineage": "pluripotent",
+   "modality": "single_cell",
+   "rows": 1608,
+   "knockdowns": 1608,
+   "median_cells": 101.5,
+   "median_n_real": 101.0
+  },
+  {
+   "table": "marson_cd4_rest",
+   "lab": "Marson",
+   "background": "CD4_T",
+   "line": "CD4_T",
+   "lineage": "blood",
+   "modality": "replicate_table",
+   "rows": 10606,
+   "knockdowns": 10606,
+   "median_cells": NaN,
+   "median_n_real": NaN
+  },
+  {
+   "table": "marson_cd4_stim48hr",
+   "lab": "Marson",
+   "background": "CD4_T",
+   "line": "CD4_T",
+   "lineage": "blood",
+   "modality": "replicate_table",
+   "rows": 10615,
+   "knockdowns": 10615,
+   "median_cells": NaN,
+   "median_n_real": NaN
+  },
+  {
+   "table": "marson_cd4_stim8hr",
+   "lab": "Marson",
+   "background": "CD4_T",
+   "line": "CD4_T",
+   "lineage": "blood",
+   "modality": "replicate_table",
+   "rows": 10819,
+   "knockdowns": 10819,
+   "median_cells": NaN,
+   "median_n_real": NaN
+  },
+  {
+   "table": "nadig_hepg2",
+   "lab": "Weissman",
+   "background": "HepG2",
+   "line": "HepG2",
+   "lineage": "liver",
+   "modality": "single_cell",
+   "rows": 1759,
+   "knockdowns": 1759,
+   "median_cells": 54.0,
+   "median_n_real": 37.0
+  },
+  {
+   "table": "nadig_jurkat",
+   "lab": "Weissman",
+   "background": "Jurkat",
+   "line": "Jurkat",
+   "lineage": "blood",
+   "modality": "single_cell",
+   "rows": 2054,
+   "knockdowns": 2054,
+   "median_cells": 89.0,
+   "median_n_real": 45.0
+  },
+  {
+   "table": "orion_hct116",
+   "lab": "Xaira (X-Atlas/Orion)",
+   "background": "HCT116",
+   "line": "HCT116",
+   "lineage": "colorectal",
+   "modality": "single_cell",
+   "rows": 434,
+   "knockdowns": 434,
+   "median_cells": 151.0,
+   "median_n_real": 2.0
+  },
+  {
+   "table": "orion_hct116_pseudobulk",
+   "lab": "Xaira (X-Atlas/Orion)",
+   "background": "HCT116",
+   "line": "HCT116",
+   "lineage": "colorectal",
+   "modality": "pseudobulk_table",
+   "rows": 16058,
+   "knockdowns": 16058,
+   "median_cells": 157.0,
+   "median_n_real": NaN
+  },
+  {
+   "table": "orion_hek293t",
+   "lab": "Xaira (X-Atlas/Orion)",
+   "background": "HEK293T",
+   "line": "HEK293T",
+   "lineage": "kidney",
+   "modality": "single_cell",
+   "rows": 418,
+   "knockdowns": 418,
+   "median_cells": 199.5,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "orion_hek293t_pseudobulk",
+   "lab": "Xaira (X-Atlas/Orion)",
+   "background": "HEK293T",
+   "line": "HEK293T",
+   "lineage": "kidney",
+   "modality": "pseudobulk_table",
+   "rows": 15520,
+   "knockdowns": 15520,
+   "median_cells": 204.0,
+   "median_n_real": NaN
+  },
+  {
+   "table": "replogle_k562_gw",
+   "lab": "Weissman",
+   "background": "K562",
+   "line": "K562",
+   "lineage": "blood",
+   "modality": "single_cell",
+   "rows": 9245,
+   "knockdowns": 9245,
+   "median_cells": 173.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "replogle_rpe1",
+   "lab": "Weissman",
+   "background": "RPE1",
+   "line": "RPE1",
+   "lineage": "retina",
+   "modality": "single_cell",
+   "rows": 1968,
+   "knockdowns": 1968,
+   "median_cells": 80.0,
+   "median_n_real": 362.5
+  },
+  {
+   "table": "jiang_ifnb_a549",
+   "lab": "Jiang (Satija)",
+   "background": "A549",
+   "line": "A549",
+   "lineage": "lung",
+   "modality": "CRISPRko",
+   "rows": 54,
+   "knockdowns": 54,
+   "median_cells": 400.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "jiang_ifnb_bxpc3",
+   "lab": "Jiang (Satija)",
+   "background": "BXPC3",
+   "line": "BXPC3",
+   "lineage": "pancreas",
+   "modality": "CRISPRko",
+   "rows": 57,
+   "knockdowns": 57,
+   "median_cells": 400.0,
+   "median_n_real": 46.0
+  },
+  {
+   "table": "jiang_ifnb_hap1",
+   "lab": "Jiang (Satija)",
+   "background": "HAP1",
+   "line": "HAP1",
+   "lineage": "HAP1 (CML-derived, adherent)",
+   "modality": "CRISPRko",
+   "rows": 58,
+   "knockdowns": 58,
+   "median_cells": 400.0,
+   "median_n_real": 2.0
+  },
+  {
+   "table": "jiang_ifnb_ht29",
+   "lab": "Jiang (Satija)",
+   "background": "HT29",
+   "line": "HT29",
+   "lineage": "colorectal",
+   "modality": "CRISPRko",
+   "rows": 58,
+   "knockdowns": 58,
+   "median_cells": 400.0,
+   "median_n_real": 7.0
+  },
+  {
+   "table": "jiang_ifnb_k562",
+   "lab": "Jiang (Satija)",
+   "background": "K562",
+   "line": "K562",
+   "lineage": "blood",
+   "modality": "CRISPRko",
+   "rows": 59,
+   "knockdowns": 59,
+   "median_cells": 400.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "jiang_ifnb_mcf7",
+   "lab": "Jiang (Satija)",
+   "background": "MCF7",
+   "line": "MCF7",
+   "lineage": "breast",
+   "modality": "CRISPRko",
+   "rows": 56,
+   "knockdowns": 56,
+   "median_cells": 400.0,
+   "median_n_real": 155.0
+  },
+  {
+   "table": "jiang_ifng_a549",
+   "lab": "Jiang (Satija)",
+   "background": "A549",
+   "line": "A549",
+   "lineage": "lung",
+   "modality": "CRISPRko",
+   "rows": 48,
+   "knockdowns": 48,
+   "median_cells": 366.5,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "jiang_ifng_bxpc3",
+   "lab": "Jiang (Satija)",
+   "background": "BXPC3",
+   "line": "BXPC3",
+   "lineage": "pancreas",
+   "modality": "CRISPRko",
+   "rows": 47,
+   "knockdowns": 47,
+   "median_cells": 400.0,
+   "median_n_real": 75.0
+  },
+  {
+   "table": "jiang_ifng_hap1",
+   "lab": "Jiang (Satija)",
+   "background": "HAP1",
+   "line": "HAP1",
+   "lineage": "HAP1 (CML-derived, adherent)",
+   "modality": "CRISPRko",
+   "rows": 48,
+   "knockdowns": 48,
+   "median_cells": 352.5,
+   "median_n_real": 0.0
+  },
+  {
+   "table": "jiang_ifng_ht29",
+   "lab": "Jiang (Satija)",
+   "background": "HT29",
+   "line": "HT29",
+   "lineage": "colorectal",
+   "modality": "CRISPRko",
+   "rows": 49,
+   "knockdowns": 49,
+   "median_cells": 400.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "jiang_ifng_k562",
+   "lab": "Jiang (Satija)",
+   "background": "K562",
+   "line": "K562",
+   "lineage": "blood",
+   "modality": "CRISPRko",
+   "rows": 46,
+   "knockdowns": 46,
+   "median_cells": 374.5,
+   "median_n_real": 2.0
+  },
+  {
+   "table": "jiang_ifng_mcf7",
+   "lab": "Jiang (Satija)",
+   "background": "MCF7",
+   "line": "MCF7",
+   "lineage": "breast",
+   "modality": "CRISPRko",
+   "rows": 49,
+   "knockdowns": 49,
+   "median_cells": 400.0,
+   "median_n_real": 2.0
+  },
+  {
+   "table": "jiang_ins_a549",
+   "lab": "Jiang (Satija)",
+   "background": "A549",
+   "line": "A549",
+   "lineage": "lung",
+   "modality": "CRISPRko",
+   "rows": 35,
+   "knockdowns": 35,
+   "median_cells": 400.0,
+   "median_n_real": 6.0
+  },
+  {
+   "table": "jiang_ins_bxpc3",
+   "lab": "Jiang (Satija)",
+   "background": "BXPC3",
+   "line": "BXPC3",
+   "lineage": "pancreas",
+   "modality": "CRISPRko",
+   "rows": 35,
+   "knockdowns": 35,
+   "median_cells": 400.0,
+   "median_n_real": 103.0
+  },
+  {
+   "table": "jiang_ins_hap1",
+   "lab": "Jiang (Satija)",
+   "background": "HAP1",
+   "line": "HAP1",
+   "lineage": "HAP1 (CML-derived, adherent)",
+   "modality": "CRISPRko",
+   "rows": 33,
+   "knockdowns": 33,
+   "median_cells": 400.0,
+   "median_n_real": 7.0
+  },
+  {
+   "table": "jiang_ins_ht29",
+   "lab": "Jiang (Satija)",
+   "background": "HT29",
+   "line": "HT29",
+   "lineage": "colorectal",
+   "modality": "CRISPRko",
+   "rows": 38,
+   "knockdowns": 38,
+   "median_cells": 400.0,
+   "median_n_real": 4.0
+  },
+  {
+   "table": "jiang_ins_k562",
+   "lab": "Jiang (Satija)",
+   "background": "K562",
+   "line": "K562",
+   "lineage": "blood",
+   "modality": "CRISPRko",
+   "rows": 35,
+   "knockdowns": 35,
+   "median_cells": 400.0,
+   "median_n_real": 85.0
+  },
+  {
+   "table": "jiang_ins_mcf7",
+   "lab": "Jiang (Satija)",
+   "background": "MCF7",
+   "line": "MCF7",
+   "lineage": "breast",
+   "modality": "CRISPRko",
+   "rows": 36,
+   "knockdowns": 36,
+   "median_cells": 400.0,
+   "median_n_real": 180.5
+  },
+  {
+   "table": "jiang_tgfb_a549",
+   "lab": "Jiang (Satija)",
+   "background": "A549",
+   "line": "A549",
+   "lineage": "lung",
+   "modality": "CRISPRko",
+   "rows": 48,
+   "knockdowns": 48,
+   "median_cells": 400.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "jiang_tgfb_bxpc3",
+   "lab": "Jiang (Satija)",
+   "background": "BXPC3",
+   "line": "BXPC3",
+   "lineage": "pancreas",
+   "modality": "CRISPRko",
+   "rows": 40,
+   "knockdowns": 40,
+   "median_cells": 190.5,
+   "median_n_real": 4.0
+  },
+  {
+   "table": "jiang_tgfb_hap1",
+   "lab": "Jiang (Satija)",
+   "background": "HAP1",
+   "line": "HAP1",
+   "lineage": "HAP1 (CML-derived, adherent)",
+   "modality": "CRISPRko",
+   "rows": 44,
+   "knockdowns": 44,
+   "median_cells": 400.0,
+   "median_n_real": 2.0
+  },
+  {
+   "table": "jiang_tgfb_ht29",
+   "lab": "Jiang (Satija)",
+   "background": "HT29",
+   "line": "HT29",
+   "lineage": "colorectal",
+   "modality": "CRISPRko",
+   "rows": 46,
+   "knockdowns": 46,
+   "median_cells": 400.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "jiang_tgfb_k562",
+   "lab": "Jiang (Satija)",
+   "background": "K562",
+   "line": "K562",
+   "lineage": "blood",
+   "modality": "CRISPRko",
+   "rows": 39,
+   "knockdowns": 39,
+   "median_cells": 400.0,
+   "median_n_real": 0.0
+  },
+  {
+   "table": "jiang_tgfb_mcf7",
+   "lab": "Jiang (Satija)",
+   "background": "MCF7",
+   "line": "MCF7",
+   "lineage": "breast",
+   "modality": "CRISPRko",
+   "rows": 38,
+   "knockdowns": 38,
+   "median_cells": 252.5,
+   "median_n_real": 4.0
+  },
+  {
+   "table": "jiang_tnfa_a549",
+   "lab": "Jiang (Satija)",
+   "background": "A549",
+   "line": "A549",
+   "lineage": "lung",
+   "modality": "CRISPRko",
+   "rows": 51,
+   "knockdowns": 51,
+   "median_cells": 400.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "jiang_tnfa_bxpc3",
+   "lab": "Jiang (Satija)",
+   "background": "BXPC3",
+   "line": "BXPC3",
+   "lineage": "pancreas",
+   "modality": "CRISPRko",
+   "rows": 48,
+   "knockdowns": 48,
+   "median_cells": 400.0,
+   "median_n_real": 7.0
+  },
+  {
+   "table": "jiang_tnfa_hap1",
+   "lab": "Jiang (Satija)",
+   "background": "HAP1",
+   "line": "HAP1",
+   "lineage": "HAP1 (CML-derived, adherent)",
+   "modality": "CRISPRko",
+   "rows": 49,
+   "knockdowns": 49,
+   "median_cells": 400.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "jiang_tnfa_ht29",
+   "lab": "Jiang (Satija)",
+   "background": "HT29",
+   "line": "HT29",
+   "lineage": "colorectal",
+   "modality": "CRISPRko",
+   "rows": 51,
+   "knockdowns": 51,
+   "median_cells": 400.0,
+   "median_n_real": 2.0
+  },
+  {
+   "table": "jiang_tnfa_k562",
+   "lab": "Jiang (Satija)",
+   "background": "K562",
+   "line": "K562",
+   "lineage": "blood",
+   "modality": "CRISPRko",
+   "rows": 52,
+   "knockdowns": 52,
+   "median_cells": 400.0,
+   "median_n_real": 1.0
+  },
+  {
+   "table": "jiang_tnfa_mcf7",
+   "lab": "Jiang (Satija)",
+   "background": "MCF7",
+   "line": "MCF7",
+   "lineage": "breast",
+   "modality": "CRISPRko",
+   "rows": 48,
+   "knockdowns": 48,
+   "median_cells": 400.0,
+   "median_n_real": 12.0
+  }
+ ],
+ "lab_flags": {
+  "Weissman": "Replogle 2022 (K562 GW, RPE1) and Adamson 2016 are Weissman-lab; Nadig 2025 (HepG2, Jurkat) is Weissman-lab with the Replogle/Nadig authors: sure.",
+  "Xaira (X-Atlas/Orion)": "Orion = X-Atlas/Orion (Xaira Therapeutics, 2025), both lines one platform; the pseudobulk tables are the same screens' complement rows: fairly sure.",
+  "Arc": "Arc Institute (the VCC training screen): sure.",
+  "Feng": "Feng et al. CRISPRi Perturb-seq across HipSci iPSC donors (targeted and genome-wide); our metadata records the study, not the lab: UNSURE of the lab name, sure the tables share one lab and protocol.",
+  "KOLF2.1J study": "KOLF_Strong_Perturbations.h5ad (KRAB-ZIM3-dCas9 KOLF2.1J CRISPRi); the producing lab is not recorded in our download notes: UNSURE (treated as its own lab).",
+  "Jiang (Satija)": "Jiang et al. (Parse split-pool CRISPRko, 6 lines x 5 cytokines); I believe Satija lab (NYGC): UNSURE.",
+  "Marson": "Marson lab CD4 T (replicate tables, no cells): sure."
+ },
+ "line_flags": {
+  "kolf": "KOLF2.1J is a gene-corrected subclone of HPSI0114i-kolf_2; Feng kolf_2 / kolf_3 are clones of the same donor. All three are line \"kolf\" here.",
+  "feng clones": "Feng clones of one donor (eipl_1 / eipl_3, ...) are the same line (one donor genome).",
+  "HipSci_pooled": "Feng genome-wide tables pool many HipSci donors: own line, lineage pluripotent.",
+  "HAP1": "HAP1 (near-haploid, from KBM-7 CML) is its own lineage, not counted as blood."
+ },
+ "classes": {
+  "same lab, same line": {
+   "pairs": 11,
+   "knockdowns": 33300,
+   "knockdowns_de20": 198,
+   "cos_raw_all": {
+    "n": 8,
+    "median": 0.04833200755811572,
+    "q25": 0.04600782713710973,
+    "q75": 0.053351491746958954
+   },
+   "cos_cw_all": {
+    "n": 8,
+    "median": 0.06066702340282118,
+    "q25": 0.055446025284913776,
+    "q75": 0.07033122075920242
+   },
+   "cos_raw_de20": {
+    "n": 6,
+    "median": 0.16821010654665408,
+    "q25": 0.16295717420783776,
+    "q75": 0.1837986165024209
+   },
+   "cos_cw_de20": {
+    "n": 6,
+    "median": 0.24300988023989523,
+    "q25": 0.23315438293572213,
+    "q75": 0.2534031083318667
+   },
+   "cos_delta_all": {
+    "n": 8,
+    "median": 0.07094659734333066,
+    "q25": 0.0550130181867701,
+    "q75": 0.08320479095423222
+   },
+   "cos_delta_de20": {
+    "n": 6,
+    "median": 0.3253839218364603,
+    "q25": 0.303281665184832,
+    "q75": 0.3411609910676294
+   },
+   "spearman_n_real": {
+    "n": 8,
+    "median": 0.6635910789832176,
+    "q25": 0.4941925577482001,
+    "q75": 0.7079027033747504
+   }
+  },
+  "same lab, same lineage, different line": {
+   "pairs": 163,
+   "knockdowns": 47912,
+   "knockdowns_de20": 4842,
+   "cos_raw_all": {
+    "n": 163,
+    "median": 0.04726172039524398,
+    "q25": 0.040429977390662133,
+    "q75": 0.053835288410676516
+   },
+   "cos_cw_all": {
+    "n": 163,
+    "median": 0.06147268159546777,
+    "q25": 0.040280874837452546,
+    "q75": 0.07120712200497781
+   },
+   "cos_raw_de20": {
+    "n": 117,
+    "median": 0.16607468807094525,
+    "q25": 0.15021315674952784,
+    "q75": 0.1802719495860589
+   },
+   "cos_cw_de20": {
+    "n": 117,
+    "median": 0.2400234679351066,
+    "q25": 0.227918008873476,
+    "q75": 0.2521930229965614
+   },
+   "cos_delta_all": {
+    "n": 163,
+    "median": 0.06878382418541568,
+    "q25": 0.035323592163228515,
+    "q75": 0.08566192623573549
+   },
+   "cos_delta_de20": {
+    "n": 117,
+    "median": 0.3194649253288922,
+    "q25": 0.30083750089060435,
+    "q75": 0.33312991977832984
+   },
+   "spearman_n_real": {
+    "n": 163,
+    "median": 0.5937277215396485,
+    "q25": 0.4033664981600371,
+    "q75": 0.7336601593619976
+   }
+  },
+  "same lab, different line": {
+   "pairs": 84,
+   "knockdowns": 26912,
+   "knockdowns_de20": 4964,
+   "cos_raw_all": {
+    "n": 84,
+    "median": 0.02938776678969751,
+    "q25": 0.023196638434312498,
+    "q75": 0.046386197105569835
+   },
+   "cos_cw_all": {
+    "n": 84,
+    "median": 0.03336839614962249,
+    "q25": 0.02566590389294963,
+    "q75": 0.057007850707682654
+   },
+   "cos_raw_de20": {
+    "n": 70,
+    "median": 0.08593927737779998,
+    "q25": 0.036076594654028606,
+    "q75": 0.12468865581459296
+   },
+   "cos_cw_de20": {
+    "n": 70,
+    "median": 0.11728495841292796,
+    "q25": 0.04451232352926271,
+    "q75": 0.1715826200443419
+   },
+   "cos_delta_all": {
+    "n": 84,
+    "median": 0.041445207446687275,
+    "q25": 0.027065921958381856,
+    "q75": 0.07026772693769864
+   },
+   "cos_delta_de20": {
+    "n": 70,
+    "median": 0.18815629936456751,
+    "q25": 0.07531991444374285,
+    "q75": 0.2492751982116835
+   },
+   "spearman_n_real": {
+    "n": 83,
+    "median": 0.4153925332531567,
+    "q25": 0.21833277953875546,
+    "q75": 0.5180538100957108
+   }
+  },
+  "different lab, same line": {
+   "pairs": 7,
+   "knockdowns": 410,
+   "knockdowns_de20": 36,
+   "cos_raw_all": {
+    "n": 7,
+    "median": 0.02422692124522891,
+    "q25": 0.020343091311915,
+    "q75": 0.03206952890066685
+   },
+   "cos_cw_all": {
+    "n": 7,
+    "median": 0.029212130439788875,
+    "q25": 0.026909291813020264,
+    "q75": 0.03803461969488938
+   },
+   "cos_raw_de20": {
+    "n": 3,
+    "median": 0.05054106256060427,
+    "q25": 0.03889065232738931,
+    "q75": 0.052295567220369
+   },
+   "cos_cw_de20": {
+    "n": 3,
+    "median": 0.09429221927820892,
+    "q25": 0.06640507966637806,
+    "q75": 0.10102939767680788
+   },
+   "cos_delta_all": {
+    "n": 7,
+    "median": 0.027726556907497594,
+    "q25": 0.022017490755905915,
+    "q75": 0.046696478620203395
+   },
+   "cos_delta_de20": {
+    "n": 3,
+    "median": 0.13008607925631688,
+    "q25": 0.09157662119909081,
+    "q75": 0.13621317411480874
+   },
+   "spearman_n_real": {
+    "n": 7,
+    "median": 0.10702634891582188,
+    "q25": 0.030093473705744157,
+    "q75": 0.26688701414322774
+   }
+  },
+  "different lab, same lineage": {
+   "pairs": 48,
+   "knockdowns": 27185,
+   "knockdowns_de20": 241,
+   "cos_raw_all": {
+    "n": 24,
+    "median": 0.0368221666364356,
+    "q25": 0.03107833003525868,
+    "q75": 0.03991173630217337
+   },
+   "cos_cw_all": {
+    "n": 24,
+    "median": 0.03832748376861203,
+    "q25": 0.03088219466669616,
+    "q75": 0.046947979475306593
+   },
+   "cos_raw_de20": {
+    "n": 17,
+    "median": 0.056931076763744246,
+    "q25": 0.055282574744805434,
+    "q75": 0.062121766384359886
+   },
+   "cos_cw_de20": {
+    "n": 17,
+    "median": 0.10149958666098284,
+    "q25": 0.09662419364107343,
+    "q75": 0.12739305390822128
+   },
+   "cos_delta_all": {
+    "n": 24,
+    "median": 0.04650267195224639,
+    "q25": 0.037402022086249244,
+    "q75": 0.06175618557710812
+   },
+   "cos_delta_de20": {
+    "n": 17,
+    "median": 0.1433075320189229,
+    "q25": 0.13484486819422195,
+    "q75": 0.18724684245152245
+   },
+   "spearman_n_real": {
+    "n": 19,
+    "median": 0.0195363055814728,
+    "q25": -0.015158371365860603,
+    "q75": 0.15160627047098213
+   }
+  },
+  "different lab, different lineage": {
+   "pairs": 383,
+   "knockdowns": 148680,
+   "knockdowns_de20": 3849,
+   "cos_raw_all": {
+    "n": 227,
+    "median": 0.02334172082177805,
+    "q25": 0.014805586831482306,
+    "q75": 0.03708377254593631
+   },
+   "cos_cw_all": {
+    "n": 227,
+    "median": 0.03258470646541235,
+    "q25": 0.01765718032738023,
+    "q75": 0.05237128710460169
+   },
+   "cos_raw_de20": {
+    "n": 92,
+    "median": 0.09242602245898897,
+    "q25": 0.06480485900173497,
+    "q75": 0.10586227234946073
+   },
+   "cos_cw_de20": {
+    "n": 92,
+    "median": 0.13404579641158598,
+    "q25": 0.10784197073069958,
+    "q75": 0.14332088024273898
+   },
+   "cos_delta_all": {
+    "n": 227,
+    "median": 0.03839468591109738,
+    "q25": 0.015038224446941063,
+    "q75": 0.06330914456262976
+   },
+   "cos_delta_de20": {
+    "n": 92,
+    "median": 0.16790643394361301,
+    "q25": 0.13882149036992583,
+    "q75": 0.1794844615407101
+   },
+   "spearman_n_real": {
+    "n": 120,
+    "median": 0.19463745564796087,
+    "q25": 0.0714727268468178,
+    "q75": 0.30683833300327573
+   }
+  }
+ },
+ "contrasts": {
+  "same lab / different line vs different lab / same line": {
+   "cos_raw_all": {
+    "same_lab_diff_line": {
+     "n": 84,
+     "median": 0.02938776678969751,
+     "q25": 0.023196638434312498,
+     "q75": 0.046386197105569835
+    },
+    "diff_lab_same_line": {
+     "n": 7,
+     "median": 0.02422692124522891,
+     "q25": 0.020343091311915,
+     "q75": 0.03206952890066685
+    }
+   },
+   "cos_cw_all": {
+    "same_lab_diff_line": {
+     "n": 84,
+     "median": 0.03336839614962249,
+     "q25": 0.02566590389294963,
+     "q75": 0.057007850707682654
+    },
+    "diff_lab_same_line": {
+     "n": 7,
+     "median": 0.029212130439788875,
+     "q25": 0.026909291813020264,
+     "q75": 0.03803461969488938
+    }
+   },
+   "cos_raw_de20": {
+    "same_lab_diff_line": {
+     "n": 70,
+     "median": 0.08593927737779998,
+     "q25": 0.036076594654028606,
+     "q75": 0.12468865581459296
+    },
+    "diff_lab_same_line": {
+     "n": 3,
+     "median": 0.05054106256060427,
+     "q25": 0.03889065232738931,
+     "q75": 0.052295567220369
+    }
+   },
+   "cos_cw_de20": {
+    "same_lab_diff_line": {
+     "n": 70,
+     "median": 0.11728495841292796,
+     "q25": 0.04451232352926271,
+     "q75": 0.1715826200443419
+    },
+    "diff_lab_same_line": {
+     "n": 3,
+     "median": 0.09429221927820892,
+     "q25": 0.06640507966637806,
+     "q75": 0.10102939767680788
+    }
+   },
+   "cos_delta_all": {
+    "same_lab_diff_line": {
+     "n": 84,
+     "median": 0.041445207446687275,
+     "q25": 0.027065921958381856,
+     "q75": 0.07026772693769864
+    },
+    "diff_lab_same_line": {
+     "n": 7,
+     "median": 0.027726556907497594,
+     "q25": 0.022017490755905915,
+     "q75": 0.046696478620203395
+    }
+   },
+   "cos_delta_de20": {
+    "same_lab_diff_line": {
+     "n": 70,
+     "median": 0.18815629936456751,
+     "q25": 0.07531991444374285,
+     "q75": 0.2492751982116835
+    },
+    "diff_lab_same_line": {
+     "n": 3,
+     "median": 0.13008607925631688,
+     "q25": 0.09157662119909081,
+     "q75": 0.13621317411480874
+    }
+   },
+   "spearman_n_real": {
+    "same_lab_diff_line": {
+     "n": 83,
+     "median": 0.4153925332531567,
+     "q25": 0.21833277953875546,
+     "q75": 0.5180538100957108
+    },
+    "diff_lab_same_line": {
+     "n": 7,
+     "median": 0.10702634891582188,
+     "q25": 0.030093473705744157,
+     "q75": 0.26688701414322774
+    }
+   }
+  },
+  "H1 vs pluripotent tables of other labs, vs H1 vs non-pluripotent": {
+   "cos_raw_all": {
+    "pluripotent": {
+     "n": 3,
+     "median": 0.05488154218537576,
+     "q25": 0.041750604465848204,
+     "q75": 0.07756816652904068
+    },
+    "non_pluripotent": {
+     "n": 8,
+     "median": 0.08214622023422836,
+     "q25": 0.05719053205139636,
+     "q75": 0.12217534602801311
+    }
+   },
+   "cos_cw_all": {
+    "pluripotent": {
+     "n": 3,
+     "median": 0.08598251173379862,
+     "q25": 0.07684888921394084,
+     "q75": 0.11710894412219483
+    },
+    "non_pluripotent": {
+     "n": 8,
+     "median": 0.11023896697155813,
+     "q25": 0.07880397707403924,
+     "q75": 0.152875083097336
+    }
+   },
+   "cos_raw_de20": {
+    "pluripotent": {
+     "n": 2,
+     "median": 0.13989382883311127,
+     "q25": 0.12563151278918702,
+     "q75": 0.15415614487703552
+    },
+    "non_pluripotent": {
+     "n": 6,
+     "median": 0.14103475109467206,
+     "q25": 0.1204552392239505,
+     "q75": 0.16507207804171542
+    }
+   },
+   "cos_cw_de20": {
+    "pluripotent": {
+     "n": 2,
+     "median": 0.20456801227336735,
+     "q25": 0.1871160325603899,
+     "q75": 0.22201999198634478
+    },
+    "non_pluripotent": {
+     "n": 6,
+     "median": 0.1693996091078971,
+     "q25": 0.14792959468322817,
+     "q75": 0.18766358482823253
+    }
+   },
+   "cos_delta_all": {
+    "pluripotent": {
+     "n": 3,
+     "median": 0.13449782080697675,
+     "q25": 0.12720199042965927,
+     "q75": 0.16835453781547652
+    },
+    "non_pluripotent": {
+     "n": 8,
+     "median": 0.12480849865536284,
+     "q25": 0.08713857806760861,
+     "q75": 0.15870331165359391
+    }
+   },
+   "cos_delta_de20": {
+    "pluripotent": {
+     "n": 2,
+     "median": 0.27385428544020285,
+     "q25": 0.2515324885811111,
+     "q75": 0.2961760822992946
+    },
+    "non_pluripotent": {
+     "n": 6,
+     "median": 0.20490033652330816,
+     "q25": 0.18999522616715253,
+     "q75": 0.20978995390884392
+    }
+   },
+   "spearman_n_real": {
+    "pluripotent": {
+     "n": 3,
+     "median": 0.30517929242504943,
+     "q25": 0.29991161880505235,
+     "q75": 0.4455435171856973
+    },
+    "non_pluripotent": {
+     "n": 6,
+     "median": 0.5009953928064798,
+     "q25": 0.374061758391582,
+     "q75": 0.5605308901612505
+    }
+   }
+  }
+ },
+ "regression": {
+  "cos_cw_all": {
+   "n_pairs": 513,
+   "n_tables": 60,
+   "n_boot": 1000,
+   "coef": {
+    "intercept": {
+     "beta": 0.08955314193894864,
+     "ci95": [
+      -0.03263127344375559,
+      0.17408338200811055
+     ]
+    },
+    "same_lab": {
+     "beta": 0.018073686226213727,
+     "ci95": [
+      -0.013634990249523771,
+      0.047009297783629334
+     ]
+    },
+    "same_line": {
+     "beta": 0.016159593090013687,
+     "ci95": [
+      -0.01335666912855458,
+      0.07026865165772024
+     ]
+    },
+    "same_lineage": {
+     "beta": -0.003221231707327385,
+     "ci95": [
+      -0.03339594861962024,
+      0.03358738333624324
+     ]
+    },
+    "log_cells_smaller": {
+     "beta": -0.006853300823472349,
+     "ci95": [
+      -0.0426858887209958,
+      0.024879262588592268
+     ]
+    },
+    "log_cells_larger": {
+     "beta": -0.003743172895577119,
+     "ci95": [
+      -0.03743626749411631,
+      0.027207070648613413
+     ]
+    }
+   }
+  },
+  "cos_cw_de20": {
+   "n_pairs": 305,
+   "n_tables": 55,
+   "n_boot": 1000,
+   "coef": {
+    "intercept": {
+     "beta": 0.39665005293002825,
+     "ci95": [
+      0.16279724878220062,
+      0.5633826252430255
+     ]
+    },
+    "same_lab": {
+     "beta": 0.09559439014488448,
+     "ci95": [
+      -0.01178619660241233,
+      0.12998597681186816
+     ]
+    },
+    "same_line": {
+     "beta": 0.009581882539838372,
+     "ci95": [
+      -0.03030052104251183,
+      0.10010102810670543
+     ]
+    },
+    "same_lineage": {
+     "beta": 0.018713431168399616,
+     "ci95": [
+      -0.014799636239743575,
+      0.1188371227208509
+     ]
+    },
+    "log_cells_smaller": {
+     "beta": -0.06277254961227578,
+     "ci95": [
+      -0.10264808239975659,
+      -0.0022575056547323937
+     ]
+    },
+    "log_cells_larger": {
+     "beta": -0.0012919381560694207,
+     "ci95": [
+      -0.07214328397730047,
+      0.03541654003651539
+     ]
+    }
+   }
+  },
+  "cos_delta_all": {
+   "n_pairs": 513,
+   "n_tables": 60,
+   "n_boot": 1000,
+   "coef": {
+    "intercept": {
+     "beta": 0.10479221854095191,
+     "ci95": [
+      -0.07351877511352697,
+      0.21484238584925788
+     ]
+    },
+    "same_lab": {
+     "beta": 0.02015571607300037,
+     "ci95": [
+      -0.021881833179608644,
+      0.05913088769711839
+     ]
+    },
+    "same_line": {
+     "beta": 0.01656970721915706,
+     "ci95": [
+      -0.02609234629940852,
+      0.08317305170366407
+     ]
+    },
+    "same_lineage": {
+     "beta": -0.0045794641657449665,
+     "ci95": [
+      -0.04139852667087385,
+      0.048166070592737587
+     ]
+    },
+    "log_cells_smaller": {
+     "beta": -0.006296482528254467,
+     "ci95": [
+      -0.053528897735132745,
+      0.037252400794591835
+     ]
+    },
+    "log_cells_larger": {
+     "beta": -0.006065098060882929,
+     "ci95": [
+      -0.051065328559502604,
+      0.035130344922079344
+     ]
+    }
+   }
+  }
+ },
+ "h1_pairs": [
+  {
+   "table1": "arc_h1",
+   "table2": "feng_gw_fitness",
+   "cls": "different lab, same lineage",
+   "shared": 45,
+   "shared_de20": 6,
+   "cos_raw_all": 0.05488154218537576,
+   "cos_cw_all": 0.08598251173379862,
+   "cos_raw_de20": 0.16841846092095977,
+   "cos_cw_de20": 0.23947197169932224,
+   "cos_delta_all": 0.13449782080697675,
+   "cos_delta_de20": 0.31849787915838634,
+   "spearman_n_real": 0.5859077419463451
+  },
+  {
+   "table1": "arc_h1",
+   "table2": "feng_gw_nonfitness",
+   "cls": "different lab, same lineage",
+   "shared": 33,
+   "shared_de20": 1,
+   "cos_raw_all": 0.028619666746320643,
+   "cos_cw_all": 0.06771526669408308,
+   "cos_raw_de20": NaN,
+   "cos_cw_de20": NaN,
+   "cos_delta_all": 0.11990616005234177,
+   "cos_delta_de20": NaN,
+   "spearman_n_real": 0.2946439451850552
+  },
+  {
+   "table1": "arc_h1",
+   "table2": "kolf_kolf21j",
+   "cls": "different lab, same lineage",
+   "shared": 91,
+   "shared_de20": 77,
+   "cos_raw_all": 0.1002547908727056,
+   "cos_cw_all": 0.14823537651059104,
+   "cos_raw_de20": 0.11136919674526277,
+   "cos_cw_de20": 0.16966405284741243,
+   "cos_delta_all": 0.20221125482397628,
+   "cos_delta_de20": 0.22921069172201933,
+   "spearman_n_real": 0.30517929242504943
+  },
+  {
+   "table1": "arc_h1",
+   "table2": "marson_cd4_rest",
+   "cls": "different lab, different lineage",
+   "shared": 252,
+   "shared_de20": 0,
+   "cos_raw_all": NaN,
+   "cos_cw_all": NaN,
+   "cos_raw_de20": NaN,
+   "cos_cw_de20": NaN,
+   "cos_delta_all": NaN,
+   "cos_delta_de20": NaN,
+   "spearman_n_real": NaN
+  },
+  {
+   "table1": "arc_h1",
+   "table2": "marson_cd4_stim48hr",
+   "cls": "different lab, different lineage",
+   "shared": 248,
+   "shared_de20": 0,
+   "cos_raw_all": NaN,
+   "cos_cw_all": NaN,
+   "cos_raw_de20": NaN,
+   "cos_cw_de20": NaN,
+   "cos_delta_all": NaN,
+   "cos_delta_de20": NaN,
+   "spearman_n_real": NaN
+  },
+  {
+   "table1": "arc_h1",
+   "table2": "marson_cd4_stim8hr",
+   "cls": "different lab, different lineage",
+   "shared": 256,
+   "shared_de20": 0,
+   "cos_raw_all": NaN,
+   "cos_cw_all": NaN,
+   "cos_raw_de20": NaN,
+   "cos_cw_de20": NaN,
+   "cos_delta_all": NaN,
+   "cos_delta_de20": NaN,
+   "spearman_n_real": NaN
+  },
+  {
+   "table1": "arc_h1",
+   "table2": "nadig_hepg2",
+   "cls": "different lab, different lineage",
+   "shared": 69,
+   "shared_de20": 35,
+   "cos_raw_all": 0.09319434132512591,
+   "cos_cw_all": 0.11986271739737132,
+   "cos_raw_de20": 0.12265939604518346,
+   "cos_cw_de20": 0.15450610193145942,
+   "cos_delta_all": 0.15292546731151485,
+   "cos_delta_de20": 0.20231777458645311,
+   "spearman_n_real": 0.20913232459281106
+  },
+  {
+   "table1": "arc_h1",
+   "table2": "nadig_jurkat",
+   "cls": "different lab, different lineage",
+   "shared": 92,
+   "shared_de20": 60,
+   "cos_raw_all": 0.12793100034083715,
+   "cos_cw_all": 0.15645374717750574,
+   "cos_raw_de20": 0.15941010614416068,
+   "cos_cw_de20": 0.18878707434286515,
+   "cos_delta_all": 0.17603684467983105,
+   "cos_delta_de20": 0.21622635615519212,
+   "spearman_n_real": 0.5145552553495133
+  },
+  {
+   "table1": "arc_h1",
+   "table2": "orion_hct116",
+   "cls": "different lab, different lineage",
+   "shared": 36,
+   "shared_de20": 6,
+   "cos_raw_all": 0.07109809914333082,
+   "cos_cw_all": 0.10061521654574496,
+   "cos_raw_de20": 0.11972052028353952,
+   "cos_cw_de20": 0.14573742560048442,
+   "cos_delta_all": 0.10409218525905894,
+   "cos_delta_de20": 0.18588771002738566,
+   "spearman_n_real": 0.5758561017651629
+  },
+  {
+   "table1": "arc_h1",
+   "table2": "orion_hct116_pseudobulk",
+   "cls": "different lab, different lineage",
+   "shared": 233,
+   "shared_de20": 0,
+   "cos_raw_all": 0.054130624503971506,
+   "cos_cw_all": 0.07783292101903255,
+   "cos_raw_de20": NaN,
+   "cos_cw_de20": NaN,
+   "cos_delta_all": 0.08871794842654143,
+   "cos_delta_de20": NaN,
+   "spearman_n_real": NaN
+  },
+  {
+   "table1": "arc_h1",
+   "table2": "orion_hek293t",
+   "cls": "different lab, different lineage",
+   "shared": 32,
+   "shared_de20": 3,
+   "cos_raw_all": 0.05821050123387131,
+   "cos_cw_all": 0.07912766242570815,
+   "cos_raw_de20": 0.10623336587642258,
+   "cos_cw_de20": 0.10893246433036363,
+   "cos_delta_all": 0.08240046699081016,
+   "cos_delta_de20": 0.11877765422585296,
+   "spearman_n_real": 0.4874355302634462
+  },
+  {
+   "table1": "arc_h1",
+   "table2": "orion_hek293t_pseudobulk",
+   "cls": "different lab, different lineage",
+   "shared": 230,
+   "shared_de20": 0,
+   "cos_raw_all": 0.0477207354579061,
+   "cos_cw_all": 0.06378310406395944,
+   "cos_raw_de20": NaN,
+   "cos_cw_de20": NaN,
+   "cos_delta_all": 0.07374774761474592,
+   "cos_delta_de20": NaN,
+   "spearman_n_real": NaN
+  },
+  {
+   "table1": "arc_h1",
+   "table2": "replogle_k562_gw",
+   "cls": "different lab, different lineage",
+   "shared": 269,
+   "shared_de20": 91,
+   "cos_raw_all": 0.1202567945904051,
+   "cos_cw_all": 0.15168219507061273,
+   "cos_raw_de20": 0.17178166472660333,
+   "cos_cw_de20": 0.1954132040042661,
+   "cos_delta_all": 0.14552481205166673,
+   "cos_delta_de20": 0.2105589723917375,
+   "spearman_n_real": 0.7008491817138808
+  },
+  {
+   "table1": "arc_h1",
+   "table2": "replogle_rpe1",
+   "cls": "different lab, different lineage",
+   "shared": 91,
+   "shared_de20": 73,
+   "cos_raw_all": 0.15081623372968192,
+   "cos_cw_all": 0.16847174661548112,
+   "cos_raw_de20": 0.16695940200756698,
+   "cos_cw_de20": 0.18429311628433473,
+   "cos_delta_all": 0.1893743231913024,
+   "cos_delta_de20": 0.2074828984601632,
+   "spearman_n_real": 0.33627050110096063
+  }
+ ]
+}

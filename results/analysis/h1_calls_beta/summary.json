@@ -1,0 +1,23 @@
+{
+ "model": "incumbent C+G (stage-1 arm C + Gaussian shrink), Eval A, H1 line held out",
+ "calls": "realised calls from the end-to-end harness run (de_pred p_adj < 0.05), own gene out, gated genes",
+ "delta": "predicted = mean-inversion proxy (bulk of mu_from_lfc), true = H1 pseudobulk - control, log1p CP50K",
+ "median_true_de": 218.0,
+ "median_calls": 520.0,
+ "pooled_recall": 0.11114852384953106,
+ "pooled_precision": 0.1988385489464481,
+ "beta": {
+  "all": 0.15298364892507277,
+  "called": 0.17666350873501774,
+  "not_called": 0.13677613334401498
+ },
+ "r_all": 0.14382043495797878,
+ "beta_per_knockdown_quantiles": {
+  "5": -0.00513967529442927,
+  "25": 0.007693034716957036,
+  "50": 0.03404157448762893,
+  "75": 0.15689663164262105,
+  "95": 0.6298683963078713
+ },
+ "beta_called_note": "called = requested de_sig (the K0 call set config 1 also uses)"
+}

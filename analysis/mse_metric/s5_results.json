@@ -1,0 +1,761 @@
+{
+ "5a": {
+  "targets": {
+   "K562": {
+    "tested": 272,
+    "kept_qc": 264
+   },
+   "RPE1": {
+    "tested": 0,
+    "kept_qc": 0
+   },
+   "HepG2": {
+    "tested": 0,
+    "kept_qc": 0
+   },
+   "Jurkat": {
+    "tested": 0,
+    "kept_qc": 0
+   },
+   "H1": {
+    "tested": 25,
+    "kept_qc": 25
+   },
+   "HCT116": {
+    "tested": 300,
+    "kept_qc": 274
+   },
+   "HEK293T": {
+    "tested": 300,
+    "kept_qc": 266
+   },
+   "CD4_Stim48hr (effects table)": {
+    "tested": null,
+    "kept_qc": 269
+   },
+   "Replogle or Nadig (kept)": {
+    "kept_qc": 264
+   },
+   "none of the lines (kept)": {
+    "kept_qc": 0
+   }
+  },
+  "genes": {
+   "H1": {
+    "all_18533": 18077,
+    "expressed_in_A (>5 CPM)": 9806,
+    "expressed_in_B (>5 CPM)": 9535,
+    "expressed_in_C (>5 CPM)": 10019
+   },
+   "K562": {
+    "all_18533": 7681,
+    "expressed_in_A (>5 CPM)": 7094,
+    "expressed_in_B (>5 CPM)": 6881,
+    "expressed_in_C (>5 CPM)": 7058
+   },
+   "RPE1": {
+    "all_18533": 8260,
+    "expressed_in_A (>5 CPM)": 7312,
+    "expressed_in_B (>5 CPM)": 7521,
+    "expressed_in_C (>5 CPM)": 7584
+   },
+   "HepG2": {
+    "all_18533": 9024,
+    "expressed_in_A (>5 CPM)": 7763,
+    "expressed_in_B (>5 CPM)": 7714,
+    "expressed_in_C (>5 CPM)": 8020
+   },
+   "Jurkat": {
+    "all_18533": 8284,
+    "expressed_in_A (>5 CPM)": 8085,
+    "expressed_in_B (>5 CPM)": 7248,
+    "expressed_in_C (>5 CPM)": 7475
+   },
+   "Replogle or Nadig": {
+    "all_18533": 10917,
+    "expressed_in_A (>5 CPM)": 9026,
+    "expressed_in_B (>5 CPM)": 8790,
+    "expressed_in_C (>5 CPM)": 9038
+   },
+   "HCT116/HEK293T (Orion)": {
+    "all_18533": 18106,
+    "expressed_in_A (>5 CPM)": 9734,
+    "expressed_in_B (>5 CPM)": 9459,
+    "expressed_in_C (>5 CPM)": 9942
+   },
+   "A-C panel / expressed": {
+    "all_18533": 18533,
+    "expressed_in_A (>5 CPM)": 9929,
+    "expressed_in_B (>5 CPM)": 9626,
+    "expressed_in_C (>5 CPM)": 10124
+   },
+   "in H1 but not Replogle/Nadig": {
+    "all_18533": 7293,
+    "expressed_in_A (>5 CPM)": 876,
+    "expressed_in_B (>5 CPM)": 821,
+    "expressed_in_C (>5 CPM)": 1061
+   }
+  },
+  "D_F": "not available on disk (data/ holds A-C only; all three share one 300-target pert_counts.csv)"
+ },
+ "5b": {
+  "pairs": [
+   {
+    "source": "K562",
+    "dest": "RPE1",
+    "n_shared": 1854,
+    "n_genes": 6714,
+    "median_r_Delta": 0.10710038950432636,
+    "median_r_d": 0.08157184197960929,
+    "raw_mse": 1.2376182996876572,
+    "raw_mse_source_noise_removed": 0.9238910903253119,
+    "raw_mse_dest_mean_response": 0.6475978974578563,
+    "dest_noise_share_of_den": 0.324733517336661,
+    "tag": "same study (Replogle)"
+   },
+   {
+    "source": "K562",
+    "dest": "HepG2",
+    "n_shared": 1662,
+    "n_genes": 7005,
+    "median_r_Delta": 0.1012455310988983,
+    "median_r_d": 0.0752711526755456,
+    "raw_mse": 1.5697749616037053,
+    "raw_mse_source_noise_removed": 0.9733993189494989,
+    "raw_mse_dest_mean_response": 0.7854358867903843,
+    "dest_noise_share_of_den": 0.48807076011227085,
+    "tag": "same lab, different study"
+   },
+   {
+    "source": "K562",
+    "dest": "Jurkat",
+    "n_shared": 1957,
+    "n_genes": 6910,
+    "median_r_Delta": 0.11588332711238623,
+    "median_r_d": 0.09011756313070361,
+    "raw_mse": 1.8679370842780858,
+    "raw_mse_source_noise_removed": 0.8989456227453664,
+    "raw_mse_dest_mean_response": 0.8604198149880692,
+    "dest_noise_share_of_den": 0.6099630677833099,
+    "tag": "same lab, different study"
+   },
+   {
+    "source": "K562",
+    "dest": "H1",
+    "n_shared": 269,
+    "n_genes": 7583,
+    "median_r_Delta": 0.06064567031060065,
+    "median_r_d": 0.06845379190501381,
+    "raw_mse": 3.166543742148896,
+    "raw_mse_source_noise_removed": 1.3460523681987469,
+    "raw_mse_dest_mean_response": 0.9483577827527764,
+    "dest_noise_share_of_den": 0.07939976291450238,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "K562",
+    "dest": "HCT116",
+    "n_shared": 7973,
+    "n_genes": 7545,
+    "median_r_Delta": 0.01169322589872166,
+    "median_r_d": 0.013673245449421344,
+    "raw_mse": 10.10151868866324,
+    "raw_mse_source_noise_removed": 2.303628202133547,
+    "raw_mse_dest_mean_response": 0.9753270996484428,
+    "dest_noise_share_of_den": 0.8504062694287474,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "K562",
+    "dest": "HEK293T",
+    "n_shared": 7601,
+    "n_genes": 7545,
+    "median_r_Delta": 0.009989278608978332,
+    "median_r_d": 0.010929600869976998,
+    "raw_mse": 10.96560060733402,
+    "raw_mse_source_noise_removed": 2.5844531344457287,
+    "raw_mse_dest_mean_response": 0.9809089214845698,
+    "dest_noise_share_of_den": 0.8026841277696984,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "RPE1",
+    "dest": "K562",
+    "n_shared": 1854,
+    "n_genes": 6714,
+    "median_r_Delta": 0.10710038950432636,
+    "median_r_d": 0.08157184197960929,
+    "raw_mse": 6.186610329843492,
+    "raw_mse_source_noise_removed": 4.0518752357808205,
+    "raw_mse_dest_mean_response": 0.9375526550602628,
+    "dest_noise_share_of_den": 0.578742930568363,
+    "tag": "same study (Replogle)"
+   },
+   {
+    "source": "RPE1",
+    "dest": "HepG2",
+    "n_shared": 1535,
+    "n_genes": 7343,
+    "median_r_Delta": 0.16016706831441885,
+    "median_r_d": 0.20269948376364255,
+    "raw_mse": 2.215684961586512,
+    "raw_mse_source_noise_removed": 1.3881272087621723,
+    "raw_mse_dest_mean_response": 0.8066826422257142,
+    "dest_noise_share_of_den": 0.4774855800636935,
+    "tag": "same lab, different study"
+   },
+   {
+    "source": "RPE1",
+    "dest": "Jurkat",
+    "n_shared": 1771,
+    "n_genes": 6977,
+    "median_r_Delta": 0.10136857477939748,
+    "median_r_d": 0.12219104657095375,
+    "raw_mse": 4.3037131474298995,
+    "raw_mse_source_noise_removed": 2.770768785988814,
+    "raw_mse_dest_mean_response": 0.8704380532092245,
+    "dest_noise_share_of_den": 0.6184944439493901,
+    "tag": "same lab, different study"
+   },
+   {
+    "source": "RPE1",
+    "dest": "H1",
+    "n_shared": 91,
+    "n_genes": 8168,
+    "median_r_Delta": 0.15684225677828892,
+    "median_r_d": 0.11246309589291895,
+    "raw_mse": 3.059346064343707,
+    "raw_mse_source_noise_removed": 1.8610754235341145,
+    "raw_mse_dest_mean_response": 0.9332785649678099,
+    "dest_noise_share_of_den": 0.0695830700181246,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "RPE1",
+    "dest": "HCT116",
+    "n_shared": 1624,
+    "n_genes": 8121,
+    "median_r_Delta": 0.07282651449838445,
+    "median_r_d": 0.06908497810543986,
+    "raw_mse": 11.165220485586099,
+    "raw_mse_source_noise_removed": 6.8825379033908165,
+    "raw_mse_dest_mean_response": 0.9756924177797591,
+    "dest_noise_share_of_den": 0.6912607218089426,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "RPE1",
+    "dest": "HEK293T",
+    "n_shared": 1537,
+    "n_genes": 8121,
+    "median_r_Delta": 0.04357164201358336,
+    "median_r_d": 0.03542781318638243,
+    "raw_mse": 18.73318191226961,
+    "raw_mse_source_noise_removed": 12.073732657505355,
+    "raw_mse_dest_mean_response": 1.0060177428239132,
+    "dest_noise_share_of_den": 0.7108744677701765,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "HepG2",
+    "dest": "K562",
+    "n_shared": 1662,
+    "n_genes": 7005,
+    "median_r_Delta": 0.1012455310988983,
+    "median_r_d": 0.0752711526755456,
+    "raw_mse": 4.135165158316737,
+    "raw_mse_source_noise_removed": 2.0575840530862783,
+    "raw_mse_dest_mean_response": 0.9421727655173346,
+    "dest_noise_share_of_den": 0.5590575694320118,
+    "tag": "same lab, different study"
+   },
+   {
+    "source": "HepG2",
+    "dest": "RPE1",
+    "n_shared": 1535,
+    "n_genes": 7343,
+    "median_r_Delta": 0.16016706831441885,
+    "median_r_d": 0.20269948376364255,
+    "raw_mse": 1.1625010482165437,
+    "raw_mse_source_noise_removed": 0.694133166853471,
+    "raw_mse_dest_mean_response": 0.6247348634121247,
+    "dest_noise_share_of_den": 0.29146915470194595,
+    "tag": "same lab, different study"
+   },
+   {
+    "source": "HepG2",
+    "dest": "Jurkat",
+    "n_shared": 1582,
+    "n_genes": 7200,
+    "median_r_Delta": 0.07844327972706672,
+    "median_r_d": 0.09426593372135206,
+    "raw_mse": 3.0889475939595177,
+    "raw_mse_source_noise_removed": 1.5784841563881704,
+    "raw_mse_dest_mean_response": 0.8479556694427169,
+    "dest_noise_share_of_den": 0.585139205859077,
+    "tag": "same study (Nadig)"
+   },
+   {
+    "source": "HepG2",
+    "dest": "H1",
+    "n_shared": 69,
+    "n_genes": 8909,
+    "median_r_Delta": 0.107485830222101,
+    "median_r_d": 0.09946463911193647,
+    "raw_mse": 2.979769503145085,
+    "raw_mse_source_noise_removed": 1.3305349791889467,
+    "raw_mse_dest_mean_response": 0.9368597989499738,
+    "dest_noise_share_of_den": 0.06331201618023288,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "HepG2",
+    "dest": "HCT116",
+    "n_shared": 1448,
+    "n_genes": 8872,
+    "median_r_Delta": 0.05863443204745781,
+    "median_r_d": 0.05228947946318194,
+    "raw_mse": 7.420394110725696,
+    "raw_mse_source_noise_removed": 3.243205063155544,
+    "raw_mse_dest_mean_response": 0.974501215049014,
+    "dest_noise_share_of_den": 0.6665423395344197,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "HepG2",
+    "dest": "HEK293T",
+    "n_shared": 1347,
+    "n_genes": 8872,
+    "median_r_Delta": 0.03863842997026802,
+    "median_r_d": 0.03131199539359818,
+    "raw_mse": 13.809213793764469,
+    "raw_mse_source_noise_removed": 6.580218029020725,
+    "raw_mse_dest_mean_response": 1.0091396459468858,
+    "dest_noise_share_of_den": 0.7062699782450803,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "Jurkat",
+    "dest": "K562",
+    "n_shared": 1957,
+    "n_genes": 6910,
+    "median_r_Delta": 0.11588332711238623,
+    "median_r_d": 0.09011756313070361,
+    "raw_mse": 3.294841782657316,
+    "raw_mse_source_noise_removed": 1.1839036868586987,
+    "raw_mse_dest_mean_response": 0.9444661052472605,
+    "dest_noise_share_of_den": 0.5618986609533015,
+    "tag": "same lab, different study"
+   },
+   {
+    "source": "Jurkat",
+    "dest": "RPE1",
+    "n_shared": 1771,
+    "n_genes": 6977,
+    "median_r_Delta": 0.10136857477939748,
+    "median_r_d": 0.12219104657095375,
+    "raw_mse": 1.4543167895727092,
+    "raw_mse_source_noise_removed": 0.9116910334375238,
+    "raw_mse_dest_mean_response": 0.6559272780146034,
+    "dest_noise_share_of_den": 0.33315362454024877,
+    "tag": "same lab, different study"
+   },
+   {
+    "source": "Jurkat",
+    "dest": "HepG2",
+    "n_shared": 1582,
+    "n_genes": 7200,
+    "median_r_Delta": 0.07844327972706672,
+    "median_r_d": 0.09426593372135206,
+    "raw_mse": 2.0258524556700883,
+    "raw_mse_source_noise_removed": 1.0640376836969534,
+    "raw_mse_dest_mean_response": 0.7867869380159913,
+    "dest_noise_share_of_den": 0.49800530609395854,
+    "tag": "same study (Nadig)"
+   },
+   {
+    "source": "Jurkat",
+    "dest": "H1",
+    "n_shared": 92,
+    "n_genes": 8181,
+    "median_r_Delta": 0.1097431756815288,
+    "median_r_d": 0.10450208766049654,
+    "raw_mse": 3.107705674816983,
+    "raw_mse_source_noise_removed": 1.4205766366054344,
+    "raw_mse_dest_mean_response": 0.9328968531003945,
+    "dest_noise_share_of_den": 0.06838399608785464,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "Jurkat",
+    "dest": "HCT116",
+    "n_shared": 1708,
+    "n_genes": 8131,
+    "median_r_Delta": 0.04978645242000769,
+    "median_r_d": 0.041543059432747526,
+    "raw_mse": 8.12206599262806,
+    "raw_mse_source_noise_removed": 2.994077506929555,
+    "raw_mse_dest_mean_response": 0.9726553851695634,
+    "dest_noise_share_of_den": 0.7010798540111095,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "Jurkat",
+    "dest": "HEK293T",
+    "n_shared": 1608,
+    "n_genes": 8131,
+    "median_r_Delta": 0.04673708855339953,
+    "median_r_d": 0.04321563305406525,
+    "raw_mse": 12.188961664158544,
+    "raw_mse_source_noise_removed": 4.333162326835821,
+    "raw_mse_dest_mean_response": 1.0075553476843664,
+    "dest_noise_share_of_den": 0.721911868092975,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "H1",
+    "dest": "K562",
+    "n_shared": 269,
+    "n_genes": 7583,
+    "median_r_Delta": 0.06064567031060065,
+    "median_r_d": 0.06845379190501381,
+    "raw_mse": 1.8616651812068155,
+    "raw_mse_source_noise_removed": 1.7482282127890612,
+    "raw_mse_dest_mean_response": 0.9600367081991209,
+    "dest_noise_share_of_den": 0.7011004563585311,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "H1",
+    "dest": "RPE1",
+    "n_shared": 91,
+    "n_genes": 8168,
+    "median_r_Delta": 0.15684225677828892,
+    "median_r_d": 0.11246309589291895,
+    "raw_mse": 1.3315875472947543,
+    "raw_mse_source_noise_removed": 1.279971065356803,
+    "raw_mse_dest_mean_response": 0.9529363214049632,
+    "dest_noise_share_of_den": 0.44704146848695936,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "H1",
+    "dest": "HepG2",
+    "n_shared": 69,
+    "n_genes": 8909,
+    "median_r_Delta": 0.107485830222101,
+    "median_r_d": 0.09946463911193647,
+    "raw_mse": 1.8659714956562927,
+    "raw_mse_source_noise_removed": 1.7760800538526396,
+    "raw_mse_dest_mean_response": 1.0795931461158481,
+    "dest_noise_share_of_den": 0.6779732351762967,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "H1",
+    "dest": "Jurkat",
+    "n_shared": 92,
+    "n_genes": 8181,
+    "median_r_Delta": 0.1097431756815288,
+    "median_r_d": 0.10450208766049654,
+    "raw_mse": 1.5401748721762283,
+    "raw_mse_source_noise_removed": 1.4643722940343378,
+    "raw_mse_dest_mean_response": 0.891603707025603,
+    "dest_noise_share_of_den": 0.6292188168924673,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "H1",
+    "dest": "HCT116",
+    "n_shared": 269,
+    "n_genes": 17701,
+    "median_r_Delta": 0.03005783798709887,
+    "median_r_d": 0.0315962425878003,
+    "raw_mse": 6.270576863544232,
+    "raw_mse_source_noise_removed": 5.783684526611406,
+    "raw_mse_dest_mean_response": 0.9800580501861559,
+    "dest_noise_share_of_den": 0.8734951738774523,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "H1",
+    "dest": "HEK293T",
+    "n_shared": 262,
+    "n_genes": 17701,
+    "median_r_Delta": 0.02691662399527226,
+    "median_r_d": 0.034570104265641735,
+    "raw_mse": 5.949331895293885,
+    "raw_mse_source_noise_removed": 5.497135788853274,
+    "raw_mse_dest_mean_response": 0.9642359102592895,
+    "dest_noise_share_of_den": 0.8129900050387768,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "HCT116",
+    "dest": "K562",
+    "n_shared": 7973,
+    "n_genes": 7545,
+    "median_r_Delta": 0.01169322589872166,
+    "median_r_d": 0.013673245449421344,
+    "raw_mse": 3.7986631999742335,
+    "raw_mse_source_noise_removed": 1.095157658412831,
+    "raw_mse_dest_mean_response": 0.96780048748033,
+    "dest_noise_share_of_den": 0.7853338540859501,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "HCT116",
+    "dest": "RPE1",
+    "n_shared": 1624,
+    "n_genes": 8121,
+    "median_r_Delta": 0.07282651449838445,
+    "median_r_d": 0.06908497810543986,
+    "raw_mse": 1.1090340447962,
+    "raw_mse_source_noise_removed": 0.8371619481581516,
+    "raw_mse_dest_mean_response": 0.6798896803546223,
+    "dest_noise_share_of_den": 0.3394664736830414,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "HCT116",
+    "dest": "HepG2",
+    "n_shared": 1448,
+    "n_genes": 8872,
+    "median_r_Delta": 0.05863443204745781,
+    "median_r_d": 0.05228947946318194,
+    "raw_mse": 1.2972256845869032,
+    "raw_mse_source_noise_removed": 0.8060910953120742,
+    "raw_mse_dest_mean_response": 0.8168441476000957,
+    "dest_noise_share_of_den": 0.5006389092232519,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "HCT116",
+    "dest": "Jurkat",
+    "n_shared": 1708,
+    "n_genes": 8131,
+    "median_r_Delta": 0.04978645242000769,
+    "median_r_d": 0.041543059432747526,
+    "raw_mse": 1.6687997803191745,
+    "raw_mse_source_noise_removed": 0.9389526402986202,
+    "raw_mse_dest_mean_response": 0.8686658943410318,
+    "dest_noise_share_of_den": 0.6105185865128957,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "HCT116",
+    "dest": "H1",
+    "n_shared": 269,
+    "n_genes": 17701,
+    "median_r_Delta": 0.03005783798709887,
+    "median_r_d": 0.0315962425878003,
+    "raw_mse": 2.270503777929069,
+    "raw_mse_source_noise_removed": 1.0320238642260997,
+    "raw_mse_dest_mean_response": 0.9516808506764406,
+    "dest_noise_share_of_den": 0.07885825882099978,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "HCT116",
+    "dest": "HEK293T",
+    "n_shared": 15238,
+    "n_genes": 18106,
+    "median_r_Delta": 0.014842205232481347,
+    "median_r_d": 0.014759297712619798,
+    "raw_mse": 8.304661179367757,
+    "raw_mse_source_noise_removed": 1.2931958777381698,
+    "raw_mse_dest_mean_response": 0.9705964625788307,
+    "dest_noise_share_of_den": 0.8244497968514196,
+    "tag": "same study (Orion)"
+   },
+   {
+    "source": "HEK293T",
+    "dest": "K562",
+    "n_shared": 7601,
+    "n_genes": 7545,
+    "median_r_Delta": 0.009989278608978332,
+    "median_r_d": 0.010929600869976998,
+    "raw_mse": 3.035130787502892,
+    "raw_mse_source_noise_removed": 1.1802690198716497,
+    "raw_mse_dest_mean_response": 0.9685119525890417,
+    "dest_noise_share_of_den": 0.7905454261663499,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "HEK293T",
+    "dest": "RPE1",
+    "n_shared": 1537,
+    "n_genes": 8121,
+    "median_r_Delta": 0.04357164201358336,
+    "median_r_d": 0.03542781318638243,
+    "raw_mse": 1.1681974112762545,
+    "raw_mse_source_noise_removed": 0.9708027298908438,
+    "raw_mse_dest_mean_response": 0.6800302195944494,
+    "dest_noise_share_of_den": 0.34570166359021315,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "HEK293T",
+    "dest": "HepG2",
+    "n_shared": 1347,
+    "n_genes": 8872,
+    "median_r_Delta": 0.03863842997026802,
+    "median_r_d": 0.03131199539359818,
+    "raw_mse": 1.3227906288152873,
+    "raw_mse_source_noise_removed": 0.9713063741060038,
+    "raw_mse_dest_mean_response": 0.8217122511199805,
+    "dest_noise_share_of_den": 0.507821466243552,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "HEK293T",
+    "dest": "Jurkat",
+    "n_shared": 1608,
+    "n_genes": 8131,
+    "median_r_Delta": 0.04673708855339953,
+    "median_r_d": 0.04321563305406525,
+    "raw_mse": 1.4689283964471604,
+    "raw_mse_source_noise_removed": 0.9216441309588408,
+    "raw_mse_dest_mean_response": 0.8723017899768178,
+    "dest_noise_share_of_den": 0.6191799371041723,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "HEK293T",
+    "dest": "H1",
+    "n_shared": 262,
+    "n_genes": 17701,
+    "median_r_Delta": 0.02691662399527226,
+    "median_r_d": 0.034570104265641735,
+    "raw_mse": 1.9427847030779672,
+    "raw_mse_source_noise_removed": 1.0834532326225361,
+    "raw_mse_dest_mean_response": 0.9521750923984057,
+    "dest_noise_share_of_den": 0.08076250494235776,
+    "tag": "cross-lab"
+   },
+   {
+    "source": "HEK293T",
+    "dest": "HCT116",
+    "n_shared": 15238,
+    "n_genes": 18106,
+    "median_r_Delta": 0.014842205232481347,
+    "median_r_d": 0.014759297712619798,
+    "raw_mse": 7.083952373732878,
+    "raw_mse_source_noise_removed": 1.5259260308833777,
+    "raw_mse_dest_mean_response": 0.9787626494704833,
+    "dest_noise_share_of_den": 0.8913253943944199,
+    "tag": "same study (Orion)"
+   }
+  ],
+  "by_tag": {
+   "cross-lab": {
+    "median_r_Delta": 0.04826177048670361,
+    "median_r_d": 0.04237934624340639,
+    "raw_mse": 3.0472384259232994,
+    "raw_mse_source_noise_removed": 1.442474465319886,
+    "raw_mse_dest_mean_response": 0.956486514802042,
+    "pairs": 28
+   },
+   "same lab, different study": {
+    "median_r_Delta": 0.10862595094589186,
+    "median_r_d": 0.10615430485082869,
+    "raw_mse": 2.0418110229322988,
+    "raw_mse_source_noise_removed": 1.0786515029040988,
+    "raw_mse_dest_mean_response": 0.8335512286068917,
+    "pairs": 8
+   },
+   "same study (Nadig)": {
+    "median_r_Delta": 0.07844327972706672,
+    "median_r_d": 0.09426593372135206,
+    "raw_mse": 2.557400024814803,
+    "raw_mse_source_noise_removed": 1.3212609200425618,
+    "raw_mse_dest_mean_response": 0.8173713037293542,
+    "pairs": 2
+   },
+   "same study (Orion)": {
+    "median_r_Delta": 0.014842205232481347,
+    "median_r_d": 0.014759297712619798,
+    "raw_mse": 7.6943067765503175,
+    "raw_mse_source_noise_removed": 1.4095609543107739,
+    "raw_mse_dest_mean_response": 0.9746795560246571,
+    "pairs": 2
+   },
+   "same study (Replogle)": {
+    "median_r_Delta": 0.10710038950432636,
+    "median_r_d": 0.08157184197960929,
+    "raw_mse": 3.7121143147655746,
+    "raw_mse_source_noise_removed": 2.4878831630530662,
+    "raw_mse_dest_mean_response": 0.7925752762590595,
+    "pairs": 2
+   }
+  }
+ },
+ "5c": {
+  "strong tercile": {
+   "genes": {
+    "transformer 5,000 panel": {
+     "n_genes": 5000,
+     "share": 0.362108433767897
+    },
+    "Replogle/Nadig-measured, off panel": {
+     "n_genes": 5934,
+     "share": 0.43145625790501285
+    },
+    "not measured by Replogle/Nadig, measured by Orion": {
+     "n_genes": 7358,
+     "share": 0.20261735655651558
+    },
+    "measured only in H1 (of these lines)": {
+     "n_genes": 241,
+     "share": 0.0038179517705745937
+    }
+   },
+   "deciles": {
+    "decile 1": 6.211929513191173e-06,
+    "decile 2": 0.0006229175070925551,
+    "decile 3": 0.003573625383373296,
+    "decile 4": 0.02894205623460233,
+    "decile 5": 0.08938684215761383,
+    "decile 6": 0.13660227061026428,
+    "decile 7": 0.17205918064482809,
+    "decile 8": 0.16596059883885114,
+    "decile 9": 0.1773712906233534,
+    "decile 10": 0.22547500607050788
+   },
+   "noise_share_of_total": 0.04209234256993699
+  },
+  "all 75": {
+   "genes": {
+    "transformer 5,000 panel": {
+     "n_genes": 5000,
+     "share": 0.3642466611192607
+    },
+    "Replogle/Nadig-measured, off panel": {
+     "n_genes": 5934,
+     "share": 0.4311713778402739
+    },
+    "not measured by Replogle/Nadig, measured by Orion": {
+     "n_genes": 7358,
+     "share": 0.20001374509883138
+    },
+    "measured only in H1 (of these lines)": {
+     "n_genes": 241,
+     "share": 0.004568215941634146
+    }
+   },
+   "deciles": {
+    "decile 1": 1.8877231931958653e-05,
+    "decile 2": 0.000589879482879754,
+    "decile 3": 0.0035521942687247706,
+    "decile 4": 0.0291415087281847,
+    "decile 5": 0.08931332162659142,
+    "decile 6": 0.13736133780031862,
+    "decile 7": 0.1722121678476749,
+    "decile 8": 0.16663074091720168,
+    "decile 9": 0.17785090896474012,
+    "decile 10": 0.22332906313175216
+   },
+   "noise_share_of_total": 0.06932666702891147
+  }
+ }
+}

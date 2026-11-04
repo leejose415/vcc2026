@@ -1,0 +1,186 @@
+{
+ "check1": {
+  "H1": {
+   "got": {
+    "full": 0.2469216085117613,
+    "half0": 0.26782149082151446,
+    "half1": 0.22588345889000772
+   },
+   "want": {
+    "full": 0.2469216085117613,
+    "half0": 0.2678214908215144,
+    "half1": 0.2258834588900077
+   },
+   "max_diff": 5.551115123125783e-17,
+   "seconds_per_row": 4.492698907852173,
+   "threads": "4"
+  },
+  "K562": {
+   "got": {
+    "full": 0.15823419797392238
+   },
+   "want": {
+    "full": 0.1582341979739223
+   },
+   "max_diff": 8.326672684688674e-17,
+   "seconds_per_row": 3.257302761077881,
+   "threads": "4"
+  },
+  "HCT116": {
+   "got": {
+    "full": 0.3108182906802213
+   },
+   "want": {
+    "full": 0.3108182906802213
+   },
+   "max_diff": 0.0,
+   "seconds_per_row": 3.795912265777588,
+   "threads": "4"
+  },
+  "HEK293T": {
+   "got": {
+    "full": 0.15361576648441977
+   },
+   "want": {
+    "full": 0.1536157664844197
+   },
+   "max_diff": 5.551115123125783e-17,
+   "seconds_per_row": 3.933434247970581,
+   "threads": "4"
+  }
+ },
+ "check2": [
+  {
+   "arm": "uploaded (no correction)",
+   "fit_half": 0,
+   "part": "all",
+   "scaled": 0.10831613929410355,
+   "want": 0.1083161392941035,
+   "diff": 5.551115123125783e-17
+  },
+  {
+   "arm": "uploaded (no correction)",
+   "fit_half": 0,
+   "part": "weak",
+   "scaled": 0.8226795460719373,
+   "want": 0.8226795460719373,
+   "diff": 0.0
+  },
+  {
+   "arm": "uploaded (no correction)",
+   "fit_half": 0,
+   "part": "mid",
+   "scaled": 0.0,
+   "want": 0.0,
+   "diff": 0.0
+  },
+  {
+   "arm": "uploaded (no correction)",
+   "fit_half": 0,
+   "part": "strong",
+   "scaled": 0.11485937137561564,
+   "want": 0.1148593713756156,
+   "diff": 4.163336342344337e-17
+  },
+  {
+   "arm": "tercile-mean shift (mid, strong), assigned by (b) tercile",
+   "fit_half": 0,
+   "part": "all",
+   "scaled": 0.16682616660638827,
+   "want": 0.1668261666063882,
+   "diff": 8.326672684688674e-17
+  },
+  {
+   "arm": "tercile-mean shift (mid, strong), assigned by (b) tercile",
+   "fit_half": 0,
+   "part": "weak",
+   "scaled": 1.0,
+   "want": 1.0,
+   "diff": 0.0
+  },
+  {
+   "arm": "tercile-mean shift (mid, strong), assigned by (b) tercile",
+   "fit_half": 0,
+   "part": "mid",
+   "scaled": 0.0,
+   "want": 0.0,
+   "diff": 0.0
+  },
+  {
+   "arm": "tercile-mean shift (mid, strong), assigned by (b) tercile",
+   "fit_half": 0,
+   "part": "strong",
+   "scaled": 0.17797981071595914,
+   "want": 0.1779798107159591,
+   "diff": 2.7755575615628914e-17
+  },
+  {
+   "arm": "uploaded (no correction)",
+   "fit_half": 1,
+   "part": "all",
+   "scaled": 0.14409578196523987,
+   "want": 0.1440957819652398,
+   "diff": 5.551115123125783e-17
+  },
+  {
+   "arm": "uploaded (no correction)",
+   "fit_half": 1,
+   "part": "weak",
+   "scaled": 1.0,
+   "want": 1.0,
+   "diff": 0.0
+  },
+  {
+   "arm": "uploaded (no correction)",
+   "fit_half": 1,
+   "part": "mid",
+   "scaled": 0.16829666477283356,
+   "want": 0.1682966647728335,
+   "diff": 5.551115123125783e-17
+  },
+  {
+   "arm": "uploaded (no correction)",
+   "fit_half": 1,
+   "part": "strong",
+   "scaled": 0.12746527250780137,
+   "want": 0.1274652725078013,
+   "diff": 8.326672684688674e-17
+  },
+  {
+   "arm": "tercile-mean shift (mid, strong), assigned by (b) tercile",
+   "fit_half": 1,
+   "part": "all",
+   "scaled": 0.19821485429449692,
+   "want": 0.1982148542944969,
+   "diff": 2.7755575615628914e-17
+  },
+  {
+   "arm": "tercile-mean shift (mid, strong), assigned by (b) tercile",
+   "fit_half": 1,
+   "part": "weak",
+   "scaled": 1.0,
+   "want": 1.0,
+   "diff": 0.0
+  },
+  {
+   "arm": "tercile-mean shift (mid, strong), assigned by (b) tercile",
+   "fit_half": 1,
+   "part": "mid",
+   "scaled": 0.19389005913015833,
+   "want": 0.1938900591301583,
+   "diff": 2.7755575615628914e-17
+  },
+  {
+   "arm": "tercile-mean shift (mid, strong), assigned by (b) tercile",
+   "fit_half": 1,
+   "part": "strong",
+   "scaled": 0.1842721851005581,
+   "want": 0.1842721851005581,
+   "diff": 0.0
+  }
+ ],
+ "pass": {
+  "check1": true,
+  "check2": true
+ }
+}

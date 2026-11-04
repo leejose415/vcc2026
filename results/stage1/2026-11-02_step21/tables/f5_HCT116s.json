@@ -1,0 +1,17 @@
+{
+ "check_fold_max_abs_diff": 5.936946889661954e-08,
+ "check_fold_max_abs_diff_float32": 0.0,
+ "check_pass": true,
+ "targets": 278,
+ "targets_with_backgrounds": 277,
+ "median_backgrounds": 2.0,
+ "targets_with_HEK293T": 260,
+ "alpha_counts": {
+  "0.1": 0,
+  "1.0": 0,
+  "10.0": 0,
+  "100.0": 36,
+  "1000.0": 64
+ },
+ "shat_norm_ratio_screen_vs_fold": 1.0083389203691926
+}

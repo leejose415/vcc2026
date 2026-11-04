@@ -1,0 +1,489 @@
+{
+ "proxy_overall": 0.24561802373258454,
+ "nmae_raw": 0.9460899858581832,
+ "nmae_knockdowns": 216,
+ "nmae": {
+  "decile_-1": {
+   "num_share_of_nmae": 0.0016965064946255252,
+   "den_share": 0.0017732043641038534,
+   "gate_genes": 272
+  },
+  "decile_0": {
+   "num_share_of_nmae": 0.1123218573932253,
+   "den_share": 0.11643485103731709,
+   "gate_genes": 18173
+  },
+  "decile_1": {
+   "num_share_of_nmae": 0.09969500175752734,
+   "den_share": 0.10498555432324272,
+   "gate_genes": 20759
+  },
+  "decile_2": {
+   "num_share_of_nmae": 0.08665094996038844,
+   "den_share": 0.09145542882397233,
+   "gate_genes": 21660
+  },
+  "decile_3": {
+   "num_share_of_nmae": 0.08748246302623126,
+   "den_share": 0.09176529048776638,
+   "gate_genes": 24250
+  },
+  "decile_4": {
+   "num_share_of_nmae": 0.08460707751837239,
+   "den_share": 0.0891487442981685,
+   "gate_genes": 26007
+  },
+  "decile_5": {
+   "num_share_of_nmae": 0.07787192854559645,
+   "den_share": 0.08152843350739204,
+   "gate_genes": 27629
+  },
+  "decile_6": {
+   "num_share_of_nmae": 0.0798903848711629,
+   "den_share": 0.08542249982686619,
+   "gate_genes": 30913
+  },
+  "decile_7": {
+   "num_share_of_nmae": 0.07926700258317536,
+   "den_share": 0.08430939130938879,
+   "gate_genes": 34865
+  },
+  "decile_8": {
+   "num_share_of_nmae": 0.10416141233908215,
+   "den_share": 0.11138774479886171,
+   "gate_genes": 42438
+  },
+  "decile_9": {
+   "num_share_of_nmae": 0.13244540136879607,
+   "den_share": 0.1417888572229204,
+   "gate_genes": 58888
+  },
+  "called": {
+   "num_share_of_nmae": 0.09946705538486611,
+   "den_share": 0.12304914412335573,
+   "gate_genes": 32380
+  },
+  "uncalled": {
+   "num_share_of_nmae": 0.846622930473317,
+   "den_share": 0.8769508558766442,
+   "gate_genes": 273474
+  },
+  "pred_abs_lfc_0-0.1": {
+   "num_share_of_nmae": 0.7406317611567471,
+   "den_share": 0.7566175189326939,
+   "gate_genes": 250538
+  },
+  "pred_abs_lfc_0.1-0.25": {
+   "num_share_of_nmae": 0.14467594446017648,
+   "den_share": 0.16660695703926015,
+   "gate_genes": 45253
+  },
+  "pred_abs_lfc_0.25-0.5": {
+   "num_share_of_nmae": 0.044810805603214765,
+   "den_share": 0.05757174283671964,
+   "gate_genes": 8837
+  },
+  "pred_abs_lfc_0.5-1.0": {
+   "num_share_of_nmae": 0.013163793702961848,
+   "den_share": 0.017758264589877587,
+   "gate_genes": 1126
+  },
+  "pred_abs_lfc_1.0-inf": {
+   "num_share_of_nmae": 0.0028076809350829793,
+   "den_share": 0.0014455166014486305,
+   "gate_genes": 100
+  },
+  "decile_-1_called": {
+   "num_share_of_nmae": 0.0,
+   "den_share": 0.0,
+   "gate_genes": 0
+  },
+  "decile_-1_uncalled": {
+   "num_share_of_nmae": 0.0016965064946255252,
+   "den_share": 0.0017732043641038534,
+   "gate_genes": 272
+  },
+  "decile_0_called": {
+   "num_share_of_nmae": 0.0004555170243087437,
+   "den_share": 0.0007349217241039383,
+   "gate_genes": 114
+  },
+  "decile_0_uncalled": {
+   "num_share_of_nmae": 0.11186634036891654,
+   "den_share": 0.11569992931321317,
+   "gate_genes": 18059
+  },
+  "decile_1_called": {
+   "num_share_of_nmae": 0.0031788732550530655,
+   "den_share": 0.004015014952910857,
+   "gate_genes": 291
+  },
+  "decile_1_uncalled": {
+   "num_share_of_nmae": 0.09651612850247425,
+   "den_share": 0.10097053937033185,
+   "gate_genes": 20468
+  },
+  "decile_2_called": {
+   "num_share_of_nmae": 0.002245098793077979,
+   "den_share": 0.003551073439720093,
+   "gate_genes": 565
+  },
+  "decile_2_uncalled": {
+   "num_share_of_nmae": 0.08440585116731045,
+   "den_share": 0.08790435538425224,
+   "gate_genes": 21095
+  },
+  "decile_3_called": {
+   "num_share_of_nmae": 0.003750796229253184,
+   "den_share": 0.004725539621112249,
+   "gate_genes": 977
+  },
+  "decile_3_uncalled": {
+   "num_share_of_nmae": 0.08373166679697809,
+   "den_share": 0.08703975086665412,
+   "gate_genes": 23273
+  },
+  "decile_4_called": {
+   "num_share_of_nmae": 0.005788212424398629,
+   "den_share": 0.007457672605413555,
+   "gate_genes": 1412
+  },
+  "decile_4_uncalled": {
+   "num_share_of_nmae": 0.07881886509397378,
+   "den_share": 0.08169107169275495,
+   "gate_genes": 24595
+  },
+  "decile_5_called": {
+   "num_share_of_nmae": 0.008002881609183336,
+   "den_share": 0.009789850582018991,
+   "gate_genes": 1959
+  },
+  "decile_5_uncalled": {
+   "num_share_of_nmae": 0.06986904693641312,
+   "den_share": 0.07173858292537305,
+   "gate_genes": 25670
+  },
+  "decile_6_called": {
+   "num_share_of_nmae": 0.010415528951286834,
+   "den_share": 0.013204730821767105,
+   "gate_genes": 2755
+  },
+  "decile_6_uncalled": {
+   "num_share_of_nmae": 0.06947485591987607,
+   "den_share": 0.07221776900509909,
+   "gate_genes": 28158
+  },
+  "decile_7_called": {
+   "num_share_of_nmae": 0.009583452033020771,
+   "den_share": 0.012239336213589204,
+   "gate_genes": 3733
+  },
+  "decile_7_uncalled": {
+   "num_share_of_nmae": 0.06968355055015459,
+   "den_share": 0.07207005509579957,
+   "gate_genes": 31132
+  },
+  "decile_8_called": {
+   "num_share_of_nmae": 0.017578613040266554,
+   "den_share": 0.022203335718957933,
+   "gate_genes": 6014
+  },
+  "decile_8_uncalled": {
+   "num_share_of_nmae": 0.08658279929881559,
+   "den_share": 0.08918440907990377,
+   "gate_genes": 36424
+  },
+  "decile_9_called": {
+   "num_share_of_nmae": 0.038468082025017,
+   "den_share": 0.0451276684437618,
+   "gate_genes": 14560
+  },
+  "decile_9_uncalled": {
+   "num_share_of_nmae": 0.09397731934377908,
+   "den_share": 0.09666118877915861,
+   "gate_genes": 44328
+  }
+ },
+ "sign": [
+  {
+   "decile": -1,
+   "called": true,
+   "genes": 0,
+   "sign_accuracy": NaN
+  },
+  {
+   "decile": -1,
+   "called": false,
+   "genes": 272,
+   "sign_accuracy": 0.6102941176470589
+  },
+  {
+   "decile": 0,
+   "called": true,
+   "genes": 114,
+   "sign_accuracy": 0.8245614035087719
+  },
+  {
+   "decile": 0,
+   "called": false,
+   "genes": 18080,
+   "sign_accuracy": 0.5954092920353983
+  },
+  {
+   "decile": 1,
+   "called": true,
+   "genes": 292,
+   "sign_accuracy": 0.8767123287671232
+  },
+  {
+   "decile": 1,
+   "called": false,
+   "genes": 20480,
+   "sign_accuracy": 0.59921875
+  },
+  {
+   "decile": 2,
+   "called": true,
+   "genes": 567,
+   "sign_accuracy": 0.818342151675485
+  },
+  {
+   "decile": 2,
+   "called": false,
+   "genes": 21112,
+   "sign_accuracy": 0.5951591511936339
+  },
+  {
+   "decile": 3,
+   "called": true,
+   "genes": 979,
+   "sign_accuracy": 0.8038815117466803
+  },
+  {
+   "decile": 3,
+   "called": false,
+   "genes": 23301,
+   "sign_accuracy": 0.6091584052186602
+  },
+  {
+   "decile": 4,
+   "called": true,
+   "genes": 1417,
+   "sign_accuracy": 0.7939308398023994
+  },
+  {
+   "decile": 4,
+   "called": false,
+   "genes": 24618,
+   "sign_accuracy": 0.615078397920221
+  },
+  {
+   "decile": 5,
+   "called": true,
+   "genes": 1965,
+   "sign_accuracy": 0.7893129770992366
+  },
+  {
+   "decile": 5,
+   "called": false,
+   "genes": 25689,
+   "sign_accuracy": 0.609249094943361
+  },
+  {
+   "decile": 6,
+   "called": true,
+   "genes": 2759,
+   "sign_accuracy": 0.775643349039507
+  },
+  {
+   "decile": 6,
+   "called": false,
+   "genes": 28177,
+   "sign_accuracy": 0.6162472938921816
+  },
+  {
+   "decile": 7,
+   "called": true,
+   "genes": 3739,
+   "sign_accuracy": 0.7683872693233484
+  },
+  {
+   "decile": 7,
+   "called": false,
+   "genes": 31152,
+   "sign_accuracy": 0.6083076527991782
+  },
+  {
+   "decile": 8,
+   "called": true,
+   "genes": 6028,
+   "sign_accuracy": 0.7798606502986065
+  },
+  {
+   "decile": 8,
+   "called": false,
+   "genes": 36456,
+   "sign_accuracy": 0.6114768488040377
+  },
+  {
+   "decile": 9,
+   "called": true,
+   "genes": 14592,
+   "sign_accuracy": 0.7507538377192983
+  },
+  {
+   "decile": 9,
+   "called": false,
+   "genes": 44380,
+   "sign_accuracy": 0.6104551599819739
+  }
+ ],
+ "mse_plugin": [
+  {
+   "decile": -1,
+   "called": true,
+   "plugin_raw_units": 0.0,
+   "share_of_plugin": 0.0
+  },
+  {
+   "decile": -1,
+   "called": false,
+   "plugin_raw_units": 0.12406631464445768,
+   "share_of_plugin": 0.08931796754773381
+  },
+  {
+   "decile": 0,
+   "called": true,
+   "plugin_raw_units": 0.0009686083645068473,
+   "share_of_plugin": 0.0006973216760360253
+  },
+  {
+   "decile": 0,
+   "called": false,
+   "plugin_raw_units": 0.08375122620899103,
+   "share_of_plugin": 0.06029428153850417
+  },
+  {
+   "decile": 1,
+   "called": true,
+   "plugin_raw_units": 0.0026933298706148475,
+   "share_of_plugin": 0.0019389852166424896
+  },
+  {
+   "decile": 1,
+   "called": false,
+   "plugin_raw_units": 0.10607190977397513,
+   "share_of_plugin": 0.07636341437293825
+  },
+  {
+   "decile": 2,
+   "called": true,
+   "plugin_raw_units": 0.006267490850142174,
+   "share_of_plugin": 0.004512099403959565
+  },
+  {
+   "decile": 2,
+   "called": false,
+   "plugin_raw_units": 0.11601041968833209,
+   "share_of_plugin": 0.08351835815076587
+  },
+  {
+   "decile": 3,
+   "called": true,
+   "plugin_raw_units": 0.010741990295646932,
+   "share_of_plugin": 0.007733386321454057
+  },
+  {
+   "decile": 3,
+   "called": false,
+   "plugin_raw_units": 0.12309558184565955,
+   "share_of_plugin": 0.08861911644645751
+  },
+  {
+   "decile": 4,
+   "called": true,
+   "plugin_raw_units": 0.015467888227437351,
+   "share_of_plugin": 0.011135660333664473
+  },
+  {
+   "decile": 4,
+   "called": false,
+   "plugin_raw_units": 0.12210001829528996,
+   "share_of_plugin": 0.08790238916122747
+  },
+  {
+   "decile": 5,
+   "called": true,
+   "plugin_raw_units": 0.020707223191801773,
+   "share_of_plugin": 0.014907568539851476
+  },
+  {
+   "decile": 5,
+   "called": false,
+   "plugin_raw_units": 0.11287369411530422,
+   "share_of_plugin": 0.08126016297715462
+  },
+  {
+   "decile": 6,
+   "called": true,
+   "plugin_raw_units": 0.02577375270544882,
+   "share_of_plugin": 0.018555070442172052
+  },
+  {
+   "decile": 6,
+   "called": false,
+   "plugin_raw_units": 0.10836158139204011,
+   "share_of_plugin": 0.07801179746437903
+  },
+  {
+   "decile": 7,
+   "called": true,
+   "plugin_raw_units": 0.0303665157991996,
+   "share_of_plugin": 0.021861497864777747
+  },
+  {
+   "decile": 7,
+   "called": false,
+   "plugin_raw_units": 0.10037949169263623,
+   "share_of_plugin": 0.07226532203486723
+  },
+  {
+   "decile": 8,
+   "called": true,
+   "plugin_raw_units": 0.03971832140130919,
+   "share_of_plugin": 0.028594060782243705
+  },
+  {
+   "decile": 8,
+   "called": false,
+   "plugin_raw_units": 0.09775425245891733,
+   "share_of_plugin": 0.07037535670983679
+  },
+  {
+   "decile": 9,
+   "called": true,
+   "plugin_raw_units": 0.061167026398445,
+   "share_of_plugin": 0.04403543777780576
+  },
+  {
+   "decile": 9,
+   "called": false,
+   "plugin_raw_units": 0.08070431445794252,
+   "share_of_plugin": 0.058100745237527916
+  }
+ ],
+ "plugin_total_raw_units": 1.3890409516780984,
+ "mse_raw": 0.8451761065495731,
+ "decile_edges_cpm": [
+  9.330566842657806,
+  15.757070138096246,
+  24.12677211984752,
+  34.386078598313304,
+  47.69328734494414,
+  65.42470737732367,
+  89.18330133279458,
+  127.26509964583501,
+  210.6904302420964
+ ],
+ "calls_per_kd_median": 486.5
+}

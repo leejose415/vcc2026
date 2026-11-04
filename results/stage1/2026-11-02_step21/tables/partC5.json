@@ -1,0 +1,618 @@
+{
+ "item1": {
+  "strong": [
+   {
+    "true_sign": "up",
+    "pred_sign": "up",
+    "cpm_band": "ungated (<=5)",
+    "genes": 53462,
+    "error_share": 0.02935323722460532,
+    "real_energy_share": 0.028944115263234173
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "up",
+    "cpm_band": "5-20",
+    "genes": 68043,
+    "error_share": 0.0639621616729969,
+    "real_energy_share": 0.08884805356964331
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "up",
+    "cpm_band": "20-100",
+    "genes": 139432,
+    "error_share": 0.12721934191262385,
+    "real_energy_share": 0.19486030941344618
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "up",
+    "cpm_band": ">100",
+    "genes": 60989,
+    "error_share": 0.04874904636790916,
+    "real_energy_share": 0.07868956211158801
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "down",
+    "cpm_band": "ungated (<=5)",
+    "genes": 16920,
+    "error_share": 0.008191389900918205,
+    "real_energy_share": 0.0040446657251905615
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "down",
+    "cpm_band": "5-20",
+    "genes": 27243,
+    "error_share": 0.028162515248780096,
+    "real_energy_share": 0.014247028234442153
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "down",
+    "cpm_band": "20-100",
+    "genes": 57274,
+    "error_share": 0.07165242428141914,
+    "real_energy_share": 0.03518871301509027
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "down",
+    "cpm_band": ">100",
+    "genes": 35375,
+    "error_share": 0.04096193647768104,
+    "real_energy_share": 0.0173972569816621
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "|pred|<0.01",
+    "cpm_band": "ungated (<=5)",
+    "genes": 305257,
+    "error_share": 0.02822132466067509,
+    "real_energy_share": 0.025783398659805362
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "|pred|<0.01",
+    "cpm_band": "5-20",
+    "genes": 44712,
+    "error_share": 0.027615031090201584,
+    "real_energy_share": 0.025200605613070002
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "|pred|<0.01",
+    "cpm_band": "20-100",
+    "genes": 64603,
+    "error_share": 0.039741857375249184,
+    "real_energy_share": 0.03618250329614183
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "|pred|<0.01",
+    "cpm_band": ">100",
+    "genes": 30831,
+    "error_share": 0.015518619507456916,
+    "real_energy_share": 0.01410462074244425
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "up",
+    "cpm_band": "ungated (<=5)",
+    "genes": 45466,
+    "error_share": 0.014683855955364417,
+    "real_energy_share": 0.0019061883820601607
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "up",
+    "cpm_band": "5-20",
+    "genes": 44129,
+    "error_share": 0.0360270929469442,
+    "real_energy_share": 0.014471435343046617
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "up",
+    "cpm_band": "20-100",
+    "genes": 84735,
+    "error_share": 0.10664306614899309,
+    "real_energy_share": 0.04918396956275133
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "up",
+    "cpm_band": ">100",
+    "genes": 39022,
+    "error_share": 0.053405529178069074,
+    "real_energy_share": 0.025581977201532973
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "down",
+    "cpm_band": "ungated (<=5)",
+    "genes": 19111,
+    "error_share": 0.0012467912684623404,
+    "real_energy_share": 0.0017030821258641057
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "down",
+    "cpm_band": "5-20",
+    "genes": 38075,
+    "error_share": 0.01415538221633757,
+    "real_energy_share": 0.021372004323550454
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "down",
+    "cpm_band": "20-100",
+    "genes": 95798,
+    "error_share": 0.07894466958202043,
+    "real_energy_share": 0.11869656368504768
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "down",
+    "cpm_band": ">100",
+    "genes": 77071,
+    "error_share": 0.07553314275649473,
+    "real_energy_share": 0.12256433716022255
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "|pred|<0.01",
+    "cpm_band": "ungated (<=5)",
+    "genes": 319772,
+    "error_share": 0.006697217942861323,
+    "real_energy_share": 0.005762579475182962
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "|pred|<0.01",
+    "cpm_band": "5-20",
+    "genes": 44354,
+    "error_share": 0.017310021397755174,
+    "real_energy_share": 0.01555640825454982
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "|pred|<0.01",
+    "cpm_band": "20-100",
+    "genes": 68122,
+    "error_share": 0.043601913086782615,
+    "real_energy_share": 0.039387430728424155
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "|pred|<0.01",
+    "cpm_band": ">100",
+    "genes": 36340,
+    "error_share": 0.022402431799398426,
+    "real_energy_share": 0.02032319113200913
+   }
+  ],
+  "mid": [
+   {
+    "true_sign": "up",
+    "pred_sign": "up",
+    "cpm_band": "ungated (<=5)",
+    "genes": 40451,
+    "error_share": 0.02028521003706668,
+    "real_energy_share": 0.009812938367378005
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "up",
+    "cpm_band": "5-20",
+    "genes": 46999,
+    "error_share": 0.025552112879304156,
+    "real_energy_share": 0.050717143599066594
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "up",
+    "cpm_band": "20-100",
+    "genes": 96189,
+    "error_share": 0.06063043702483608,
+    "real_energy_share": 0.12263787797410501
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "up",
+    "cpm_band": ">100",
+    "genes": 47053,
+    "error_share": 0.02969056891194743,
+    "real_energy_share": 0.05268960163747234
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "down",
+    "cpm_band": "ungated (<=5)",
+    "genes": 16224,
+    "error_share": 0.011612974442374704,
+    "real_energy_share": 0.004892572181887455
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "down",
+    "cpm_band": "5-20",
+    "genes": 29937,
+    "error_share": 0.03805165444645971,
+    "real_energy_share": 0.021530899989089594
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "down",
+    "cpm_band": "20-100",
+    "genes": 68682,
+    "error_share": 0.10625865109284902,
+    "real_energy_share": 0.05181286110780273
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "down",
+    "cpm_band": ">100",
+    "genes": 40736,
+    "error_share": 0.06389979328404953,
+    "real_energy_share": 0.022709452827503952
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "|pred|<0.01",
+    "cpm_band": "ungated (<=5)",
+    "genes": 303562,
+    "error_share": 0.017350730286753702,
+    "real_energy_share": 0.024466734089685978
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "|pred|<0.01",
+    "cpm_band": "5-20",
+    "genes": 55718,
+    "error_share": 0.029107417242117035,
+    "real_energy_share": 0.04080180935150306
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "|pred|<0.01",
+    "cpm_band": "20-100",
+    "genes": 89240,
+    "error_share": 0.050824305974772055,
+    "real_energy_share": 0.07103934103631054
+   },
+   {
+    "true_sign": "up",
+    "pred_sign": "|pred|<0.01",
+    "cpm_band": ">100",
+    "genes": 45717,
+    "error_share": 0.01851699403914388,
+    "real_energy_share": 0.025774812533657373
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "up",
+    "cpm_band": "ungated (<=5)",
+    "genes": 40214,
+    "error_share": 0.03581302945625347,
+    "real_energy_share": 0.005021948707551848
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "up",
+    "cpm_band": "5-20",
+    "genes": 39865,
+    "error_share": 0.059381364611452304,
+    "real_energy_share": 0.026127348719051226
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "up",
+    "cpm_band": "20-100",
+    "genes": 77208,
+    "error_share": 0.13856273717081008,
+    "real_energy_share": 0.06356038815531638
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "up",
+    "cpm_band": ">100",
+    "genes": 38201,
+    "error_share": 0.06345868417751202,
+    "real_energy_share": 0.02544396109246887
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "down",
+    "cpm_band": "ungated (<=5)",
+    "genes": 17739,
+    "error_share": 0.002576759106417223,
+    "real_energy_share": 0.0037712541496907263
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "down",
+    "cpm_band": "5-20",
+    "genes": 34684,
+    "error_share": 0.01237581170388215,
+    "real_energy_share": 0.028100879773993757
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "down",
+    "cpm_band": "20-100",
+    "genes": 83748,
+    "error_share": 0.050279663925070654,
+    "real_energy_share": 0.10213248531265036
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "down",
+    "cpm_band": ">100",
+    "genes": 57132,
+    "error_share": 0.050109004202839494,
+    "real_energy_share": 0.08562401178130649
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "|pred|<0.01",
+    "cpm_band": "ungated (<=5)",
+    "genes": 334044,
+    "error_share": 0.01322351040170952,
+    "real_energy_share": 0.01765295154472977
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "|pred|<0.01",
+    "cpm_band": "5-20",
+    "genes": 56633,
+    "error_share": 0.027330710786341115,
+    "real_energy_share": 0.038206111974656023
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "|pred|<0.01",
+    "cpm_band": "20-100",
+    "genes": 89680,
+    "error_share": 0.05342855473258492,
+    "real_energy_share": 0.07503079849890888
+   },
+   {
+    "true_sign": "down",
+    "pred_sign": "|pred|<0.01",
+    "cpm_band": ">100",
+    "genes": 47948,
+    "error_share": 0.021679320063453123,
+    "real_energy_share": 0.030441815594212968
+   }
+  ]
+ },
+ "item2": {
+  "called, pred up": {
+   "n": 26069,
+   "accuracy": 0.719513598526986
+  },
+  "called, pred up, ungated (<=5)": {
+   "n": 0,
+   "accuracy": NaN
+  },
+  "called, pred up, 5-20": {
+   "n": 1401,
+   "accuracy": 0.7715917201998572
+  },
+  "called, pred up, 20-100": {
+   "n": 9010,
+   "accuracy": 0.7493895671476137
+  },
+  "called, pred up, >100": {
+   "n": 15658,
+   "accuracy": 0.6976625367224422
+  },
+  "called, pred down": {
+   "n": 28554,
+   "accuracy": 0.8061217342578973
+  },
+  "called, pred down, ungated (<=5)": {
+   "n": 0,
+   "accuracy": NaN
+  },
+  "called, pred down, 5-20": {
+   "n": 639,
+   "accuracy": 0.8043818466353677
+  },
+  "called, pred down, 20-100": {
+   "n": 7390,
+   "accuracy": 0.783085250338295
+  },
+  "called, pred down, >100": {
+   "n": 20525,
+   "accuracy": 0.8144701583434836
+  },
+  "uncalled, pred up": {
+   "n": 136096,
+   "accuracy": 0.6325828826710558
+  },
+  "uncalled, pred up, ungated (<=5)": {
+   "n": 79,
+   "accuracy": 0.7088607594936709
+  },
+  "uncalled, pred up, 5-20": {
+   "n": 28884,
+   "accuracy": 0.6494599085999169
+  },
+  "uncalled, pred up, 20-100": {
+   "n": 65895,
+   "accuracy": 0.6398512785492071
+  },
+  "uncalled, pred up, >100": {
+   "n": 41238,
+   "accuracy": 0.6090014064697609
+  },
+  "uncalled, pred down": {
+   "n": 115450,
+   "accuracy": 0.7267908185361628
+  },
+  "uncalled, pred down, ungated (<=5)": {
+   "n": 193,
+   "accuracy": 0.5440414507772021
+  },
+  "uncalled, pred down, 5-20": {
+   "n": 19321,
+   "accuracy": 0.6685471766471714
+  },
+  "uncalled, pred down, 20-100": {
+   "n": 49342,
+   "accuracy": 0.7299055571318552
+  },
+  "uncalled, pred down, >100": {
+   "n": 46594,
+   "accuracy": 0.748401081684337
+  },
+  "by_z_u_decile": [
+   {
+    "decile": 1,
+    "z_range": [
+     0.0,
+     0.07756173959399658
+    ],
+    "n": 30617,
+    "accuracy": 0.6317078747101283
+   },
+   {
+    "decile": 2,
+    "z_range": [
+     0.07756173959399658,
+     0.16726949475932418
+    ],
+    "n": 30617,
+    "accuracy": 0.639318025933305
+   },
+   {
+    "decile": 3,
+    "z_range": [
+     0.16726949475932418,
+     0.26643131842002593
+    ],
+    "n": 30617,
+    "accuracy": 0.64833262566548
+   },
+   {
+    "decile": 4,
+    "z_range": [
+     0.26643131842002593,
+     0.37998130409408454
+    ],
+    "n": 30617,
+    "accuracy": 0.6551262370578437
+   },
+   {
+    "decile": 5,
+    "z_range": [
+     0.37998130409408454,
+     0.5109182652867771
+    ],
+    "n": 30616,
+    "accuracy": 0.6723281944081526
+   },
+   {
+    "decile": 6,
+    "z_range": [
+     0.5109182652867771,
+     0.6648846840243735
+    ],
+    "n": 30617,
+    "accuracy": 0.6808635725250678
+   },
+   {
+    "decile": 7,
+    "z_range": [
+     0.6648846840243735,
+     0.8571093233254024
+    ],
+    "n": 30617,
+    "accuracy": 0.6933076395466571
+   },
+   {
+    "decile": 8,
+    "z_range": [
+     0.8571093233254024,
+     1.11801828286032
+    ],
+    "n": 30617,
+    "accuracy": 0.720482085116112
+   },
+   {
+    "decile": 9,
+    "z_range": [
+     1.11801828286032,
+     1.5501711636803224
+    ],
+    "n": 30617,
+    "accuracy": 0.7504327661103308
+   },
+   {
+    "decile": 10,
+    "z_range": [
+     1.5501711636803224,
+     18.28053090202431
+    ],
+    "n": 30617,
+    "accuracy": 0.8250318450534017
+   }
+  ],
+  "by_b_tercile": {
+   "weak": {
+    "n": 11391,
+    "accuracy": 0.5296286542006847
+   },
+   "mid": {
+    "n": 106259,
+    "accuracy": 0.6739664404897467
+   },
+   "strong": {
+    "n": 188519,
+    "accuracy": 0.7114773577199115
+   }
+  }
+ },
+ "item3": {
+  "pred up, 5-20": {
+   "n": 7220,
+   "slope": 0.6946386925453513,
+   "sign_accuracy_true_de": 0.7715917201998572,
+   "implied_slope_2p_minus_1": 0.5431834403997144
+  },
+  "pred up, 20-100": {
+   "n": 51287,
+   "slope": 0.47720500175136804,
+   "sign_accuracy_true_de": 0.7493895671476137,
+   "implied_slope_2p_minus_1": 0.49877913429522747
+  },
+  "pred up, >100": {
+   "n": 70325,
+   "slope": 0.40120619059164114,
+   "sign_accuracy_true_de": 0.6976625367224422,
+   "implied_slope_2p_minus_1": 0.3953250734448843
+  },
+  "pred down, 5-20": {
+   "n": 3716,
+   "slope": 0.3829717667772839,
+   "sign_accuracy_true_de": 0.8043818466353677,
+   "implied_slope_2p_minus_1": 0.6087636932707354
+  },
+  "pred down, 20-100": {
+   "n": 46524,
+   "slope": 0.39410015217833905,
+   "sign_accuracy_true_de": 0.783085250338295,
+   "implied_slope_2p_minus_1": 0.56617050067659
+  },
+  "pred down, >100": {
+   "n": 85360,
+   "slope": 0.5514753363693036,
+   "sign_accuracy_true_de": 0.8144701583434836,
+   "implied_slope_2p_minus_1": 0.6289403166869671
+  }
+ }
+}

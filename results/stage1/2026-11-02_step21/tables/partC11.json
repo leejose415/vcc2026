@@ -1,0 +1,742 @@
+{
+ "gene_set": {
+  "source": "Fischer M. Census and evaluation of p53 target genes. Oncogene 2017;36:3943-3956 (doi:10.1038/onc.2016.502), Table 1 \"Top 116 genes identified as activated p53 targets in at least 6 out of 16 genome-wide data sets\"; parsed from Europe PMC full text PMC5511239",
+  "genes": 116,
+  "on_panel": 110
+ },
+ "lines": {
+  "A549": {
+   "knockdowns": 190,
+   "rpl_rps": 0,
+   "mean_set_delta_rpl_rps": null,
+   "strong_tercile": 64,
+   "mean_set_delta_strong": 0.005704283260685932,
+   "mean_set_delta_all": -0.0013132408287285814,
+   "cellosaurus": {
+    "entry": "A-549",
+    "accession": "CVCL_0023",
+    "tp53": [
+     "Sequence variation: Mutation; HGNC; HGNC:11998; TP53; None_reported; -; Zygosity=-"
+    ],
+    "transformant": []
+   }
+  },
+  "BXPC3": {
+   "knockdowns": 183,
+   "rpl_rps": 0,
+   "mean_set_delta_rpl_rps": null,
+   "strong_tercile": 61,
+   "mean_set_delta_strong": -0.0050634003679805185,
+   "mean_set_delta_all": -0.005440180777983217,
+   "cellosaurus": {
+    "entry": "BxPC-3",
+    "accession": "CVCL_0186",
+    "tp53": [
+     "Sequence variation: Mutation; HGNC; HGNC:11998; TP53; Simple; p.Tyr220Cys"
+    ],
+    "transformant": []
+   }
+  },
+  "HAP1": {
+   "knockdowns": 185,
+   "rpl_rps": 0,
+   "mean_set_delta_rpl_rps": null,
+   "strong_tercile": 62,
+   "mean_set_delta_strong": -0.006079940196497152,
+   "mean_set_delta_all": -0.003673794334781319,
+   "cellosaurus": {
+    "entry": "HAP-1",
+    "accession": "CVCL_5G07",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "HCT116": {
+   "knockdowns": 16492,
+   "rpl_rps": 62,
+   "mean_set_delta_rpl_rps": 0.13260898200989601,
+   "strong_tercile": 145,
+   "mean_set_delta_strong": 0.0027180873790452888,
+   "mean_set_delta_all": 0.004031440794062711,
+   "cellosaurus": {
+    "entry": "HCT 116",
+    "accession": "CVCL_0291",
+    "tp53": [
+     "Sequence variation: Mutation; HGNC; HGNC:11998; TP53; None_reported; -; Zygosity=-"
+    ],
+    "transformant": []
+   }
+  },
+  "HEK293T": {
+   "knockdowns": 15938,
+   "rpl_rps": 71,
+   "mean_set_delta_rpl_rps": 0.08171589236784112,
+   "strong_tercile": 140,
+   "mean_set_delta_strong": -6.754156025012187e-05,
+   "mean_set_delta_all": -0.0005250439365253538,
+   "cellosaurus": {
+    "entry": "HEK293T",
+    "accession": "CVCL_0063",
+    "tp53": [],
+    "transformant": [
+     "Genetic integration: Method=Transfection; Gene=UniProtKB; P00552; Klebsiella pneumoniae transposon Tn5 neo.",
+     "Genetic integration: Method=Transfection; Gene=UniProtKB; P03070; Simian virus 40 (SV40) large T antigen.",
+     "Transformant: NCBI_TaxID; 28285; Human adenovirus C serotype 5.",
+     "Transformant: NCBI_TaxID; 1891767; Simian virus 40 (SV40) (Note=tsA)."
+    ]
+   }
+  },
+  "HT29": {
+   "knockdowns": 195,
+   "rpl_rps": 0,
+   "mean_set_delta_rpl_rps": null,
+   "strong_tercile": 65,
+   "mean_set_delta_strong": -0.0024057363289128894,
+   "mean_set_delta_all": -0.0027230837084820316,
+   "cellosaurus": {
+    "entry": "HT-29",
+    "accession": "CVCL_0320",
+    "tp53": [
+     "Sequence variation: Mutation; HGNC; HGNC:11998; TP53; Simple; p.Arg273His"
+    ],
+    "transformant": []
+   }
+  },
+  "HepG2": {
+   "knockdowns": 1759,
+   "rpl_rps": 71,
+   "mean_set_delta_rpl_rps": 0.3741921005282328,
+   "strong_tercile": 587,
+   "mean_set_delta_strong": 0.22039953216315178,
+   "mean_set_delta_all": 0.08365777992875655,
+   "cellosaurus": {
+    "entry": "Hep-G2",
+    "accession": "CVCL_0027",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "HipSci_pooled": {
+   "knockdowns": 2047,
+   "rpl_rps": 5,
+   "mean_set_delta_rpl_rps": 0.030096874737682293,
+   "strong_tercile": 683,
+   "mean_set_delta_strong": -0.010639970361495754,
+   "mean_set_delta_all": -0.012537379418354252,
+   "cellosaurus": {
+    "entry": null,
+    "tp53": [],
+    "transformant": [],
+    "note": "pooled HipSci iPSC donors (Feng genome-wide): not one cell line, no Cellosaurus entry; not looked up"
+   }
+  },
+  "Jurkat": {
+   "knockdowns": 2054,
+   "rpl_rps": 74,
+   "mean_set_delta_rpl_rps": 0.050276028433610266,
+   "strong_tercile": 685,
+   "mean_set_delta_strong": 0.03422396414666309,
+   "mean_set_delta_all": 0.015596535981374038,
+   "cellosaurus": {
+    "entry": "Jurkat",
+    "accession": "CVCL_0065",
+    "tp53": [
+     "Sequence variation: Mutation; HGNC; HGNC:11998; TP53; Simple; p.Arg196Ter"
+    ],
+    "transformant": []
+   }
+  },
+  "K562": {
+   "knockdowns": 9294,
+   "rpl_rps": 75,
+   "mean_set_delta_rpl_rps": 0.0508589748039709,
+   "strong_tercile": 3098,
+   "mean_set_delta_strong": 0.015791288408195686,
+   "mean_set_delta_all": 0.002154972869704296,
+   "cellosaurus": {
+    "entry": "K-562",
+    "accession": "CVCL_0004",
+    "tp53": [
+     "Sequence variation: Mutation; HGNC; HGNC:11998; TP53; Simple; p.Gln136fs*13"
+    ],
+    "transformant": []
+   }
+  },
+  "KOLF2.1J": {
+   "knockdowns": 1608,
+   "rpl_rps": 4,
+   "mean_set_delta_rpl_rps": 0.09840012844368598,
+   "strong_tercile": 536,
+   "mean_set_delta_strong": 0.03821764956369016,
+   "mean_set_delta_all": 0.030059085219101504,
+   "cellosaurus": {
+    "entry": "KOLF2.1J",
+    "accession": "CVCL_B5P3",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "MCF7": {
+   "knockdowns": 185,
+   "rpl_rps": 0,
+   "mean_set_delta_rpl_rps": null,
+   "strong_tercile": 62,
+   "mean_set_delta_strong": -0.00484767134555123,
+   "mean_set_delta_all": -0.010429565482973961,
+   "cellosaurus": {
+    "entry": "MCF-7",
+    "accession": "CVCL_0031",
+    "tp53": [
+     "Sequence variation: Mutation; HGNC; HGNC:11998; TP53; None_reported; -; Zygosity=-"
+    ],
+    "transformant": []
+   }
+  },
+  "RPE1": {
+   "knockdowns": 1968,
+   "rpl_rps": 63,
+   "mean_set_delta_rpl_rps": 0.4516497148723215,
+   "strong_tercile": 656,
+   "mean_set_delta_strong": 0.2857572494005921,
+   "mean_set_delta_all": 0.14054020338449005,
+   "cellosaurus": {
+    "entry": "hTERT-RPE1",
+    "accession": "CVCL_4388",
+    "tp53": [],
+    "transformant": [
+     "Genetic integration: Method=Transfection; Gene=HGNC; HGNC:11730; TERT.",
+     "Genetic integration: Method=Transfection; Gene=UniProtKB; P00557; Escherichia coli hygromycin-B 4-O-kinase (hph) (HygR)."
+    ]
+   }
+  },
+  "eipl_1": {
+   "knockdowns": 417,
+   "rpl_rps": 7,
+   "mean_set_delta_rpl_rps": 0.09327530617203271,
+   "strong_tercile": 139,
+   "mean_set_delta_strong": 0.016697614024587627,
+   "mean_set_delta_all": 0.004892269072201905,
+   "cellosaurus": {
+    "entry": "HPSI0114i-eipl_1",
+    "accession": "CVCL_AE06",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "eipl_3": {
+   "knockdowns": 403,
+   "rpl_rps": 6,
+   "mean_set_delta_rpl_rps": 0.09416846338867645,
+   "strong_tercile": 135,
+   "mean_set_delta_strong": 0.0009560894089933884,
+   "mean_set_delta_all": -0.007598893530921046,
+   "cellosaurus": {
+    "entry": "HPSI0114i-eipl_3",
+    "accession": "CVCL_AE21",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "fiaj_1": {
+   "knockdowns": 423,
+   "rpl_rps": 7,
+   "mean_set_delta_rpl_rps": 0.11595987779351964,
+   "strong_tercile": 141,
+   "mean_set_delta_strong": 0.032540928062298226,
+   "mean_set_delta_all": 0.015881963818721943,
+   "cellosaurus": {
+    "entry": "HPSI0514i-fiaj_1",
+    "accession": "CVCL_AF79",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "fiaj_3": {
+   "knockdowns": 4,
+   "rpl_rps": 0,
+   "mean_set_delta_rpl_rps": null,
+   "strong_tercile": 0,
+   "mean_set_delta_strong": null,
+   "mean_set_delta_all": -0.006813727071313265,
+   "cellosaurus": {
+    "entry": "HPSI0514i-fiaj_3",
+    "accession": "CVCL_AF80",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "iudw_1": {
+   "knockdowns": 429,
+   "rpl_rps": 8,
+   "mean_set_delta_rpl_rps": 0.10131886210944678,
+   "strong_tercile": 143,
+   "mean_set_delta_strong": 0.012360350637750253,
+   "mean_set_delta_all": -0.003104999450515753,
+   "cellosaurus": {
+    "entry": "HPSI0714i-iudw_1",
+    "accession": "CVCL_EE52",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "iudw_4": {
+   "knockdowns": 384,
+   "rpl_rps": 6,
+   "mean_set_delta_rpl_rps": 0.04360540967117867,
+   "strong_tercile": 128,
+   "mean_set_delta_strong": -0.006321798430886152,
+   "mean_set_delta_all": -0.008947725373169632,
+   "cellosaurus": {
+    "entry": "HPSI0714i-iudw_4",
+    "accession": "CVCL_EE53",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "jejf_2": {
+   "knockdowns": 421,
+   "rpl_rps": 8,
+   "mean_set_delta_rpl_rps": 0.11353087689984641,
+   "strong_tercile": 141,
+   "mean_set_delta_strong": 0.01999944929298669,
+   "mean_set_delta_all": 0.012332177731429465,
+   "cellosaurus": {
+    "entry": "HPSI0914i-jejf_2",
+    "accession": "CVCL_AK14",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "jejf_3": {
+   "knockdowns": 417,
+   "rpl_rps": 6,
+   "mean_set_delta_rpl_rps": 0.13377978736555465,
+   "strong_tercile": 139,
+   "mean_set_delta_strong": 0.03304267116907548,
+   "mean_set_delta_all": 0.008288038415757456,
+   "cellosaurus": {
+    "entry": "HPSI0914i-jejf_3",
+    "accession": "CVCL_AK15",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "kolf_2": {
+   "knockdowns": 419,
+   "rpl_rps": 6,
+   "mean_set_delta_rpl_rps": 0.059649714736406706,
+   "strong_tercile": 140,
+   "mean_set_delta_strong": 0.00834865894583825,
+   "mean_set_delta_all": 0.0011221173353769948,
+   "cellosaurus": {
+    "entry": "HPSI0114i-kolf_2",
+    "accession": "CVCL_AE29",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "kolf_3": {
+   "knockdowns": 412,
+   "rpl_rps": 7,
+   "mean_set_delta_rpl_rps": 0.11727079527858032,
+   "strong_tercile": 138,
+   "mean_set_delta_strong": 0.023789892469336358,
+   "mean_set_delta_all": 0.014247381833888111,
+   "cellosaurus": {
+    "entry": "HPSI0114i-kolf_3",
+    "accession": "CVCL_AE30",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "oikd_2": {
+   "knockdowns": 84,
+   "rpl_rps": 0,
+   "mean_set_delta_rpl_rps": null,
+   "strong_tercile": 28,
+   "mean_set_delta_strong": -0.018709976517789943,
+   "mean_set_delta_all": -0.03135399764049983,
+   "cellosaurus": {
+    "entry": "HPSI0414i-oikd_2",
+    "accession": "CVCL_EE88",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "oikd_5": {
+   "knockdowns": 426,
+   "rpl_rps": 6,
+   "mean_set_delta_rpl_rps": 0.0732382683584583,
+   "strong_tercile": 142,
+   "mean_set_delta_strong": -0.0001846867648532938,
+   "mean_set_delta_all": -0.0064134460633672,
+   "cellosaurus": {
+    "entry": "HPSI0414i-oikd_5",
+    "accession": "CVCL_EE89",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "paab_3": {
+   "knockdowns": 379,
+   "rpl_rps": 5,
+   "mean_set_delta_rpl_rps": 0.08164025948366731,
+   "strong_tercile": 127,
+   "mean_set_delta_strong": -0.0019022694478123849,
+   "mean_set_delta_all": -0.014213512663853298,
+   "cellosaurus": {
+    "entry": "HPSI0614i-paab_3",
+    "accession": "CVCL_EE49",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "paab_4": {
+   "knockdowns": 416,
+   "rpl_rps": 6,
+   "mean_set_delta_rpl_rps": 0.11725360230996235,
+   "strong_tercile": 139,
+   "mean_set_delta_strong": 0.010658453503075543,
+   "mean_set_delta_all": 0.005106071548151612,
+   "cellosaurus": {
+    "entry": "HPSI0614i-paab_4",
+    "accession": "CVCL_EE50",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "pipw_4": {
+   "knockdowns": 383,
+   "rpl_rps": 5,
+   "mean_set_delta_rpl_rps": 0.07380635868893344,
+   "strong_tercile": 128,
+   "mean_set_delta_strong": -0.001297631159879515,
+   "mean_set_delta_all": -0.0045849810897509585,
+   "cellosaurus": {
+    "entry": "HPSI0714i-pipw_4",
+    "accession": "CVCL_AK05",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "pipw_5": {
+   "knockdowns": 13,
+   "rpl_rps": 0,
+   "mean_set_delta_rpl_rps": null,
+   "strong_tercile": 5,
+   "mean_set_delta_strong": -0.017662600509494492,
+   "mean_set_delta_all": -0.007938803167906974,
+   "cellosaurus": {
+    "entry": "HPSI0714i-pipw_5",
+    "accession": "CVCL_AK06",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "tolg_4": {
+   "knockdowns": 65,
+   "rpl_rps": 0,
+   "mean_set_delta_rpl_rps": null,
+   "strong_tercile": 22,
+   "mean_set_delta_strong": -0.013321239790315926,
+   "mean_set_delta_all": -0.013739178621412653,
+   "cellosaurus": {
+    "entry": "HPSI1213i-tolg_4",
+    "accession": "CVCL_EE40",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "tolg_6": {
+   "knockdowns": 395,
+   "rpl_rps": 6,
+   "mean_set_delta_rpl_rps": 0.0625191605421445,
+   "strong_tercile": 132,
+   "mean_set_delta_strong": -0.004317745869655549,
+   "mean_set_delta_all": -0.011503965910923215,
+   "cellosaurus": {
+    "entry": "HPSI1213i-tolg_6",
+    "accession": "CVCL_AX10",
+    "tp53": [],
+    "transformant": []
+   }
+  },
+  "zapk_3": {
+   "knockdowns": 428,
+   "rpl_rps": 7,
+   "mean_set_delta_rpl_rps": 0.10035033063350741,
+   "strong_tercile": 143,
+   "mean_set_delta_strong": 0.013418565451873202,
+   "mean_set_delta_all": 0.0032795466708340454,
+   "cellosaurus": {
+    "entry": "HPSI0114i-zapk_3",
+    "accession": "CVCL_AE40",
+    "tp53": [],
+    "transformant": []
+   }
+  }
+ },
+ "H1": {
+  "set_share_strong_error": 0.01536782186854139,
+  "set_share_strong_real_energy": 0.01703062019918054,
+  "set_gene_share": 0.005935358549614201,
+  "rpl_rps_knockdowns": 0,
+  "rpl_rps_mean_set_delta_pred": null,
+  "rpl_rps_mean_set_delta_true": null,
+  "strong_mean_set_delta_pred": 0.036436113601458354,
+  "strong_mean_set_delta_true": 0.05312752097437178
+ },
+ "HCT116final": {
+  "set_share_strong_error": 0.01463486180272823,
+  "set_share_strong_real_energy": 0.01392184441469962,
+  "set_gene_share": 0.005935358549614201,
+  "rpl_rps_knockdowns": 0,
+  "rpl_rps_mean_set_delta_pred": null,
+  "rpl_rps_mean_set_delta_true": null,
+  "strong_mean_set_delta_pred": 0.017190861155031337,
+  "strong_mean_set_delta_true": 0.00238996810063816
+ },
+ "controls": {
+  "D": {
+   "MDM2": 253.24661653766813,
+   "CDKN1A": 259.45634700868203,
+   "TP53": 371.6079854867913,
+   "CDKN2A": 0.0
+  },
+  "E": {
+   "MDM2": 180.03274805744303,
+   "CDKN1A": 121.62021431234038,
+   "TP53": 85.17364087188948,
+   "CDKN2A": 0.004352363392682384
+  },
+  "F": {
+   "MDM2": 137.98210508623063,
+   "CDKN1A": 311.32873179505617,
+   "TP53": 519.0446272302437,
+   "CDKN2A": 940.91386561057
+  },
+  "H1 (Eval A controls)": {
+   "MDM2": 183.75312899662305,
+   "CDKN1A": 6.204354521706687,
+   "TP53": 460.9218460614735,
+   "CDKN2A": 0.43790876730297834
+  },
+  "HCT116final": {
+   "MDM2": 127.05829708907407,
+   "CDKN1A": 205.48598319826345,
+   "TP53": 46.76164113136528,
+   "CDKN2A": 206.78390520323336
+  },
+  "K562final": {
+   "MDM2": 57.27696251830864,
+   "CDKN1A": 0.0,
+   "TP53": 0.0,
+   "CDKN2A": 0.0
+  },
+  "HEK293Tfinal": {
+   "MDM2": 128.8379118289665,
+   "CDKN1A": 28.895799340623416,
+   "TP53": 62.25100779943023,
+   "CDKN2A": 539.8165915049824
+  },
+  "source K562": {
+   "MDM2": 123.14924872596755,
+   "CDKN1A": 3.22477840471396,
+   "TP53": 21.400206084963283,
+   "CDKN2A": 0.9471791435390314
+  },
+  "source HipSci_pooled": {
+   "MDM2": 89.38328999103038,
+   "CDKN1A": 44.329118259856685,
+   "TP53": 56.289962189582866,
+   "CDKN2A": 0.7904769513792737
+  },
+  "source eipl_1": {
+   "MDM2": 75.9774876672529,
+   "CDKN1A": 20.142330724552732,
+   "TP53": 65.46074573491651,
+   "CDKN2A": 1.1932895651446502
+  },
+  "source eipl_3": {
+   "MDM2": 72.99909582864291,
+   "CDKN1A": 17.716206118264303,
+   "TP53": 56.33979064190042,
+   "CDKN2A": 0.5235227496810874
+  },
+  "source fiaj_1": {
+   "MDM2": 88.92545616194526,
+   "CDKN1A": 35.34670715512227,
+   "TP53": 57.63491408058261,
+   "CDKN2A": 0.1701889539880547
+  },
+  "source fiaj_3": {
+   "MDM2": 105.26732026427402,
+   "CDKN1A": 47.77336281169124,
+   "TP53": 59.65263603167175,
+   "CDKN2A": 0.9425816935553804
+  },
+  "source iudw_1": {
+   "MDM2": 121.7444961085183,
+   "CDKN1A": 57.02666137054013,
+   "TP53": 56.15012748582877,
+   "CDKN2A": 1.8290473731483552
+  },
+  "source iudw_4": {
+   "MDM2": 65.05802891645574,
+   "CDKN1A": 4.417651760476349,
+   "TP53": 71.74705474110839,
+   "CDKN2A": 0.4850246379851894
+  },
+  "source jejf_2": {
+   "MDM2": 89.16189785290254,
+   "CDKN1A": 30.636594643932927,
+   "TP53": 55.75851712667123,
+   "CDKN2A": 2.09177138826164
+  },
+  "source jejf_3": {
+   "MDM2": 118.51308535839856,
+   "CDKN1A": 35.289727195622056,
+   "TP53": 53.34330089384827,
+   "CDKN2A": 2.438380869974384
+  },
+  "source kolf_2": {
+   "MDM2": 80.9611723523938,
+   "CDKN1A": 21.85245891002589,
+   "TP53": 64.60717004451475,
+   "CDKN2A": 0.2840152878213264
+  },
+  "source kolf_3": {
+   "MDM2": 75.08190727137215,
+   "CDKN1A": 20.83536035748161,
+   "TP53": 67.68636457924514,
+   "CDKN2A": 2.253373726459317
+  },
+  "source oikd_2": {
+   "MDM2": 73.63693682426788,
+   "CDKN1A": 16.073796935932332,
+   "TP53": 83.01393407746423,
+   "CDKN2A": 1.0782013380243058
+  },
+  "source oikd_5": {
+   "MDM2": 76.69616299692574,
+   "CDKN1A": 10.89451064708569,
+   "TP53": 85.50907657291289,
+   "CDKN2A": 0.2007780198159146
+  },
+  "source paab_3": {
+   "MDM2": 70.95333097497696,
+   "CDKN1A": 19.04901105374437,
+   "TP53": 66.07852465732347,
+   "CDKN2A": 0.8890874063214974
+  },
+  "source paab_4": {
+   "MDM2": 70.33296170134419,
+   "CDKN1A": 14.207955402745457,
+   "TP53": 76.4570053728401,
+   "CDKN2A": 0.8363022151348041
+  },
+  "source pipw_4": {
+   "MDM2": 77.66490189382475,
+   "CDKN1A": 12.67631827894456,
+   "TP53": 54.25203423630047,
+   "CDKN2A": 1.8777386300754049
+  },
+  "source pipw_5": {
+   "MDM2": 69.99780287330255,
+   "CDKN1A": 6.633723412141655,
+   "TP53": 57.996001623165306,
+   "CDKN2A": 0.6030628355290851
+  },
+  "source tolg_4": {
+   "MDM2": 77.342342498211,
+   "CDKN1A": 38.43410640870334,
+   "TP53": 65.41280739381615,
+   "CDKN2A": 2.550009725448286
+  },
+  "source tolg_6": {
+   "MDM2": 86.80294470816227,
+   "CDKN1A": 16.768906583109054,
+   "TP53": 66.49613915412748,
+   "CDKN2A": 1.047940035749371
+  },
+  "source zapk_3": {
+   "MDM2": 84.81569293022856,
+   "CDKN1A": 23.640880433150816,
+   "TP53": 68.75566728257887,
+   "CDKN2A": 2.351631883211509
+  },
+  "source KOLF2.1J": {
+   "MDM2": 92.6029775678707,
+   "CDKN1A": 12.616020140079929,
+   "TP53": 153.27448705048835,
+   "CDKN2A": 0.3614176469390315
+  },
+  "source CD4_T": {
+   "MDM2": NaN,
+   "CDKN1A": NaN,
+   "TP53": NaN,
+   "CDKN2A": NaN
+  },
+  "source HepG2": {
+   "MDM2": 280.5666154897653,
+   "CDKN1A": 113.68901614916172,
+   "TP53": 51.756420660094726,
+   "CDKN2A": 28.317961267992636
+  },
+  "source Jurkat": {
+   "MDM2": 96.54157617640962,
+   "CDKN1A": NaN,
+   "TP53": 20.000793836050025,
+   "CDKN2A": NaN
+  },
+  "source HCT116": {
+   "MDM2": 126.86488890161105,
+   "CDKN1A": 204.3969210443788,
+   "TP53": 45.59547187477364,
+   "CDKN2A": 205.03930236807628
+  },
+  "source HEK293T": {
+   "MDM2": 128.60281199217846,
+   "CDKN1A": 28.396013577659886,
+   "TP53": 62.04520511685685,
+   "CDKN2A": 532.8952001322164
+  },
+  "source RPE1": {
+   "MDM2": 82.87513541158489,
+   "CDKN1A": 111.35101047141616,
+   "TP53": 32.37837678730452,
+   "CDKN2A": 478.29029712672485
+  },
+  "source A549": {
+   "MDM2": 386.21355414993695,
+   "CDKN1A": 43.892819938598684,
+   "TP53": 29.892867762764034,
+   "CDKN2A": 1.3738150853676827
+  },
+  "source BXPC3": {
+   "MDM2": 134.8254814779943,
+   "CDKN1A": 40.19445204447727,
+   "TP53": 25.45789342778737,
+   "CDKN2A": 2.1082309412233236
+  },
+  "source HAP1": {
+   "MDM2": 293.9131315686248,
+   "CDKN1A": 1.8404830786986934,
+   "TP53": 81.27971313281857,
+   "CDKN2A": 66.8328677946442
+  },
+  "source HT29": {
+   "MDM2": 174.68241621155033,
+   "CDKN1A": 18.025220523173246,
+   "TP53": 57.49096205653525,
+   "CDKN2A": 201.22127838253414
+  },
+  "source MCF7": {
+   "MDM2": 409.55165749256156,
+   "CDKN1A": 15.413574811445951,
+   "TP53": 98.96181283691278,
+   "CDKN2A": 6.175978026030957
+  },
+  "note": "Basal CPM is weak evidence of p53 status: CDKN1A / MDM2 reflect basal p53 activity, TP53 mRNA says little about protein function, and CDKN2A loss is common in culture."
+ }
+}

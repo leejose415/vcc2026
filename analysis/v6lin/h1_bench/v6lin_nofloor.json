@@ -1,0 +1,10 @@
+{
+ "method": "v6lin",
+ "call": "z",
+ "z": 0.0,
+ "min_effect": 0.0,
+ "alpha": 1.0,
+ "detect_floor": false,
+ "label": "v6lin_nofloor",
+ "cell_rule": "fixed"
+}

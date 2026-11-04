@@ -1,0 +1,489 @@
+{
+ "slice": [
+  "ADNP",
+  "CASP3",
+  "CAST",
+  "CLDN7",
+  "DOT1L",
+  "GNG12",
+  "HTATSF1",
+  "INO80B",
+  "INSIG1",
+  "MBTPS1",
+  "OSTC",
+  "PGAM1",
+  "PHF14",
+  "PRDM14",
+  "RRM2",
+  "SLC25A3",
+  "SMARCA4",
+  "TET1",
+  "UBE3C",
+  "VCL"
+ ],
+ "per_knockdown": {
+  "ADNP": {
+   "tercile": "strong",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1201,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9991673605328892,
+    "rebuilt_genes": 1,
+    "first_pass_unmet": 3
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1201,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9991673605328892,
+    "rebuilt_genes": 1,
+    "first_pass_unmet": 3
+   },
+   "mean_count_max_abs_error_v8": 0.0012499216742755375
+  },
+  "CASP3": {
+   "tercile": "strong",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1202,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9983361064891847,
+    "rebuilt_genes": 11,
+    "first_pass_unmet": 7
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1202,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9983361064891847,
+    "rebuilt_genes": 10,
+    "first_pass_unmet": 7
+   },
+   "mean_count_max_abs_error_v8": 0.0012499990478001544
+  },
+  "CAST": {
+   "tercile": "mid",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1164,
+    "sig_recall": 0.9558333333333333,
+    "sig_precision": 0.9853951890034365,
+    "rebuilt_genes": 113,
+    "first_pass_unmet": 40
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1101,
+    "sig_recall": 0.9033333333333333,
+    "sig_precision": 0.9845594913714805,
+    "rebuilt_genes": 412,
+    "first_pass_unmet": 40
+   },
+   "mean_count_max_abs_error_v8": 0.0012499919154697892
+  },
+  "CLDN7": {
+   "tercile": "mid",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1201,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9991673605328892,
+    "rebuilt_genes": 1,
+    "first_pass_unmet": 10
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1201,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9991673605328892,
+    "rebuilt_genes": 1,
+    "first_pass_unmet": 10
+   },
+   "mean_count_max_abs_error_v8": 0.0012499335817885981
+  },
+  "DOT1L": {
+   "tercile": "strong",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1213,
+    "sig_recall": 1.0,
+    "sig_precision": 0.989282769991756,
+    "rebuilt_genes": 15,
+    "first_pass_unmet": 102
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1213,
+    "sig_recall": 1.0,
+    "sig_precision": 0.989282769991756,
+    "rebuilt_genes": 13,
+    "first_pass_unmet": 102
+   },
+   "mean_count_max_abs_error_v8": 0.0012497915375532243
+  },
+  "GNG12": {
+   "tercile": "mid",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1204,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9966777408637874,
+    "rebuilt_genes": 4,
+    "first_pass_unmet": 28
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1204,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9966777408637874,
+    "rebuilt_genes": 4,
+    "first_pass_unmet": 28
+   },
+   "mean_count_max_abs_error_v8": 0.00124992051581585
+  },
+  "HTATSF1": {
+   "tercile": "strong",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1210,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9917355371900827,
+    "rebuilt_genes": 10,
+    "first_pass_unmet": 52
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1210,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9917355371900827,
+    "rebuilt_genes": 10,
+    "first_pass_unmet": 52
+   },
+   "mean_count_max_abs_error_v8": 0.0012498605842691246
+  },
+  "INO80B": {
+   "tercile": "strong",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1209,
+    "sig_recall": 0.9991666666666666,
+    "sig_precision": 0.9917287014061208,
+    "rebuilt_genes": 38,
+    "first_pass_unmet": 70
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1209,
+    "sig_recall": 0.9991666666666666,
+    "sig_precision": 0.9917287014061208,
+    "rebuilt_genes": 32,
+    "first_pass_unmet": 70
+   },
+   "mean_count_max_abs_error_v8": 0.0012499409357869529
+  },
+  "INSIG1": {
+   "tercile": "strong",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1201,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9991673605328892,
+    "rebuilt_genes": 6,
+    "first_pass_unmet": 26
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1201,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9991673605328892,
+    "rebuilt_genes": 7,
+    "first_pass_unmet": 26
+   },
+   "mean_count_max_abs_error_v8": 0.0012499957270915019
+  },
+  "MBTPS1": {
+   "tercile": "strong",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1203,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9975062344139651,
+    "rebuilt_genes": 9,
+    "first_pass_unmet": 59
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1203,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9975062344139651,
+    "rebuilt_genes": 4,
+    "first_pass_unmet": 59
+   },
+   "mean_count_max_abs_error_v8": 0.0012496149785027125
+  },
+  "OSTC": {
+   "tercile": "mid",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1206,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9950248756218906,
+    "rebuilt_genes": 6,
+    "first_pass_unmet": 26
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1206,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9950248756218906,
+    "rebuilt_genes": 6,
+    "first_pass_unmet": 26
+   },
+   "mean_count_max_abs_error_v8": 0.001249761509250824
+  },
+  "PGAM1": {
+   "tercile": "strong",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1205,
+    "sig_recall": 1.0,
+    "sig_precision": 0.995850622406639,
+    "rebuilt_genes": 23,
+    "first_pass_unmet": 58
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1205,
+    "sig_recall": 1.0,
+    "sig_precision": 0.995850622406639,
+    "rebuilt_genes": 22,
+    "first_pass_unmet": 58
+   },
+   "mean_count_max_abs_error_v8": 0.0012499703471520185
+  },
+  "PHF14": {
+   "tercile": "mid",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 141,
+   "v8_report": {
+    "sig_requested": 141,
+    "sig_realized": 143,
+    "sig_recall": 1.0,
+    "sig_precision": 0.986013986013986,
+    "rebuilt_genes": 2,
+    "first_pass_unmet": 12
+   },
+   "frozen_report": {
+    "sig_requested": 141,
+    "sig_realized": 143,
+    "sig_recall": 1.0,
+    "sig_precision": 0.986013986013986,
+    "rebuilt_genes": 2,
+    "first_pass_unmet": 12
+   },
+   "mean_count_max_abs_error_v8": 0.001249925279216746
+  },
+  "PRDM14": {
+   "tercile": "strong",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1448,
+    "sig_recall": 1.0,
+    "sig_precision": 0.8287292817679558,
+    "rebuilt_genes": 249,
+    "first_pass_unmet": 588
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1448,
+    "sig_recall": 1.0,
+    "sig_precision": 0.8287292817679558,
+    "rebuilt_genes": 249,
+    "first_pass_unmet": 588
+   },
+   "mean_count_max_abs_error_v8": 0.0012499118907945833
+  },
+  "RRM2": {
+   "tercile": "mid",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1223,
+    "sig_recall": 0.98,
+    "sig_precision": 0.9615699100572364,
+    "rebuilt_genes": 183,
+    "first_pass_unmet": 491
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1234,
+    "sig_recall": 0.99,
+    "sig_precision": 0.9627228525121556,
+    "rebuilt_genes": 117,
+    "first_pass_unmet": 491
+   },
+   "mean_count_max_abs_error_v8": 0.0012499069010307728
+  },
+  "SLC25A3": {
+   "tercile": "mid",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1206,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9950248756218906,
+    "rebuilt_genes": 11,
+    "first_pass_unmet": 66
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1206,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9950248756218906,
+    "rebuilt_genes": 7,
+    "first_pass_unmet": 66
+   },
+   "mean_count_max_abs_error_v8": 0.001249835303898994
+  },
+  "SMARCA4": {
+   "tercile": "strong",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1207,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9942004971002486,
+    "rebuilt_genes": 8,
+    "first_pass_unmet": 17
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1207,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9942004971002486,
+    "rebuilt_genes": 8,
+    "first_pass_unmet": 17
+   },
+   "mean_count_max_abs_error_v8": 0.001249953637347534
+  },
+  "TET1": {
+   "tercile": "mid",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1201,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9991673605328892,
+    "rebuilt_genes": 1,
+    "first_pass_unmet": 9
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1201,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9991673605328892,
+    "rebuilt_genes": 1,
+    "first_pass_unmet": 9
+   },
+   "mean_count_max_abs_error_v8": 0.001249986484805593
+  },
+  "UBE3C": {
+   "tercile": "mid",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 1200,
+   "v8_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1206,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9950248756218906,
+    "rebuilt_genes": 15,
+    "first_pass_unmet": 46
+   },
+   "frozen_report": {
+    "sig_requested": 1200,
+    "sig_realized": 1206,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9950248756218906,
+    "rebuilt_genes": 11,
+    "first_pass_unmet": 46
+   },
+   "mean_count_max_abs_error_v8": 0.0012499520490143468
+  },
+  "VCL": {
+   "tercile": "mid",
+   "frozen_vs_v8_norank_bitforbit": true,
+   "frozen_now_vs_track1_bitforbit": true,
+   "called": 260,
+   "v8_report": {
+    "sig_requested": 260,
+    "sig_realized": 261,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9961685823754789,
+    "rebuilt_genes": 2,
+    "first_pass_unmet": 3
+   },
+   "frozen_report": {
+    "sig_requested": 260,
+    "sig_realized": 261,
+    "sig_recall": 1.0,
+    "sig_precision": 0.9961685823754789,
+    "rebuilt_genes": 2,
+    "first_pass_unmet": 3
+   },
+   "mean_count_max_abs_error_v8": 0.001249744067486569
+  }
+ },
+ "check1_bit_for_bit": true,
+ "C_MIN": 0.0,
+ "seconds": 1140.0946996212006
+}

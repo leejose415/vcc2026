@@ -1,0 +1,17 @@
+{
+ "schema": "vcc_2026_3_ridge_v1",
+ "heldout_background": "H1",
+ "source_backgrounds": [
+  "K562",
+  "RPE1",
+  "HepG2",
+  "Jurkat",
+  "HCT116",
+  "HEK293T",
+  "CD4_Stim48hr"
+ ],
+ "models": [
+  "v6lin"
+ ],
+ "note": "v6-lin main (K=30), analysis/v6lin/v6lin.py"
+}

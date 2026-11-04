@@ -1,0 +1,8 @@
+[
+ {"name": "hybrid T5 + fix (spec)", "calls": "hybrid", "T": 5},
+ {"name": "fix + Part C shift (-0.25, 0, 0.25)", "shift": {"vec": "C", "a": [-0.25, 0.0, 0.25], "cuts": "full"}},
+ {"name": "fix + F5 prog (E4w M3 DepMap K100 R3 g1)", "prog": {"basis": "E4w", "method": "M3", "variant": "M3DepMap", "K": 100, "arm": "R3", "gamma": 1.0}},
+ {"name": "spec + Part C shift", "calls": "hybrid", "T": 5, "shift": {"vec": "C", "a": [-0.25, 0.0, 0.25], "cuts": "full"}},
+ {"name": "spec + F5 prog", "calls": "hybrid", "T": 5, "prog": {"basis": "E4w", "method": "M3", "variant": "M3DepMap", "K": 100, "arm": "R3", "gamma": 1.0}},
+ {"name": "spec + shift + prog", "calls": "hybrid", "T": 5, "shift": {"vec": "C", "a": [-0.25, 0.0, 0.25], "cuts": "full"}, "prog": {"basis": "E4w", "method": "M3", "variant": "M3DepMap", "K": 100, "arm": "R3", "gamma": 1.0}}
+]

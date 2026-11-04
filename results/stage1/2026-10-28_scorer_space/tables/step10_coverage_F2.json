@@ -1,0 +1,236 @@
+{
+ "filter": "F2",
+ "tables": [
+  "arc_h1",
+  "feng_targeted_eipl_1",
+  "feng_targeted_eipl_3",
+  "feng_targeted_fiaj_1",
+  "feng_targeted_fiaj_3",
+  "feng_targeted_iudw_1",
+  "feng_targeted_iudw_4",
+  "feng_targeted_jejf_2",
+  "feng_targeted_jejf_3",
+  "feng_targeted_kolf_2",
+  "feng_targeted_kolf_3",
+  "feng_targeted_oikd_2",
+  "feng_targeted_oikd_5",
+  "feng_targeted_paab_3",
+  "feng_targeted_paab_4",
+  "feng_targeted_pipw_4",
+  "feng_targeted_pipw_5",
+  "feng_targeted_tolg_4",
+  "feng_targeted_tolg_6",
+  "feng_targeted_zapk_3",
+  "kolf_kolf21j",
+  "nadig_hepg2",
+  "nadig_jurkat",
+  "orion_hct116",
+  "orion_hek293t",
+  "replogle_k562_gw",
+  "replogle_rpe1"
+ ],
+ "n_tables": 27,
+ "rows_kept": {
+  "arc_h1": [
+   283,
+   300
+  ],
+  "feng_targeted_eipl_1": [
+   231,
+   417
+  ],
+  "feng_targeted_eipl_3": [
+   205,
+   403
+  ],
+  "feng_targeted_fiaj_1": [
+   254,
+   423
+  ],
+  "feng_targeted_fiaj_3": [
+   0,
+   4
+  ],
+  "feng_targeted_iudw_1": [
+   216,
+   429
+  ],
+  "feng_targeted_iudw_4": [
+   112,
+   384
+  ],
+  "feng_targeted_jejf_2": [
+   188,
+   421
+  ],
+  "feng_targeted_jejf_3": [
+   295,
+   417
+  ],
+  "feng_targeted_kolf_2": [
+   236,
+   419
+  ],
+  "feng_targeted_kolf_3": [
+   163,
+   412
+  ],
+  "feng_targeted_oikd_2": [
+   5,
+   84
+  ],
+  "feng_targeted_oikd_5": [
+   275,
+   426
+  ],
+  "feng_targeted_paab_3": [
+   106,
+   379
+  ],
+  "feng_targeted_paab_4": [
+   134,
+   416
+  ],
+  "feng_targeted_pipw_4": [
+   73,
+   383
+  ],
+  "feng_targeted_pipw_5": [
+   1,
+   13
+  ],
+  "feng_targeted_tolg_4": [
+   1,
+   65
+  ],
+  "feng_targeted_tolg_6": [
+   154,
+   395
+  ],
+  "feng_targeted_zapk_3": [
+   251,
+   428
+  ],
+  "kolf_kolf21j": [
+   1366,
+   1608
+  ],
+  "nadig_hepg2": [
+   1290,
+   1759
+  ],
+  "nadig_jurkat": [
+   1397,
+   2054
+  ],
+  "orion_hct116": [
+   94,
+   434
+  ],
+  "orion_hek293t": [
+   3,
+   418
+  ],
+  "replogle_k562_gw": [
+   4757,
+   9245
+  ],
+  "replogle_rpe1": [
+   1430,
+   1968
+  ]
+ },
+ "def_targets_no_source": [
+  "AGO1",
+  "AMPD3",
+  "ANG",
+  "ANKRD52",
+  "APEX1",
+  "ARSA",
+  "ATP10D",
+  "BID",
+  "C1RL",
+  "CCNE2",
+  "CHIC2",
+  "CLEC16A",
+  "CNOT6",
+  "COQ10B",
+  "CUX1",
+  "CWC27",
+  "DEK",
+  "DTNBP1",
+  "DYM",
+  "FAM120A",
+  "FBXW4",
+  "FOXK1",
+  "GPATCH1",
+  "GPATCH8",
+  "HCFC2",
+  "HEATR6",
+  "HSD3B7",
+  "IKBKE",
+  "ITPRIPL1",
+  "JRKL",
+  "JUND",
+  "KMT2E",
+  "L3MBTL2",
+  "LCOR",
+  "LTO1",
+  "LYSMD4",
+  "MAP2K3",
+  "MAP3K3",
+  "MAPK7",
+  "MRC2",
+  "MSANTD4",
+  "MYPOP",
+  "PANK4",
+  "PAPOLA",
+  "PARP3",
+  "PIGO",
+  "PIM3",
+  "PRNP",
+  "PSMB9",
+  "PTBP2",
+  "PUM2",
+  "RAB5A",
+  "RBM4B",
+  "RELB",
+  "SAP30L",
+  "SEMA4F",
+  "SIK2",
+  "SLC25A51",
+  "SLC52A2",
+  "SMARCC2",
+  "STAU2",
+  "STK10",
+  "SURF4",
+  "TBC1D19",
+  "TMEM79",
+  "TRIM27",
+  "U2AF1L4",
+  "UBTD2",
+  "VAPB",
+  "WDR62",
+  "XPO7",
+  "ZC3H7A",
+  "ZC3HAV1",
+  "ZDHHC13",
+  "ZFP1",
+  "ZNF121",
+  "ZNF263",
+  "ZNF264",
+  "ZNF383",
+  "ZNF48",
+  "ZNF530",
+  "ZNF619",
+  "ZNF627",
+  "ZNF628",
+  "ZNF641",
+  "ZNF653",
+  "ZNF700",
+  "ZNF783",
+  "ZNF784",
+  "ZNF805"
+ ],
+ "def_targets_with_source": 210
+}

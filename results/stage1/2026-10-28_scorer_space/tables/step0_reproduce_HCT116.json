@@ -1,0 +1,17 @@
+{
+ "eval": "results/stage1/final_evals/harness/lib/evalHCT116final",
+ "pred": "results/stage1/e2e_final/CG/HCT116/salt_none/prediction.h5ad",
+ "rebuilt_raw": 2.8961771873171123,
+ "harness_raw": 2.896177187317113,
+ "abs_diff": 8.881784197001252e-16,
+ "reproduces_1e6": true,
+ "budget": 0.549569422831833,
+ "claim": 0.42599283992024606,
+ "r": 1.0,
+ "budget_binds": false,
+ "rows_capped": 16,
+ "knockdowns": 278,
+ "baseline_raw": 1.851646375432478,
+ "replicate_raw": 0.8435310479447985,
+ "scaled_unclamped": -1.036122339780019
+}

@@ -1,0 +1,11 @@
+{
+ "url": "https://s3.dev.maayanlab.cloud/archs4/files/human_gene_v2.latest.h5",
+ "file_bytes": 62257385524,
+ "free_bytes": 35299803136,
+ "needed_bytes": 82257385524.0,
+ "room": false,
+ "last_modified": [
+  "Tue, 07 Jul 2026 08:43:19 GMT"
+ ],
+ "status": "stopped at the disk check: no download; M3c and M4c are not run"
+}

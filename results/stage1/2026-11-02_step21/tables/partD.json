@@ -1,0 +1,100 @@
+{
+ "status": {
+  "B": {
+   "available": true,
+   "met": false,
+   "picks": {
+    "fit_half0": {
+     "eta": 0.0
+    },
+    "fit_half1": {
+     "eta": 0.0
+    }
+   }
+  },
+  "C3": {
+   "available": true,
+   "met": false,
+   "picks": {
+    "fit_half0": {
+     "rule": "R-low 300"
+    },
+    "fit_half1": {
+     "rule": "R-low 300"
+    }
+   }
+  },
+  "C4": {
+   "available": true,
+   "met": false,
+   "picks": {
+    "fit_half0": {
+     "kappa": 4.0,
+     "s": 0.75
+    },
+    "fit_half1": {
+     "kappa": 4.0,
+     "s": 0.5
+    }
+   }
+  },
+  "C6": {
+   "available": true,
+   "met": false,
+   "picks": {
+    "fit_half0": {
+     "s_up": 0.5,
+     "s_down": 0.35,
+     "c_floor": 20.0
+    },
+    "fit_half1": {
+     "s_up": 0.5,
+     "s_down": 0.35,
+     "c_floor": 20.0
+    }
+   }
+  },
+  "C7c co-movement": {
+   "available": true,
+   "met": false,
+   "picks": {
+    "fit_half0": {
+     "gamma": 0.0
+    },
+    "fit_half1": {
+     "gamma": 0.5
+    }
+   }
+  },
+  "C7c F5-M3e": {
+   "available": true,
+   "met": false,
+   "picks": {}
+  },
+  "C7d-b": {
+   "available": true,
+   "met": false,
+   "picks": {
+    "fit_half0": {
+     "gamma": 0.0
+    },
+    "fit_half1": {
+     "gamma": 0.0
+    }
+   }
+  },
+  "C9c": {
+   "available": true,
+   "met": false,
+   "picks": {
+    "fit_half0": {
+     "gamma": 0.0
+    },
+    "fit_half1": {
+     "gamma": 0.0
+    }
+   }
+  }
+ },
+ "passed": []
+}

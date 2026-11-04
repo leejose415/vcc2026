@@ -1,0 +1,31 @@
+{
+ "key": "(i) p_cal",
+ "EvalA": {
+  "knockdowns": 292,
+  "called": 264432,
+  "key_finite_share": 1.0
+ },
+ "HCT116final": {
+  "knockdowns": 278,
+  "called": 190286,
+  "key_finite_share": 1.0
+ },
+ "D": {
+  "knockdowns": 300,
+  "called": 225323,
+  "on_K4": 139,
+  "key_finite_share": 1.0
+ },
+ "E": {
+  "knockdowns": 300,
+  "called": 231392,
+  "on_K4": 139,
+  "key_finite_share": 1.0
+ },
+ "F": {
+  "knockdowns": 300,
+  "called": 227665,
+  "on_K4": 139,
+  "key_finite_share": 1.0
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "mode": "transfer",
+ "outputs": {
+  "f1_konly_m0.5": "/home/mooneysad/vcc/analysis/final/h1_bench_f1b/f1_konly_m0.5",
+  "f1_konly_m0.25": "/home/mooneysad/vcc/analysis/final/h1_bench_f1b/f1_konly_m0.25"
+ },
+ "settings": {
+  "f1_konly_m0.5": {
+   "call": "z",
+   "z": 0.0,
+   "min_effect": 0.0,
+   "alpha": 1.0,
+   "detect_floor": false,
+   "called_from": "called_top2000",
+   "method": "f1_konly",
+   "narrow_m": 0.5,
+   "label": "f1_konly_m0.5",
+   "cell_rule": "fixed"
+  },
+  "f1_konly_m0.25": {
+   "call": "z",
+   "z": 0.0,
+   "min_effect": 0.0,
+   "alpha": 1.0,
+   "detect_floor": false,
+   "called_from": "called_top2000",
+   "method": "f1_konly",
+   "narrow_m": 0.25,
+   "label": "f1_konly_m0.25",
+   "cell_rule": "fixed"
+  }
+ },
+ "n_targets": 75,
+ "ceiling": "/home/mooneysad/vcc/lib/vcc_2026_3/val_final/ceiling",
+ "real_cache": "/home/mooneysad/vcc/lib/vcc_2026_3/val_final/real_cache",
+ "bundle": "/home/mooneysad/vcc/lib/vcc_2026_3/val_final/bundle",
+ "note": "H1 is generator calibration; final evidence requires unseen lines. Oracle is a generator-only ceiling check."
+}

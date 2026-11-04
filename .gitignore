@@ -1,0 +1,14 @@
+# data and outputs are never committed
+lib/
+data/
+data_final/
+results/**/logs/
+*.h5ad
+*.npz
+*.npy
+*.parquet
+*.vcc
+__pycache__/
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/

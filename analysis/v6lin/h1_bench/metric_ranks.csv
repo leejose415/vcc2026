@@ -1,0 +1,13 @@
+variant,metric,value,direction,rank
+v6lin_floor,pds_cosine,0.6315315315315317,max,1.0
+v6lin_floor,expr_mse_unbiased_capped_norm,3.295269389048107,min,2.0
+v6lin_floor,de_wilcoxon_lfc_nmae,1.4319621326299468,min,2.0
+v6lin_floor,de_wilcoxon_direction_fidelity_yield_raw,0.5307073211318376,max,1.0
+v6lin_floor,de_wilcoxon_direction_reach_raw,0.0358195148656647,max,2.0
+v6lin_floor,de_wilcoxon_sig_jaccard,0.2366656343149953,max,1.0
+v6lin_nofloor,pds_cosine,0.5749549549549549,max,2.0
+v6lin_nofloor,expr_mse_unbiased_capped_norm,1.1079823019488222,min,1.0
+v6lin_nofloor,de_wilcoxon_lfc_nmae,0.9943632679924888,min,1.0
+v6lin_nofloor,de_wilcoxon_direction_fidelity_yield_raw,0.1143115003647972,max,2.0
+v6lin_nofloor,de_wilcoxon_direction_reach_raw,0.0484340895728004,max,1.0
+v6lin_nofloor,de_wilcoxon_sig_jaccard,0.0148913546440976,max,2.0

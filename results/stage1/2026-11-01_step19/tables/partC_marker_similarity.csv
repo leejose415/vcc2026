@@ -1,0 +1,307 @@
+context,profile,kind,markers,pearson_log1p
+D,A,controls_h5ad,45,0.4727176279787702
+D,B,controls_h5ad,45,0.4761393550339079
+D,C,controls_h5ad,45,0.4836786212394074
+D,EvalA_context,controls_h5ad,45,0.1405739668142647
+D,adamson_k562_10x001,source_baseline:K562,44,0.22039425714904803
+D,adamson_k562_10x005,source_baseline:K562,44,0.20555538097475687
+D,adamson_k562_10x010,source_baseline:K562,44,0.21078564763841234
+D,arc_h1,source_baseline:H1,44,0.12191254589221279
+D,feng_gw_fitness,source_baseline:HipSci_pooled,42,0.12110659592910955
+D,feng_gw_nonfitness,source_baseline:HipSci_pooled,42,0.11534177559112348
+D,feng_targeted_eipl_1,source_baseline:eipl_1,42,0.14227744240472975
+D,feng_targeted_eipl_3,source_baseline:eipl_3,42,0.096894554445831
+D,feng_targeted_fiaj_1,source_baseline:fiaj_1,42,0.10872922196304882
+D,feng_targeted_fiaj_3,source_baseline:fiaj_3,42,0.10938393964085924
+D,feng_targeted_iudw_1,source_baseline:iudw_1,42,0.1342368162819979
+D,feng_targeted_iudw_4,source_baseline:iudw_4,42,0.07439709753654228
+D,feng_targeted_jejf_2,source_baseline:jejf_2,42,0.10130857483001286
+D,feng_targeted_jejf_3,source_baseline:jejf_3,42,0.12227458405133913
+D,feng_targeted_kolf_2,source_baseline:kolf_2,42,0.10392037494306504
+D,feng_targeted_kolf_3,source_baseline:kolf_3,42,0.11267330639726557
+D,feng_targeted_oikd_2,source_baseline:oikd_2,42,0.1364842973156199
+D,feng_targeted_oikd_5,source_baseline:oikd_5,42,0.09735159457112812
+D,feng_targeted_paab_3,source_baseline:paab_3,42,0.1399855399636097
+D,feng_targeted_paab_4,source_baseline:paab_4,42,0.13199923598041394
+D,feng_targeted_pipw_4,source_baseline:pipw_4,42,0.11432388757458774
+D,feng_targeted_pipw_5,source_baseline:pipw_5,42,0.06540222195746828
+D,feng_targeted_tolg_4,source_baseline:tolg_4,42,0.142797150309352
+D,feng_targeted_tolg_6,source_baseline:tolg_6,42,0.11503590601749708
+D,feng_targeted_zapk_3,source_baseline:zapk_3,42,0.11491235988642884
+D,jiang_ifng_a549,source_baseline:A549,42,0.5593701765365569
+D,jiang_ifng_bxpc3,source_baseline:BXPC3,42,0.31847233717431606
+D,jiang_ifng_hap1,source_baseline:HAP1,42,0.2738593866833517
+D,jiang_ifng_ht29,source_baseline:HT29,42,0.2930782003186366
+D,jiang_ifng_k562,source_baseline:K562,42,0.30645637908678536
+D,jiang_ifng_mcf7,source_baseline:MCF7,42,0.3428535110040685
+D,jiang_tgfb_a549,source_baseline:A549,42,0.5462773915879731
+D,jiang_tgfb_bxpc3,source_baseline:BXPC3,42,0.3338223600438994
+D,jiang_tgfb_hap1,source_baseline:HAP1,42,0.2948673821376347
+D,jiang_tgfb_ht29,source_baseline:HT29,42,0.3512609656978496
+D,jiang_tgfb_k562,source_baseline:K562,42,0.3164155578601665
+D,jiang_tgfb_mcf7,source_baseline:MCF7,42,0.35868788195574347
+D,jiang_tnfa_a549,source_baseline:A549,42,0.5516577476378889
+D,jiang_tnfa_bxpc3,source_baseline:BXPC3,42,0.30166434225798827
+D,jiang_tnfa_hap1,source_baseline:HAP1,42,0.28842611981525534
+D,jiang_tnfa_ht29,source_baseline:HT29,42,0.32955327247147037
+D,jiang_tnfa_k562,source_baseline:K562,42,0.3958244841170857
+D,jiang_tnfa_mcf7,source_baseline:MCF7,42,0.3117531944193728
+D,kolf_kolf21j,source_baseline:KOLF2.1J,45,0.1324116677223782
+D,orion_hct116,source_baseline:HCT116,45,0.28821685676301484
+D,orion_hct116_pseudobulk,source_baseline:HCT116,45,0.28512049809991424
+D,orion_hek293t,source_baseline:HEK293T,45,0.39932638371428886
+D,orion_hek293t_pseudobulk,source_baseline:HEK293T,45,0.40033578189679714
+D,tahoe_a498,source_baseline:A498,45,0.6205003924235409
+D,tahoe_a549,source_baseline:A549,45,0.7206042701030646
+D,tahoe_a_172,source_baseline:A-172,45,0.578802168127279
+D,tahoe_a_427,source_baseline:A-427,45,0.7196026023914603
+D,tahoe_an3_ca,source_baseline:AN3 CA,45,0.48686752150214835
+D,tahoe_aspc_1,source_baseline:AsPC-1,45,0.4492575588880829
+D,tahoe_bt_474,source_baseline:BT-474,45,0.4411018063898098
+D,tahoe_c32,source_baseline:C32,45,0.6833517009782506
+D,tahoe_c_33_a,source_baseline:C-33 A,45,0.44269291315739645
+D,tahoe_cfpac_1,source_baseline:CFPAC-1,45,0.4137639529987691
+D,tahoe_chp_212,source_baseline:CHP-212,45,0.6003588409846153
+D,tahoe_colo_205,source_baseline:COLO 205,45,0.4592438257296645
+D,tahoe_h4,source_baseline:H4,45,0.7142183162108894
+D,tahoe_hct15,source_baseline:HCT15,45,0.5526791883158001
+D,tahoe_hec_1_a,source_baseline:HEC-1-A,45,0.45352045121427964
+D,tahoe_hepg2_c3a,source_baseline:HepG2/C3A,45,0.3477107484826972
+D,tahoe_hop62,source_baseline:HOP62,45,0.5200144694976594
+D,tahoe_hs_578t,source_baseline:HS-578T,45,0.4394578628961439
+D,tahoe_hs_766t,source_baseline:Hs 766T,45,0.4964575796850011
+D,tahoe_ht_29,source_baseline:HT-29,45,0.418030945251139
+D,tahoe_htert_hpne,source_baseline:hTERT-HPNE,45,0.5728129330466859
+D,tahoe_j82,source_baseline:J82,45,0.6265981379835316
+D,tahoe_kato_iii,source_baseline:KATO III,45,0.3785878112081892
+D,tahoe_lovo,source_baseline:LoVo,45,0.5405330145940747
+D,tahoe_lox_imvi,source_baseline:LOX-IMVI,45,0.6257986438775575
+D,tahoe_ls_180,source_baseline:LS 180,45,0.4467859775991697
+D,tahoe_mia_paca_2,source_baseline:MIA PaCa-2,45,0.6053754249224884
+D,tahoe_nci_h1573,source_baseline:NCI-H1573,45,0.3683794073205156
+D,tahoe_nci_h1792,source_baseline:NCI-H1792,45,0.49036150703029857
+D,tahoe_nci_h2030,source_baseline:NCI-H2030,45,0.6311816793273938
+D,tahoe_nci_h2122,source_baseline:NCI-H2122,45,0.42888292240637726
+D,tahoe_nci_h23,source_baseline:NCI-H23,45,0.6003061097433691
+D,tahoe_nci_h2347,source_baseline:NCI-H2347,45,0.41899323892297696
+D,tahoe_nci_h460,source_baseline:NCI-H460,45,0.6828064249294732
+D,tahoe_nci_h596,source_baseline:NCI-H596,45,0.41675566587913687
+D,tahoe_nci_h661,source_baseline:NCI-H661,45,0.44025644517357626
+D,tahoe_panc_03_27,source_baseline:Panc 03.27,45,0.44032126259467225
+D,tahoe_panc_1,source_baseline:PANC-1,45,0.5794443057011939
+D,tahoe_rko,source_baseline:RKO,45,0.6482799371978634
+D,tahoe_rpmi_7951,source_baseline:RPMI-7951,45,0.4102033895858609
+D,tahoe_shp_77,source_baseline:SHP-77,45,0.40129608360537933
+D,tahoe_sk_mel_2,source_baseline:SK-MEL-2,45,0.6836599643176792
+D,tahoe_snu_1,source_baseline:SNU-1,45,0.6968036679763678
+D,tahoe_snu_423,source_baseline:SNU-423,45,0.5719106946766043
+D,tahoe_sw1417,source_baseline:SW1417,45,0.40018170079605897
+D,tahoe_sw48,source_baseline:SW48,45,0.5394396632261019
+D,tahoe_sw480,source_baseline:SW480,45,0.4006472524975434
+D,tahoe_sw_1088,source_baseline:SW 1088,45,0.5348107162007488
+D,tahoe_sw_1271,source_baseline:SW 1271,45,0.6779442168194553
+D,tahoe_sw_900,source_baseline:SW 900,45,0.6131070874034426
+E,A,controls_h5ad,45,0.3914590883487063
+E,B,controls_h5ad,45,0.721672968362584
+E,C,controls_h5ad,45,0.3470315860233887
+E,EvalA_context,controls_h5ad,45,0.3125781852854746
+E,adamson_k562_10x001,source_baseline:K562,44,0.2584628436300481
+E,adamson_k562_10x005,source_baseline:K562,44,0.26956428050394815
+E,adamson_k562_10x010,source_baseline:K562,44,0.2500578187299059
+E,arc_h1,source_baseline:H1,44,0.3018298382366358
+E,feng_gw_fitness,source_baseline:HipSci_pooled,42,0.27332381880793977
+E,feng_gw_nonfitness,source_baseline:HipSci_pooled,42,0.2816886350885035
+E,feng_targeted_eipl_1,source_baseline:eipl_1,42,0.30800362738093084
+E,feng_targeted_eipl_3,source_baseline:eipl_3,42,0.22023493625863266
+E,feng_targeted_fiaj_1,source_baseline:fiaj_1,42,0.23050253838924498
+E,feng_targeted_fiaj_3,source_baseline:fiaj_3,42,0.28108500045845247
+E,feng_targeted_iudw_1,source_baseline:iudw_1,42,0.3098596233657701
+E,feng_targeted_iudw_4,source_baseline:iudw_4,42,0.2415325165950162
+E,feng_targeted_jejf_2,source_baseline:jejf_2,42,0.25531822399143483
+E,feng_targeted_jejf_3,source_baseline:jejf_3,42,0.2937687555692005
+E,feng_targeted_kolf_2,source_baseline:kolf_2,42,0.25560250364676396
+E,feng_targeted_kolf_3,source_baseline:kolf_3,42,0.29328665350018646
+E,feng_targeted_oikd_2,source_baseline:oikd_2,42,0.2831408953410932
+E,feng_targeted_oikd_5,source_baseline:oikd_5,42,0.2334318845298061
+E,feng_targeted_paab_3,source_baseline:paab_3,42,0.27820461602050495
+E,feng_targeted_paab_4,source_baseline:paab_4,42,0.29432889606059454
+E,feng_targeted_pipw_4,source_baseline:pipw_4,42,0.2901492538294359
+E,feng_targeted_pipw_5,source_baseline:pipw_5,42,0.2350930936141355
+E,feng_targeted_tolg_4,source_baseline:tolg_4,42,0.31417254062807376
+E,feng_targeted_tolg_6,source_baseline:tolg_6,42,0.27092662426804287
+E,feng_targeted_zapk_3,source_baseline:zapk_3,42,0.2662181329225199
+E,jiang_ifng_a549,source_baseline:A549,42,0.6910982468279381
+E,jiang_ifng_bxpc3,source_baseline:BXPC3,42,0.43190851922019874
+E,jiang_ifng_hap1,source_baseline:HAP1,42,0.44477822774988246
+E,jiang_ifng_ht29,source_baseline:HT29,42,0.3459564803209372
+E,jiang_ifng_k562,source_baseline:K562,42,0.4164487150953004
+E,jiang_ifng_mcf7,source_baseline:MCF7,42,0.4073037368238748
+E,jiang_tgfb_a549,source_baseline:A549,42,0.766262490982392
+E,jiang_tgfb_bxpc3,source_baseline:BXPC3,42,0.4700629033944282
+E,jiang_tgfb_hap1,source_baseline:HAP1,42,0.45210843371046255
+E,jiang_tgfb_ht29,source_baseline:HT29,42,0.3882073973225347
+E,jiang_tgfb_k562,source_baseline:K562,42,0.4400671513438945
+E,jiang_tgfb_mcf7,source_baseline:MCF7,42,0.5021465076577101
+E,jiang_tnfa_a549,source_baseline:A549,42,0.7016433882240255
+E,jiang_tnfa_bxpc3,source_baseline:BXPC3,42,0.4057894891351618
+E,jiang_tnfa_hap1,source_baseline:HAP1,42,0.4517635430401619
+E,jiang_tnfa_ht29,source_baseline:HT29,42,0.35203081495099914
+E,jiang_tnfa_k562,source_baseline:K562,42,0.4711572075257173
+E,jiang_tnfa_mcf7,source_baseline:MCF7,42,0.409957904779198
+E,kolf_kolf21j,source_baseline:KOLF2.1J,45,0.21669193179711022
+E,orion_hct116,source_baseline:HCT116,45,0.39482542104825796
+E,orion_hct116_pseudobulk,source_baseline:HCT116,45,0.39351004587730465
+E,orion_hek293t,source_baseline:HEK293T,45,0.5632105368378483
+E,orion_hek293t_pseudobulk,source_baseline:HEK293T,45,0.5633324726561698
+E,tahoe_a498,source_baseline:A498,45,0.7420040469537437
+E,tahoe_a549,source_baseline:A549,45,0.6313055459037966
+E,tahoe_a_172,source_baseline:A-172,45,0.7520676393598472
+E,tahoe_a_427,source_baseline:A-427,45,0.676733059792831
+E,tahoe_an3_ca,source_baseline:AN3 CA,45,0.7944337444406919
+E,tahoe_aspc_1,source_baseline:AsPC-1,45,0.5896757861290762
+E,tahoe_bt_474,source_baseline:BT-474,45,0.5943059761097682
+E,tahoe_c32,source_baseline:C32,45,0.7633283082619488
+E,tahoe_c_33_a,source_baseline:C-33 A,45,0.5738501556324199
+E,tahoe_cfpac_1,source_baseline:CFPAC-1,45,0.5768023655074478
+E,tahoe_chp_212,source_baseline:CHP-212,45,0.693717458868278
+E,tahoe_colo_205,source_baseline:COLO 205,45,0.38070589632813123
+E,tahoe_h4,source_baseline:H4,45,0.6701568731086174
+E,tahoe_hct15,source_baseline:HCT15,45,0.48509692492603157
+E,tahoe_hec_1_a,source_baseline:HEC-1-A,45,0.5344653090578966
+E,tahoe_hepg2_c3a,source_baseline:HepG2/C3A,45,0.39535716552994127
+E,tahoe_hop62,source_baseline:HOP62,45,0.8025403237562663
+E,tahoe_hs_578t,source_baseline:HS-578T,45,0.8105885448690423
+E,tahoe_hs_766t,source_baseline:Hs 766T,45,0.642254621061243
+E,tahoe_ht_29,source_baseline:HT-29,45,0.5126012104433885
+E,tahoe_htert_hpne,source_baseline:hTERT-HPNE,45,0.7995178339467744
+E,tahoe_j82,source_baseline:J82,45,0.6640365170955277
+E,tahoe_kato_iii,source_baseline:KATO III,45,0.4823260047651735
+E,tahoe_lovo,source_baseline:LoVo,45,0.46294165790763264
+E,tahoe_lox_imvi,source_baseline:LOX-IMVI,45,0.7890699050797079
+E,tahoe_ls_180,source_baseline:LS 180,45,0.5214031659328721
+E,tahoe_mia_paca_2,source_baseline:MIA PaCa-2,45,0.8098481263624859
+E,tahoe_nci_h1573,source_baseline:NCI-H1573,45,0.5056224961833263
+E,tahoe_nci_h1792,source_baseline:NCI-H1792,45,0.732054929909851
+E,tahoe_nci_h2030,source_baseline:NCI-H2030,45,0.7522716199518242
+E,tahoe_nci_h2122,source_baseline:NCI-H2122,45,0.6393113886082165
+E,tahoe_nci_h23,source_baseline:NCI-H23,45,0.753735521482734
+E,tahoe_nci_h2347,source_baseline:NCI-H2347,45,0.6513699380363949
+E,tahoe_nci_h460,source_baseline:NCI-H460,45,0.6091520535017431
+E,tahoe_nci_h596,source_baseline:NCI-H596,45,0.6126113889581802
+E,tahoe_nci_h661,source_baseline:NCI-H661,45,0.6222092652852356
+E,tahoe_panc_03_27,source_baseline:Panc 03.27,45,0.6025171512962079
+E,tahoe_panc_1,source_baseline:PANC-1,45,0.7877520773860225
+E,tahoe_rko,source_baseline:RKO,45,0.7592594960115204
+E,tahoe_rpmi_7951,source_baseline:RPMI-7951,45,0.8442252319601878
+E,tahoe_shp_77,source_baseline:SHP-77,45,0.5372644660880627
+E,tahoe_sk_mel_2,source_baseline:SK-MEL-2,45,0.6648118363912163
+E,tahoe_snu_1,source_baseline:SNU-1,45,0.5810507455756609
+E,tahoe_snu_423,source_baseline:SNU-423,45,0.7248768567500158
+E,tahoe_sw1417,source_baseline:SW1417,45,0.5549976274356896
+E,tahoe_sw48,source_baseline:SW48,45,0.613870040251886
+E,tahoe_sw480,source_baseline:SW480,45,0.6023233582927546
+E,tahoe_sw_1088,source_baseline:SW 1088,45,0.7416797991760079
+E,tahoe_sw_1271,source_baseline:SW 1271,45,0.7995015595530501
+E,tahoe_sw_900,source_baseline:SW 900,45,0.7655864703218997
+F,A,controls_h5ad,45,0.3049128961084022
+F,B,controls_h5ad,45,0.8397322611404835
+F,C,controls_h5ad,45,0.43825461969058277
+F,EvalA_context,controls_h5ad,45,0.3156866087191648
+F,adamson_k562_10x001,source_baseline:K562,44,0.15145457983124072
+F,adamson_k562_10x005,source_baseline:K562,44,0.1616496035343805
+F,adamson_k562_10x010,source_baseline:K562,44,0.13094874719863195
+F,arc_h1,source_baseline:H1,44,0.3024512377424582
+F,feng_gw_fitness,source_baseline:HipSci_pooled,42,0.30666325472934836
+F,feng_gw_nonfitness,source_baseline:HipSci_pooled,42,0.30813617429850765
+F,feng_targeted_eipl_1,source_baseline:eipl_1,42,0.3333954724736832
+F,feng_targeted_eipl_3,source_baseline:eipl_3,42,0.2663263604751856
+F,feng_targeted_fiaj_1,source_baseline:fiaj_1,42,0.25190664567428556
+F,feng_targeted_fiaj_3,source_baseline:fiaj_3,42,0.3179041681953158
+F,feng_targeted_iudw_1,source_baseline:iudw_1,42,0.3533222080595202
+F,feng_targeted_iudw_4,source_baseline:iudw_4,42,0.28656513163345804
+F,feng_targeted_jejf_2,source_baseline:jejf_2,42,0.31527419547055086
+F,feng_targeted_jejf_3,source_baseline:jejf_3,42,0.33828466179546984
+F,feng_targeted_kolf_2,source_baseline:kolf_2,42,0.29581757334425623
+F,feng_targeted_kolf_3,source_baseline:kolf_3,42,0.34025185114175893
+F,feng_targeted_oikd_2,source_baseline:oikd_2,42,0.30883007407387025
+F,feng_targeted_oikd_5,source_baseline:oikd_5,42,0.27877024422197316
+F,feng_targeted_paab_3,source_baseline:paab_3,42,0.31763879862411054
+F,feng_targeted_paab_4,source_baseline:paab_4,42,0.3257391941134112
+F,feng_targeted_pipw_4,source_baseline:pipw_4,42,0.32561798737855696
+F,feng_targeted_pipw_5,source_baseline:pipw_5,42,0.28701450041909066
+F,feng_targeted_tolg_4,source_baseline:tolg_4,42,0.35068534845061405
+F,feng_targeted_tolg_6,source_baseline:tolg_6,42,0.312184902416147
+F,feng_targeted_zapk_3,source_baseline:zapk_3,42,0.325194123005566
+F,jiang_ifng_a549,source_baseline:A549,42,0.6147092734692405
+F,jiang_ifng_bxpc3,source_baseline:BXPC3,42,0.41589902513945093
+F,jiang_ifng_hap1,source_baseline:HAP1,42,0.4195517300182306
+F,jiang_ifng_ht29,source_baseline:HT29,42,0.5035885221887223
+F,jiang_ifng_k562,source_baseline:K562,42,0.3071670446665756
+F,jiang_ifng_mcf7,source_baseline:MCF7,42,0.45917711458611526
+F,jiang_tgfb_a549,source_baseline:A549,42,0.6930304851633221
+F,jiang_tgfb_bxpc3,source_baseline:BXPC3,42,0.46959990608351476
+F,jiang_tgfb_hap1,source_baseline:HAP1,42,0.42529175372334294
+F,jiang_tgfb_ht29,source_baseline:HT29,42,0.5211707645953995
+F,jiang_tgfb_k562,source_baseline:K562,42,0.3399904777500169
+F,jiang_tgfb_mcf7,source_baseline:MCF7,42,0.5461235290821457
+F,jiang_tnfa_a549,source_baseline:A549,42,0.6428949462204994
+F,jiang_tnfa_bxpc3,source_baseline:BXPC3,42,0.40325705286932473
+F,jiang_tnfa_hap1,source_baseline:HAP1,42,0.4326590403655326
+F,jiang_tnfa_ht29,source_baseline:HT29,42,0.5042702876620269
+F,jiang_tnfa_k562,source_baseline:K562,42,0.3586549069668553
+F,jiang_tnfa_mcf7,source_baseline:MCF7,42,0.44720050288522983
+F,kolf_kolf21j,source_baseline:KOLF2.1J,45,0.25484603792169924
+F,orion_hct116,source_baseline:HCT116,45,0.5351314008259352
+F,orion_hct116_pseudobulk,source_baseline:HCT116,45,0.5346611644934853
+F,orion_hek293t,source_baseline:HEK293T,45,0.5710814076624671
+F,orion_hek293t_pseudobulk,source_baseline:HEK293T,45,0.5710922162351617
+F,tahoe_a498,source_baseline:A498,45,0.7101217546836532
+F,tahoe_a549,source_baseline:A549,45,0.605959355503548
+F,tahoe_a_172,source_baseline:A-172,45,0.7421799421617593
+F,tahoe_a_427,source_baseline:A-427,45,0.5610357489182526
+F,tahoe_an3_ca,source_baseline:AN3 CA,45,0.7433562383549633
+F,tahoe_aspc_1,source_baseline:AsPC-1,45,0.687622564974827
+F,tahoe_bt_474,source_baseline:BT-474,45,0.6608901583152393
+F,tahoe_c32,source_baseline:C32,45,0.6631657780351929
+F,tahoe_c_33_a,source_baseline:C-33 A,45,0.6219140469584648
+F,tahoe_cfpac_1,source_baseline:CFPAC-1,45,0.6503961130325323
+F,tahoe_chp_212,source_baseline:CHP-212,45,0.6967029871881008
+F,tahoe_colo_205,source_baseline:COLO 205,45,0.4648767036871357
+F,tahoe_h4,source_baseline:H4,45,0.6827149921745187
+F,tahoe_hct15,source_baseline:HCT15,45,0.5110316991081982
+F,tahoe_hec_1_a,source_baseline:HEC-1-A,45,0.6281524913727946
+F,tahoe_hepg2_c3a,source_baseline:HepG2/C3A,45,0.3404202046640321
+F,tahoe_hop62,source_baseline:HOP62,45,0.8035854723101445
+F,tahoe_hs_578t,source_baseline:HS-578T,45,0.922029553076268
+F,tahoe_hs_766t,source_baseline:Hs 766T,45,0.7290945413556603
+F,tahoe_ht_29,source_baseline:HT-29,45,0.6290766182362114
+F,tahoe_htert_hpne,source_baseline:hTERT-HPNE,45,0.7783986791636928
+F,tahoe_j82,source_baseline:J82,45,0.7125947697983191
+F,tahoe_kato_iii,source_baseline:KATO III,45,0.5287136329325081
+F,tahoe_lovo,source_baseline:LoVo,45,0.5279123966766954
+F,tahoe_lox_imvi,source_baseline:LOX-IMVI,45,0.7886225396874171
+F,tahoe_ls_180,source_baseline:LS 180,45,0.5599757147835384
+F,tahoe_mia_paca_2,source_baseline:MIA PaCa-2,45,0.7793513210621663
+F,tahoe_nci_h1573,source_baseline:NCI-H1573,45,0.6161713285979514
+F,tahoe_nci_h1792,source_baseline:NCI-H1792,45,0.7605519993175779
+F,tahoe_nci_h2030,source_baseline:NCI-H2030,45,0.7867980693103654
+F,tahoe_nci_h2122,source_baseline:NCI-H2122,45,0.6770623188456213
+F,tahoe_nci_h23,source_baseline:NCI-H23,45,0.7553134716958013
+F,tahoe_nci_h2347,source_baseline:NCI-H2347,45,0.6905889452806689
+F,tahoe_nci_h460,source_baseline:NCI-H460,45,0.5541084747152494
+F,tahoe_nci_h596,source_baseline:NCI-H596,45,0.6593656565182908
+F,tahoe_nci_h661,source_baseline:NCI-H661,45,0.606396699021844
+F,tahoe_panc_03_27,source_baseline:Panc 03.27,45,0.6257662594916498
+F,tahoe_panc_1,source_baseline:PANC-1,45,0.7574067011835195
+F,tahoe_rko,source_baseline:RKO,45,0.7339667104014768
+F,tahoe_rpmi_7951,source_baseline:RPMI-7951,45,0.9198557759297968
+F,tahoe_shp_77,source_baseline:SHP-77,45,0.572278467363508
+F,tahoe_sk_mel_2,source_baseline:SK-MEL-2,45,0.6416428060904027
+F,tahoe_snu_1,source_baseline:SNU-1,45,0.5628561254229134
+F,tahoe_snu_423,source_baseline:SNU-423,45,0.7452597144819263
+F,tahoe_sw1417,source_baseline:SW1417,45,0.5838829218189268
+F,tahoe_sw48,source_baseline:SW48,45,0.6414839023184468
+F,tahoe_sw480,source_baseline:SW480,45,0.6524616852472299
+F,tahoe_sw_1088,source_baseline:SW 1088,45,0.7871057097302846
+F,tahoe_sw_1271,source_baseline:SW 1271,45,0.7698850133325545
+F,tahoe_sw_900,source_baseline:SW 900,45,0.7663852399448775

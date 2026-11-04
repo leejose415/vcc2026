@@ -1,0 +1,58 @@
+{
+ "EvalA": {
+  "calls_equal_hybrid_T5_bit_for_bit": true,
+  "knockdowns_on_K4": 176,
+  "knockdowns": 292,
+  "spec_input_lfc_equals_15c_K0_input": true,
+  "spec_input_mu_equals_spec_mu": true,
+  "spec_input_proxy": {
+   "full": 0.2681916461195503,
+   "half0": 0.2891887281256033,
+   "half1": 0.24705989367957962
+  },
+  "spec_mu_proxy": {
+   "full": 0.2681916461195503,
+   "half0": 0.2891887281256033,
+   "half1": 0.24705989367957962
+  },
+  "spec_input_proxy_max_abs_diff": 0.0,
+  "row4_input_proxy": {
+   "full": 0.2927977021684008,
+   "half0": 0.3145317464176791,
+   "half1": 0.27094650766938827
+  },
+  "row4_mu_proxy": {
+   "full": 0.2927977021389932,
+   "half0": 0.31453174640796827,
+   "half1": 0.27094650761998096
+  },
+  "row4_input_proxy_max_abs_diff": 4.940731157532241e-11,
+  "entries_changed": 2951504,
+  "n_sources_fixed_entries": 28364,
+  "pass": true
+ },
+ "HCT116final": {
+  "calls_equal_hybrid_T5_bit_for_bit": true,
+  "knockdowns_on_K4": 135,
+  "knockdowns": 278,
+  "spec_input_lfc_equals_15c_K0_input": true,
+  "spec_input_mu_equals_spec_mu": true,
+  "spec_input_proxy": {
+   "full": 0.360018054484589
+  },
+  "spec_mu_proxy": {
+   "full": 0.360018054484589
+  },
+  "spec_input_proxy_max_abs_diff": 0.0,
+  "row4_input_proxy": {
+   "full": 0.3651452434033531
+  },
+  "row4_mu_proxy": {
+   "full": 0.3651452434074864
+  },
+  "row4_input_proxy_max_abs_diff": 4.1333048095282265e-12,
+  "entries_changed": 2468374,
+  "n_sources_fixed_entries": 5923,
+  "pass": true
+ }
+}

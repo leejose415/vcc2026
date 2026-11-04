@@ -1,0 +1,69 @@
+{
+ "shape": [
+  360000,
+  18533
+ ],
+ "genes_match_final_list": true,
+ "obs_names_unique": true,
+ "contexts": {
+  "D": 120000,
+  "E": 120000,
+  "F": 120000
+ },
+ "per_context": {
+  "D": {
+   "cells": 120000,
+   "knockdowns": 300,
+   "cells_per_knockdown": [
+    400
+   ],
+   "targets_match_list": true,
+   "controls": 0
+  },
+  "E": {
+   "cells": 120000,
+   "knockdowns": 300,
+   "cells_per_knockdown": [
+    400
+   ],
+   "targets_match_list": true,
+   "controls": 0
+  },
+  "F": {
+   "cells": 120000,
+   "knockdowns": 300,
+   "cells_per_knockdown": [
+    400
+   ],
+   "targets_match_list": true,
+   "controls": 0
+  }
+ },
+ "calls": {
+  "D": {
+   "requested_median": 807.5,
+   "requested_mean": 751.0766666666667,
+   "realised_median": 811.0,
+   "realised_mean": 753.1566666666666,
+   "recall_median": 1.0,
+   "precision_median": 0.9983361064891848
+  },
+  "E": {
+   "requested_median": 869.5,
+   "requested_mean": 771.3066666666666,
+   "realised_median": 875.0,
+   "realised_mean": 774.48,
+   "recall_median": 1.0,
+   "precision_median": 0.9975062344139652
+  },
+  "F": {
+   "requested_median": 906.0,
+   "requested_mean": 758.8833333333333,
+   "realised_median": 913.0,
+   "realised_mean": 762.24,
+   "recall_median": 1.0,
+   "precision_median": 0.9975062344139652
+  }
+ },
+ "size_bytes": 15564189461
+}

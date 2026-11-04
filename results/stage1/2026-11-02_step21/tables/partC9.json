@@ -1,0 +1,790 @@
+{
+ "C9a": {
+  "E24w k50": {
+   "random_pairs": 0.037,
+   "complexes": {
+    "ribosome L": {
+     "members": 46,
+     "share_pairs_same_cluster": 0.6164251207729469
+    },
+    "ribosome S": {
+     "members": 31,
+     "share_pairs_same_cluster": 0.8150537634408602
+    },
+    "proteasome": {
+     "members": 29,
+     "share_pairs_same_cluster": 0.5221674876847291
+    },
+    "Mediator": {
+     "members": 28,
+     "share_pairs_same_cluster": 0.2804232804232804
+    },
+    "mitochondrial ribosome": {
+     "members": 76,
+     "share_pairs_same_cluster": 0.13964912280701755
+    },
+    "CCT": {
+     "members": 7,
+     "share_pairs_same_cluster": 1.0
+    },
+    "exosome": {
+     "members": 11,
+     "share_pairs_same_cluster": 0.509090909090909
+    },
+    "Integrator": {
+     "members": 16,
+     "share_pairs_same_cluster": 0.125
+    },
+    "BAF": {
+     "members": 9,
+     "share_pairs_same_cluster": 0.05555555555555555
+    },
+    "TFIID": {
+     "members": 13,
+     "share_pairs_same_cluster": 0.1794871794871795
+    },
+    "spliceosome": {
+     "members": 77,
+     "share_pairs_same_cluster": 0.17190704032809295
+    },
+    "NADH dehydrogenase": {
+     "members": 19,
+     "share_pairs_same_cluster": 0.14619883040935672
+    }
+   }
+  },
+  "E24w k150": {
+   "random_pairs": 0.0142,
+   "complexes": {
+    "ribosome L": {
+     "members": 46,
+     "share_pairs_same_cluster": 0.3710144927536232
+    },
+    "ribosome S": {
+     "members": 31,
+     "share_pairs_same_cluster": 0.5075268817204301
+    },
+    "proteasome": {
+     "members": 29,
+     "share_pairs_same_cluster": 0.37192118226600984
+    },
+    "Mediator": {
+     "members": 28,
+     "share_pairs_same_cluster": 0.22486772486772486
+    },
+    "mitochondrial ribosome": {
+     "members": 76,
+     "share_pairs_same_cluster": 0.0992982456140351
+    },
+    "CCT": {
+     "members": 7,
+     "share_pairs_same_cluster": 1.0
+    },
+    "exosome": {
+     "members": 11,
+     "share_pairs_same_cluster": 0.6545454545454545
+    },
+    "Integrator": {
+     "members": 16,
+     "share_pairs_same_cluster": 0.05
+    },
+    "BAF": {
+     "members": 9,
+     "share_pairs_same_cluster": 0.05555555555555555
+    },
+    "TFIID": {
+     "members": 13,
+     "share_pairs_same_cluster": 0.32051282051282054
+    },
+    "spliceosome": {
+     "members": 77,
+     "share_pairs_same_cluster": 0.07963089542036911
+    },
+    "NADH dehydrogenase": {
+     "members": 19,
+     "share_pairs_same_cluster": 0.09941520467836257
+    }
+   }
+  },
+  "E4w k50": {
+   "random_pairs": 0.03025,
+   "complexes": {
+    "ribosome L": {
+     "members": 54,
+     "share_pairs_same_cluster": 0.6331236897274634
+    },
+    "ribosome S": {
+     "members": 35,
+     "share_pairs_same_cluster": 0.7815126050420168
+    },
+    "proteasome": {
+     "members": 45,
+     "share_pairs_same_cluster": 0.47373737373737373
+    },
+    "Mediator": {
+     "members": 33,
+     "share_pairs_same_cluster": 0.4659090909090909
+    },
+    "mitochondrial ribosome": {
+     "members": 82,
+     "share_pairs_same_cluster": 0.2953929539295393
+    },
+    "CCT": {
+     "members": 9,
+     "share_pairs_same_cluster": 0.5833333333333334
+    },
+    "exosome": {
+     "members": 12,
+     "share_pairs_same_cluster": 0.24242424242424243
+    },
+    "Integrator": {
+     "members": 16,
+     "share_pairs_same_cluster": 0.09166666666666666
+    },
+    "BAF": {
+     "members": 25,
+     "share_pairs_same_cluster": 0.023333333333333334
+    },
+    "TFIID": {
+     "members": 14,
+     "share_pairs_same_cluster": 0.4065934065934066
+    },
+    "spliceosome": {
+     "members": 97,
+     "share_pairs_same_cluster": 0.3711340206185567
+    },
+    "NADH dehydrogenase": {
+     "members": 37,
+     "share_pairs_same_cluster": 0.06456456456456457
+    }
+   }
+  },
+  "E4w k150": {
+   "random_pairs": 0.0096,
+   "complexes": {
+    "ribosome L": {
+     "members": 54,
+     "share_pairs_same_cluster": 0.40391334730957373
+    },
+    "ribosome S": {
+     "members": 35,
+     "share_pairs_same_cluster": 0.7815126050420168
+    },
+    "proteasome": {
+     "members": 45,
+     "share_pairs_same_cluster": 0.4414141414141414
+    },
+    "Mediator": {
+     "members": 33,
+     "share_pairs_same_cluster": 0.35795454545454547
+    },
+    "mitochondrial ribosome": {
+     "members": 82,
+     "share_pairs_same_cluster": 0.2845528455284553
+    },
+    "CCT": {
+     "members": 9,
+     "share_pairs_same_cluster": 0.5833333333333334
+    },
+    "exosome": {
+     "members": 12,
+     "share_pairs_same_cluster": 0.5454545454545454
+    },
+    "Integrator": {
+     "members": 16,
+     "share_pairs_same_cluster": 0.08333333333333333
+    },
+    "BAF": {
+     "members": 25,
+     "share_pairs_same_cluster": 0.006666666666666667
+    },
+    "TFIID": {
+     "members": 14,
+     "share_pairs_same_cluster": 0.7252747252747253
+    },
+    "spliceosome": {
+     "members": 97,
+     "share_pairs_same_cluster": 0.1479810996563574
+    },
+    "NADH dehydrogenase": {
+     "members": 37,
+     "share_pairs_same_cluster": 0.03453453453453453
+    }
+   }
+  }
+ },
+ "C9b": {
+  "H1 E24w k50": {
+   "routes": {
+    "own": 135,
+    "STRING": 125,
+    "none": 32
+   },
+   "spearman_true_de": 0.04318145274132693,
+   "partial_given_b": 0.08468133773248868,
+   "within_b_terciles": {
+    "weak": -0.10779934153678569,
+    "mid": 0.18431903728063476,
+    "strong": 0.1552407876921756
+   },
+   "b_lt5": -0.07910947723105625,
+   "n_b_lt5": 88,
+   "b_clust_quantiles": {
+    "q10": 63.0,
+    "q25": 68.625,
+    "median": 85.73333333333333,
+    "q75": 174.1,
+    "q90": 432.16666666666663
+   }
+  },
+  "H1 E24w k150": {
+   "routes": {
+    "own": 135,
+    "STRING": 125,
+    "none": 32
+   },
+   "spearman_true_de": -0.014426406866711733,
+   "partial_given_b": 0.026205284852554838,
+   "within_b_terciles": {
+    "weak": -0.046490212844278914,
+    "mid": 0.1311071134671537,
+    "strong": 0.09486133243055797
+   },
+   "b_lt5": -0.01803077654293058,
+   "n_b_lt5": 88,
+   "b_clust_quantiles": {
+    "q10": 55.0,
+    "q25": 70.0,
+    "median": 88.88690476190476,
+    "q75": 181.02083333333334,
+    "q90": 406.66666666666663
+   }
+  },
+  "H1 E4w k50": {
+   "routes": {
+    "own": 290,
+    "STRING": 2,
+    "none": 0
+   },
+   "spearman_true_de": 0.4634558063478161,
+   "partial_given_b": 0.06882923923984781,
+   "within_b_terciles": {
+    "weak": 0.039781759110590384,
+    "mid": 0.12810745221083883,
+    "strong": -0.10983827670822269
+   },
+   "b_lt5": 0.14710030284457873,
+   "n_b_lt5": 116,
+   "b_clust_quantiles": {
+    "q10": 0.5,
+    "q25": 1.0,
+    "median": 2.0,
+    "q75": 48.5,
+    "q90": 58.03472222222225
+   }
+  },
+  "H1 E4w k150": {
+   "routes": {
+    "own": 290,
+    "STRING": 2,
+    "none": 0
+   },
+   "spearman_true_de": 0.3872729358435663,
+   "partial_given_b": -0.07525351063988382,
+   "within_b_terciles": {
+    "weak": 0.10052437527377465,
+    "mid": 0.011822457758798676,
+    "strong": -0.20355025855429457
+   },
+   "b_lt5": 0.13650036972107227,
+   "n_b_lt5": 116,
+   "b_clust_quantiles": {
+    "q10": 0.25833333333333347,
+    "q25": 1.0,
+    "median": 3.375,
+    "q75": 52.8,
+    "q90": 117.47571428571547
+   }
+  },
+  "K562 E24w k50": {
+   "routes": {
+    "own": 53,
+    "STRING": 152,
+    "none": 62
+   },
+   "spearman_true_de": -0.07320297734381304,
+   "partial_given_b": 0.05681656918396091,
+   "within_b_terciles": {
+    "weak": 0.09364463621405297,
+    "mid": 0.001985434057193471,
+    "strong": 0.08008630021558774
+   },
+   "b_lt5": 0.09223270998715873,
+   "n_b_lt5": 109,
+   "b_clust_quantiles": {
+    "q10": 96.5,
+    "q25": 99.5,
+    "median": 119.0,
+    "q75": 259.41666666666663,
+    "q90": 772.4166666666667
+   }
+  },
+  "K562 E24w k150": {
+   "routes": {
+    "own": 53,
+    "STRING": 152,
+    "none": 62
+   },
+   "spearman_true_de": -0.06519069211405942,
+   "partial_given_b": 0.07714328032133866,
+   "within_b_terciles": {
+    "weak": -0.09145719864087382,
+    "mid": 0.38095033147392393,
+    "strong": 0.03391953912126519
+   },
+   "b_lt5": 0.06878527107372097,
+   "n_b_lt5": 109,
+   "b_clust_quantiles": {
+    "q10": 74.0,
+    "q25": 100.5,
+    "median": 149.0,
+    "q75": 381.0,
+    "q90": 870.6833333333332
+   }
+  },
+  "K562 E4w k50": {
+   "routes": {
+    "own": 261,
+    "STRING": 6,
+    "none": 0
+   },
+   "spearman_true_de": 0.15860352729039257,
+   "partial_given_b": 0.03326014603180942,
+   "within_b_terciles": {
+    "weak": 0.122277647155308,
+    "mid": 0.026119405675356512,
+    "strong": 0.012081729970790434
+   },
+   "b_lt5": 0.09203969450412862,
+   "n_b_lt5": 155,
+   "b_clust_quantiles": {
+    "q10": 1.0,
+    "q25": 1.0,
+    "median": 3.0,
+    "q75": 29.666666666666668,
+    "q90": 91.86666666666672
+   }
+  },
+  "K562 E4w k150": {
+   "routes": {
+    "own": 261,
+    "STRING": 6,
+    "none": 0
+   },
+   "spearman_true_de": 0.11653680906449809,
+   "partial_given_b": -0.05611188973091463,
+   "within_b_terciles": {
+    "weak": 0.028232036592569187,
+    "mid": -0.020804798742823104,
+    "strong": -0.14884045809113738
+   },
+   "b_lt5": 0.035923751068522664,
+   "n_b_lt5": 155,
+   "b_clust_quantiles": {
+    "q10": 0.7333333333333334,
+    "q25": 1.0,
+    "median": 2.5,
+    "q75": 55.0,
+    "q90": 96.96666666666668
+   }
+  },
+  "HCT116 E24w k50": {
+   "routes": {
+    "own": 52,
+    "STRING": 153,
+    "none": 73
+   },
+   "spearman_true_de": -0.19292448639338092,
+   "partial_given_b": -0.03127302797912142,
+   "within_b_terciles": {
+    "weak": 0.0076160553110343745,
+    "mid": -0.11810583845123522,
+    "strong": -0.03914748576336013
+   },
+   "b_lt5": -0.025462389162664904,
+   "n_b_lt5": 92,
+   "b_clust_quantiles": {
+    "q10": 70.5,
+    "q25": 79.0,
+    "median": 99.66666666666667,
+    "q75": 305.07142857142856,
+    "q90": 646.8124999999998
+   }
+  },
+  "HCT116 E24w k150": {
+   "routes": {
+    "own": 52,
+    "STRING": 153,
+    "none": 73
+   },
+   "spearman_true_de": -0.09777281943583888,
+   "partial_given_b": -0.016855795982980006,
+   "within_b_terciles": {
+    "weak": 0.004911270339838786,
+    "mid": -0.024567678752596186,
+    "strong": -0.022633526324946484
+   },
+   "b_lt5": 0.031241194788654524,
+   "n_b_lt5": 92,
+   "b_clust_quantiles": {
+    "q10": 51.1,
+    "q25": 66.3,
+    "median": 93.0,
+    "q75": 297.0,
+    "q90": 578.75
+   }
+  },
+  "HCT116 E4w k50": {
+   "routes": {
+    "own": 257,
+    "STRING": 13,
+    "none": 8
+   },
+   "spearman_true_de": 0.2278702678222922,
+   "partial_given_b": 0.021007797523516433,
+   "within_b_terciles": {
+    "weak": 0.026456008478331204,
+    "mid": 0.0987417572943594,
+    "strong": -0.03899158471950978
+   },
+   "b_lt5": -0.039970024045987554,
+   "n_b_lt5": 135,
+   "b_clust_quantiles": {
+    "q10": 0.0,
+    "q25": 1.0,
+    "median": 1.0,
+    "q75": 42.125,
+    "q90": 65.75
+   }
+  },
+  "HCT116 E4w k150": {
+   "routes": {
+    "own": 257,
+    "STRING": 13,
+    "none": 8
+   },
+   "spearman_true_de": 0.20631550725984443,
+   "partial_given_b": -0.03570415597097267,
+   "within_b_terciles": {
+    "weak": -0.08936868321480036,
+    "mid": 0.06703042988906913,
+    "strong": -0.14653105913285025
+   },
+   "b_lt5": -0.056989245674831567,
+   "n_b_lt5": 135,
+   "b_clust_quantiles": {
+    "q10": 0.0,
+    "q25": 0.25,
+    "median": 1.0,
+    "q75": 42.15507518796992,
+    "q90": 71.05
+   }
+  },
+  "HEK293T E24w k50": {
+   "routes": {
+    "own": 51,
+    "STRING": 152,
+    "none": 68
+   },
+   "spearman_true_de": -0.14111247205324978,
+   "partial_given_b": -0.026357401692391057,
+   "within_b_terciles": {
+    "weak": -0.16865267302853226,
+    "mid": -0.12541485805303756,
+    "strong": 0.09264450308111145
+   },
+   "b_lt5": -0.11510500169347705,
+   "n_b_lt5": 95,
+   "b_clust_quantiles": {
+    "q10": 70.5,
+    "q25": 75.66666666666667,
+    "median": 99.66666666666667,
+    "q75": 254.75,
+    "q90": 624.875
+   }
+  },
+  "HEK293T E24w k150": {
+   "routes": {
+    "own": 51,
+    "STRING": 152,
+    "none": 68
+   },
+   "spearman_true_de": -0.022337483423978136,
+   "partial_given_b": 0.04508200383340472,
+   "within_b_terciles": {
+    "weak": 0.05716029168223544,
+    "mid": -0.08518177944470265,
+    "strong": 0.14815104907271576
+   },
+   "b_lt5": 0.05280416982553495,
+   "n_b_lt5": 95,
+   "b_clust_quantiles": {
+    "q10": 50.68,
+    "q25": 65.25,
+    "median": 93.0,
+    "q75": 279.4166666666667,
+    "q90": 578.75
+   }
+  },
+  "HEK293T E4w k50": {
+   "routes": {
+    "own": 250,
+    "STRING": 13,
+    "none": 8
+   },
+   "spearman_true_de": 0.12841093050677096,
+   "partial_given_b": -0.08352562128711241,
+   "within_b_terciles": {
+    "weak": -0.06984038768268379,
+    "mid": 0.10285615217757964,
+    "strong": -0.20436933717681569
+   },
+   "b_lt5": -0.019681179702526166,
+   "n_b_lt5": 133,
+   "b_clust_quantiles": {
+    "q10": 0.0,
+    "q25": 1.0,
+    "median": 1.0,
+    "q75": 43.0,
+    "q90": 65.10000000000001
+   }
+  },
+  "HEK293T E4w k150": {
+   "routes": {
+    "own": 250,
+    "STRING": 13,
+    "none": 8
+   },
+   "spearman_true_de": 0.08156274265230078,
+   "partial_given_b": -0.15265077416060352,
+   "within_b_terciles": {
+    "weak": -0.23402918609153492,
+    "mid": 0.010377811533242683,
+    "strong": -0.27578983196646634
+   },
+   "b_lt5": -0.15194197776384377,
+   "n_b_lt5": 133,
+   "b_clust_quantiles": {
+    "q10": 0.0,
+    "q25": 0.5,
+    "median": 1.0,
+    "q75": 41.389097744360896,
+    "q90": 70.26666666666671
+   }
+  },
+  "HCT116s E24w k50": {
+   "routes": {
+    "own": 65,
+    "STRING": 142,
+    "none": 71
+   },
+   "spearman_true_de": -0.12202678435213589,
+   "partial_given_b": 0.054640135232999314,
+   "within_b_terciles": {
+    "weak": 0.13045947552427184,
+    "mid": -0.12655930771484256,
+    "strong": 0.10692377125212131
+   },
+   "b_lt5": 0.08929434998494741,
+   "n_b_lt5": 92,
+   "b_clust_quantiles": {
+    "q10": 72.5,
+    "q25": 72.75,
+    "median": 94.55,
+    "q75": 240.81666666666666,
+    "q90": 559.171428571429
+   }
+  },
+  "HCT116s E24w k150": {
+   "routes": {
+    "own": 65,
+    "STRING": 142,
+    "none": 71
+   },
+   "spearman_true_de": -0.2346649639710081,
+   "partial_given_b": -0.04214576660915178,
+   "within_b_terciles": {
+    "weak": -0.2065501773902284,
+    "mid": -0.06813424312947484,
+    "strong": 0.07961031701565174
+   },
+   "b_lt5": -0.20258291177292356,
+   "n_b_lt5": 92,
+   "b_clust_quantiles": {
+    "q10": 65.75,
+    "q25": 76.0,
+    "median": 114.66666666666667,
+    "q75": 253.94868421052632,
+    "q90": 583.7233333333337
+   }
+  },
+  "HCT116s E4w k50": {
+   "routes": {
+    "own": 277,
+    "STRING": 1,
+    "none": 0
+   },
+   "spearman_true_de": 0.11954122359760962,
+   "partial_given_b": -0.11276067329072195,
+   "within_b_terciles": {
+    "weak": -0.17005049538144407,
+    "mid": -0.01099070935571164,
+    "strong": -0.1638456076754474
+   },
+   "b_lt5": -0.08702156580262066,
+   "n_b_lt5": 143,
+   "b_clust_quantiles": {
+    "q10": 0.5,
+    "q25": 1.0,
+    "median": 1.0,
+    "q75": 5.0,
+    "q90": 60.0
+   }
+  },
+  "HCT116s E4w k150": {
+   "routes": {
+    "own": 277,
+    "STRING": 1,
+    "none": 0
+   },
+   "spearman_true_de": 0.21197706101890357,
+   "partial_given_b": -0.03828019757826796,
+   "within_b_terciles": {
+    "weak": -0.0400404804670093,
+    "mid": -0.03775335732249052,
+    "strong": -0.044061822531526705
+   },
+   "b_lt5": -0.04971843992986384,
+   "n_b_lt5": 143,
+   "b_clust_quantiles": {
+    "q10": 0.0,
+    "q25": 0.5,
+    "median": 1.0,
+    "q75": 7.5,
+    "q90": 61.0
+   }
+  },
+  "DEF E24w k50": {
+   "routes": {
+    "own": 70,
+    "STRING": 156,
+    "none": 74
+   },
+   "b_clust_quantiles": {
+    "q10": 69.5,
+    "q25": 75.54166666666666,
+    "median": 89.8,
+    "q75": 301.5666208791209,
+    "q90": 583.25
+   }
+  },
+  "DEF E24w k150": {
+   "routes": {
+    "own": 70,
+    "STRING": 156,
+    "none": 74
+   },
+   "b_clust_quantiles": {
+    "q10": 65.0,
+    "q25": 81.0,
+    "median": 97.925,
+    "q75": 296.8,
+    "q90": 682.75
+   }
+  },
+  "DEF E4w k50": {
+   "routes": {
+    "own": 298,
+    "STRING": 2,
+    "none": 0
+   },
+   "b_clust_quantiles": {
+    "q10": 0.20000000000000046,
+    "q25": 1.0,
+    "median": 1.0,
+    "q75": 9.633333333333333,
+    "q90": 62.5
+   }
+  },
+  "DEF E4w k150": {
+   "routes": {
+    "own": 298,
+    "STRING": 2,
+    "none": 0
+   },
+   "b_clust_quantiles": {
+    "q10": 0.0,
+    "q25": 0.9583333333333333,
+    "median": 1.0,
+    "q75": 6.9375,
+    "q90": 61.75
+   }
+  }
+ },
+ "embeddings": {
+  "E24w full": {
+   "targets": 3080,
+   "basis": "full",
+   "dropped": []
+  },
+  "E24w K562": {
+   "targets": 2816,
+   "basis": "K562",
+   "dropped": [
+    "K562"
+   ]
+  },
+  "E24w Orion": {
+   "targets": 3058,
+   "basis": "Orion",
+   "dropped": [
+    "HCT116",
+    "HEK293T"
+   ]
+  },
+  "E24w HCT116": {
+   "targets": 3077,
+   "basis": "full",
+   "dropped": [
+    "HCT116"
+   ]
+  },
+  "E4w full": {
+   "targets": 18257,
+   "basis": "full",
+   "dropped": []
+  },
+  "E4w K562": {
+   "targets": 17759,
+   "basis": "K562",
+   "dropped": [
+    "K562"
+   ]
+  },
+  "E4w Orion": {
+   "targets": 10122,
+   "basis": "Orion",
+   "dropped": [
+    "HCT116",
+    "HEK293T"
+   ]
+  },
+  "E4w HCT116": {
+   "targets": 17833,
+   "basis": "full",
+   "dropped": [
+    "HCT116"
+   ]
+  }
+ }
+}

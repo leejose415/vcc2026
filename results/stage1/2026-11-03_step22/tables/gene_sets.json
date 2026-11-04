@@ -1,0 +1,205 @@
+{
+ "hallmark_file": "/home/mooneysad/vcc/lib/downloads/step22_2026-11-03/MSigDB_Hallmark_2020.json",
+ "hallmark_md5": "b60c7abce6b0a9e61e8f9f68ce760105",
+ "hallmark_terms": 50,
+ "cc_file": "/home/mooneysad/vcc/lib/downloads/step22_2026-11-03/cc.genes.rda",
+ "cc_md5": "e84661f995a9f29d1a09ebcdc27d3a82",
+ "cc_url": "https://raw.githubusercontent.com/satijalab/seurat/master/data/cc.genes.rda",
+ "cc_S": 43,
+ "cc_G2M": 54,
+ "gene_set_matching": {
+  "cc S (Tirosh 2016)": {
+   "set_size": 43,
+   "matched_direct": 42,
+   "matched_after_hgnc_mapping": 43,
+   "used": "mapped",
+   "renamed": {
+    "MLF1IP": "CENPU"
+   },
+   "unmatched": []
+  },
+  "cc G2M (Tirosh 2016)": {
+   "set_size": 54,
+   "matched_direct": 52,
+   "matched_after_hgnc_mapping": 54,
+   "used": "mapped",
+   "renamed": {
+    "FAM64A": "PIMREG",
+    "HN1": "JPT1"
+   },
+   "unmatched": []
+  },
+  "E2F_TARGETS": {
+   "set_size": 200,
+   "matched_direct": 193,
+   "matched_after_hgnc_mapping": 193,
+   "used": "direct",
+   "renamed": {},
+   "unmatched": [
+    "AK2",
+    "H2AX",
+    "H2AZ1",
+    "IPO7",
+    "NAP1L1",
+    "RAN",
+    "RANBP1"
+   ]
+  },
+  "G2M_CHECKPOINT": {
+   "set_size": 200,
+   "matched_direct": 192,
+   "matched_after_hgnc_mapping": 192,
+   "used": "direct",
+   "renamed": {},
+   "unmatched": [
+    "G3BP1",
+    "H2AX",
+    "H2AZ1",
+    "H2AZ2",
+    "H2BC12",
+    "HMGN2",
+    "PTTG3P",
+    "RPS6KA5"
+   ]
+  },
+  "P53_PATHWAY": {
+   "set_size": 200,
+   "matched_direct": 191,
+   "matched_after_hgnc_mapping": 191,
+   "used": "direct",
+   "renamed": {},
+   "unmatched": [
+    "H1-2",
+    "H2AJ",
+    "H2AW",
+    "IRAG2",
+    "PVT1",
+    "RPL18",
+    "RPL36",
+    "RPS12",
+    "RPS27L"
+   ]
+  },
+  "UNFOLDED_PROTEIN_RESPONSE": {
+   "set_size": 113,
+   "matched_direct": 107,
+   "matched_after_hgnc_mapping": 107,
+   "used": "direct",
+   "renamed": {},
+   "unmatched": [
+    "ASNS",
+    "H2AX",
+    "IARS1",
+    "NPM1",
+    "RPS14",
+    "TARS1"
+   ]
+  },
+  "CHOLESTEROL_HOMEOSTASIS": {
+   "set_size": 74,
+   "matched_direct": 74,
+   "matched_after_hgnc_mapping": 74,
+   "used": "direct",
+   "renamed": {},
+   "unmatched": []
+  },
+  "MTORC1_SIGNALING": {
+   "set_size": 200,
+   "matched_direct": 189,
+   "matched_after_hgnc_mapping": 189,
+   "used": "direct",
+   "renamed": {},
+   "unmatched": [
+    "ALDOA",
+    "ASNS",
+    "CACYBP",
+    "EPRS1",
+    "GAPDH",
+    "LDHA",
+    "PDAP1",
+    "PFKL",
+    "TCEA1",
+    "TPI1",
+    "WARS1"
+   ]
+  },
+  "MYC_TARGETS_V1": {
+   "set_size": 200,
+   "matched_direct": 169,
+   "matched_after_hgnc_mapping": 169,
+   "used": "direct",
+   "renamed": {},
+   "unmatched": [
+    "CCT7",
+    "COX5A",
+    "EPRS1",
+    "G3BP1",
+    "H2AZ1",
+    "HNRNPA1",
+    "IARS1",
+    "KARS1",
+    "LDHA",
+    "MRPL23",
+    "MRPL9",
+    "MRPS18B",
+    "NAP1L1",
+    "NPM1",
+    "PABPC1",
+    "PSMA6",
+    "RAN",
+    "RANBP1",
+    "RPL14",
+    "RPL18",
+    "RPL22",
+    "RPL34",
+    "RPL6",
+    "RPLP0",
+    "RPS10",
+    "RPS2",
+    "RPS3",
+    "RPS5",
+    "RPS6",
+    "SSB",
+    "U2AF1"
+   ]
+  },
+  "INTERFERON_ALPHA_RESPONSE": {
+   "set_size": 97,
+   "matched_direct": 95,
+   "matched_after_hgnc_mapping": 95,
+   "used": "direct",
+   "renamed": {},
+   "unmatched": [
+    "HLA-C",
+    "WARS1"
+   ]
+  },
+  "TNFA_SIGNALING_VIA_NFKB": {
+   "set_size": 200,
+   "matched_direct": 198,
+   "matched_after_hgnc_mapping": 198,
+   "used": "direct",
+   "renamed": {},
+   "unmatched": [
+    "ICOSLG",
+    "SIK1"
+   ]
+  },
+  "HYPOXIA": {
+   "set_size": 200,
+   "matched_direct": 195,
+   "matched_after_hgnc_mapping": 195,
+   "used": "direct",
+   "renamed": {},
+   "unmatched": [
+    "ALDOA",
+    "GAPDH",
+    "LDHA",
+    "PFKL",
+    "TPI1"
+   ]
+  }
+ },
+ "gseapy_imported_in_this_process": false,
+ "pylib_gseapy_on_sys_path": false
+}

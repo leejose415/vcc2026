@@ -1,0 +1,181 @@
+{
+ "check1": {
+  "H1": {
+   "got": {
+    "full": 0.2928,
+    "half0": 0.3145,
+    "half1": 0.2709
+   },
+   "step21_partA": {
+    "full": 0.2927977021389932,
+    "half0": 0.3145317464079682,
+    "half1": 0.2709465076199809
+   },
+   "max_abs_diff": 5.551115123125783e-17,
+   "prompt": 0.2928,
+   "seconds": 2.560696601867676
+  },
+  "K562": {
+   "got": {
+    "full": 0.1532
+   },
+   "step21_partA": {
+    "full": 0.1532136705589412
+   },
+   "max_abs_diff": 0.0,
+   "prompt": 0.1532,
+   "seconds": 1.7466514110565186
+  },
+  "HCT116": {
+   "got": {
+    "full": 0.3153
+   },
+   "step21_partA": {
+    "full": 0.3153439178189919
+   },
+   "max_abs_diff": 0.0,
+   "prompt": 0.3153,
+   "seconds": 2.1614906787872314
+  },
+  "HEK293T": {
+   "got": {
+    "full": 0.1695
+   },
+   "step21_partA": {
+    "full": 0.1695386449541063
+   },
+   "max_abs_diff": 8.326672684688674e-17,
+   "prompt": 0.1695,
+   "seconds": 2.147646903991699
+  },
+  "HCT116s": {
+   "got": {
+    "full": 0.3651
+   },
+   "step21_partA": {
+    "full": 0.3651452434074864
+   },
+   "max_abs_diff": 0.0,
+   "prompt": 0.3651,
+   "seconds": 2.066174030303955
+  }
+ },
+ "controls": {
+  "H1": {
+   "path": "/home/mooneysad/vcc/lib/harness/evalA/context.h5ad",
+   "present": true,
+   "control_cells": 18400,
+   "labels": {
+    "non-targeting": 18400
+   },
+   "genes_in_file": 18533,
+   "median_umi_per_cell": 20001.0,
+   "median_panel_umi_per_cell": 20001.0,
+   "dtype": "int32",
+   "raw_integer_counts": true,
+   "max_count": 697.0,
+   "gated_genes": 10778,
+   "gate_equals_line_gate": true
+  },
+  "K562": {
+   "path": "/home/mooneysad/vcc/results/stage1/final_evals/harness/lib/evalK562final/context.h5ad",
+   "present": true,
+   "control_cells": 18400,
+   "labels": {
+    "non-targeting": 18400
+   },
+   "genes_in_file": 18533,
+   "median_umi_per_cell": 7915.0,
+   "median_panel_umi_per_cell": 7915.0,
+   "dtype": "int32",
+   "raw_integer_counts": true,
+   "max_count": 1375.0,
+   "gated_genes": 7681,
+   "gate_equals_line_gate": true
+  },
+  "HCT116": {
+   "path": "/home/mooneysad/vcc/results/stage1/final_evals/harness/lib/evalHCT116final/context.h5ad",
+   "present": true,
+   "control_cells": 9940,
+   "labels": {
+    "non-targeting": 9940
+   },
+   "genes_in_file": 18533,
+   "median_umi_per_cell": 12133.0,
+   "median_panel_umi_per_cell": 12133.0,
+   "dtype": "int32",
+   "raw_integer_counts": true,
+   "max_count": 1700.0,
+   "gated_genes": 10326,
+   "gate_equals_line_gate": true
+  },
+  "HEK293T": {
+   "path": "/home/mooneysad/vcc/results/stage1/final_evals/harness/lib/evalHEK293Tfinal/context.h5ad",
+   "present": true,
+   "control_cells": 9942,
+   "labels": {
+    "non-targeting": 9942
+   },
+   "genes_in_file": 18533,
+   "median_umi_per_cell": 15170.5,
+   "median_panel_umi_per_cell": 15170.5,
+   "dtype": "int32",
+   "raw_integer_counts": true,
+   "max_count": 1989.0,
+   "gated_genes": 11066,
+   "gate_equals_line_gate": true
+  },
+  "D": {
+   "path": "/home/mooneysad/vcc/data_final/extracted/context_D.h5ad",
+   "present": true,
+   "control_cells": 18400,
+   "labels": {
+    "non-targeting": 18400
+   },
+   "genes_in_file": 18533,
+   "median_umi_per_cell": 20235.5,
+   "median_panel_umi_per_cell": 20235.5,
+   "dtype": "float32",
+   "raw_integer_counts": true,
+   "max_count": 3956.0,
+   "gated_genes": 9633,
+   "gate_equals_line_gate": true
+  },
+  "E": {
+   "path": "/home/mooneysad/vcc/data_final/extracted/context_E.h5ad",
+   "present": true,
+   "control_cells": 18400,
+   "labels": {
+    "non-targeting": 18400
+   },
+   "genes_in_file": 18533,
+   "median_umi_per_cell": 19681.0,
+   "median_panel_umi_per_cell": 19681.0,
+   "dtype": "float32",
+   "raw_integer_counts": true,
+   "max_count": 4104.0,
+   "gated_genes": 9743,
+   "gate_equals_line_gate": true
+  },
+  "F": {
+   "path": "/home/mooneysad/vcc/data_final/extracted/context_F.h5ad",
+   "present": true,
+   "control_cells": 18400,
+   "labels": {
+    "non-targeting": 18400
+   },
+   "genes_in_file": 18533,
+   "median_umi_per_cell": 19845.0,
+   "median_panel_umi_per_cell": 19845.0,
+   "dtype": "float32",
+   "raw_integer_counts": true,
+   "max_count": 3692.0,
+   "gated_genes": 9537,
+   "gate_equals_line_gate": true
+  }
+ },
+ "HCT116final_uses": "HCT116 (the same context.h5ad: evalHCT116final)",
+ "gate_HCT116s_equals_HCT116": true,
+ "lines_without_raw_controls": [],
+ "pass": true
+}

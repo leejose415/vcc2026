@@ -1,0 +1,145 @@
+arm,fit_half,part,raw,scaled,unclamped
+uploaded (no correction),0,all,0.8628157694615342,0.10831613929410355,0.10831613929410355
+uploaded (no correction),0,weak,0.17598323152194237,0.8226795460719373,0.8226795460719373
+uploaded (no correction),0,mid,1.0000403377471458,0.0,-0.03440891329032834
+uploaded (no correction),0,strong,0.8565247071615438,0.11485937137561564,0.11485937137561561
+"tercile-mean shift (mid, strong), assigned by true tercile",0,all,0.7680979367932603,0.20683062410651643,0.2068306241065164
+"tercile-mean shift (mid, strong), assigned by true tercile",0,weak,-0.729522630712335,1.0,1.7644815383646653
+"tercile-mean shift (mid, strong), assigned by true tercile",0,mid,0.8525740279891995,0.11896840884362558,0.11896840884362557
+"tercile-mean shift (mid, strong), assigned by true tercile",0,strong,0.7785930149014695,0.19591486322210827,0.19591486322210827
+"tercile-mean shift (mid, strong), assigned by (b) tercile",0,all,0.8065606615255403,0.16682616660638827,0.16682616660638824
+"tercile-mean shift (mid, strong), assigned by (b) tercile",0,weak,0.005287888467321893,1.0,1.0002170097911276
+"tercile-mean shift (mid, strong), assigned by (b) tercile",0,mid,0.9966664760245018,0.0,-0.030899814316340386
+"tercile-mean shift (mid, strong), assigned by (b) tercile",0,strong,0.7958368679796118,0.17797981071595914,0.1779798107159592
+"own residual PCs K1, oracle coefficients (mid, strong)",0,all,0.7455808463873052,0.23025028541344383,0.2302502854134438
+"own residual PCs K1, oracle coefficients (mid, strong)",0,weak,-0.729522630712335,1.0,1.7644815383646653
+"own residual PCs K1, oracle coefficients (mid, strong)",0,mid,0.8284659208325637,0.1440428609233757,0.14404286092337565
+"own residual PCs K1, oracle coefficients (mid, strong)",0,strong,0.7559543109071437,0.21946101285406394,0.21946101285406397
+"own residual PCs K1, fit-half mean coefficient per tercile, by true tercile",0,all,0.8108598514214418,0.16235464877522343,0.1623546487752235
+"own residual PCs K1, fit-half mean coefficient per tercile, by true tercile",0,weak,-0.25882268788719615,1.0,1.2749141458013973
+"own residual PCs K1, fit-half mean coefficient per tercile, by true tercile",0,mid,0.9281437387030955,0.040369575776194266,0.040369575776194266
+"own residual PCs K1, fit-half mean coefficient per tercile, by true tercile",0,strong,0.811935084900887,0.1612363158351996,0.16123631583519962
+"own residual PCs K1, fit-half mean coefficient per tercile, by (b) tercile",0,all,0.8379756200013028,0.13415197672619994,0.13415197672619994
+"own residual PCs K1, fit-half mean coefficient per tercile, by (b) tercile",0,weak,0.08570775885255456,0.9165736041461852,0.9165736041461852
+"own residual PCs K1, fit-half mean coefficient per tercile, by (b) tercile",0,mid,1.0064389461798335,0.0,-0.04106400236389546
+"own residual PCs K1, fit-half mean coefficient per tercile, by (b) tercile",0,strong,0.8290370045647959,0.14344888597609573,0.1434488859760957
+"own residual PCs K2, oracle coefficients (mid, strong)",0,all,0.6870381883237187,0.2911395565909425,0.29113955659094254
+"own residual PCs K2, oracle coefficients (mid, strong)",0,weak,-0.729522630712335,1.0,1.7644815383646653
+"own residual PCs K2, oracle coefficients (mid, strong)",0,mid,0.7881860962322549,0.18593725458767374,0.18593725458767368
+"own residual PCs K2, oracle coefficients (mid, strong)",0,strong,0.6945698559910994,0.28330599094519004,0.28330599094519
+"own residual PCs K2, fit-half mean coefficient per tercile, by true tercile",0,all,0.777583251934013,0.1969651013422099,0.1969651013422099
+"own residual PCs K2, fit-half mean coefficient per tercile, by true tercile",0,weak,-0.5675939185603744,1.0,1.596062105565173
+"own residual PCs K2, fit-half mean coefficient per tercile, by true tercile",0,mid,0.884104039795666,0.08617455385623451,0.0861745538562345
+"own residual PCs K2, fit-half mean coefficient per tercile, by true tercile",0,strong,0.7835548561254544,0.19075413246918016,0.1907541324691801
+"own residual PCs K2, fit-half mean coefficient per tercile, by (b) tercile",0,all,0.8173689902093176,0.1555845988680863,0.1555845988680863
+"own residual PCs K2, fit-half mean coefficient per tercile, by (b) tercile",0,weak,0.059519144907781985,0.9438119576646415,0.9438119576646415
+"own residual PCs K2, fit-half mean coefficient per tercile, by (b) tercile",0,mid,1.0316852125200027,0.0,-0.06732223539008035
+"own residual PCs K2, fit-half mean coefficient per tercile, by (b) tercile",0,strong,0.8033349078115809,0.17018122083757403,0.170181220837574
+"own residual PCs K5, oracle coefficients (mid, strong)",0,all,0.5629519364209157,0.4201996589406293,0.4201996589406292
+"own residual PCs K5, oracle coefficients (mid, strong)",0,weak,-0.729522630712335,1.0,1.7644815383646653
+"own residual PCs K5, oracle coefficients (mid, strong)",0,mid,0.6432311754196557,0.33670252172475124,0.3367025217247512
+"own residual PCs K5, oracle coefficients (mid, strong)",0,strong,0.5711778496435798,0.41164401972873454,0.4116440197287345
+"own residual PCs K5, fit-half mean coefficient per tercile, by true tercile",0,all,0.7709891707434071,0.20382349846768966,0.20382349846768966
+"own residual PCs K5, fit-half mean coefficient per tercile, by true tercile",0,weak,-0.6579867499713957,1.0,1.6900782265672196
+"own residual PCs K5, fit-half mean coefficient per tercile, by true tercile",0,mid,0.8510218550609935,0.12058279878535405,0.12058279878535409
+"own residual PCs K5, fit-half mean coefficient per tercile, by true tercile",0,strong,0.7810676233968391,0.1933410629759862,0.19334106297598613
+"own residual PCs K5, fit-half mean coefficient per tercile, by (b) tercile",0,all,0.8101195824889762,0.16312459051111494,0.1631245905111149
+"own residual PCs K5, fit-half mean coefficient per tercile, by (b) tercile",0,weak,0.05180012041443573,0.9518403901128337,0.9518403901128337
+"own residual PCs K5, fit-half mean coefficient per tercile, by (b) tercile",0,mid,1.0029480696828061,0.0,-0.037433198216878634
+"own residual PCs K5, fit-half mean coefficient per tercile, by (b) tercile",0,strong,0.7985146008410063,0.1751947441041689,0.17519474410416894
+"own residual PCs K10, oracle coefficients (mid, strong)",0,all,0.4959943338671321,0.48984117769203694,0.4898411776920369
+"own residual PCs K10, oracle coefficients (mid, strong)",0,weak,-0.729522630712335,1.0,1.7644815383646653
+"own residual PCs K10, oracle coefficients (mid, strong)",0,mid,0.5932287251041233,0.38870926104114734,0.38870926104114734
+"own residual PCs K10, oracle coefficients (mid, strong)",0,strong,0.5014134058910785,0.48420488858404875,0.4842048885840487
+"own residual PCs K10, fit-half mean coefficient per tercile, by true tercile",0,all,0.7668754191644752,0.20810214490657164,0.2081021449065716
+"own residual PCs K10, fit-half mean coefficient per tercile, by true tercile",0,weak,-0.6980919222849826,1.0,1.731790967214731
+"own residual PCs K10, fit-half mean coefficient per tercile, by true tercile",0,mid,0.8446655009082887,0.12719393986616867,0.1271939398661687
+"own residual PCs K10, fit-half mean coefficient per tercile, by true tercile",0,strong,0.7776878642016445,0.19685629581572717,0.1968562958157272
+"own residual PCs K10, fit-half mean coefficient per tercile, by (b) tercile",0,all,0.8060758275756273,0.16733043455097396,0.16733043455097393
+"own residual PCs K10, fit-half mean coefficient per tercile, by (b) tercile",0,weak,0.03639074236337795,0.9678674348330846,0.9678674348330846
+"own residual PCs K10, fit-half mean coefficient per tercile, by (b) tercile",0,mid,0.9954305699828873,0.0,-0.029614368444784003
+"own residual PCs K10, fit-half mean coefficient per tercile, by (b) tercile",0,strong,0.7950144584819063,0.17883518552436561,0.1788351855243656
+"own residual PCs K20, oracle coefficients (mid, strong)",0,all,0.4481292677948422,0.5396248582491955,0.5396248582491955
+"own residual PCs K20, oracle coefficients (mid, strong)",0,weak,-0.729522630712335,1.0,1.7644815383646653
+"own residual PCs K20, oracle coefficients (mid, strong)",0,mid,0.5230715398019649,0.4616786140259962,0.46167861402599614
+"own residual PCs K20, oracle coefficients (mid, strong)",0,strong,0.45542200362687074,0.5320398017384381,0.532039801738438
+"own residual PCs K20, fit-half mean coefficient per tercile, by true tercile",0,all,0.7662237174107586,0.20877996935324783,0.2087799693532478
+"own residual PCs K20, fit-half mean coefficient per tercile, by true tercile",0,weak,-0.7154351994762836,1.0,1.7498294291318621
+"own residual PCs K20, fit-half mean coefficient per tercile, by true tercile",0,mid,0.8403377903374636,0.13169512158973318,0.13169512158973318
+"own residual PCs K20, fit-half mean coefficient per tercile, by true tercile",0,strong,0.7776737779478599,0.1968709467003118,0.19687094670031183
+"own residual PCs K20, fit-half mean coefficient per tercile, by (b) tercile",0,all,0.8057755696328363,0.16764272797779356,0.1676427279777935
+"own residual PCs K20, fit-half mean coefficient per tercile, by (b) tercile",0,weak,0.022997170059428713,0.9817978726202587,0.9817978726202587
+"own residual PCs K20, fit-half mean coefficient per tercile, by (b) tercile",0,mid,0.9915470435362488,0.0,-0.02557517543995802
+"own residual PCs K20, fit-half mean coefficient per tercile, by (b) tercile",0,strong,0.7952932579461163,0.1785452107138269,0.1785452107138269
+uploaded (no correction),1,all,0.8284150393160286,0.14409578196523987,0.14409578196523992
+uploaded (no correction),1,weak,-0.08958326194928325,1.0,1.098890957912233
+uploaded (no correction),1,mid,0.805146834923964,0.16829666477283356,0.1682966647728336
+uploaded (no correction),1,strong,0.8444046251619806,0.12746527250780137,0.12746527250780137
+"tercile-mean shift (mid, strong), assigned by true tercile",1,all,0.7468693698178454,0.22891011304724362,0.22891011304724365
+"tercile-mean shift (mid, strong), assigned by true tercile",1,weak,-0.8888080588036338,1.0,1.930151734192478
+"tercile-mean shift (mid, strong), assigned by true tercile",1,mid,0.6496274475198313,0.3300498626328179,0.33004986263281794
+"tercile-mean shift (mid, strong), assigned by true tercile",1,strong,0.7813928214335282,0.19300282976114225,0.1930028297611423
+"tercile-mean shift (mid, strong), assigned by (b) tercile",1,all,0.7763816632413776,0.19821485429449692,0.19821485429449687
+"tercile-mean shift (mid, strong), assigned by (b) tercile",1,weak,-0.16765466867143408,1.0,1.1800917645095448
+"tercile-mean shift (mid, strong), assigned by (b) tercile",1,mid,0.7805397850189049,0.19389005913015833,0.1938900591301584
+"tercile-mean shift (mid, strong), assigned by (b) tercile",1,strong,0.7897869955656064,0.1842721851005581,0.18427218510055815
+"own residual PCs K1, oracle coefficients (mid, strong)",1,all,0.7069652496229742,0.27041374263997486,0.2704137426399748
+"own residual PCs K1, oracle coefficients (mid, strong)",1,weak,-0.8888080588036338,1.0,1.930151734192478
+"own residual PCs K1, oracle coefficients (mid, strong)",1,mid,0.6322877507134812,0.3480846006495081,0.3480846006495081
+"own residual PCs K1, oracle coefficients (mid, strong)",1,strong,0.7384625108529518,0.23765395099714337,0.2376539509971434
+"own residual PCs K1, fit-half mean coefficient per tercile, by true tercile",1,all,0.7565887920813362,0.21880109925344704,0.21880109925344707
+"own residual PCs K1, fit-half mean coefficient per tercile, by true tercile",1,weak,-0.8512584378818524,1.0,1.8910969811876646
+"own residual PCs K1, fit-half mean coefficient per tercile, by true tercile",1,mid,0.6721864507402967,0.30658660848584973,0.30658660848584973
+"own residual PCs K1, fit-half mean coefficient per tercile, by true tercile",1,strong,0.7893150824782004,0.18476301426516606,0.18476301426516603
+"own residual PCs K1, fit-half mean coefficient per tercile, by (b) tercile",1,all,0.7842248122300077,0.19005732196763336,0.19005732196763334
+"own residual PCs K1, fit-half mean coefficient per tercile, by (b) tercile",1,weak,-0.29468411693212826,1.0,1.3122130377573757
+"own residual PCs K1, fit-half mean coefficient per tercile, by (b) tercile",1,mid,0.7880044427756014,0.1861261894079972,0.18612618940799713
+"own residual PCs K1, fit-half mean coefficient per tercile, by (b) tercile",1,strong,0.7996505280344715,0.17401328461448073,0.1740132846144808
+"own residual PCs K2, oracle coefficients (mid, strong)",1,all,0.6376815818569046,0.34247456417284483,0.34247456417284483
+"own residual PCs K2, oracle coefficients (mid, strong)",1,weak,-0.8888080588036338,1.0,1.930151734192478
+"own residual PCs K2, oracle coefficients (mid, strong)",1,mid,0.5550251830137194,0.42844414687016086,0.42844414687016086
+"own residual PCs K2, oracle coefficients (mid, strong)",1,strong,0.6690249953981025,0.3098747870211894,0.3098747870211894
+"own residual PCs K2, fit-half mean coefficient per tercile, by true tercile",1,all,0.7558298917538075,0.21959041920180666,0.2195904192018067
+"own residual PCs K2, fit-half mean coefficient per tercile, by true tercile",1,weak,-0.8542377308520759,1.0,1.8941956955880956
+"own residual PCs K2, fit-half mean coefficient per tercile, by true tercile",1,mid,0.6648831367856892,0.3141826671307014,0.3141826671307015
+"own residual PCs K2, fit-half mean coefficient per tercile, by true tercile",1,strong,0.7892966054715893,0.18478223190070397,0.184782231900704
+"own residual PCs K2, fit-half mean coefficient per tercile, by (b) tercile",1,all,0.7841550486778132,0.19012988190919367,0.19012988190919367
+"own residual PCs K2, fit-half mean coefficient per tercile, by (b) tercile",1,weak,-0.2966116007752856,1.0,1.3142177825075847
+"own residual PCs K2, fit-half mean coefficient per tercile, by (b) tercile",1,mid,0.7857809421111646,0.18843881646318128,0.1884388164631813
+"own residual PCs K2, fit-half mean coefficient per tercile, by (b) tercile",1,strong,0.7998409747762549,0.17381520404060713,0.1738152040406071
+"own residual PCs K5, oracle coefficients (mid, strong)",1,all,0.5257281391891196,0.45891552799873125,0.4589155279987312
+"own residual PCs K5, oracle coefficients (mid, strong)",1,weak,-0.8888080588036338,1.0,1.930151734192478
+"own residual PCs K5, oracle coefficients (mid, strong)",1,mid,0.4472208407146377,0.5405696985530211,0.5405696985530211
+"own residual PCs K5, oracle coefficients (mid, strong)",1,strong,0.5549797157394822,0.428491436646237,0.42849143664623696
+"own residual PCs K5, fit-half mean coefficient per tercile, by true tercile",1,all,0.7422472511781069,0.2337175038384839,0.23371750383848386
+"own residual PCs K5, fit-half mean coefficient per tercile, by true tercile",1,weak,-0.8888080588036338,1.0,1.930151734192478
+"own residual PCs K5, fit-half mean coefficient per tercile, by true tercile",1,mid,0.6381597223667768,0.3419772579669166,0.34197725796691664
+"own residual PCs K5, fit-half mean coefficient per tercile, by true tercile",1,strong,0.777443279234411,0.1971106846816998,0.1971106846816998
+"own residual PCs K5, fit-half mean coefficient per tercile, by (b) tercile",1,all,0.7754426897364417,0.19919146544031174,0.19919146544031174
+"own residual PCs K5, fit-half mean coefficient per tercile, by (b) tercile",1,weak,-0.22316090520374215,1.0,1.2378229027948473
+"own residual PCs K5, fit-half mean coefficient per tercile, by (b) tercile",1,mid,0.7683374500145956,0.20658151028136962,0.2065815102813696
+"own residual PCs K5, fit-half mean coefficient per tercile, by (b) tercile",1,strong,0.7908671055518502,0.18314878018473602,0.18314878018473602
+"own residual PCs K10, oracle coefficients (mid, strong)",1,all,0.44571021546772976,0.5421408754238534,0.5421408754238534
+"own residual PCs K10, oracle coefficients (mid, strong)",1,weak,-0.8888080588036338,1.0,1.930151734192478
+"own residual PCs K10, oracle coefficients (mid, strong)",1,mid,0.3344197637234782,0.657892273120245,0.6578922731202449
+"own residual PCs K10, oracle coefficients (mid, strong)",1,strong,0.47733320216501895,0.5092503187572551,0.5092503187572551
+"own residual PCs K10, fit-half mean coefficient per tercile, by true tercile",1,all,0.7445191185580988,0.2313545713452343,0.23135457134523432
+"own residual PCs K10, fit-half mean coefficient per tercile, by true tercile",1,weak,-0.8888080588036338,1.0,1.930151734192478
+"own residual PCs K10, fit-half mean coefficient per tercile, by true tercile",1,mid,0.630625919610281,0.3498130442843026,0.3498130442843026
+"own residual PCs K10, fit-half mean coefficient per tercile, by true tercile",1,strong,0.7808090589858092,0.19360999163520332,0.19360999163520332
+"own residual PCs K10, fit-half mean coefficient per tercile, by (b) tercile",1,all,0.7737905938417652,0.20090978364227874,0.20090978364227874
+"own residual PCs K10, fit-half mean coefficient per tercile, by (b) tercile",1,weak,-0.21213456541153253,1.0,1.2263545852310314
+"own residual PCs K10, fit-half mean coefficient per tercile, by (b) tercile",1,mid,0.7707885699153183,0.20403214014239224,0.2040321401423923
+"own residual PCs K10, fit-half mean coefficient per tercile, by (b) tercile",1,strong,0.7885851367721254,0.18552221898036325,0.1855222189803632
+"own residual PCs K20, oracle coefficients (mid, strong)",1,all,0.39098400639314945,0.5990607197746048,0.5990607197746048
+"own residual PCs K20, oracle coefficients (mid, strong)",1,weak,-0.8888080588036338,1.0,1.930151734192478
+"own residual PCs K20, oracle coefficients (mid, strong)",1,mid,0.26397466236742967,0.7311610829330129,0.7311610829330127
+"own residual PCs K20, oracle coefficients (mid, strong)",1,strong,0.42350394499222493,0.5652372579515357,0.5652372579515357
+"own residual PCs K20, fit-half mean coefficient per tercile, by true tercile",1,all,0.7444883791367551,0.2313865429198766,0.23138654291987656
+"own residual PCs K20, fit-half mean coefficient per tercile, by true tercile",1,weak,-0.8888080588036338,1.0,1.930151734192478
+"own residual PCs K20, fit-half mean coefficient per tercile, by true tercile",1,mid,0.631004419049485,0.34941937314335114,0.34941937314335114
+"own residual PCs K20, fit-half mean coefficient per tercile, by true tercile",1,strong,0.7807336056364561,0.19368846944270257,0.1936884694427026
+"own residual PCs K20, fit-half mean coefficient per tercile, by (b) tercile",1,all,0.7745956655179491,0.20007244162143567,0.2000724416214357
+"own residual PCs K20, fit-half mean coefficient per tercile, by (b) tercile",1,weak,-0.20813592422740798,1.0,1.2221956632508022
+"own residual PCs K20, fit-half mean coefficient per tercile, by (b) tercile",1,mid,0.7700855428973193,0.20476334716578282,0.20476334716578284
+"own residual PCs K20, fit-half mean coefficient per tercile, by (b) tercile",1,strong,0.7895064524370464,0.18456397346816722,0.18456397346816725

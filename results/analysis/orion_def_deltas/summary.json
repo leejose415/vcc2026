@@ -1,0 +1,26 @@
+{
+  "HCT116": {
+    "available_targets": 278,
+    "missing_targets": 22,
+    "panel_genes": 18533,
+    "measured_genes_min": 18106,
+    "measured_genes_max": 18106,
+    "range": [
+      -1.722772090799964,
+      2.086776945247257
+    ],
+    "fraction_abs_delta_lt_0_1": 0.86497937406178
+  },
+  "HEK293T": {
+    "available_targets": 271,
+    "missing_targets": 29,
+    "panel_genes": 18533,
+    "measured_genes_min": 18106,
+    "measured_genes_max": 18106,
+    "range": [
+      -1.20458799563602,
+      2.4561662150391683
+    ],
+    "fraction_abs_delta_lt_0_1": 0.8947298055770793
+  }
+}

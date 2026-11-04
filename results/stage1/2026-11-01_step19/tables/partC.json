@@ -1,0 +1,399 @@
+{
+ "abc_on_disk": {
+  "A": true,
+  "B": true,
+  "C": true
+ },
+ "markers_missing_from_panel": [
+  "XIST",
+  "RPS4Y1"
+ ],
+ "top_sources": {
+  "D": [
+   {
+    "context": "D",
+    "profile": "A",
+    "kind": "controls_h5ad",
+    "genes": 9633,
+    "spearman": 0.6074683036142634
+   },
+   {
+    "context": "D",
+    "profile": "C",
+    "kind": "controls_h5ad",
+    "genes": 9633,
+    "spearman": 0.5797408009279456
+   },
+   {
+    "context": "D",
+    "profile": "B",
+    "kind": "controls_h5ad",
+    "genes": 9633,
+    "spearman": 0.5747349099179814
+   },
+   {
+    "context": "D",
+    "profile": "arc_h1",
+    "kind": "H1",
+    "genes": 9503,
+    "spearman": 0.5676308571240021
+   },
+   {
+    "context": "D",
+    "profile": "EvalA_context",
+    "kind": "controls_h5ad",
+    "genes": 9633,
+    "spearman": 0.5616026974979278
+   },
+   {
+    "context": "D",
+    "profile": "F",
+    "kind": "controls_h5ad",
+    "genes": 9633,
+    "spearman": 0.5491015170762763
+   },
+   {
+    "context": "D",
+    "profile": "E",
+    "kind": "controls_h5ad",
+    "genes": 9633,
+    "spearman": 0.5429528455177332
+   },
+   {
+    "context": "D",
+    "profile": "orion_hct116",
+    "kind": "HCT116",
+    "genes": 9453,
+    "spearman": 0.4608724934670449
+   },
+   {
+    "context": "D",
+    "profile": "orion_hct116_pseudobulk",
+    "kind": "HCT116",
+    "genes": 9453,
+    "spearman": 0.4605059503516095
+   },
+   {
+    "context": "D",
+    "profile": "nadig_jurkat",
+    "kind": "Jurkat",
+    "genes": 7600,
+    "spearman": 0.4592108172701975
+   },
+   {
+    "context": "D",
+    "profile": "replogle_k562_gw",
+    "kind": "K562",
+    "genes": 7104,
+    "spearman": 0.45412978852833596
+   },
+   {
+    "context": "D",
+    "profile": "adamson_k562_10x010",
+    "kind": "K562",
+    "genes": 9487,
+    "spearman": 0.45409549743802996
+   }
+  ],
+  "E": [
+   {
+    "context": "E",
+    "profile": "F",
+    "kind": "controls_h5ad",
+    "genes": 9743,
+    "spearman": 0.812442228205445
+   },
+   {
+    "context": "E",
+    "profile": "B",
+    "kind": "controls_h5ad",
+    "genes": 9743,
+    "spearman": 0.7633288758603186
+   },
+   {
+    "context": "E",
+    "profile": "C",
+    "kind": "controls_h5ad",
+    "genes": 9743,
+    "spearman": 0.6374496227433483
+   },
+   {
+    "context": "E",
+    "profile": "arc_h1",
+    "kind": "H1",
+    "genes": 9651,
+    "spearman": 0.5760376792056804
+   },
+   {
+    "context": "E",
+    "profile": "EvalA_context",
+    "kind": "controls_h5ad",
+    "genes": 9743,
+    "spearman": 0.5700388874324201
+   },
+   {
+    "context": "E",
+    "profile": "A",
+    "kind": "controls_h5ad",
+    "genes": 9743,
+    "spearman": 0.5243847105082919
+   },
+   {
+    "context": "E",
+    "profile": "D",
+    "kind": "controls_h5ad",
+    "genes": 9743,
+    "spearman": 0.4963124316378317
+   },
+   {
+    "context": "E",
+    "profile": "replogle_rpe1",
+    "kind": "RPE1",
+    "genes": 7616,
+    "spearman": 0.47409433631325665
+   },
+   {
+    "context": "E",
+    "profile": "orion_hct116",
+    "kind": "HCT116",
+    "genes": 9579,
+    "spearman": 0.4430555165164101
+   },
+   {
+    "context": "E",
+    "profile": "orion_hct116_pseudobulk",
+    "kind": "HCT116",
+    "genes": 9579,
+    "spearman": 0.44223482361239996
+   },
+   {
+    "context": "E",
+    "profile": "feng_gw_nonfitness",
+    "kind": "HipSci_pooled",
+    "genes": 9724,
+    "spearman": 0.44168314941961956
+   },
+   {
+    "context": "E",
+    "profile": "feng_gw_fitness",
+    "kind": "HipSci_pooled",
+    "genes": 9724,
+    "spearman": 0.441028049936144
+   }
+  ],
+  "F": [
+   {
+    "context": "F",
+    "profile": "E",
+    "kind": "controls_h5ad",
+    "genes": 9537,
+    "spearman": 0.810284062022033
+   },
+   {
+    "context": "F",
+    "profile": "B",
+    "kind": "controls_h5ad",
+    "genes": 9537,
+    "spearman": 0.7952244652654686
+   },
+   {
+    "context": "F",
+    "profile": "C",
+    "kind": "controls_h5ad",
+    "genes": 9537,
+    "spearman": 0.6566259552029945
+   },
+   {
+    "context": "F",
+    "profile": "arc_h1",
+    "kind": "H1",
+    "genes": 9451,
+    "spearman": 0.6071818524205903
+   },
+   {
+    "context": "F",
+    "profile": "EvalA_context",
+    "kind": "controls_h5ad",
+    "genes": 9537,
+    "spearman": 0.6011589152330166
+   },
+   {
+    "context": "F",
+    "profile": "A",
+    "kind": "controls_h5ad",
+    "genes": 9537,
+    "spearman": 0.5700724620896135
+   },
+   {
+    "context": "F",
+    "profile": "D",
+    "kind": "controls_h5ad",
+    "genes": 9537,
+    "spearman": 0.5208240731191889
+   },
+   {
+    "context": "F",
+    "profile": "orion_hct116",
+    "kind": "HCT116",
+    "genes": 9381,
+    "spearman": 0.4624434372235568
+   },
+   {
+    "context": "F",
+    "profile": "orion_hct116_pseudobulk",
+    "kind": "HCT116",
+    "genes": 9381,
+    "spearman": 0.4618066364110445
+   },
+   {
+    "context": "F",
+    "profile": "feng_gw_nonfitness",
+    "kind": "HipSci_pooled",
+    "genes": 9523,
+    "spearman": 0.45656512545267314
+   },
+   {
+    "context": "F",
+    "profile": "feng_targeted_eipl_1",
+    "kind": "eipl_1",
+    "genes": 9523,
+    "spearman": 0.4542965257612305
+   },
+   {
+    "context": "F",
+    "profile": "feng_gw_fitness",
+    "kind": "HipSci_pooled",
+    "genes": 9523,
+    "spearman": 0.4541884750466387
+   }
+  ]
+ },
+ "among_contexts": [
+  {
+   "context": "D",
+   "profile": "E",
+   "kind": "controls_h5ad",
+   "genes": 9633,
+   "spearman": 0.5429528455177332
+  },
+  {
+   "context": "D",
+   "profile": "F",
+   "kind": "controls_h5ad",
+   "genes": 9633,
+   "spearman": 0.5491015170762763
+  },
+  {
+   "context": "D",
+   "profile": "EvalA_context",
+   "kind": "controls_h5ad",
+   "genes": 9633,
+   "spearman": 0.5616026974979278
+  },
+  {
+   "context": "D",
+   "profile": "A",
+   "kind": "controls_h5ad",
+   "genes": 9633,
+   "spearman": 0.6074683036142634
+  },
+  {
+   "context": "D",
+   "profile": "B",
+   "kind": "controls_h5ad",
+   "genes": 9633,
+   "spearman": 0.5747349099179814
+  },
+  {
+   "context": "D",
+   "profile": "C",
+   "kind": "controls_h5ad",
+   "genes": 9633,
+   "spearman": 0.5797408009279456
+  },
+  {
+   "context": "E",
+   "profile": "D",
+   "kind": "controls_h5ad",
+   "genes": 9743,
+   "spearman": 0.4963124316378317
+  },
+  {
+   "context": "E",
+   "profile": "F",
+   "kind": "controls_h5ad",
+   "genes": 9743,
+   "spearman": 0.812442228205445
+  },
+  {
+   "context": "E",
+   "profile": "EvalA_context",
+   "kind": "controls_h5ad",
+   "genes": 9743,
+   "spearman": 0.5700388874324201
+  },
+  {
+   "context": "E",
+   "profile": "A",
+   "kind": "controls_h5ad",
+   "genes": 9743,
+   "spearman": 0.5243847105082919
+  },
+  {
+   "context": "E",
+   "profile": "B",
+   "kind": "controls_h5ad",
+   "genes": 9743,
+   "spearman": 0.7633288758603186
+  },
+  {
+   "context": "E",
+   "profile": "C",
+   "kind": "controls_h5ad",
+   "genes": 9743,
+   "spearman": 0.6374496227433483
+  },
+  {
+   "context": "F",
+   "profile": "D",
+   "kind": "controls_h5ad",
+   "genes": 9537,
+   "spearman": 0.5208240731191889
+  },
+  {
+   "context": "F",
+   "profile": "E",
+   "kind": "controls_h5ad",
+   "genes": 9537,
+   "spearman": 0.810284062022033
+  },
+  {
+   "context": "F",
+   "profile": "EvalA_context",
+   "kind": "controls_h5ad",
+   "genes": 9537,
+   "spearman": 0.6011589152330166
+  },
+  {
+   "context": "F",
+   "profile": "A",
+   "kind": "controls_h5ad",
+   "genes": 9537,
+   "spearman": 0.5700724620896135
+  },
+  {
+   "context": "F",
+   "profile": "B",
+   "kind": "controls_h5ad",
+   "genes": 9537,
+   "spearman": 0.7952244652654686
+  },
+  {
+   "context": "F",
+   "profile": "C",
+   "kind": "controls_h5ad",
+   "genes": 9537,
+   "spearman": 0.6566259552029945
+  }
+ ]
+}

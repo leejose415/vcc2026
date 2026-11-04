@@ -1,0 +1,47 @@
+{
+ "vcc_members": [
+  "meta.json",
+  "pred.h5ad.zst"
+ ],
+ "vcc_meta": {
+  "cli_version": "0.3.0",
+  "contexts": [
+   "D",
+   "E",
+   "F"
+  ],
+  "n_obs": 360000,
+  "n_vars": 18533,
+  "nnz": 1942625295,
+  "panel_id": "vcc2026-test-1",
+  "perts_fingerprint": "sha256:36d399522bd0878f8039784bf6569e08ff06f341a94758b352cd8869b224e537",
+  "schema": 1
+ },
+ "files": {
+  "merged": {
+   "cells": 360000,
+   "groups": 900,
+   "nnz": 1942625295,
+   "non_integer": 0,
+   "negative": 0,
+   "non_finite": 0
+  },
+  "vcc": {
+   "cells": 360000,
+   "groups": 900,
+   "nnz": 1942625295,
+   "non_integer": 0,
+   "negative": 0,
+   "non_finite": 0
+  }
+ },
+ "merged_vs_vcc": {
+  "same_groups": true,
+  "same_order": true,
+  "max_abs_sum_diff": 0.0,
+  "same_nnz": true
+ },
+ "vcc_md5": "27b8e247793080fca78c2d1764283398",
+ "vcc_bytes": 3168481280,
+ "pass": true
+}

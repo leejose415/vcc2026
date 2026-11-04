@@ -1,0 +1,156 @@
+{
+ "K562": {
+  "tables_voting": 108,
+  "prior": {
+   "tau2": 0.0001,
+   "v0": 0.7833184025687472,
+   "pi": 0.005,
+   "n_tau": 2080256,
+   "n_v0": 53155
+  },
+  "upweighted": [
+   "hepg2",
+   "jurkat",
+   "rpe1"
+  ],
+  "dropped": [
+   "k562"
+  ],
+  "upweighted_present": [
+   "hepg2",
+   "jurkat",
+   "rpe1"
+  ],
+  "held_by_upweighted": 0,
+  "held_by_upweighted_incl_drug_rows": 0,
+  "held_by_upweighted_delta": 0,
+  "knockdowns": 267,
+  "upweighted_tables": {
+   "rpe1": [
+    "replogle_rpe1"
+   ],
+   "jurkat": [
+    "nadig_jurkat"
+   ],
+   "hepg2": [
+    "nadig_hepg2",
+    "tahoe_hepg2_c3a"
+   ]
+  }
+ },
+ "K562_w1_vs_fold_cache": {
+  "lfc": 0.0,
+  "de_sig": 0,
+  "dpool": 0.0,
+  "n_bg": 0,
+  "z_agree_rel": 0.0,
+  "z_agree_nan_mismatch": 0
+ },
+ "HCT116": {
+  "tables_voting": 115,
+  "prior": {
+   "tau2": 0.0001,
+   "v0": 0.5296479024530703,
+   "pi": 0.020256410256410257,
+   "n_tau": 1971656,
+   "n_v0": 113041
+  },
+  "upweighted": [
+   "hek293t"
+  ],
+  "dropped": [
+   "hct116"
+  ],
+  "upweighted_present": [
+   "hek293t"
+  ],
+  "held_by_upweighted": 260,
+  "held_by_upweighted_incl_drug_rows": 260,
+  "held_by_upweighted_delta": 260,
+  "knockdowns": 278,
+  "upweighted_tables": {
+   "hek293t": [
+    "orion_hek293t",
+    "orion_hek293t_pseudobulk"
+   ]
+  }
+ },
+ "HEK293T": {
+  "tables_voting": 115,
+  "prior": {
+   "tau2": 0.0001,
+   "v0": 0.5750583774608989,
+   "pi": 0.020256410256410257,
+   "n_tau": 1922785,
+   "n_v0": 108629
+  },
+  "upweighted": [
+   "hct116"
+  ],
+  "dropped": [
+   "hek293t"
+  ],
+  "upweighted_present": [
+   "hct116"
+  ],
+  "held_by_upweighted": 260,
+  "held_by_upweighted_incl_drug_rows": 260,
+  "held_by_upweighted_delta": 260,
+  "knockdowns": 271,
+  "upweighted_tables": {
+   "hct116": [
+    "orion_hct116",
+    "orion_hct116_pseudobulk"
+   ]
+  }
+ },
+ "DEF_arc_h1": {
+  "targets": 300,
+  "held": 28,
+  "held_targets": [
+   "ACLY",
+   "ADNP",
+   "AKT2",
+   "ANKZF1",
+   "ASF1A",
+   "BRPF1",
+   "DCK",
+   "FUBP1",
+   "HDAC8",
+   "HMGB2",
+   "HMGXB4",
+   "LTBR",
+   "MED13",
+   "MED25",
+   "MLLT1",
+   "MTA1",
+   "NIT1",
+   "PHF14",
+   "PLAGL2",
+   "PRCP",
+   "SHPRH",
+   "SIN3B",
+   "SLIRP",
+   "STAT6",
+   "STUB1",
+   "TARBP2",
+   "TRAM2",
+   "ZFP62"
+  ],
+  "D": {
+   "gated_genes": 9633,
+   "arc_pairs": 266084,
+   "share_of_pairs": 0.09207377417903734
+  },
+  "E": {
+   "gated_genes": 9743,
+   "arc_pairs": 270228,
+   "share_of_pairs": 0.09245201683259777
+  },
+  "F": {
+   "gated_genes": 9537,
+   "arc_pairs": 264628,
+   "share_of_pairs": 0.0924916989968893
+  }
+ }
+}

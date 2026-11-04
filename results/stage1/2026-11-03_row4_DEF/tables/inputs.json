@@ -1,0 +1,88 @@
+{
+ "check1_HCT116final_vs_Track1": {
+  "lfc": true,
+  "de_sig": true,
+  "n_sources": true,
+  "on_K4": true
+ },
+ "F5_file": {
+  "path": "/home/mooneysad/vcc/results/stage1/2026-11-02_step20/tables/partF5_DEF_Pprog_E4w_M3DepMap_K100.npz",
+  "md5": "3165cf2deff378c8a65d13bb48884d8b",
+  "md5_expected": "3165cf2deff378c8a65d13bb48884d8b"
+ },
+ "D": {
+  "check2": {
+   "lfc_terms_removed_equals_step18": true,
+   "calls_are_K4_where_b5_else_K0": true
+  },
+  "check3_F5_rebuild_max_abs_diff": 2.9802322387695312e-08,
+  "knockdowns": 300,
+  "on_K4": 139,
+  "b_terciles": [
+   129,
+   128,
+   43
+  ],
+  "targets_with_F5": 300,
+  "calls": {
+   "median": 807.5,
+   "mean": 751.0766666666667,
+   "live_entry_median": 242.5,
+   "live_entry_mean": 352.87
+  },
+  "entries_changed": 2442089,
+  "n_sources_fixed": 29382,
+  "rms_F5_b5": 0.010200514376557007,
+  "rms_total_term_gated": 0.011373701316767015
+ },
+ "E": {
+  "check2": {
+   "lfc_terms_removed_equals_step18": true,
+   "calls_are_K4_where_b5_else_K0": true
+  },
+  "check3_F5_rebuild_max_abs_diff": 2.9802322387695312e-08,
+  "knockdowns": 300,
+  "on_K4": 139,
+  "b_terciles": [
+   129,
+   128,
+   43
+  ],
+  "targets_with_F5": 300,
+  "calls": {
+   "median": 869.5,
+   "mean": 771.3066666666666,
+   "live_entry_median": 278.5,
+   "live_entry_mean": 380.8066666666667
+  },
+  "entries_changed": 2492126,
+  "n_sources_fixed": 26655,
+  "rms_F5_b5": 0.010517670498503788,
+  "rms_total_term_gated": 0.01161074448831864
+ },
+ "F": {
+  "check2": {
+   "lfc_terms_removed_equals_step18": true,
+   "calls_are_K4_where_b5_else_K0": true
+  },
+  "check3_F5_rebuild_max_abs_diff": 2.9802322387695312e-08,
+  "knockdowns": 300,
+  "on_K4": 139,
+  "b_terciles": [
+   129,
+   128,
+   43
+  ],
+  "targets_with_F5": 300,
+  "calls": {
+   "median": 906.0,
+   "mean": 758.8833333333333,
+   "live_entry_median": 245.0,
+   "live_entry_mean": 355.8566666666667
+  },
+  "entries_changed": 2455139,
+  "n_sources_fixed": 23525,
+  "rms_F5_b5": 0.010524351871693007,
+  "rms_total_term_gated": 0.011718640069630979
+ }
+}

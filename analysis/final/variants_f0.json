@@ -1,0 +1,13 @@
+[
+ {
+  "call": "topn",
+  "top_n": 2000,
+  "detect_floor": true,
+  "z_req": 5.0,
+  "alpha": 1.0,
+  "z": 0.0,
+  "min_effect": 0.0,
+  "method": "m2v4",
+  "label": "f0_m2v4_top2000_floor_z5"
+ }
+]
