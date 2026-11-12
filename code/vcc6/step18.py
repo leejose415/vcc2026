@@ -5,7 +5,7 @@ Config 1' + K0 with all 117 source tables (nothing held out): called genes (C+G'
 0.6 x c x Delta_pool, c = z_a^2 / (z_a^2 + 1), single-source c1 = 1, no source -> control (the generator input step as
 in 15c, unchanged). Per context D, E, F: its own 18,400 controls, the 300 final targets, salt "".
 
-  model    step15c.model (v7's data-loader + model code, config 1') for D, E, F in one process (one table load), with
+  model    step15c.model (vcc_2026_7's data-loader + model code, config 1') for D, E, F in one process (one table load), with
            background None. Checks against the uploaded C+G file's inputs (results/stage1/2026-10-28_DEF/<x>/input.npz):
            identical calls and n_sources, called LFC = exactly 0.5 x C+G's.
   stats    before generation: per context, requested calls per knockdown (median, mean) and median |LFC| of called

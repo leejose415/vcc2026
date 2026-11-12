@@ -2,7 +2,7 @@
 two quick checks (Part Q), reach by ordering the generator's p-values (Part R), and the recommendation (Part D).
 vcc2027 only. No D/E/F file, no upload; the only cells generated are R3's 20-knockdown test slice.
 Write-up: section 14 of results/stage1/2026-10-28_scorer_space/report.md. Outputs: results/stage1/2026-11-03_step22/.
-Frozen code (generator, harness, run_line, boot_score, config 1' files, v7) and the Step 18-21 outputs are imported or
+Frozen code (generator, harness, run_line, boot_score, config 1' files, vcc_2026_7) and the Step 18-21 outputs are imported or
 read only; Part R3's generator v8 is a copy in code/vcc6/gen_v8/.
 
 Base for every test: row 4 (step21.Row4: spec + fixed shift + F5 term + no-source fix), H1 cross-fitted as in Step 21.

@@ -2,7 +2,7 @@
 
 `CONFIG s_c 0.5, m 0.5, kappa 1.0, c1 1.0`
 
-- v7 data loader + model cells: `sha256 cells 4cff99dde2f37c974a8ef72d38756db5651b500e28113a54da61cfed5cb29c38`
+- vcc_2026_7 data loader + model cells: `sha256 cells 4cff99dde2f37c974a8ef72d38756db5651b500e28113a54da61cfed5cb29c38`
 - `code/vcc6/stage1.py`: `sha256 stage1 1021148db09fd48137072d373c9a4593a472e6f11e12e0409f6bb64041ad9af2`
 - `code/vcc6/run_line.py`: `sha256 run_line 39d8143a1b010fccd59ae95d8366718390af41c24c62577591fbc0ba2bc78de8`
 - the 117 effect tables in `lib/effects_v5` and `lib/effects_v5_extra`, sorted stems joined by newlines:
@@ -37,19 +37,19 @@ Config 1 has not been run end to end. Its score is the noise-free proxy, which m
 | **Overall** | **0.219** | 0.217 | **0.244** |
 
 Sources: `results/stage1/2026-10-28_scorer_space/tables/step11_heldout.csv` (arm i_lofo, H1) and `step9.json`
-(EvalA_CG); `results/v7/config1_record.json`.
+(EvalA_CG); `results/7/config1_record.json`.
 
-## Freeze check (2026-10-29, `results/v7/freeze_check/`)
+## Freeze check (2026-10-29, `results/7/freeze_check/`)
 The proxy's 0.244 came from the scorer-space study's code and caches (`cache/fold_H1.npz`, `cache/s11_H1.npz`, copied
-from vcc2027, md5 checked). The v7 notebook rebuilds config 1 with its own code. To confirm the two agree, v7's
+from vcc2027, md5 checked). The vcc_2026_7 notebook rebuilds config 1 with its own code. To confirm the two agree, vcc_2026_7's
 unchanged setup, data-loader and model cells were run for Eval A (`run_v7_model.py`) and compared
 (`compare.py` → `compare.json`):
 
 - Calls: identical (0 of 292 × 18,533 differ).
 - Generator means on gated genes: max relative difference 1.1e-7.
 - Called-gene LFC: exactly 0.5 × C+G's.
-- Proxy overall from v7's input: 0.24361700, against 0.24361700 from the caches. All six components agree to 1e-10.
+- Proxy overall from vcc_2026_7's input: 0.24361700, against 0.24361700 from the caches. All six components agree to 1e-10.
 
 ## Open risk
 NMAE +0.001 is fragile: +0.008 and −0.006 on the two H1 knockdown halves (scorer-space Step 16). The real end-to-end
-Eval A score comes from v7's section 4.
+Eval A score comes from vcc_2026_7's section 4.

@@ -1,4 +1,4 @@
-"""Config 1 is frozen (code/vcc6/CONFIG1_FROZEN.md): its values, the v7 notebook's data-loader and model cells, the
+"""Config 1 is frozen (code/vcc6/CONFIG1_FROZEN.md): its values, the vcc_2026_7 notebook's data-loader and model cells, the
 stage-1 model, run_line and the table set must match the recorded hashes."""
 import hashlib
 import json
@@ -15,12 +15,12 @@ def recorded(name):
     return re.search(rf'sha256 {name} ([0-9a-f]{{64}})', RECORD).group(1)
 
 
-def v7_code_cells():
-    return [''.join(c['source']) for c in json.load(open(V / 'vcc_2026_v7.ipynb'))['cells'] if c['cell_type'] == 'code']
+def code_cells_7():
+    return [''.join(c['source']) for c in json.load(open(V / 'vcc_2026_7.ipynb'))['cells'] if c['cell_type'] == 'code']
 
 
 def test_config1_values():
-    got = re.search(r'^CONFIG = dict\(([^)]*)\)', v7_code_cells()[0], re.M).group(1)
+    got = re.search(r'^CONFIG = dict\(([^)]*)\)', code_cells_7()[0], re.M).group(1)
     assert {k.strip(): float(v) for k, v in (kv.split('=') for kv in got.split(','))} == WANT
     sys.path.insert(0, str(V / 'code/vcc6'))
     import scorer_step16 as S16
@@ -28,7 +28,7 @@ def test_config1_values():
 
 
 def test_config1_is_frozen():
-    cells = v7_code_cells()
+    cells = code_cells_7()
     assert hashlib.sha256((cells[1] + '\n' + cells[2]).encode()).hexdigest() == recorded('cells')
     for name in ('stage1', 'run_line'):
         assert hashlib.sha256((V / f'code/vcc6/{name}.py').read_bytes()).hexdigest() == recorded(name)

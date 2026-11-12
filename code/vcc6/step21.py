@@ -1,7 +1,7 @@
 """Step 21 (Jose 2026-11-02, consolidated): final proxy round (vcc2026, Track 2), a parallel cell run of row 4 (vcc2027,
 Track 1), and the overnight build plan (Part H: not run here). No D/E/F file, no upload. Write-up: section 13 of
 results/stage1/2026-10-28_scorer_space/report.md. Outputs: results/stage1/2026-11-02_step21/{tables,logs,cells}.
-Frozen code (generator, harness, run_line, boot_score, config 1' files, v7) and the Step 18-20 outputs are imported or
+Frozen code (generator, harness, run_line, boot_score, config 1' files, vcc_2026_7) and the Step 18-20 outputs are imported or
 read only.
 
 Row 4 = spec (hybrid T 5 calls + config 1' + no-source fix) + the fixed Part C shift (C2's S on the line's gate,
