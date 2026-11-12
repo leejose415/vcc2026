@@ -1,47 +1,74 @@
-# Virtual Cell Challenge 2026: knockdown-response prediction
+# Virtual Cell Challenge 2026
 
-Our entry to Arc Institute's [Virtual Cell Challenge 2026](https://virtualcellchallenge.org).
-- **The task:** predict, for a cell line never seen in training, how the expression of 18,533 genes responds to CRISPRi knockdown of each of 300 genes. Then deliver 360,000 synthetic single cells (3 lines × 300 knockdowns × 400 cells) whose statistics carry that prediction.
-- **Scoring:** six metrics computed by `cell-eval2` (MSE, PDS, LFC NMAE, direction fidelity, direction reach, DE Jaccard), each scaled between a baseline and a replicate.
+Predict, for a cell line never seen in training, how CRISPRi knockdown of each target changes expression on the 18,533-gene panel ([docs/EFFECT_TABLES.md](docs/EFFECT_TABLES.md)), and deliver 400 synthetic cells per knockdown ([docs/GENERATOR.md](docs/GENERATOR.md)). Scoring is cell-eval2 0.18.0 with the `vcc2026` profile (MSE, PDS, LFC NMAE, direction fidelity, direction reach, DE Jaccard), as used on the RPE1 dev run ([research report](results/stage1/2026-10-28_scorer_space/report.md), "RPE1 dev run"). Metric definitions and the pass rule are in [docs/EVALUATION.md](docs/EVALUATION.md). The submitted model is written up in [docs/MODEL.md](docs/MODEL.md). The public leaderboard summary is [docs/RESULTS.md](docs/RESULTS.md).
 
-## What is in this repository
+`main` is the early snapshot, from when only lines A, B and C were in hand. This branch is the discovery record through the final entry.
 
-| Part | Where | Docs |
-|---|---|---|
-| Data sources and downloads | `scripts/download_*`, `scripts/build_raw_cells.py`, `scripts/convert_new_contexts.py`, `scripts/orion_stream.py` | [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md) |
-| Cell QC and perturbation QC | `scripts/qc_replogle_umi.py` → `qc_replogle_apply.py` → `write_replogle_qc.py` → `qc_perturbations.py` (`qc_table_perturbations.py` for table-only sources) | [docs/CELL_QC.md](docs/CELL_QC.md) |
-| Effect tables (117 sources, scorer regime) | `scripts/build_effects_v5*.py`, `scripts/build_effects_extra.py` | [docs/EFFECT_TABLES.md](docs/EFFECT_TABLES.md) |
-| Transfer model (stage 1, config 1′, the final "row 4") | `code/vcc6/stage1.py`, `run_line.py`, `step15c.py`, `step19.py`–`step21.py`, `row4_def.py` | [docs/MODEL.md](docs/MODEL.md) |
-| Cell generator (frozen) | `code/cellgen/cell_generator.py`, `code/vcc6/gen_cells.py`; experimental v8 in `code/vcc6/gen_v8/` | [docs/GENERATOR.md](docs/GENERATOR.md) |
-| Scorer replica, noise-free proxy, evaluation | `code/vcc6/scorer_*.py`, `boot_score.py`, `analysis/mse_metric/`, `scripts/harness/` | [docs/EVALUATION.md](docs/EVALUATION.md) |
-| Every study, with results | `code/vcc6/step15*.py`–`step22.py`, `results/stage1/*/tables/` | [docs/RESULTS.md](docs/RESULTS.md); full log in [results/stage1/2026-10-28_scorer_space/report.md](results/stage1/2026-10-28_scorer_space/report.md) |
-| Earlier models (validation phase) | `code/vcc_2026_3c/` (meta-analysis + top-N calls), `code/transformer/` (attention model), `analysis/v6lin/` | [docs/RESULTS.md](docs/RESULTS.md) |
-| Tests | `tests/` (frozen generator hash, config-1 freeze, builders, transformer) | |
+## 3c — Model 2, then a no-call profile
 
-## Results in one table
-Held-out H1 cells (Eval A, 292 knockdowns, the official harness, paired bootstrap over knockdowns). Test-line scores are hidden until the challenge announces winners.
+`vcc_2026_3c.ipynb` and `code/vcc_2026_3c/` are the Model 2 code: a random-effects meta-analysis on eight lines, with a top-N call rule and a detection floor ([docs/MODEL.md](docs/MODEL.md)). The leaderboard entry that scored **+0.091** (rank 749, submitted 2026-10-13) was notebook `vcc_2026_3`, top 2,000 calls, floor z = 5 ([research report](results/stage1/2026-10-28_scorer_space/report.md), section 4). That notebook is not in this tree. The copies under `code/vcc_2026_3c/` were edited after it. The extracted recipe is [results/stage1/2026-10-27_incumbent/recipe/vcc2_meta.py](results/stage1/2026-10-27_incumbent/recipe/vcc2_meta.py).
 
-| Model | Eval A overall |
+The submission made from `vcc_2026_3c` put every gene at 0.75 × Δ and made no calls. Overall **+0.070** ([docs/RESULTS.md](docs/RESULTS.md); same table in the research report). The notebook then asks whether PDS and MSE can move once the call set has stalled. `results/` and `docs/` do not record a separate overall for that study.
+
+## 5 — transformer
+
+`vcc_2026_5.ipynb` trains the gene-gene transformer in `code/transformer/`. PIE evidence is optional: `scripts/pie_contexts.py`, `scripts/pie_run.sh`, `scripts/pie_tables.py`, `scripts/export_pie_features.py`, with phases E–F in `scripts/phase_ef.sh` and the sweep queue in `scripts/sweep_queue.py`. The notebook is written by `scripts/make_vcc_2026_5_notebook.py`.
+
+Submitted with every gene, a detection floor, and PIE off. Overall **+0.064**, PDS 0.214, against the Model 2 entry's +0.091 and PDS 0.416 ([docs/RESULTS.md](docs/RESULTS.md)). Held-out genes improved and the leaderboard did not. The later PIE row in that same table (v6) scored +0.057. The leaderboard row named v7 (+0.078, Δ̄ + 2(Δ − Δ̄) + floor) is that transformer series. `vcc_2026_7` below is config 1.
+
+## 6 — stage 1 on 117 tables
+
+`vcc_2026_6.ipynb` runs the precision-weighted transfer model (`code/vcc6/stage1.py`) on the RPE1 dev set: 300 fixed knockdowns, every RPE1 table held out. As written in that notebook the model scored **−0.20** end to end. Its slab prior multiplies effects by about 0.003. Dropping the slab and keeping Gaussian shrinkage scored **+0.122**, the first stage-1 model above the baseline ([research report](results/stage1/2026-10-28_scorer_space/report.md), "RPE1 dev run"). Arm C with that shrink was kept.
+
+On held-out H1 cells (Eval A, official harness) the same C+G model scored **0.219**, against a port of Model 2 at 0.184, paired difference +0.034 [+0.020, +0.048] ([docs/RESULTS.md](docs/RESULTS.md)). C+G was the 28 Oct D/E/F upload.
+
+## 7 — config 1
+
+`vcc_2026_7.ipynb` freezes config 1. Called genes (C+G's own calls) get 0.5 × C+G's LFC. Uncalled genes get the line's control profile plus 0.5 × c × Δ_pool, with c from agreement across source lines. MSE and PDS read the pseudobulk, and about 80% of C+G's error sat on uncalled genes ([docs/MODEL.md](docs/MODEL.md)).
+
+The noise-free proxy on Eval A (H1 held out) is overall **0.243616995654469** ([results/7/config1_record.json](results/7/config1_record.json), `evalA_H1_heldout_scaled.config1_proxy.overall`). That file records the end-to-end cell run as not done. The freeze check (cell hash, identical calls, proxy 0.24361700 both ways) is [code/vcc6/CONFIG1_FROZEN.md](code/vcc6/CONFIG1_FROZEN.md), checked by `tests/test_config1.py`.
+
+## 8 — after the freeze, through row 4
+
+`vcc_2026_8.ipynb` is the log of the experiments after config 1. Config 1′ raises the uncalled scale from 0.5 to 0.6. On real Eval A cells, config 1′ + K0 scored **0.243** (paired +0.024 [+0.016, +0.033] against C+G). Hybrid calls — top 1,200 tested genes where predicted strength b ≥ 5, otherwise K0 — scored **0.263**. Row 4 scored **0.2895** on Eval A (+0.047 [+0.032, +0.061] against config 1′ + K0) and 0.362 on HCT116final ([docs/RESULTS.md](docs/RESULTS.md)). The cell run is Track 1 in the [research report](results/stage1/2026-10-28_scorer_space/report.md) (Step 21; scaled overall 0.2895 [0.2695, 0.3097]) and in [results/stage1/2026-11-02_step21/tables/t1cmp.json](results/stage1/2026-11-02_step21/tables/t1cmp.json).
+
+Generator v8 (`code/vcc6/gen_v8/`) tried ordering p-values to help direction reach. Means stayed bit-identical and 1.9% of realised call sets moved (Jaccard 0.981). It failed its check and was not used ([docs/GENERATOR.md](docs/GENERATOR.md)).
+
+## Final submission
+
+Row 4 is the counting entry, submitted 3 Nov ([docs/RESULTS.md](docs/RESULTS.md)). `code/vcc6/row4_def.py` builds the D/E/F generator input from Step 18's config 1′ + K0 arrays: called genes stay at 0.5 × C+G LFC, gated genes with no source are marked measured, calls are hybrid T5, and a strength shift plus the F5 program term are added in Δ before the frozen generator. `row4_gen.sh` generates the cells. `row4_final.sh` merges D, E and F and runs `vcc prep`. Eval A overall is the 0.2895 above.
+
+```mermaid
+flowchart TD
+  tables["117 effect tables"] --> cg["Stage 1 arm C plus Gaussian shrink"]
+  cg --> base["Step 18 input: config 1 prime, K0 calls"]
+  base --> spec["Called genes at 0.5 times C+G LFC; gated no-source genes marked measured"]
+  spec --> calls["Calls: top 1200 if b is at least 5, else K0"]
+  spec --> add["Add F5 program term where b is at least 5, plus the tercile shift times S"]
+  calls --> gen["Frozen generator, 400 cells per knockdown"]
+  add --> gen
+  gen --> prep["Merge D, E and F, then vcc prep"]
+```
+
+## Where the rest lives
+
+| | |
 |---|---|
-| Model 2 port (random-effects meta-analysis) | 0.184 |
-| C+G (stage-1 transfer + Gaussian shrink) | 0.219 |
-| Config 1′ + K0 | 0.243 |
-| Config 1′ + K4 (1,200 calls) | 0.264 |
-| **Row 4: final entry** (hybrid calls + strength shift + DepMap program term) | **0.290** (+0.047 [+0.032, +0.061] over config 1′) |
+| Data sources | [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md), `scripts/download_*`, `scripts/build_raw_cells.py` |
+| Cell and perturbation QC | [docs/CELL_QC.md](docs/CELL_QC.md), `scripts/qc_replogle_umi.py`, `scripts/qc_replogle_apply.py`, `scripts/write_replogle_qc.py`, `scripts/qc_perturbations.py`, `scripts/qc_table_perturbations.py`. Per-source notes: `results/qc/<source>/qc_method.md` |
+| Effect tables | [docs/EFFECT_TABLES.md](docs/EFFECT_TABLES.md), `scripts/build_effects_v5.py` |
+| Generator | [docs/GENERATOR.md](docs/GENERATOR.md), `code/cellgen/cell_generator.py` |
+| Scores | [docs/RESULTS.md](docs/RESULTS.md) and `results/stage1/` |
 
-## Reproducing
-- **Environment:** Python 3.12; `pip install -r requirements.lock` (cell-eval2 0.18.0, the `vcc` CLI 0.3.0, anndata, scanpy, polars, torch CPU).
-- **Paths:** the code expects the repository at `~/vcc`, so clone or symlink it there. Data goes under `~/vcc/lib/` and `~/vcc/data*/`, none of which is in git.
-  - Three files are frozen and pinned by hash tests: `code/cellgen/cell_generator.py`, `code/vcc6/stage1.py` and `code/vcc6/run_line.py`. That is why the root path is not configurable.
-- **Order:**
-  1. Download the sources (DATA_SOURCES).
-  2. Cell QC and perturbation QC (CELL_QC).
-  3. Effect tables (EFFECT_TABLES).
-  4. Evaluation bundles (`scripts/harness/`).
-  5. Model and generator (`run_line.py predict`).
-  6. Score (`run_line.py score`, `boot_score.py`).
-- **The final entry** was built by `code/vcc6/row4_def.py` (inputs, merge, checks) with `row4_gen.sh` / `row4_final.sh`. Those two shell scripts assume our two-VM setup and are kept as a record.
-- **Memory:** scoring a 135k-cell eval with `cell-eval2` needs about 33 GB of RAM, and `vcc prep` on a 360k-cell file about 34 GB plus about 19 GB of temporary disk. Use swap on a 32 GB machine.
+The originals of the reports that were folded into the research report on 30 Oct are in [results/archive/2026-10-30_reports_premerge/](results/archive/2026-10-30_reports_premerge/results__stage1__2026-10-27_rpe1__REPORT.md). The one-line files under `results/stage1/2026-10-27_rpe1/`, `2026-10-27_incumbent/` and `2026-10-28_DEF/` point there.
 
-## Licence
-Code: MIT (see `LICENSE`). Data belong to their original authors (see DATA_SOURCES); none is redistributed here.
+## Tests
+
+The freeze tests expect the checkout at `~/vcc`. From a clone:
+
+```bash
+ln -sfn "$(pwd)" "$HOME/vcc"
+python -m pytest tests -q
+```
+
+Dependencies are pinned in `requirements.lock` (Python 3.12). `tests/test_config1.py` checks config 1 against [code/vcc6/CONFIG1_FROZEN.md](code/vcc6/CONFIG1_FROZEN.md). `tests/test_cellgen.py` checks the frozen generator. `tests/test_transformer.py` skips unless `lib/effects_v4/` is present. `lib/`, `data/` and `*.h5ad` are gitignored, so tests that read those files fail on a fresh clone.
