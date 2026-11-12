@@ -3,13 +3,13 @@ Outputs in results/stage1/2026-10-29_step15/c/<config>/<line>/; write-up in the 
 
   config1p_K0       (vcc2026)  config 1' magnitudes, C+G's calls
   config1p_K4_1200  (vcc2027)  config 1' magnitudes, per knockdown the top 1,200 tested genes by C+G z = |LFC| / SE
-Config 1' = v7's config 1 with the non-called scale m 0.6 (CONFIG1P). The magnitude split is always C+G's calls (K0), as
+Config 1' = vcc_2026_7's config 1 with the non-called scale m 0.6 (CONFIG1P). The magnitude split is always C+G's calls (K0), as
 in the proxy (step15.py): K4 changes only the call set handed to the generator.
 
-  model   --config C              v7's data-loader + model cells (code copied, v7 untouched) with CONFIG1P, for EvalA
+  model   --config C              vcc_2026_7's data-loader + model cells (code copied, vcc_2026_7 untouched) with CONFIG1P, for EvalA
                                   and HCT116final (own line's tables out; HEK293T votes for HCT116, the screen setup)
                                   -> <line>/input.npz (lfc, de_sig = this config's calls, n_sources; extras: de_sig_K0,
-                                  de_sig_K4, cg_lfc, se). Checks on EvalA: m 0.5 reproduces v7's freeze-check input; calls,
+                                  de_sig_K4, cg_lfc, se). Checks on EvalA: m 0.5 reproduces vcc_2026_7's freeze-check input; calls,
                                   LFC and SE equal the scorer-space fold cache (diag then checks the proxy on input.npz
                                   against 15a: 0.2470 K0, 0.2711 K4 1,200).
   (generate / score: run_line.py predict --lfc-npz / run_line.py score, unchanged)
@@ -70,7 +70,7 @@ def harness_dir(cfg, line):
 
 
 def config_lfc(cfg, cg_lfc, cg_sig, dpool, n_bg, z, m0, cprof):
-    """v7's config1() with the configuration passed in."""
+    """vcc_2026_7's config1() with the configuration passed in."""
     z2 = np.nan_to_num(z.astype(float)) ** 2
     c = np.where((n_bg >= 2) & np.isfinite(z), z2 / (z2 + cfg['kappa']), np.where(n_bg == 1, cfg['c1'], 0.0))
     mu = np.maximum(20.0 * np.expm1(cprof + cfg['m'] * c * dpool), 0.0)
@@ -90,7 +90,7 @@ def k4_calls(cg_lfc, se, n_src, gate, own, n=N_K4):
     return sig
 
 
-# ---------------------------------------------------------------- model (v7 cells 1-2, config passed in)
+# ---------------------------------------------------------------- model (vcc_2026_7 cells 1-2, config passed in)
 def model(a, lines=None, out=None, extra_checks=None):
     """lines: {name: dict(controls, knockdowns, background)}; background None = no table held out (Step 18's D/E/F).
     extra_checks(line, targets, B, A, n_src) -> dict, asserted like the EvalA checks."""
@@ -166,7 +166,7 @@ def model(a, lines=None, out=None, extra_checks=None):
         sig = B['K0'] if cfg_name.endswith('K0') else B['K4']
         checks = {}
         if l == 'EvalA':
-            fz = V / 'results/v7/freeze_check/EvalA/input.npz'
+            fz = V / 'results/7/freeze_check/EvalA/input.npz'
             if fz.exists():
                 z7 = np.load(fz, allow_pickle=True); assert list(map(str, z7['knockdowns'])) == targets
                 checks['v7_m05_lfc_max_abs_diff'] = float(np.abs(z7['lfc'] - A['lfc_m05']).max())

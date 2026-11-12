@@ -1,7 +1,7 @@
 """Step 19 (Jose 2026-11-01): studies before the next D/E/F file. vcc2026, CPU only; no cells generated, no harness
 scoring of new cells, no D/E/F file, no upload. Write-up: section 11 of results/stage1/2026-10-28_scorer_space/report.md.
 Outputs: results/stage1/2026-11-01_step19/{tables,logs,figures}. Frozen code (generator, harness, run_line, boot_score,
-config 1' files, v7, Step 18 outputs) is imported, never edited.
+config 1' files, vcc_2026_7, Step 18 outputs) is imported, never edited.
 
   part0   checks: (1) combining the two 15c runs reproduces each run at the endpoints (all six components, 1e-6);
           (2) config 1' + K0 proxy on the generator's input (15c sec. 4, 0.2456) and on the fold cache (15a, 0.2470,

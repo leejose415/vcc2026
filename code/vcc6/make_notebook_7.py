@@ -1,8 +1,8 @@
-"""Write vcc_2026_v7.ipynb: config 1 end to end on one page -- 1 data loader, 2 model, 3 cell generator, 4 internal eval
+"""Write vcc_2026_7.ipynb: config 1 end to end on one page -- 1 data loader, 2 model, 3 cell generator, 4 internal eval
 (Eval A, HCT116final), 5 vcc upload (D/E/F). The stage-1 model code, the frozen generator (code/cellgen) and the frozen
 harness (scripts/harness) are imported, never copied.
 
-  ~/venv/bin/python code/vcc6/make_notebook_v7.py
+  ~/venv/bin/python code/vcc6/make_notebook_7.py
 """
 from pathlib import Path
 
@@ -14,7 +14,7 @@ md = lambda s: nb.cells.append(nbformat.v4.new_markdown_cell(s.strip('\n')))
 code = lambda s: nb.cells.append(nbformat.v4.new_code_cell(s.strip('\n')))
 
 md(r'''
-# vcc_2026_v7 — config 1 (frozen 2026-10-29)
+# vcc_2026_7 — config 1 (frozen 2026-10-29)
 
 **Config 1** is C+G (stage-1 arm C + Gaussian shrink, all 117 tables, the line's own tables excluded) with new magnitudes handed to the frozen generator.
 
@@ -43,9 +43,9 @@ md(r'''
 | Jaccard | 0.097 | 0.095 | 0.095 |
 | **Overall** | **0.219** | 0.217 | **0.244** |
 
-- **Sources:** `results/stage1/2026-10-28_scorer_space/tables/step11_heldout.csv` (arm i_lofo, H1) and `step9.json` (EvalA_CG); full precision in `results/v7/config1_record.json`.
+- **Sources:** `results/stage1/2026-10-28_scorer_space/tables/step11_heldout.csv` (arm i_lofo, H1) and `step9.json` (EvalA_CG); full precision in `results/7/config1_record.json`.
 - **Frozen:** `code/vcc6/CONFIG1_FROZEN.md`, checked by `tests/test_config1.py` (CONFIG, this notebook's data-loader and model cells, `stage1.py`, `run_line.py`, the 117-table set). Toggling the run flags is fine; anything else breaks the freeze, and new work goes in `vcc_2026_8.ipynb`.
-- **Freeze check:** this notebook's own cells, run for Eval A, reproduce the proxy's config 1 exactly: identical calls, means within 1.1e-7, proxy overall 0.24361700 both ways (`results/v7/freeze_check/`).
+- **Freeze check:** this notebook's own cells, run for Eval A, reproduce the proxy's config 1 exactly: identical calls, means within 1.1e-7, proxy overall 0.24361700 both ways (`results/7/freeze_check/`).
 - **Risk:** NMAE +0.001 is fragile (+0.008 and −0.006 on the two H1 knockdown halves).
 - **D/E/F:** section 5 builds the upload with this config. D/E/F has no truth here; the table above is Eval A only.
 
@@ -59,7 +59,7 @@ md(r'''
 **Imported, not copied:** `code/vcc6/stage1.py` (model), `code/vcc6/run_line.py` and `gen_cells.py` (generation, scoring, file), the **frozen** `code/cellgen/cell_generator.py` and `scripts/harness/`, and `code/vcc6/boot_score.py`.
 
 **Running:** about 5–6 h on vcc2026. Run it in tmux, since a dropped connection kills a notebook run:
-`jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=-1 vcc_2026_v7.ipynb --output results/v7/vcc_2026_v7.run.ipynb`
+`jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=-1 vcc_2026_7.ipynb --output results/7/vcc_2026_7.run.ipynb`
 
 Each step skips work whose output already exists, so a rerun resumes.
 ''')
@@ -85,7 +85,7 @@ RUN_EVAL = True      # section 4
 RUN_UPLOAD = True    # section 5: build and vcc prep the D/E/F file
 SUBMIT = False       # vcc submit -- only with Jose's explicit OK (the last entry counts)
 MAKE_SWAP = False    # temporary 32 GB swap (sudo) for scoring and vcc prep; removed at the end
-OUT = V / "results/v7"; OUT.mkdir(parents=True, exist_ok=True)
+OUT = V / "results/7"; OUT.mkdir(parents=True, exist_ok=True)
 PY, VCC = sys.executable, str(Path(sys.executable).parent / "vcc")
 
 FE, DEF = V / "results/stage1/final_evals/harness/lib", V / "data_final/extracted"
@@ -177,7 +177,7 @@ Per line, from the sources other than the line's own:
 - **Agreement z per gene:** computed across the source lines.
 - **Config 1:** turned into generator LFCs, so the frozen generator's mean inversion gives exactly config 1's means.
 
-Writes `results/v7/<line>/input.npz`.
+Writes `results/7/<line>/input.npz`.
 ''')
 code(r'''
 def config1(cg_lfc, cg_sig, dpool, n_bg, z, m0, cprof):
@@ -302,6 +302,6 @@ if RUN_UPLOAD:
 swap(False)
 ''')
 
-out = V / 'vcc_2026_v7.ipynb'
+out = V / 'vcc_2026_7.ipynb'
 nbformat.write(nb, out)
 print(out)

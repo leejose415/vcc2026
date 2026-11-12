@@ -1,7 +1,7 @@
 """Step 20 (Jose 2026-11-02): lab effects, the strong-knockdown shift and program regression v2, before the next D/E/F
 file. CPU only; no cells generated, no harness scoring of new cells, no D/E/F file, no upload. Write-up: section 12 of
 results/stage1/2026-10-28_scorer_space/report.md. Outputs: results/stage1/2026-11-02_step20/{tables,logs}. Frozen code
-(generator, harness, run_line, boot_score, config 1' files, v7) and the Step 18 / 19 outputs are imported or read only.
+(generator, harness, run_line, boot_score, config 1' files, vcc_2026_7) and the Step 18 / 19 outputs are imported or read only.
 
 vcc2026 (step20.sh):
   part0   checks: config 1' + K0 + no-source fix on the generator input reproduces Step 19 Part F's row; the section 11
